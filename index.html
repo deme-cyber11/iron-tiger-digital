@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iron Tiger Digital | Lead Generation & Digital Marketing for Home Service Businesses</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #c45c26;
+            --primary-dark: #a34d1f;
+            --secondary: #1a1a1a;
+            --accent: #e8d5c4;
+            --light: #faf9f7;
+            --gray: #6b7280;
+            --white: #ffffff;
+            --gold: #c9a962;
+            --dark-bg: #111111;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.7;
+            color: var(--secondary);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Header */
+        header {
+            padding: 24px 0;
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--secondary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        .coming-soon-badge {
+            background: var(--secondary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0 120px;
+            background: linear-gradient(180deg, var(--light) 0%, var(--white) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(196, 92, 38, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: rgba(196, 92, 38, 0.1);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 24px;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            max-width: 700px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 580px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .hero-metrics {
+            display: flex;
+            gap: 48px;
+            padding-top: 48px;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            margin-top: 48px;
+            flex-wrap: wrap;
+        }
+
+        .metric {
+            text-align: left;
+        }
+
+        .metric-value {
+            font-size: 2.75rem;
+            font-weight: 800;
+            color: var(--secondary);
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        /* Business Model Section */
+        .business-model {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+            line-height: 1.3;
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            max-width: 600px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .model-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 56px;
+        }
+
+        .model-card {
+            background: var(--light);
+            padding: 36px;
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+        }
+
+        .model-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .model-number {
+            width: 48px;
+            height: 48px;
+            background: var(--white);
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .model-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--secondary);
+        }
+
+        .model-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: var(--dark-bg);
+            color: var(--white);
+        }
+
+        .services .section-label {
+            color: var(--primary);
+        }
+
+        .services .section-title {
+            color: var(--white);
+        }
+
+        .services .section-subtitle {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 56px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 36px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(196, 92, 38, 0.3);
+        }
+
+        .service-icon {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Value Section */
+        .value {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .value-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .value-text {
+            max-width: 480px;
+        }
+
+        .value-list {
+            list-style: none;
+            margin-top: 32px;
+        }
+
+        .value-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .value-list li:last-child {
+            border-bottom: none;
+        }
+
+        .value-check {
+            width: 24px;
+            height: 24px;
+            background: rgba(196, 92, 38, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 0.75rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .value-list strong {
+            display: block;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 4px;
+        }
+
+        .value-list span {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .value-visual {
+            background: linear-gradient(135deg, var(--light) 0%, var(--accent) 100%);
+            border-radius: 24px;
+            padding: 48px;
+            position: relative;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .value-stat-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .value-stat-card h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray);
+            margin-bottom: 8px;
+        }
+
+        .value-stat-card .big-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -1px;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .cta::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            right: -150px;
+            width: 500px;
+            height: 500px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 50%;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta h2 {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .cta p {
+            opacity: 0.9;
+            max-width: 500px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+        }
+
+        .cta-notice {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px 36px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .cta-notice strong {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-notice span {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0 40px;
+            background: var(--dark-bg);
+            color: rgba(255,255,255,0.6);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            max-width: 320px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .footer-logo .logo-icon {
+            width: 36px;
+            height: 36px;
+            font-size: 0.9rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .footer-info h4 {
+            color: var(--white);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .footer-info p {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .model-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .value-content {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .value-visual {
+                order: -1;
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0 80px;
+            }
+
+            .hero-metrics {
+                gap: 32px;
+            }
+
+            .metric-value {
+                font-size: 2rem;
+            }
+
+            .business-model, .services, .value, .cta {
+                padding: 80px 0;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .coming-soon-badge {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">IT</div>
+                    Iron Tiger Digital
+                </div>
+                <div class="coming-soon-badge">Full Site Launching Soon</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-label">Digital Marketing Agency</span>
+                <h1>We Help Home Service Businesses <span>Generate Qualified Leads</span></h1>
+                <p>Iron Tiger Digital partners with local contractors and home service providers to build high-converting marketing funnels that drive revenue growth, strengthen online presence, and build lasting brand reputation.</p>
+
+                <div class="hero-metrics">
+                    <div class="metric">
+                        <div class="metric-value">100%</div>
+                        <div class="metric-label">Performance Focused</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">B2B</div>
+                        <div class="metric-label">Partnership Model</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">ROI</div>
+                        <div class="metric-label">Driven Strategies</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Model Section -->
+    <section class="business-model">
+        <div class="container">
+            <span class="section-label">How We Operate</span>
+            <h2 class="section-title">Our Business Model</h2>
+            <p class="section-subtitle">We create value through strategic partnerships with local home service businesses, delivering measurable results through proven digital marketing systems.</p>
+
+            <div class="model-grid">
+                <div class="model-card">
+                    <div class="model-number">01</div>
+                    <h3>Build Marketing Assets</h3>
+                    <p>We develop conversion-optimized websites and marketing funnels specifically designed for home service industries such as roofing, HVAC, plumbing, landscaping, and more.</p>
+                </div>
+                <div class="model-card">
+                    <div class="model-number">02</div>
+                    <h3>Generate Qualified Leads</h3>
+                    <p>Through targeted local SEO, paid advertising, and content strategies, we attract homeowners actively searching for services in specific geographic markets.</p>
+                </div>
+                <div class="model-card">
+                    <div class="model-number">03</div>
+                    <h3>Partner for Growth</h3>
+                    <p>We form exclusive partnerships with established local businesses, providing them with a consistent flow of pre-qualified leads while sharing in the value created.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <span class="section-label">What We Offer</span>
+            <h2 class="section-title">Core Services</h2>
+            <p class="section-subtitle">Comprehensive digital marketing solutions tailored specifically for the home services industry.</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">&#9775;</div>
+                    <h3>Lead Generation Systems</h3>
+                    <p>End-to-end lead generation infrastructure including landing pages, lead capture forms, and automated follow-up sequences designed to maximize conversion rates.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#9883;</div>
+                    <h3>Marketing Funnel Development</h3>
+                    <p>Custom-built sales funnels that guide potential customers from initial awareness through to booking, optimized for the home services buying journey.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#10004;</div>
+                    <h3>Local SEO & Visibility</h3>
+                    <p>Dominate local search results with comprehensive SEO strategies including Google Business optimization, local citations, and geo-targeted content.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#9733;</div>
+                    <h3>Reputation Management</h3>
+                    <p>Build and maintain a stellar online reputation through review generation, response management, and brand monitoring across all major platforms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Section -->
+    <section class="value">
+        <div class="container">
+            <div class="value-content">
+                <div class="value-text">
+                    <span class="section-label">The Value We Deliver</span>
+                    <h2 class="section-title">Why Businesses Partner With Us</h2>
+                    <p class="section-subtitle">We align our success with our partners' success, creating mutual value through performance-based relationships.</p>
+
+                    <ul class="value-list">
+                        <li>
+                            <span class="value-check">&#10003;</span>
+                            <div>
+                                <strong>Increased Revenue</strong>
+                                <span>More qualified leads translates directly to more jobs and higher monthly revenue for partner businesses.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="value-check">&#10003;</span>
+                            <div>
+                                <strong>Stronger Online Presence</strong>
+                                <span>Professional digital assets that position our partners as the trusted choice in their local markets.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="value-check">&#10003;</span>
+                            <div>
+                                <strong>Enhanced Brand Reputation</strong>
+                                <span>Systematic approach to building credibility and trust with potential customers before they even call.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="value-check">&#10003;</span>
+                            <div>
+                                <strong>Scalable Growth</strong>
+                                <span>Marketing systems designed to grow alongside the business as capacity and demand increase.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="value-visual">
+                    <div class="value-stat-card">
+                        <h4>Business Focus</h4>
+                        <div class="big-number">Home Services</div>
+                    </div>
+                    <div class="value-stat-card">
+                        <h4>Market Approach</h4>
+                        <div class="big-number">Local First</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Building Something Powerful</h2>
+                <p>Iron Tiger Digital is developing comprehensive digital marketing solutions for the home services industry.</p>
+                <div class="cta-notice">
+                    <strong>Full Website Coming Soon</strong>
+                    <span>Complete platform with case studies, detailed service offerings, and partnership opportunities.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">IT</div>
+                        Iron Tiger Digital
+                    </div>
+                    <p>Digital marketing and lead generation solutions for home service businesses. We help local contractors grow through strategic partnerships and proven marketing systems.</p>
+                </div>
+                <div class="footer-info">
+                    <h4>Business Type</h4>
+                    <p>Digital Marketing Agency</p>
+                    <p>B2B Lead Generation Services</p>
+                    <p>Home Services Industry Focus</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2025 Iron Tiger Digital. All rights reserved.</span>
+                <span>Lead Generation & Digital Marketing Services</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
