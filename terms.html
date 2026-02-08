@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Agreement | Iron Tiger Digital</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23c45c26' rx='15' width='100' height='100'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold' font-size='45'>IT</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #c45c26;
+            --primary-dark: #a34d1f;
+            --secondary: #1a1a1a;
+            --gray: #6b7280;
+            --light: #faf9f7;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.8;
+            color: var(--secondary);
+            background: var(--light);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 32px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--secondary);
+        }
+
+        .subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .agreement-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 48px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            margin-bottom: 32px;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2 .icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(196, 92, 38, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        p {
+            color: var(--gray);
+            margin-bottom: 16px;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(196, 92, 38, 0.08) 0%, rgba(196, 92, 38, 0.04) 100%);
+            border-left: 4px solid var(--primary);
+            padding: 24px;
+            border-radius: 0 12px 12px 0;
+            margin: 24px 0;
+        }
+
+        .highlight-box p {
+            color: var(--secondary);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        ul {
+            color: var(--gray);
+            margin: 16px 0;
+            padding-left: 24px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .summary-box {
+            background: var(--secondary);
+            color: var(--white);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .summary-box h3 {
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+        }
+
+        .summary-box p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 0;
+        }
+
+        .updated {
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.85rem;
+            margin-top: 32px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 24px;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .agreement-card {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&#8592; Back to Home</a>
+
+        <h1>Service Agreement</h1>
+        <p class="subtitle">Simple terms for working together. No legal jargon, no long-term contracts.</p>
+
+        <div class="agreement-card">
+            <h2><span class="icon">&#128077;</span> The Simple Version</h2>
+            <div class="highlight-box">
+                <p>We provide digital marketing services to help your business grow. You can cancel anytime with no penalties, fees, or hard feelings. We're here to earn your business every month.</p>
+            </div>
+        </div>
+
+        <div class="agreement-card">
+            <h2><span class="icon">&#128176;</span> What You're Paying For</h2>
+            <p><strong>Setup Fee ($300 one-time):</strong> Initial website creation, SEO foundation, and Google Business Profile optimization.</p>
+            <p><strong>Monthly Service ($300/month):</strong> Ongoing SEO, weekly content updates, Google Business posts, and monthly performance reports.</p>
+            <p>Billing is processed securely through Stripe. Your first monthly payment begins after your setup is complete.</p>
+        </div>
+
+        <div class="agreement-card">
+            <h2><span class="icon">&#10003;</span> Our Commitment to You</h2>
+            <ul>
+                <li>Deliver the services described in your plan</li>
+                <li>Provide monthly reports showing your progress</li>
+                <li>Respond to your questions within 1-2 business days</li>
+                <li>Be transparent about what's working and what isn't</li>
+                <li>Never lock you into a long-term contract</li>
+            </ul>
+        </div>
+
+        <div class="agreement-card">
+            <h2><span class="icon">&#128274;</span> Cancellation Policy</h2>
+            <div class="highlight-box">
+                <p>You can cancel your monthly service at any time. No cancellation fees. No penalties. No questions asked.</p>
+            </div>
+            <p>Simply email us or let us know you'd like to stop, and we'll cancel your subscription immediately. Your service continues until the end of your current billing period.</p>
+            <p><strong>Note:</strong> The one-time setup fee is non-refundable once work has begun, as it covers time and resources already invested in your project.</p>
+        </div>
+
+        <div class="agreement-card">
+            <h2><span class="icon">&#128188;</span> Website Ownership</h2>
+            <p>Any website we build for you as part of our service remains your property. If you cancel, you keep your website and all content we created for you.</p>
+            <p>We'll provide you with all necessary files and access credentials upon request.</p>
+        </div>
+
+        <div class="agreement-card">
+            <h2><span class="icon">&#129309;</span> Working Together</h2>
+            <p>For best results, we need your help with:</p>
+            <ul>
+                <li>Providing photos and information about your business</li>
+                <li>Responding to our questions in a timely manner</li>
+                <li>Following up with leads we generate</li>
+            </ul>
+            <p>The more we work together, the better your results will be.</p>
+        </div>
+
+        <div class="summary-box">
+            <h3>That's It. Pretty Simple.</h3>
+            <p>We believe in earning your business every month, not locking you in. If you have any questions about these terms, just ask.</p>
+        </div>
+
+        <p class="updated">Last updated: February 2026 | Iron Tiger Digital, LLC | Austin, Texas</p>
+    </div>
+</body>
+</html>

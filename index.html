@@ -21,9 +21,10 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Iron Tiger Digital | Lead Generation for Home Service Businesses">
     <meta name="twitter:description" content="We help home service businesses generate qualified leads through proven digital marketing strategies.">
+    <meta name="twitter:image" content="https://deme-cyber11.github.io/iron-tiger-digital/og-image.png">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23c45c26' rx='15' width='100' height='100'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold' font-size='45'>IT</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -1056,8 +1057,7 @@
                         <li><span class="check">&#10003;</span> Google Business optimization</li>
                         <li><span class="check">&#10003;</span> Contact form integration</li>
                     </ul>
-                    <!-- Replace YOUR_STRIPE_LINK_HERE with your actual Stripe Payment Link -->
-                    <a href="#" class="btn-payment btn-payment-secondary" onclick="alert('Payment link coming soon! Contact us directly to get started.'); return false;">Pay Setup Fee</a>
+                    <button class="btn-payment btn-payment-secondary" onclick="checkout('setup')">Pay Setup Fee</button>
                 </div>
 
                 <div class="pricing-card featured">
@@ -1072,8 +1072,7 @@
                         <li><span class="check">&#10003;</span> Monthly performance reports</li>
                         <li><span class="check">&#10003;</span> Lead tracking & analytics</li>
                     </ul>
-                    <!-- Replace YOUR_STRIPE_LINK_HERE with your actual Stripe Payment Link -->
-                    <a href="#" class="btn-payment" onclick="alert('Payment link coming soon! Contact us directly to get started.'); return false;">Start Monthly Plan</a>
+                    <button class="btn-payment" onclick="checkout('monthly')">Start Monthly Plan</button>
                 </div>
             </div>
 
@@ -1159,6 +1158,7 @@
                     <h4>Quick Links</h4>
                     <p><a href="#pricing" style="color: rgba(255,255,255,0.8); text-decoration: none;">Pricing</a></p>
                     <p><a href="#contact" style="color: rgba(255,255,255,0.8); text-decoration: none;">Contact</a></p>
+                    <p><a href="terms.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Service Agreement</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -1167,5 +1167,35 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        async function checkout(priceType) {
+            const button = event.target;
+            const originalText = button.textContent;
+            button.textContent = 'Loading...';
+            button.disabled = true;
+
+            try {
+                const response = await fetch('/api/create-checkout-session', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ priceType })
+                });
+
+                const data = await response.json();
+
+                if (data.url) {
+                    window.location.href = data.url;
+                } else {
+                    throw new Error(data.error || 'Failed to create checkout session');
+                }
+            } catch (error) {
+                console.error('Checkout error:', error);
+                alert('Something went wrong. Please try again or contact us directly.');
+                button.textContent = originalText;
+                button.disabled = false;
+            }
+        }
+    </script>
 </body>
 </html>
