@@ -27,29 +27,19 @@ module.exports = async (req, res) => {
     let sessionConfig;
 
     if (priceType === 'bundle') {
-      // Bundle: Monthly subscription + setup fee on first invoice
+      // Bundle: Both setup (one-time) and monthly (recurring) in same checkout
       sessionConfig = {
         payment_method_types: ['card'],
         line_items: [
-          { price: prices.monthly, quantity: 1 }
+          { price: prices.setup, quantity: 1 },   // One-time setup fee
+          { price: prices.monthly, quantity: 1 }  // Recurring monthly
         ],
         mode: 'subscription',
         success_url: `${baseUrl}/success.html`,
         cancel_url: `${baseUrl}/checkout.html`,
         billing_address_collection: 'required',
-        subscription_data: {
-          // Add setup fee as one-time charge on first invoice only
-          invoice_settings: {},
-        },
         // automatic_tax: { enabled: true }, // Enable after tax registration
       };
-
-      // Add setup fee to first invoice using the existing price
-      if (prices.setup) {
-        sessionConfig.subscription_data.add_invoice_items = [
-          { price: prices.setup, quantity: 1 }
-        ];
-      }
     } else {
       const priceId = prices[priceType];
 
