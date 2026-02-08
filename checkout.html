@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started | Iron Tiger Digital</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #c45c26;
+            --primary-dark: #a34d1f;
+            --secondary: #1a1a1a;
+            --gray: #6b7280;
+            --light: #faf9f7;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.7;
+            color: var(--secondary);
+            background: var(--light);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: var(--white);
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .header-content {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 0.95rem;
+        }
+
+        .back-link {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover { color: var(--primary); }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 32px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .page-header h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .page-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 48px;
+            align-items: start;
+        }
+
+        /* Value Section */
+        .value-section h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--secondary);
+        }
+
+        .value-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+
+        .value-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .value-card h3 .icon {
+            width: 28px;
+            height: 28px;
+            background: rgba(196, 92, 38, 0.1);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .value-list {
+            list-style: none;
+        }
+
+        .value-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+
+        .value-list li:last-child { border-bottom: none; }
+
+        .value-list .check {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .guarantee-box {
+            background: linear-gradient(135deg, rgba(196, 92, 38, 0.08) 0%, rgba(196, 92, 38, 0.04) 100%);
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            border-radius: 0 12px 12px 0;
+            margin-top: 24px;
+        }
+
+        .guarantee-box p {
+            font-weight: 600;
+            color: var(--secondary);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* Order Summary */
+        .order-section {
+            position: sticky;
+            top: 32px;
+        }
+
+        .order-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            border: 2px solid rgba(196, 92, 38, 0.1);
+        }
+
+        .order-card h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .package-selector {
+            margin-bottom: 24px;
+        }
+
+        .package-option {
+            padding: 16px;
+            border: 2px solid rgba(0,0,0,0.08);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .package-option:hover {
+            border-color: rgba(196, 92, 38, 0.3);
+        }
+
+        .package-option.selected {
+            border-color: var(--primary);
+            background: rgba(196, 92, 38, 0.04);
+        }
+
+        .package-option input {
+            display: none;
+        }
+
+        .package-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .package-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .package-price {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .package-desc {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .order-total {
+            padding: 20px 0;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            margin-bottom: 24px;
+        }
+
+        .order-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+
+        .order-row.total {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-top: 12px;
+            margin-bottom: 0;
+        }
+
+        /* Agreement */
+        .agreement-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 24px;
+            padding: 16px;
+            background: var(--light);
+            border-radius: 12px;
+        }
+
+        .agreement-checkbox input {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        .agreement-checkbox label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            cursor: pointer;
+        }
+
+        .agreement-checkbox a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .agreement-checkbox a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-checkout {
+            width: 100%;
+            padding: 18px 32px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .btn-checkout:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(196, 92, 38, 0.4);
+        }
+
+        .btn-checkout:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .secure-note {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 0.8rem;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        @media (max-width: 900px) {
+            .checkout-grid {
+                grid-template-columns: 1fr;
+            }
+            .order-section {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">IT</div>
+                Iron Tiger Digital
+            </a>
+            <a href="index.html" class="back-link">&#8592; Back to Home</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Complete Your Order</h1>
+            <p>You're one step away from growing your business with Iron Tiger Digital</p>
+        </div>
+
+        <div class="checkout-grid">
+            <div class="value-section">
+                <h2>What You're Getting</h2>
+
+                <div class="value-card">
+                    <h3><span class="icon">&#127760;</span> Professional Website</h3>
+                    <ul class="value-list">
+                        <li><span class="check">&#10003;</span> Custom design tailored to your business</li>
+                        <li><span class="check">&#10003;</span> Mobile-responsive on all devices</li>
+                        <li><span class="check">&#10003;</span> Fast hosting included</li>
+                        <li><span class="check">&#10003;</span> Contact forms that capture leads</li>
+                        <li><span class="check">&#10003;</span> SEO foundation for search visibility</li>
+                    </ul>
+                </div>
+
+                <div class="value-card">
+                    <h3><span class="icon">&#128200;</span> Ongoing Growth (Monthly)</h3>
+                    <ul class="value-list">
+                        <li><span class="check">&#10003;</span> Weekly SEO optimization</li>
+                        <li><span class="check">&#10003;</span> Fresh content updates</li>
+                        <li><span class="check">&#10003;</span> Google Business posts</li>
+                        <li><span class="check">&#10003;</span> Monthly performance reports</li>
+                        <li><span class="check">&#10003;</span> Lead tracking & analytics</li>
+                    </ul>
+                </div>
+
+                <div class="guarantee-box">
+                    <p>&#128274; No long-term contracts. Cancel anytime with no penalties or fees.</p>
+                </div>
+            </div>
+
+            <div class="order-section">
+                <div class="order-card">
+                    <h2>Order Summary</h2>
+
+                    <div class="package-selector">
+                        <label class="package-option selected" id="option-setup">
+                            <input type="radio" name="package" value="setup" checked>
+                            <div class="package-header">
+                                <span class="package-name">Website Setup</span>
+                                <span class="package-price">$300</span>
+                            </div>
+                            <div class="package-desc">One-time setup fee</div>
+                        </label>
+
+                        <label class="package-option" id="option-monthly">
+                            <input type="radio" name="package" value="monthly">
+                            <div class="package-header">
+                                <span class="package-name">SEO & Lead Generation</span>
+                                <span class="package-price">$300/mo</span>
+                            </div>
+                            <div class="package-desc">Monthly subscription</div>
+                        </label>
+
+                        <label class="package-option" id="option-bundle">
+                            <input type="radio" name="package" value="bundle">
+                            <div class="package-header">
+                                <span class="package-name">Complete Package</span>
+                                <span class="package-price">$600</span>
+                            </div>
+                            <div class="package-desc">Setup + First Month (Best Value)</div>
+                        </label>
+                    </div>
+
+                    <div class="order-total">
+                        <div class="order-row">
+                            <span>Subtotal</span>
+                            <span id="subtotal">$300.00</span>
+                        </div>
+                        <div class="order-row total">
+                            <span>Total Due Today</span>
+                            <span id="total">$300.00</span>
+                        </div>
+                    </div>
+
+                    <div class="agreement-checkbox">
+                        <input type="checkbox" id="agree-terms">
+                        <label for="agree-terms">
+                            I agree to the <a href="terms.html" target="_blank">Service Agreement</a> and understand the cancellation policy.
+                        </label>
+                    </div>
+
+                    <button class="btn-checkout" id="checkout-btn" disabled>
+                        Proceed to Payment
+                    </button>
+
+                    <div class="secure-note">
+                        &#128274; Secure payment powered by Stripe
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Package selection
+        const options = document.querySelectorAll('.package-option');
+        const subtotalEl = document.getElementById('subtotal');
+        const totalEl = document.getElementById('total');
+        const agreeCheckbox = document.getElementById('agree-terms');
+        const checkoutBtn = document.getElementById('checkout-btn');
+
+        // Check URL for pre-selected plan
+        const urlParams = new URLSearchParams(window.location.search);
+        const planParam = urlParams.get('plan');
+        let selectedPackage = planParam || 'setup';
+
+        const prices = {
+            setup: 300,
+            monthly: 300,
+            bundle: 600
+        };
+
+        // Pre-select based on URL param
+        if (planParam && ['setup', 'monthly', 'bundle'].includes(planParam)) {
+            options.forEach(o => o.classList.remove('selected'));
+            const targetOption = document.getElementById('option-' + planParam);
+            if (targetOption) {
+                targetOption.classList.add('selected');
+                targetOption.querySelector('input').checked = true;
+            }
+            updateTotal();
+        }
+
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                options.forEach(o => o.classList.remove('selected'));
+                option.classList.add('selected');
+                option.querySelector('input').checked = true;
+                selectedPackage = option.querySelector('input').value;
+                updateTotal();
+            });
+        });
+
+        function updateTotal() {
+            const price = prices[selectedPackage];
+            subtotalEl.textContent = `$${price}.00`;
+            totalEl.textContent = `$${price}.00`;
+        }
+
+        // Agreement checkbox
+        agreeCheckbox.addEventListener('change', () => {
+            checkoutBtn.disabled = !agreeCheckbox.checked;
+        });
+
+        // Checkout
+        checkoutBtn.addEventListener('click', async () => {
+            if (!agreeCheckbox.checked) return;
+
+            checkoutBtn.textContent = 'Processing...';
+            checkoutBtn.disabled = true;
+
+            try {
+                const response = await fetch('/api/create-checkout-session', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ priceType: selectedPackage })
+                });
+
+                const data = await response.json();
+
+                if (data.url) {
+                    window.location.href = data.url;
+                } else {
+                    throw new Error(data.error || 'Failed to create checkout session');
+                }
+            } catch (error) {
+                console.error('Checkout error:', error);
+                alert('Something went wrong. Please try again or contact us directly.');
+                checkoutBtn.textContent = 'Proceed to Payment';
+                checkoutBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

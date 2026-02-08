@@ -888,7 +888,7 @@
                     Iron Tiger Digital
                 </div>
 <nav class="header-nav">
-                    <a href="#pricing" style="color: var(--primary); text-decoration: none; font-weight: 600; margin-right: 24px;">Pricing</a>
+                    <a href="checkout.html" style="color: var(--primary); text-decoration: none; font-weight: 600; margin-right: 24px;">Get Started</a>
                     <a href="#contact" style="color: var(--secondary); text-decoration: none; font-weight: 500;">Contact</a>
                 </nav>
             </div>
@@ -1054,10 +1054,10 @@
                         <li><span class="check">&#10003;</span> Custom website design</li>
                         <li><span class="check">&#10003;</span> Mobile-responsive layout</li>
                         <li><span class="check">&#10003;</span> SEO foundation setup</li>
-                        <li><span class="check">&#10003;</span> Google Business optimization</li>
                         <li><span class="check">&#10003;</span> Contact form integration</li>
+                        <li><span class="check">&#10003;</span> Fast hosting included</li>
                     </ul>
-                    <button class="btn-payment btn-payment-secondary" onclick="checkout('setup')">Pay Setup Fee</button>
+                    <a href="checkout.html?plan=setup" class="btn-payment btn-payment-secondary" style="text-decoration: none; text-align: center;">Get Started</a>
                 </div>
 
                 <div class="pricing-card featured">
@@ -1072,7 +1072,7 @@
                         <li><span class="check">&#10003;</span> Monthly performance reports</li>
                         <li><span class="check">&#10003;</span> Lead tracking & analytics</li>
                     </ul>
-                    <button class="btn-payment" onclick="checkout('monthly')">Start Monthly Plan</button>
+                    <a href="checkout.html?plan=monthly" class="btn-payment" style="text-decoration: none; text-align: center;">Get Started</a>
                 </div>
             </div>
 
@@ -1168,34 +1168,5 @@
         </div>
     </footer>
 
-    <script>
-        async function checkout(priceType) {
-            const button = event.target;
-            const originalText = button.textContent;
-            button.textContent = 'Loading...';
-            button.disabled = true;
-
-            try {
-                const response = await fetch('/api/create-checkout-session', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ priceType })
-                });
-
-                const data = await response.json();
-
-                if (data.url) {
-                    window.location.href = data.url;
-                } else {
-                    throw new Error(data.error || 'Failed to create checkout session');
-                }
-            } catch (error) {
-                console.error('Checkout error:', error);
-                alert('Something went wrong. Please try again or contact us directly.');
-                button.textContent = originalText;
-                button.disabled = false;
-            }
-        }
-    </script>
 </body>
 </html>

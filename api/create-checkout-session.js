@@ -16,30 +16,47 @@ module.exports = async (req, res) => {
 
   try {
     const { priceType } = req.body;
+    const baseUrl = req.headers.origin || process.env.SITE_URL;
 
-    // Define your Stripe Price IDs (you'll get these from Stripe dashboard)
+    // Define your Stripe Price IDs
     const prices = {
       setup: process.env.STRIPE_PRICE_SETUP,      // $300 one-time
       monthly: process.env.STRIPE_PRICE_MONTHLY   // $300/month recurring
     };
 
-    const priceId = prices[priceType];
+    let sessionConfig;
 
-    if (!priceId) {
-      return res.status(400).json({ error: 'Invalid price type' });
+    if (priceType === 'bundle') {
+      // Bundle: Setup fee + first month subscription
+      sessionConfig = {
+        payment_method_types: ['card'],
+        line_items: [
+          { price: prices.setup, quantity: 1 },
+          { price: prices.monthly, quantity: 1 }
+        ],
+        mode: 'subscription',
+        success_url: `${baseUrl}/success.html`,
+        cancel_url: `${baseUrl}/checkout.html`,
+        billing_address_collection: 'required',
+        // automatic_tax: { enabled: true }, // Enable after tax registration
+      };
+    } else {
+      const priceId = prices[priceType];
+
+      if (!priceId) {
+        return res.status(400).json({ error: 'Invalid price type' });
+      }
+
+      sessionConfig = {
+        payment_method_types: ['card'],
+        line_items: [{ price: priceId, quantity: 1 }],
+        mode: priceType === 'monthly' ? 'subscription' : 'payment',
+        success_url: `${baseUrl}/success.html`,
+        cancel_url: `${baseUrl}/checkout.html`,
+        billing_address_collection: 'required',
+        // automatic_tax: { enabled: true }, // Enable after tax registration
+      };
     }
-
-    const sessionConfig = {
-      payment_method_types: ['card'],
-      line_items: [{
-        price: priceId,
-        quantity: 1,
-      }],
-      mode: priceType === 'monthly' ? 'subscription' : 'payment',
-      success_url: `${req.headers.origin || process.env.SITE_URL}/success.html`,
-      cancel_url: `${req.headers.origin || process.env.SITE_URL}/#pricing`,
-      billing_address_collection: 'required',
-    };
 
     const session = await stripe.checkout.sessions.create(sessionConfig);
 
