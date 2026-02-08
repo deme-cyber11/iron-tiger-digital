@@ -4,6 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iron Tiger Digital | Lead Generation & Digital Marketing for Home Service Businesses</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Iron Tiger Digital helps home service businesses generate qualified leads through proven digital marketing strategies. Local SEO, lead generation, and marketing funnels for contractors.">
+    <meta name="keywords" content="lead generation, digital marketing, home services, local SEO, contractor marketing, HVAC marketing, plumbing leads, roofing leads">
+    <meta name="author" content="Iron Tiger Digital">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://deme-cyber11.github.io/iron-tiger-digital/">
+    <meta property="og:title" content="Iron Tiger Digital | Lead Generation for Home Service Businesses">
+    <meta property="og:description" content="We help home service businesses generate qualified leads through proven digital marketing strategies.">
+    <meta property="og:image" content="https://deme-cyber11.github.io/iron-tiger-digital/og-image.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Iron Tiger Digital | Lead Generation for Home Service Businesses">
+    <meta name="twitter:description" content="We help home service businesses generate qualified leads through proven digital marketing strategies.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23c45c26' rx='15' width='100' height='100'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold' font-size='45'>IT</text></svg>">
+
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -486,6 +507,260 @@
             opacity: 0.9;
         }
 
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background: var(--light);
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 48px 40px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 48px rgba(0,0,0,0.12);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary);
+            position: relative;
+        }
+
+        .pricing-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-type {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .pricing-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 16px;
+        }
+
+        .pricing-amount {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .pricing-period {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 32px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 32px;
+        }
+
+        .pricing-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--secondary);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features .check {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .btn-payment {
+            display: inline-block;
+            width: 100%;
+            padding: 18px 32px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-payment:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(196, 92, 38, 0.4);
+        }
+
+        .btn-payment-secondary {
+            background: var(--secondary);
+        }
+
+        .btn-payment-secondary:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .pricing-note {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .pricing-note strong {
+            color: var(--secondary);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--secondary);
+        }
+
+        .contact-info p {
+            color: var(--gray);
+            margin-bottom: 32px;
+            font-size: 1.05rem;
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .contact-details li:last-child {
+            border-bottom: none;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(196, 92, 38, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .contact-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray);
+            margin-bottom: 4px;
+        }
+
+        .contact-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .contact-value a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .contact-value a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-cta {
+            background: linear-gradient(135deg, var(--light) 0%, var(--accent) 100%);
+            border-radius: 24px;
+            padding: 48px;
+            text-align: center;
+        }
+
+        .contact-cta h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--secondary);
+        }
+
+        .contact-cta p {
+            color: var(--gray);
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* Footer */
         footer {
             padding: 60px 0 40px;
@@ -611,7 +886,10 @@
                     <div class="logo-icon">IT</div>
                     Iron Tiger Digital
                 </div>
-                <div class="coming-soon-badge">Full Site Launching Soon</div>
+<nav class="header-nav">
+                    <a href="#pricing" style="color: var(--primary); text-decoration: none; font-weight: 600; margin-right: 24px;">Pricing</a>
+                    <a href="#contact" style="color: var(--secondary); text-decoration: none; font-weight: 500;">Contact</a>
+                </nav>
             </div>
         </div>
     </header>
@@ -756,15 +1034,105 @@
         </div>
     </section>
 
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="pricing-header">
+                <span class="section-label">Simple Pricing</span>
+                <h2 class="section-title">Get Started Today</h2>
+                <p class="section-subtitle">Transparent pricing with no hidden fees. Start generating leads for your business.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-type">One-Time</div>
+                    <h3 class="pricing-title">Website Setup</h3>
+                    <div class="pricing-amount">$300</div>
+                    <div class="pricing-period">one-time payment</div>
+                    <ul class="pricing-features">
+                        <li><span class="check">&#10003;</span> Custom website design</li>
+                        <li><span class="check">&#10003;</span> Mobile-responsive layout</li>
+                        <li><span class="check">&#10003;</span> SEO foundation setup</li>
+                        <li><span class="check">&#10003;</span> Google Business optimization</li>
+                        <li><span class="check">&#10003;</span> Contact form integration</li>
+                    </ul>
+                    <!-- Replace YOUR_STRIPE_LINK_HERE with your actual Stripe Payment Link -->
+                    <a href="#" class="btn-payment btn-payment-secondary" onclick="alert('Payment link coming soon! Contact us directly to get started.'); return false;">Pay Setup Fee</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="pricing-type">Monthly</div>
+                    <h3 class="pricing-title">SEO & Lead Gen</h3>
+                    <div class="pricing-amount">$300</div>
+                    <div class="pricing-period">per month</div>
+                    <ul class="pricing-features">
+                        <li><span class="check">&#10003;</span> Ongoing SEO optimization</li>
+                        <li><span class="check">&#10003;</span> Weekly content updates</li>
+                        <li><span class="check">&#10003;</span> Google Business posts</li>
+                        <li><span class="check">&#10003;</span> Monthly performance reports</li>
+                        <li><span class="check">&#10003;</span> Lead tracking & analytics</li>
+                    </ul>
+                    <!-- Replace YOUR_STRIPE_LINK_HERE with your actual Stripe Payment Link -->
+                    <a href="#" class="btn-payment" onclick="alert('Payment link coming soon! Contact us directly to get started.'); return false;">Start Monthly Plan</a>
+                </div>
+            </div>
+
+            <p class="pricing-note"><strong>Questions?</strong> Contact us at <a href="mailto:contact@irontigerdigital.com" style="color: var(--primary);">contact@irontigerdigital.com</a> to discuss your needs.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <span class="section-label">Get In Touch</span>
+                    <h2>Ready to Grow Your Business?</h2>
+                    <p>Let's discuss how we can help you generate more qualified leads and grow your home service business.</p>
+
+                    <ul class="contact-details">
+                        <li>
+                            <div class="contact-icon">&#9993;</div>
+                            <div>
+                                <div class="contact-label">Email</div>
+                                <div class="contact-value"><a href="mailto:contact@irontigerdigital.com">contact@irontigerdigital.com</a></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">&#9742;</div>
+                            <div>
+                                <div class="contact-label">Phone</div>
+                                <div class="contact-value"><a href="tel:+15125551234">(512) 555-1234</a></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">&#9906;</div>
+                            <div>
+                                <div class="contact-label">Location</div>
+                                <div class="contact-value">Austin, Texas</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="contact-cta">
+                    <h3>Schedule a Free Consultation</h3>
+                    <p>We'll analyze your current online presence and show you exactly how we can help you generate more leads.</p>
+                    <a href="mailto:contact@irontigerdigital.com?subject=Free Consultation Request" class="btn-payment">Book Your Call</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta">
         <div class="container">
             <div class="cta-content">
-                <h2>Building Something Powerful</h2>
-                <p>Iron Tiger Digital is developing comprehensive digital marketing solutions for the home services industry.</p>
+                <h2>Start Generating Leads Today</h2>
+                <p>Join home service businesses already growing with Iron Tiger Digital's proven marketing systems.</p>
                 <div class="cta-notice">
-                    <strong>Full Website Coming Soon</strong>
-                    <span>Complete platform with case studies, detailed service offerings, and partnership opportunities.</span>
+                    <strong>$300 Setup + $300/month</strong>
+                    <span>Everything you need to start ranking and generating qualified leads.</span>
                 </div>
             </div>
         </div>
@@ -782,14 +1150,19 @@
                     <p>Digital marketing and lead generation solutions for home service businesses. We help local contractors grow through strategic partnerships and proven marketing systems.</p>
                 </div>
                 <div class="footer-info">
-                    <h4>Business Type</h4>
-                    <p>Digital Marketing Agency</p>
-                    <p>B2B Lead Generation Services</p>
-                    <p>Home Services Industry Focus</p>
+                    <h4>Contact Us</h4>
+                    <p><a href="mailto:contact@irontigerdigital.com" style="color: rgba(255,255,255,0.8); text-decoration: none;">contact@irontigerdigital.com</a></p>
+                    <p><a href="tel:+15125551234" style="color: rgba(255,255,255,0.8); text-decoration: none;">(512) 555-1234</a></p>
+                    <p>Austin, Texas</p>
+                </div>
+                <div class="footer-info">
+                    <h4>Quick Links</h4>
+                    <p><a href="#pricing" style="color: rgba(255,255,255,0.8); text-decoration: none;">Pricing</a></p>
+                    <p><a href="#contact" style="color: rgba(255,255,255,0.8); text-decoration: none;">Contact</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <span>&copy; 2025 Iron Tiger Digital. All rights reserved.</span>
+                <span>&copy; 2026 Iron Tiger Digital, LLC. All rights reserved.</span>
                 <span>Lead Generation & Digital Marketing Services</span>
             </div>
         </div>
