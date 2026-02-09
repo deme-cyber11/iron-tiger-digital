@@ -1,0 +1,6 @@
+2026/02/01-18:51:41.769 3c2163 Reusing MANIFEST /Users/costa.demetral/Desktop/Phoenix-Pool-Resurfacing/.claude/skills/dev-browser/profiles/browser-data/Default/Local Storage/leveldb/MANIFEST-000001
+2026/02/01-18:51:41.771 3c2163 Recovering log #4
+2026/02/01-18:51:41.771 3c2163 Reusing old log /Users/costa.demetral/Desktop/Phoenix-Pool-Resurfacing/.claude/skills/dev-browser/profiles/browser-data/Default/Local Storage/leveldb/000004.log 
+2026/02/04-23:12:07.041 3c2166 Level-0 table #8: started
+2026/02/04-23:12:07.048 3c2166 Level-0 table #8: 24679 bytes OK
+2026/02/04-23:12:07.053 3c2166 Delete type=0 #4

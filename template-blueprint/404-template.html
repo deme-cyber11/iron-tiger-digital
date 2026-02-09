@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | {{BUSINESS_NAME}}</title>
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, {{COLOR_PRIMARY}} 0%, #3d4446 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: {{COLOR_TEXT_LIGHT}};
+            text-align: center;
+            padding: 2rem;
+        }
+        h1 {
+            font-size: 8rem;
+            font-weight: 700;
+            color: {{COLOR_SECONDARY}};
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            font-size: 1.1rem;
+            color: #aaa;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 0;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: {{COLOR_SECONDARY}};
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #a85d3d;
+        }
+        .btn-secondary {
+            background: transparent;
+            color: {{COLOR_TEXT_LIGHT}};
+            border: 2px solid {{COLOR_TEXT_LIGHT}};
+        }
+        .btn-secondary:hover {
+            background: {{COLOR_TEXT_LIGHT}};
+            color: {{COLOR_PRIMARY}};
+        }
+        .logo {
+            margin-bottom: 2rem;
+        }
+        .logo svg {
+            width: 80px;
+            height: 80px;
+        }
+        .contact-info {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+        }
+        .contact-info a {
+            color: {{COLOR_SECONDARY}};
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="15" fill="{{COLOR_PRIMARY}}" stroke="{{COLOR_SECONDARY}}" stroke-width="1"/>
+            <path d="M8 24 L12 10 L20 10 L24 24 Z" fill="#6B6B6B" stroke="{{COLOR_SECONDARY}}" stroke-width="1.5"/>
+            <path d="M13 10 L16 6 L19 10" fill="none" stroke="{{COLOR_SECONDARY}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+
+    <h1>404</h1>
+    <h2>Page Not Found</h2>
+    <p>Sorry, the page you're looking for doesn't exist or has been moved. Let us help you find what you need.</p>
+
+    <div class="buttons">
+        <a href="/" class="btn btn-primary">Go to Homepage</a>
+        <a href="tel:{{PHONE_RAW}}" class="btn btn-secondary">Call {{PHONE}}</a>
+    </div>
+
+    <div class="contact-info">
+        <p>Need {{SERVICE_PRIMARY}} services in {{PRIMARY_CITY}}?<br>
+        <a href="/">Get a free estimate</a> or call us at <a href="tel:{{PHONE_RAW}}">{{PHONE}}</a></p>
+    </div>
+</body>
+</html>

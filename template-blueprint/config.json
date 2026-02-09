@@ -1,0 +1,252 @@
+{
+  "business": {
+    "name": "Phoenix Pool Resurfacing",
+    "shortName": "PHX Pool",
+    "tagline": "Licensed & Insured",
+    "foundedYear": "2018",
+    "warrantyYears": "7",
+    "priceRange": "$$"
+  },
+  "contact": {
+    "phone": "(602) 555-0123",
+    "phoneRaw": "6025550123",
+    "email": "contact@phxpoolresurfacing.com",
+    "domain": "phxpoolresurfacing.com",
+    "domainFull": "https://phxpoolresurfacing.com"
+  },
+  "location": {
+    "primaryCity": "Phoenix",
+    "region": "Phoenix Metro Area",
+    "state": "Arizona",
+    "stateCode": "AZ",
+    "latitude": "33.4484",
+    "longitude": "-112.0740",
+    "streetAddress": "123 Pool Service Drive",
+    "postalCode": "85004",
+    "areaCode": "602",
+    "serviceRadius": "35 miles",
+    "geoRegion": "US-AZ"
+  },
+  "hours": {
+    "weekdays": "Monday-Friday: 7:00 AM - 6:00 PM",
+    "saturday": "Saturday: 8:00 AM - 4:00 PM",
+    "sunday": "Sunday: Closed",
+    "schemaWeekday": {
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "07:00",
+      "closes": "18:00"
+    },
+    "schemaSaturday": {
+      "dayOfWeek": "Saturday",
+      "opens": "08:00",
+      "closes": "16:00"
+    }
+  },
+  "service": {
+    "primary": "pool resurfacing",
+    "primaryPlural": "pool resurfacing services",
+    "primaryCapitalized": "Pool Resurfacing",
+    "primaryPluralCapitalized": "Pool Resurfacing Services",
+    "secondary": "pool",
+    "secondaryCapitalized": "Pool",
+    "tertiary": "pool surface",
+    "tertiaryPlural": "pool surfaces",
+    "tertiaryCapitalized": "Pool Surface",
+    "tertiaryPluralCapitalized": "Pool Surfaces",
+    "industry": "pool services",
+    "category": "Pool Contractor"
+  },
+  "services": [
+    {
+      "id": "plaster-resurfacing",
+      "name": "Plaster Resurfacing",
+      "shortDesc": "Classic white plaster finish - affordable and timeless",
+      "icon": "droplet"
+    },
+    {
+      "id": "pebble-tec",
+      "name": "Pebble Tec & Aggregate",
+      "shortDesc": "Premium pebble finishes for durability and beauty",
+      "icon": "grid"
+    },
+    {
+      "id": "quartz-finishes",
+      "name": "Quartz Finishes",
+      "shortDesc": "Sparkling quartz aggregate for stunning visual appeal",
+      "icon": "star"
+    },
+    {
+      "id": "tile-coping",
+      "name": "Tile & Coping Repair",
+      "shortDesc": "Waterline tile replacement and coping restoration",
+      "icon": "square"
+    },
+    {
+      "id": "pool-deck",
+      "name": "Pool Deck Resurfacing",
+      "shortDesc": "Cool deck and textured coatings for safety",
+      "icon": "sun"
+    },
+    {
+      "id": "acid-wash",
+      "name": "Draining & Acid Wash",
+      "shortDesc": "Deep cleaning to restore your pool's appearance",
+      "icon": "refresh"
+    }
+  ],
+  "serviceAreas": [
+    {
+      "id": "phoenix",
+      "name": "Phoenix",
+      "shortName": "Phoenix",
+      "description": "Arizona's capital city with year-round pool weather and diverse neighborhoods",
+      "neighborhoods": ["Arcadia", "Biltmore", "North Phoenix", "South Mountain", "Ahwatukee"]
+    },
+    {
+      "id": "scottsdale",
+      "name": "Scottsdale",
+      "shortName": "Scottsdale",
+      "description": "Upscale resort community known for luxury homes and pristine pools",
+      "neighborhoods": ["Old Town", "North Scottsdale", "McCormick Ranch", "Gainey Ranch", "DC Ranch"]
+    },
+    {
+      "id": "mesa",
+      "name": "Mesa",
+      "shortName": "Mesa",
+      "description": "Arizona's third-largest city with established neighborhoods and growing communities",
+      "neighborhoods": ["Downtown Mesa", "Red Mountain", "Superstition Springs", "Las Sendas"]
+    },
+    {
+      "id": "tempe",
+      "name": "Tempe",
+      "shortName": "Tempe",
+      "description": "Vibrant college town with a mix of modern and established pool homes",
+      "neighborhoods": ["Downtown Tempe", "South Tempe", "Alameda", "Optimist Park"]
+    },
+    {
+      "id": "chandler",
+      "name": "Chandler",
+      "shortName": "Chandler",
+      "description": "Fast-growing tech hub with master-planned communities",
+      "neighborhoods": ["Downtown Chandler", "Ocotillo", "Sun Groves", "Chandler Heights"]
+    },
+    {
+      "id": "gilbert",
+      "name": "Gilbert",
+      "shortName": "Gilbert",
+      "description": "Family-friendly suburb consistently ranked as one of America's safest cities",
+      "neighborhoods": ["Downtown Gilbert", "Agritopia", "Power Ranch", "Val Vista Lakes"]
+    },
+    {
+      "id": "glendale",
+      "name": "Glendale",
+      "shortName": "Glendale",
+      "description": "Historic community with charming downtown and diverse housing",
+      "neighborhoods": ["Historic Downtown", "Arrowhead", "Westgate", "Deer Valley"]
+    },
+    {
+      "id": "peoria",
+      "name": "Peoria",
+      "shortName": "Peoria",
+      "description": "Growing northwest valley community with excellent amenities",
+      "neighborhoods": ["Old Town Peoria", "Lake Pleasant", "Vistancia", "Sunrise"]
+    },
+    {
+      "id": "paradise-valley",
+      "name": "Paradise Valley",
+      "shortName": "Paradise Valley",
+      "description": "Arizona's most exclusive community with luxury estates and resort properties",
+      "neighborhoods": ["Mummy Mountain", "Camelback Mountain", "Lincoln Drive"]
+    },
+    {
+      "id": "cave-creek",
+      "name": "Cave Creek",
+      "shortName": "Cave Creek",
+      "description": "Western-themed town with desert landscapes and custom homes",
+      "neighborhoods": ["Downtown Cave Creek", "Rancho Manana", "Tatum Ranch"]
+    },
+    {
+      "id": "fountain-hills",
+      "name": "Fountain Hills",
+      "shortName": "Fountain Hills",
+      "description": "Scenic town known for the world's tallest fountain and mountain views",
+      "neighborhoods": ["Downtown", "Eagle Mountain", "Firerock"]
+    },
+    {
+      "id": "ahwatukee",
+      "name": "Ahwatukee",
+      "shortName": "Ahwatukee",
+      "description": "Master-planned community nestled between South Mountain and I-10",
+      "neighborhoods": ["Ahwatukee Foothills", "Lakewood", "Mountain Park Ranch"]
+    }
+  ],
+  "blogPosts": [
+    {
+      "id": "blog-cost",
+      "title": "How Much Does Pool Resurfacing Cost in Phoenix? {{YEAR}} Price Guide",
+      "description": "Complete pricing guide for pool resurfacing in Arizona including factors that affect cost",
+      "category": "Pricing"
+    },
+    {
+      "id": "blog-pebble-vs-plaster",
+      "title": "Pebble Tec vs Plaster: Which is Better for {{STATE}} Pools?",
+      "description": "Compare the pros and cons of pebble and plaster finishes for Arizona's climate",
+      "category": "Comparison"
+    },
+    {
+      "id": "blog-resurfacing-signs",
+      "title": "5 Signs Your Pool Needs Resurfacing",
+      "description": "Learn when it's time to resurface your pool before problems get worse",
+      "category": "Maintenance"
+    },
+    {
+      "id": "blog-grand-opening",
+      "title": "{{BUSINESS_NAME}}: Now Serving the {{REGION}}!",
+      "description": "Announcing our professional pool resurfacing services in the {{REGION}}",
+      "category": "News"
+    },
+    {
+      "id": "blog-arizona-climate",
+      "title": "Why {{STATE}}'s Climate Demands Quality Pool Finishes",
+      "description": "Understanding how Arizona heat and sun affects your pool surface",
+      "category": "Education"
+    }
+  ],
+  "pricing": {
+    "perSqFtLow": "4",
+    "perSqFtHigh": "12",
+    "typicalSqFt": "500",
+    "typicalLow": "4000",
+    "typicalHigh": "15000",
+    "stampedPerSqFtLow": "6",
+    "stampedPerSqFtHigh": "15"
+  },
+  "seo": {
+    "gaId": "G-XXXXXXXXXX",
+    "gscVerification": "YOUR_VERIFICATION_CODE_HERE",
+    "ogImage": "/images/og-image.jpg"
+  },
+  "design": {
+    "colorPrimary": "#1E3A5F",
+    "colorSecondary": "#0EA5E9",
+    "colorAccent": "#38BDF8",
+    "colorBackground": "#F0F9FF",
+    "colorSurface": "#E0F2FE",
+    "colorText": "#0C4A6E",
+    "colorTextMuted": "#64748B",
+    "colorTextLight": "#F0F9FF",
+    "colorBorder": "#BAE6FD",
+    "fontDisplay": "Clash Display",
+    "fontBody": "Outfit"
+  },
+  "content": {
+    "heroHeadline": "{{PRIMARY_CITY}}'s Trusted {{SERVICE_PRIMARY_CAP}} Experts",
+    "heroSubheadline": "Licensed & insured contractors serving the {{REGION}}",
+    "metaDescription": "{{PRIMARY_CITY}}'s trusted {{SERVICE_PRIMARY}} experts. Licensed & insured. Free quotes on plaster, Pebble Tec & quartz finishes. Call {{PHONE}}.",
+    "urgencyBanner": {
+      "season": "Pool Season 2026",
+      "months": "January-March",
+      "message": "Best Time to Resurface - Book Now"
+    }
+  }
+}

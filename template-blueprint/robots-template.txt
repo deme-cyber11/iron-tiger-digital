@@ -1,0 +1,11 @@
+# Robots.txt for {{BUSINESS_NAME}}
+# {{DOMAIN_FULL}}
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: {{DOMAIN_FULL}}/sitemap.xml
+
+# Crawl-delay (optional, for server politeness)
+# Crawl-delay: 1

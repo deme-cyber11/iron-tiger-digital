@@ -1,0 +1,19 @@
+{
+  "name": "@claude-skills/agent-builder",
+  "version": "1.0.0",
+  "description": "Rapid AI agent development framework using Claude SDK. Covers single-step agents, multi-step strategic agents, and multi-agent systems.",
+  "main": "index.js",
+  "files": [
+    "."
+  ],
+  "keywords": [
+    "claude",
+    "ai-agent",
+    "claude-sdk",
+    "mcp",
+    "tool-calling",
+    "agentic-systems"
+  ],
+  "license": "MIT",
+  "author": "Custom Skill"
+}
