@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Iron Tiger Digital</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Digital marketing tips, SEO strategies, and lead generation insights for home service businesses from Iron Tiger Digital.">
+    <meta name="author" content="Iron Tiger Digital">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://irontigerdigital.com/blog/">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://irontigerdigital.com/blog/">
+    <meta property="og:title" content="Blog | Iron Tiger Digital">
+    <meta property="og:description" content="Digital marketing tips, SEO strategies, and lead generation insights for home service businesses from Iron Tiger Digital.">
+    <meta property="og:image" content="https://irontigerdigital.com/og-image.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog | Iron Tiger Digital">
+    <meta name="twitter:description" content="Digital marketing tips, SEO strategies, and lead generation insights for home service businesses from Iron Tiger Digital.">
+    <meta name="twitter:image" content="https://irontigerdigital.com/og-image.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Iron Tiger Digital Blog",
+        "url": "https://irontigerdigital.com/blog/",
+        "description": "Digital marketing tips, SEO strategies, and lead generation insights for home service businesses from Iron Tiger Digital.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Iron Tiger Digital",
+            "url": "https://irontigerdigital.com",
+            "logo": "https://irontigerdigital.com/logo.svg"
+        }
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="manifest" href="../manifest.json">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #c45c26;
+            --primary-dark: #a34d1f;
+            --secondary: #1a1a1a;
+            --gray: #6b7280;
+            --light: #faf9f7;
+            --white: #ffffff;
+            --dark-bg: #111111;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.7;
+            color: var(--secondary);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Header */
+        header {
+            padding: 24px 0;
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        .header-nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero */
+        .blog-hero {
+            padding: 80px 0 60px;
+            background: linear-gradient(180deg, var(--light) 0%, var(--white) 100%);
+            text-align: center;
+        }
+
+        .blog-hero h1 {
+            font-size: clamp(1.75rem, 4vw, 2.75rem);
+            font-weight: 800;
+            color: var(--secondary);
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .blog-hero p {
+            color: var(--gray);
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Article Grid */
+        .blog-grid-section {
+            padding: 60px 0 100px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 36px 32px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 48px rgba(0,0,0,0.1);
+        }
+
+        .blog-card-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            width: fit-content;
+        }
+
+        .tag-seo {
+            background: rgba(196, 92, 38, 0.1);
+            color: var(--primary);
+        }
+
+        .tag-leadgen {
+            background: rgba(37, 99, 235, 0.1);
+            color: #2563eb;
+        }
+
+        .tag-marketing {
+            background: rgba(16, 185, 129, 0.1);
+            color: #059669;
+        }
+
+        .blog-card h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 12px;
+            line-height: 1.4;
+            letter-spacing: -0.3px;
+        }
+
+        .blog-card-excerpt {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .blog-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .blog-card-date {
+            font-size: 0.85rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        .blog-card-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s ease;
+        }
+
+        .blog-card-link:hover {
+            gap: 10px;
+        }
+
+        .blog-card-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* CTA Section */
+        .blog-cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-cta::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .blog-cta::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            right: -150px;
+            width: 500px;
+            height: 500px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 50%;
+        }
+
+        .blog-cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .blog-cta h2 {
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .blog-cta p {
+            opacity: 0.9;
+            max-width: 500px;
+            margin: 0 auto 32px;
+            font-size: 1.1rem;
+        }
+
+        .blog-cta-btn {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary);
+            padding: 16px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+
+        .blog-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0 40px;
+            background: var(--dark-bg);
+            color: rgba(255,255,255,0.6);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            max-width: 320px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .footer-logo .logo-icon {
+            width: 36px;
+            height: 36px;
+            font-size: 0.9rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .footer-info h4 {
+            color: var(--white);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .footer-info p {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .blog-hero {
+                padding: 60px 0 40px;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .blog-grid-section {
+                padding: 40px 0 80px;
+            }
+
+            .blog-cta {
+                padding: 60px 0;
+            }
+
+            .header-nav {
+                display: none;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:12px;">
+                    <div class="logo-icon">IT</div>
+                    <span style="font-weight:700;font-size:1.1rem;">Iron Tiger Digital</span>
+                </a>
+                <nav class="header-nav" aria-label="Main navigation">
+                    <a href="../index.html#pricing" style="color: var(--primary); text-decoration: none; font-weight: 600; margin-right: 24px;">Get Started</a>
+                    <a href="../index.html#contact" style="color: var(--secondary); text-decoration: none; font-weight: 500;">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Blog Hero -->
+        <section class="blog-hero">
+            <div class="container">
+                <h1>Digital Marketing Insights for Home Service Businesses</h1>
+                <p>Actionable strategies, tips, and industry knowledge to help contractors, plumbers, electricians, and other home service pros grow their business online.</p>
+            </div>
+        </section>
+
+        <!-- Blog Grid -->
+        <section class="blog-grid-section">
+            <div class="container">
+                <div class="blog-grid">
+                    <!-- Article 1 -->
+                    <article class="blog-card">
+                        <span class="blog-card-tag tag-seo">SEO</span>
+                        <h2>5 Local SEO Strategies Every Contractor Needs in 2026</h2>
+                        <p class="blog-card-excerpt">Local search is the single biggest driver of new business for contractors. Learn five proven SEO strategies that will put your company at the top of Google when homeowners search for services in your area.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">Feb 5, 2026</span>
+                            <a href="#" class="blog-card-link">Read More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg></a>
+                        </div>
+                    </article>
+
+                    <!-- Article 2 -->
+                    <article class="blog-card">
+                        <span class="blog-card-tag tag-leadgen">Lead Gen</span>
+                        <h2>How to Turn Website Visitors Into Paying Customers</h2>
+                        <p class="blog-card-excerpt">Getting traffic is only half the battle. Discover the conversion tactics that turn casual browsers into booked appointments, including the exact landing page elements that drive the highest response rates.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">Jan 28, 2026</span>
+                            <a href="#" class="blog-card-link">Read More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg></a>
+                        </div>
+                    </article>
+
+                    <!-- Article 3 -->
+                    <article class="blog-card">
+                        <span class="blog-card-tag tag-marketing">Marketing</span>
+                        <h2>Why Home Service Businesses Need Marketing Funnels</h2>
+                        <p class="blog-card-excerpt">Most home service businesses rely on word-of-mouth alone and leave money on the table. Learn why a structured marketing funnel is the key to predictable, scalable growth for your company.</p>
+                        <div class="blog-card-footer">
+                            <span class="blog-card-date">Jan 15, 2026</span>
+                            <a href="#" class="blog-card-link">Read More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="blog-cta">
+            <div class="container">
+                <div class="blog-cta-content">
+                    <h2>Want more leads? Get started with Iron Tiger Digital.</h2>
+                    <p>We help home service businesses generate qualified leads through proven digital marketing strategies.</p>
+                    <a href="../checkout.html" class="blog-cta-btn">Get Started Today</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">IT</div>
+                        Iron Tiger Digital
+                    </div>
+                    <p>Digital marketing and lead generation solutions for home service businesses.</p>
+                </div>
+                <div class="footer-info">
+                    <h4>Contact Us</h4>
+                    <p><a href="mailto:contact@irontigerdigital.com" style="color: rgba(255,255,255,0.8); text-decoration: none;">contact@irontigerdigital.com</a></p>
+                    <p><a href="tel:+17344761457" style="color: rgba(255,255,255,0.8); text-decoration: none;">(734) 476-1457</a></p>
+                </div>
+                <div class="footer-info">
+                    <h4>Services</h4>
+                    <p><a href="../services/lead-generation.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Lead Generation</a></p>
+                    <p><a href="../services/local-seo.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Local SEO</a></p>
+                    <p><a href="../services/marketing-funnels.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Marketing Funnels</a></p>
+                    <p><a href="../services/reputation-management.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Reputation Management</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Iron Tiger Digital, LLC. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

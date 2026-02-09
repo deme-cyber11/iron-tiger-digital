@@ -1,0 +1,21 @@
+{
+    "name": "Iron Tiger Digital",
+    "short_name": "ITD",
+    "description": "Lead generation and digital marketing for home service businesses.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#faf9f7",
+    "theme_color": "#c45c26",
+    "icons": [
+        {
+            "src": "favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        },
+        {
+            "src": "og-image.png",
+            "sizes": "1200x630",
+            "type": "image/png"
+        }
+    ]
+}

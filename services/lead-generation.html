@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Generation for Home Services | Iron Tiger Digital</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Generate qualified leads for your home service business. Proven lead generation systems for HVAC, plumbing, roofing, and landscaping companies.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://irontigerdigital.com/services/lead-generation.html">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://irontigerdigital.com/services/lead-generation.html">
+    <meta property="og:title" content="Lead Generation for Home Services | Iron Tiger Digital">
+    <meta property="og:description" content="Generate qualified leads for your home service business. Proven lead generation systems for HVAC, plumbing, roofing, and landscaping companies.">
+    <meta property="og:image" content="https://irontigerdigital.com/og-image.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Lead Generation for Home Services",
+        "provider": {
+            "@type": "ProfessionalService",
+            "name": "Iron Tiger Digital",
+            "url": "https://irontigerdigital.com"
+        },
+        "description": "End-to-end lead generation systems designed specifically for home service businesses including HVAC, plumbing, roofing, and landscaping companies.",
+        "url": "https://irontigerdigital.com/services/lead-generation.html",
+        "areaServed": "United States",
+        "serviceType": "Lead Generation"
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="manifest" href="../manifest.json">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #c45c26;
+            --primary-dark: #a34d1f;
+            --secondary: #1a1a1a;
+            --gray: #6b7280;
+            --light: #faf9f7;
+            --white: #ffffff;
+            --dark-bg: #111111;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.7;
+            color: var(--secondary);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Header */
+        header {
+            padding: 24px 0;
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 100px 0 120px;
+            background: linear-gradient(180deg, var(--light) 0%, var(--white) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(196, 92, 38, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: rgba(196, 92, 38, 0.1);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 24px;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            max-width: 700px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 580px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            padding: 18px 36px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(196, 92, 38, 0.4);
+        }
+
+        /* Sections */
+        .section-label {
+            display: inline-block;
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+            line-height: 1.3;
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            max-width: 600px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* What We Do */
+        .what-we-do {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin-top: 56px;
+        }
+
+        .capability-card {
+            background: var(--light);
+            padding: 36px;
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+        }
+
+        .capability-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .capability-icon {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .capability-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--secondary);
+        }
+
+        .capability-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 0;
+            background: var(--light);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 56px;
+        }
+
+        .step-card {
+            background: var(--white);
+            padding: 36px;
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,0.04);
+            text-align: center;
+        }
+
+        .step-number {
+            width: 56px;
+            height: 56px;
+            background: var(--white);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin: 0 auto 20px;
+        }
+
+        .step-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--secondary);
+        }
+
+        .step-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            padding: 100px 0;
+            background: var(--dark-bg);
+            color: var(--white);
+        }
+
+        .why-choose .section-title {
+            color: var(--white);
+        }
+
+        .why-choose .section-subtitle {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 56px;
+        }
+
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 36px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(196, 92, 38, 0.3);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .benefit-card p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .cta::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            right: -150px;
+            width: 500px;
+            height: 500px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 50%;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta h2 {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .cta p {
+            opacity: 0.9;
+            max-width: 500px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 18px 40px;
+            background: var(--white);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0 40px;
+            background: var(--dark-bg);
+            color: rgba(255,255,255,0.6);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            max-width: 320px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .footer-logo .logo-icon {
+            width: 36px;
+            height: 36px;
+            font-size: 0.9rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .footer-info h4 {
+            color: var(--white);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .footer-info p {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .capabilities-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0 80px;
+            }
+
+            .what-we-do, .how-it-works, .why-choose, .cta {
+                padding: 80px 0;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .header-nav a:first-child {
+                margin-right: 16px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:12px;">
+                    <div class="logo-icon">IT</div>
+                    <span style="font-weight:700;font-size:1.1rem;">Iron Tiger Digital</span>
+                </a>
+                <nav class="header-nav" aria-label="Main navigation">
+                    <a href="../index.html#pricing" style="color: var(--primary); text-decoration: none; font-weight: 600; margin-right: 24px;">Get Started</a>
+                    <a href="../index.html#contact" style="color: var(--secondary); text-decoration: none; font-weight: 500;">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-label">Lead Generation</span>
+                    <h1>Qualified Lead Generation Systems for <span>Home Service Businesses</span></h1>
+                    <p>Stop chasing cold leads. Our proven lead generation systems deliver pre-qualified homeowners who are actively searching for HVAC, plumbing, roofing, and landscaping services in your area.</p>
+                    <a href="../checkout.html" class="hero-cta">Start Generating Leads</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- What We Do -->
+        <section class="what-we-do">
+            <div class="container">
+                <span class="section-label">What We Do</span>
+                <h2 class="section-title">Lead Generation Built for Contractors</h2>
+                <p class="section-subtitle">We build complete lead generation infrastructure that connects your home service business with homeowners ready to hire.</p>
+
+                <div class="capabilities-grid">
+                    <div class="capability-card">
+                        <div class="capability-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                        </div>
+                        <h3>High-Converting Landing Pages</h3>
+                        <p>Custom-designed landing pages built specifically for your trade. Each page is optimized with service-specific messaging, trust signals, and clear calls to action that turn visitors into booked appointments.</p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="capability-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                        </div>
+                        <h3>Geo-Targeted Ad Campaigns</h3>
+                        <p>We target homeowners within your service radius through precision-targeted campaigns on Google and social media. Every dollar of ad spend is focused on reaching people in your exact market who need your services right now.</p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="capability-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </div>
+                        <h3>Automated Follow-Up Sequences</h3>
+                        <p>Leads that do not convert immediately enter automated email and SMS sequences. Timely, professional follow-ups keep your business top-of-mind and recover leads that competitors lose to slow response times.</p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="capability-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+                        </div>
+                        <h3>Performance Tracking Dashboard</h3>
+                        <p>See every lead, every conversion, and every dollar of ROI in real time. Our transparent reporting shows you exactly where your leads come from, what they cost, and how they convert into paying customers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="how-it-works">
+            <div class="container">
+                <span class="section-label">How It Works</span>
+                <h2 class="section-title">Three Steps to a Full Pipeline</h2>
+                <p class="section-subtitle">We handle the entire lead generation process so you can focus on delivering great service to your customers.</p>
+
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Market Analysis</h3>
+                        <p>We analyze your local market, identify where demand is highest, and research your competitors. This data shapes a custom lead generation strategy built around your specific trade, service area, and growth goals.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>System Build & Launch</h3>
+                        <p>We build your landing pages, set up ad campaigns, configure lead capture forms, and create automated follow-up sequences. Everything is tested and optimized before we turn on the traffic.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Optimize & Scale</h3>
+                        <p>Once leads are flowing, we continuously test ad creative, landing page elements, and follow-up messaging. As conversion rates improve, we scale your campaigns to fill your schedule and grow revenue.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="why-choose">
+            <div class="container">
+                <span class="section-label">Why Choose Us</span>
+                <h2 class="section-title">The Iron Tiger Difference</h2>
+                <p class="section-subtitle">We are not a generic marketing agency. We specialize exclusively in lead generation for the home services industry.</p>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <h3>Home Services Expertise</h3>
+                        <p>We understand the buying cycle for HVAC, plumbing, roofing, and landscaping customers. Our strategies are built on deep knowledge of what homeowners search for, what builds trust, and what drives them to pick up the phone.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Exclusive Leads, Never Shared</h3>
+                        <p>Every lead we generate goes directly to you. We never sell shared leads or resell your prospects to competing contractors. Your investment produces leads that belong exclusively to your business.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Transparent Reporting</h3>
+                        <p>No vanity metrics or vague reports. You see exactly how many leads came in, what each lead cost, and how they converted. We measure what matters: booked jobs and revenue generated from your campaigns.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Month-to-Month Flexibility</h3>
+                        <p>We earn your business every month through results, not contracts. Our clients stay because the leads keep coming and the ROI speaks for itself. No long-term commitments required to get started.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Fill Your Pipeline?</h2>
+                    <p>Start receiving qualified leads from homeowners in your service area. Let us build the system that grows your business.</p>
+                    <a href="../checkout.html" class="cta-btn">Get Started Today</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">IT</div>
+                        Iron Tiger Digital
+                    </div>
+                    <p>Digital marketing and lead generation solutions for home service businesses.</p>
+                </div>
+                <div class="footer-info">
+                    <h4>Contact Us</h4>
+                    <p><a href="mailto:contact@irontigerdigital.com" style="color: rgba(255,255,255,0.8); text-decoration: none;">contact@irontigerdigital.com</a></p>
+                    <p><a href="tel:+17344761457" style="color: rgba(255,255,255,0.8); text-decoration: none;">(734) 476-1457</a></p>
+                </div>
+                <div class="footer-info">
+                    <h4>Services</h4>
+                    <p><a href="lead-generation.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Lead Generation</a></p>
+                    <p><a href="local-seo.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Local SEO</a></p>
+                    <p><a href="marketing-funnels.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Marketing Funnels</a></p>
+                    <p><a href="reputation-management.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Reputation Management</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Iron Tiger Digital, LLC. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

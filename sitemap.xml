@@ -7,6 +7,36 @@
         <priority>1.0</priority>
     </url>
     <url>
+        <loc>https://irontigerdigital.com/services/lead-generation.html</loc>
+        <lastmod>2026-02-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://irontigerdigital.com/services/local-seo.html</loc>
+        <lastmod>2026-02-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://irontigerdigital.com/services/marketing-funnels.html</loc>
+        <lastmod>2026-02-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://irontigerdigital.com/services/reputation-management.html</loc>
+        <lastmod>2026-02-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://irontigerdigital.com/blog/</loc>
+        <lastmod>2026-02-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://irontigerdigital.com/terms.html</loc>
         <lastmod>2026-02-08</lastmod>
         <changefreq>monthly</changefreq>

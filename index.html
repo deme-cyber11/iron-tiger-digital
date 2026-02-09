@@ -42,8 +42,9 @@
     }
     </script>
 
-    <!-- Favicon -->
+    <!-- Favicon & Manifest -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="manifest" href="manifest.json">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -916,6 +917,7 @@
         </div>
     </header>
 
+    <main>
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -1044,11 +1046,11 @@
 
                 <div class="value-visual">
                     <div class="value-stat-card">
-                        <h4>Business Focus</h4>
+                        <h3 class="value-card-heading">Business Focus</h3>
                         <div class="big-number">Home Services</div>
                     </div>
                     <div class="value-stat-card">
-                        <h4>Market Approach</h4>
+                        <h3 class="value-card-heading">Market Approach</h3>
                         <div class="big-number">Local First</div>
                     </div>
                 </div>
@@ -1144,6 +1146,25 @@
         </div>
     </section>
 
+    <!-- Email Capture Section -->
+    <section class="email-capture" style="padding: 80px 0; background: var(--light);">
+        <div class="container" style="max-width: 600px; text-align: center;">
+            <span class="section-label">Free Marketing Audit</span>
+            <h2 class="section-title" style="margin-bottom: 16px;">Get a Free Website & SEO Analysis</h2>
+            <p style="color: var(--gray); margin-bottom: 32px; font-size: 1.05rem;">Enter your details below and we'll send you a personalized report showing exactly where you're losing leads and how to fix it.</p>
+            <form action="https://formsubmit.co/contact@irontigerdigital.com" method="POST" style="display: flex; flex-direction: column; gap: 16px;">
+                <input type="hidden" name="_subject" value="Free Marketing Audit Request">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://irontigerdigital.com/success.html">
+                <input type="text" name="name" placeholder="Your Name" required style="padding: 16px 20px; border: 2px solid #e5e7eb; border-radius: 12px; font-family: inherit; font-size: 1rem; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
+                <input type="email" name="email" placeholder="Your Email" required style="padding: 16px 20px; border: 2px solid #e5e7eb; border-radius: 12px; font-family: inherit; font-size: 1rem; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
+                <input type="text" name="website" placeholder="Your Website URL (optional)" style="padding: 16px 20px; border: 2px solid #e5e7eb; border-radius: 12px; font-family: inherit; font-size: 1rem; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
+                <button type="submit" class="btn-payment" style="border: none; cursor: pointer; font-size: 1rem; padding: 18px 32px;">Get My Free Audit</button>
+            </form>
+            <p style="color: var(--gray); font-size: 0.85rem; margin-top: 16px;">No spam. No obligation. Just actionable insights.</p>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta">
         <div class="container">
@@ -1157,6 +1178,8 @@
             </div>
         </div>
     </section>
+
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -1172,7 +1195,7 @@
                 <div class="footer-info">
                     <h4>Contact Us</h4>
                     <p><a href="mailto:contact@irontigerdigital.com" style="color: rgba(255,255,255,0.8); text-decoration: none;">contact@irontigerdigital.com</a></p>
-                    <p><a href="tel:+15125551234" style="color: rgba(255,255,255,0.8); text-decoration: none;">(512) 555-1234</a></p>
+                    <p><a href="tel:+17344761457" style="color: rgba(255,255,255,0.8); text-decoration: none;">(734) 476-1457</a></p>
                     <p>Austin, Texas</p>
                 </div>
                 <div class="footer-info">
