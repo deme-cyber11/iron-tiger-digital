@@ -80,7 +80,7 @@
         /* Hero Section */
         .hero {
             padding: 100px 0 80px;
-            background: linear-gradient(180deg, var(--light) 0%, var(--white) 100%);
+            background: linear-gradient(180deg, #fef6f0 0%, #fdfaf7 60%, var(--white) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -92,13 +92,14 @@
             right: -20%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(196, 92, 38, 0.06) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(196, 92, 38, 0.12) 0%, transparent 70%);
             border-radius: 50%;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
+            text-align: center;
         }
 
         .hero-label {
@@ -121,7 +122,9 @@
             margin-bottom: 24px;
             line-height: 1.15;
             letter-spacing: -1px;
-            max-width: 700px;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero h1 span {
@@ -134,8 +137,8 @@
         .hero p {
             font-size: 1.2rem;
             color: var(--gray);
-            max-width: 580px;
-            margin-bottom: 40px;
+            max-width: 620px;
+            margin: 0 auto 40px;
             line-height: 1.8;
         }
 
@@ -144,6 +147,7 @@
             gap: 24px;
             margin-top: 48px;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
         .metric {
@@ -151,8 +155,9 @@
             background: var(--white);
             padding: 24px 32px;
             border-radius: 14px;
-            border: 1px solid rgba(0,0,0,0.06);
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            border: 1px solid rgba(196, 92, 38, 0.12);
+            border-left: 3px solid var(--primary);
+            box-shadow: 0 2px 12px rgba(196, 92, 38, 0.06);
         }
 
         .metric-value {
@@ -187,13 +192,16 @@
             background: var(--light);
             padding: 36px;
             border-radius: 16px;
-            border: 1px solid rgba(0,0,0,0.04);
+            border: 1px solid rgba(196, 92, 38, 0.08);
+            border-top: 3px solid var(--primary);
             transition: all 0.3s ease;
         }
 
         .model-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            box-shadow: 0 20px 40px rgba(196, 92, 38, 0.1);
+            border-color: rgba(196, 92, 38, 0.15);
+            border-top-color: var(--primary);
         }
 
         .model-number {
@@ -700,9 +708,9 @@
         /* Trust Strip */
         .trust-strip {
             padding: 40px 0;
-            background: var(--light);
-            border-top: 1px solid rgba(0,0,0,0.05);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            background: linear-gradient(135deg, #fef6f0 0%, #fdf0e6 100%);
+            border-top: 1px solid rgba(196, 92, 38, 0.08);
+            border-bottom: 1px solid rgba(196, 92, 38, 0.08);
         }
 
         .trust-grid {
@@ -721,8 +729,9 @@
             width: 44px;
             height: 44px;
             background: var(--white);
-            border: 1px solid rgba(196, 92, 38, 0.15);
+            border: 1px solid rgba(196, 92, 38, 0.2);
             border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(196, 92, 38, 0.08);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -917,8 +926,8 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
                     </div>
                     <div>
-                        <strong>Trusted by Contractors</strong>
-                        <span>Serving home service businesses across the U.S.</span>
+                        <strong>Supporting 10+ Local Businesses</strong>
+                        <span>And growing every month</span>
                     </div>
                 </div>
             </div>
