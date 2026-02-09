@@ -550,11 +550,7 @@
                     <div class="trust-badges">
                         <span class="trust-badge">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
-                            256-bit SSL Encryption
-                        </span>
-                        <span class="trust-badge">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v18H3V3zm13.3 13.3c.7-.7.7-1.9 0-2.6L13 10.4V7h-2v4l3.7 3.7c.4.4.9.6 1.3.6.5 0 .9-.2 1.3-.6V13l-1.4 1.4c-.3.3-.7.3-1 0s-.3-.7 0-1L16.3 11c.7-.7.7-1.9 0-2.6-.7-.7-1.9-.7-2.6 0L11 11.1V7H9v5l4.3 4.3c.7.7 1.9.7 2.6 0h.4z"/></svg>
-                            Powered by Stripe
+                            Secure payment via Stripe
                         </span>
                         <span class="trust-badge">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
@@ -640,9 +636,9 @@
                 }
             } catch (error) {
                 console.error('Checkout error:', error);
-                alert('Something went wrong. Please try again or contact us directly.');
                 checkoutBtn.textContent = 'Proceed to Payment';
                 checkoutBtn.disabled = false;
+                window.location.href = 'mailto:contact@irontigerdigital.com?subject=New Order — ' + encodeURIComponent(selectedPackage) + '&body=' + encodeURIComponent('Hi, I\'d like to get started with the ' + selectedPackage + ' package ($' + prices[selectedPackage] + '). Please send me a payment link.');
             }
         });
     </script>
