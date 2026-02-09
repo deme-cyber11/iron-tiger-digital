@@ -79,7 +79,7 @@
 
         /* Hero Section */
         .hero {
-            padding: 100px 0 120px;
+            padding: 100px 0 80px;
             background: linear-gradient(180deg, var(--light) 0%, var(--white) 100%);
             position: relative;
             overflow: hidden;
@@ -141,21 +141,24 @@
 
         .hero-metrics {
             display: flex;
-            gap: 48px;
-            padding-top: 48px;
-            border-top: 1px solid rgba(0,0,0,0.08);
+            gap: 24px;
             margin-top: 48px;
             flex-wrap: wrap;
         }
 
         .metric {
             text-align: left;
+            background: var(--white);
+            padding: 24px 32px;
+            border-radius: 14px;
+            border: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
         }
 
         .metric-value {
-            font-size: 2.75rem;
+            font-size: 2rem;
             font-weight: 800;
-            color: var(--secondary);
+            color: var(--primary);
             letter-spacing: -1px;
             line-height: 1;
         }
@@ -163,13 +166,13 @@
         .metric-label {
             font-size: 0.85rem;
             color: var(--gray);
-            margin-top: 8px;
+            margin-top: 6px;
             font-weight: 500;
         }
 
         /* Business Model Section */
         .business-model {
-            padding: 100px 0;
+            padding: 80px 0 100px;
             background: var(--white);
         }
 
@@ -696,28 +699,30 @@
 
         /* Trust Strip */
         .trust-strip {
-            padding: 48px 0;
-            background: var(--white);
-            border-bottom: 1px solid rgba(0,0,0,0.06);
+            padding: 40px 0;
+            background: var(--light);
+            border-top: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
         .trust-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 32px;
+            gap: 20px;
         }
 
         .trust-item {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 14px;
         }
 
         .trust-icon {
-            width: 48px;
-            height: 48px;
-            background: rgba(196, 92, 38, 0.08);
-            border-radius: 12px;
+            width: 44px;
+            height: 44px;
+            background: var(--white);
+            border: 1px solid rgba(196, 92, 38, 0.15);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -727,14 +732,14 @@
 
         .trust-item strong {
             display: block;
-            font-size: 0.95rem;
+            font-size: 0.88rem;
             font-weight: 700;
             color: var(--secondary);
-            margin-bottom: 2px;
+            margin-bottom: 1px;
         }
 
         .trust-item span {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--gray);
         }
 
@@ -786,11 +791,15 @@
             }
 
             .hero-metrics {
-                gap: 32px;
+                gap: 16px;
+            }
+
+            .metric {
+                padding: 18px 24px;
             }
 
             .metric-value {
-                font-size: 2rem;
+                font-size: 1.6rem;
             }
 
             .business-model, .services, .value, .cta {
