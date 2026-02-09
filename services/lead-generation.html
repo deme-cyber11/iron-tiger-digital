@@ -45,66 +45,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/shared.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #c45c26;
-            --primary-dark: #a34d1f;
-            --secondary: #1a1a1a;
-            --gray: #6b7280;
-            --light: #faf9f7;
-            --white: #ffffff;
-            --dark-bg: #111111;
-        }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.7;
-            color: var(--secondary);
-            background: var(--white);
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-
-        /* Header */
-        header {
-            padding: 24px 0;
-            background: var(--white);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(0,0,0,0.06);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo-icon {
-            width: 42px;
-            height: 42px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 800;
-            font-size: 1.1rem;
-        }
-
         /* Hero */
         .hero {
             padding: 100px 0 120px;
@@ -182,32 +124,6 @@
         .hero-cta:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(196, 92, 38, 0.4);
-        }
-
-        /* Sections */
-        .section-label {
-            display: inline-block;
-            color: var(--primary);
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 16px;
-        }
-
-        .section-title {
-            font-size: clamp(1.75rem, 3vw, 2.25rem);
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: -0.5px;
-            line-height: 1.3;
-        }
-
-        .section-subtitle {
-            color: var(--gray);
-            max-width: 600px;
-            font-size: 1.05rem;
-            line-height: 1.8;
         }
 
         /* What We Do */
@@ -425,65 +341,53 @@
             box-shadow: 0 8px 24px rgba(0,0,0,0.2);
         }
 
-        /* Footer */
-        footer {
-            padding: 60px 0 40px;
-            background: var(--dark-bg);
-            color: rgba(255,255,255,0.6);
+        /* Related Services */
+        .related-services {
+            padding: 100px 0;
+            background: var(--light);
         }
 
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding-bottom: 40px;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            margin-bottom: 40px;
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 56px;
         }
 
-        .footer-brand {
-            max-width: 320px;
+        .related-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,0.06);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            display: block;
         }
 
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.25rem;
+        .related-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .related-card h3 {
+            font-size: 1.1rem;
             font-weight: 700;
-            color: var(--white);
-            margin-bottom: 16px;
+            color: var(--secondary);
+            margin-bottom: 10px;
         }
 
-        .footer-logo .logo-icon {
-            width: 36px;
-            height: 36px;
-            font-size: 0.9rem;
-        }
-
-        .footer-brand p {
+        .related-card p {
+            color: var(--gray);
             font-size: 0.9rem;
             line-height: 1.7;
-        }
-
-        .footer-info h4 {
-            color: var(--white);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
             margin-bottom: 16px;
         }
 
-        .footer-info p {
+        .related-link {
+            color: var(--primary);
+            font-weight: 600;
             font-size: 0.9rem;
-            margin-bottom: 8px;
-        }
-
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.8rem;
         }
 
         /* Responsive */
@@ -493,7 +397,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .steps-grid {
+            .steps-grid,
+            .related-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -503,19 +408,8 @@
                 padding: 60px 0 80px;
             }
 
-            .what-we-do, .how-it-works, .why-choose, .cta {
+            .what-we-do, .how-it-works, .why-choose, .related-services, .cta {
                 padding: 80px 0;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 40px;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 16px;
-                text-align: center;
             }
 
             .header-nav a:first-child {
@@ -644,6 +538,32 @@
                         <h3>Month-to-Month Flexibility</h3>
                         <p>We earn your business every month through results, not contracts. Our clients stay because the leads keep coming and the ROI speaks for itself. No long-term commitments required to get started.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Services -->
+        <section class="related-services">
+            <div class="container">
+                <span class="section-label">Explore Our Services</span>
+                <h2 class="section-title">Related Services</h2>
+                <p class="section-subtitle">Our services work together to create a complete digital marketing system for your home service business.</p>
+                <div class="related-grid">
+                    <a href="local-seo.html" class="related-card">
+                        <h3>Local SEO</h3>
+                        <p>Rank #1 in local search results so homeowners find your business when they search for services in your area.</p>
+                        <span class="related-link">Learn More &rarr;</span>
+                    </a>
+                    <a href="marketing-funnels.html" class="related-card">
+                        <h3>Marketing Funnels</h3>
+                        <p>Convert more website visitors into booked jobs with multi-step funnels built for the home services buying journey.</p>
+                        <span class="related-link">Learn More &rarr;</span>
+                    </a>
+                    <a href="reputation-management.html" class="related-card">
+                        <h3>Reputation Management</h3>
+                        <p>Build a 5-star online reputation that wins trust before homeowners even pick up the phone.</p>
+                        <span class="related-link">Learn More &rarr;</span>
+                    </a>
                 </div>
             </div>
         </section>
