@@ -51,6 +51,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/shared.css">
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         /* Homepage container override */
         .container {
             max-width: 1140px;
@@ -80,7 +84,10 @@
         /* Hero Section */
         .hero {
             padding: 100px 0 80px;
-            background: linear-gradient(180deg, #fef6f0 0%, #fdfaf7 60%, var(--white) 100%);
+            background:
+                radial-gradient(circle at 20% 50%, rgba(196, 92, 38, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(196, 92, 38, 0.06) 0%, transparent 50%),
+                linear-gradient(180deg, #fef6f0 0%, #fdfaf7 60%, var(--white) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -92,14 +99,28 @@
             right: -20%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(196, 92, 38, 0.12) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(196, 92, 38, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(196, 92, 38, 0.05) 0%, transparent 70%);
             border-radius: 50%;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            text-align: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
 
         .hero-label {
@@ -113,18 +134,17 @@
             margin-bottom: 24px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            animation: heroFadeUp 0.6s ease both;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
             font-weight: 800;
             color: var(--secondary);
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             line-height: 1.15;
             letter-spacing: -1px;
-            max-width: 750px;
-            margin-left: auto;
-            margin-right: auto;
+            animation: heroFadeUp 0.6s ease 0.1s both;
         }
 
         .hero h1 span {
@@ -135,44 +155,216 @@
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--gray);
-            max-width: 620px;
-            margin: 0 auto 40px;
+            max-width: 480px;
+            margin-bottom: 32px;
             line-height: 1.8;
+            animation: heroFadeUp 0.6s ease 0.2s both;
         }
 
-        .hero-metrics {
+        .hero-buttons {
             display: flex;
-            gap: 24px;
-            margin-top: 48px;
+            gap: 16px;
             flex-wrap: wrap;
-            justify-content: center;
+            margin-bottom: 24px;
+            animation: heroFadeUp 0.6s ease 0.3s both;
         }
 
-        .metric {
-            text-align: left;
-            background: var(--white);
-            padding: 24px 32px;
-            border-radius: 14px;
-            border: 1px solid rgba(196, 92, 38, 0.12);
-            border-left: 3px solid var(--primary);
-            box-shadow: 0 2px 12px rgba(196, 92, 38, 0.06);
+        .btn-hero-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(196, 92, 38, 0.3);
         }
 
-        .metric-value {
-            font-size: 2rem;
-            font-weight: 800;
+        .btn-hero-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(196, 92, 38, 0.4);
+        }
+
+        .btn-hero-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            background: transparent;
+            color: var(--secondary);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 2px solid rgba(0, 0, 0, 0.12);
+            transition: all 0.3s ease;
+        }
+
+        .btn-hero-secondary:hover {
+            border-color: var(--primary);
             color: var(--primary);
-            letter-spacing: -1px;
-            line-height: 1;
         }
 
-        .metric-label {
+        .hero-trust-line {
+            display: flex;
+            align-items: center;
+            gap: 20px;
             font-size: 0.85rem;
             color: var(--gray);
-            margin-top: 6px;
-            font-weight: 500;
+            animation: heroFadeUp 0.6s ease 0.4s both;
+        }
+
+        .hero-trust-line span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hero-trust-line svg {
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        /* Hero Visual — Dashboard Mockup */
+        .hero-visual {
+            position: relative;
+            height: 460px;
+            animation: heroFadeIn 0.8s ease 0.3s both;
+        }
+
+        .hero-card {
+            position: absolute;
+            background: var(--white);
+            border-radius: 16px;
+            padding: 20px 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            animation: heroFloat 6s ease-in-out infinite;
+        }
+
+        .hero-card-lead {
+            top: 10px;
+            right: 0;
+            left: 20px;
+            z-index: 3;
+        }
+
+        .hero-card-stats {
+            top: 150px;
+            right: 10px;
+            left: 0;
+            z-index: 2;
+            animation-delay: -2s;
+        }
+
+        .hero-card-review {
+            bottom: 20px;
+            right: 0;
+            left: 30px;
+            z-index: 1;
+            animation-delay: -4s;
+        }
+
+        .hero-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .hero-card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .hero-card-icon.green {
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+        }
+
+        .hero-card-icon.orange {
+            background: rgba(196, 92, 38, 0.1);
+            color: var(--primary);
+        }
+
+        .hero-card-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--secondary);
+        }
+
+        .hero-card-subtitle {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        .hero-card-metric {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--secondary);
+            letter-spacing: -1px;
+        }
+
+        .hero-card-metric.green-text {
+            color: #22c55e;
+        }
+
+        .hero-card-detail {
+            font-size: 0.82rem;
+            color: var(--gray);
+            margin-top: 2px;
+        }
+
+        .hero-mini-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 40px;
+            margin-top: 12px;
+        }
+
+        .hero-mini-chart .bar {
+            width: 20px;
+            border-radius: 4px 4px 0 0;
+            background: rgba(196, 92, 38, 0.15);
+        }
+
+        .hero-mini-chart .bar.active {
+            background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+
+        .hero-stars {
+            display: flex;
+            gap: 2px;
+            color: #f59e0b;
+            margin-bottom: 8px;
+        }
+
+        /* Hero Animations */
+        @keyframes heroFadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes heroFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
 
         /* Business Model Section */
@@ -783,6 +975,32 @@
 
         /* Responsive */
         @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 48px;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-trust-line {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .hero-visual {
+                height: 380px;
+                max-width: 420px;
+                margin: 0 auto;
+            }
+
             .model-grid {
                 grid-template-columns: 1fr;
             }
@@ -809,19 +1027,16 @@
 
         @media (max-width: 768px) {
             .hero {
-                padding: 60px 0 80px;
+                padding: 60px 0 40px;
             }
 
-            .hero-metrics {
-                gap: 16px;
+            .hero-visual {
+                height: 340px;
             }
 
-            .metric {
-                padding: 18px 24px;
-            }
-
-            .metric-value {
-                font-size: 1.6rem;
+            .hero-trust-line {
+                flex-direction: column;
+                gap: 8px;
             }
 
             .business-model, .services, .value, .cta {
@@ -844,6 +1059,26 @@
         @media (max-width: 480px) {
             .trust-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                height: 300px;
+            }
+
+            .hero-card {
+                padding: 16px 18px;
+            }
+
+            .hero-card-lead {
+                left: 10px;
+            }
+
+            .hero-card-stats {
+                top: 120px;
+            }
+
+            .hero-card-review {
+                left: 15px;
             }
         }
     </style>
@@ -872,22 +1107,79 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <span class="hero-label">Digital Marketing Agency</span>
-                <h1>We Help Home Service Businesses <span>Generate Qualified Leads</span></h1>
-                <p>Iron Tiger Digital partners with local contractors and home service providers to build high-converting marketing funnels that drive revenue growth, strengthen online presence, and build lasting brand reputation.</p>
+                <div class="hero-text">
+                    <span class="hero-label">Digital Marketing for Home Services</span>
+                    <h1>We Help Contractors <span>Generate Qualified Leads</span></h1>
+                    <p>Iron Tiger Digital builds high-converting marketing systems for local home service businesses — so you can focus on the work, not the marketing.</p>
 
-                <div class="hero-metrics">
-                    <div class="metric">
-                        <div class="metric-value">100%</div>
-                        <div class="metric-label">Performance Focused</div>
+                    <div class="hero-buttons">
+                        <a href="#audit" class="btn-hero-primary">
+                            Get Your Free Audit
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+                        </a>
+                        <a href="#pricing" class="btn-hero-secondary">See Our Services</a>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">B2B</div>
-                        <div class="metric-label">Partnership Model</div>
+
+                    <div class="hero-trust-line">
+                        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> No contracts</span>
+                        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Cancel anytime</span>
+                        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Results in 30 days</span>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">ROI</div>
-                        <div class="metric-label">Driven Strategies</div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="hero-dashboard">
+                        <!-- Lead notification card -->
+                        <div class="hero-card hero-card-lead">
+                            <div class="hero-card-header">
+                                <div class="hero-card-icon green">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                </div>
+                                <div>
+                                    <div class="hero-card-title">New Lead Received</div>
+                                    <div class="hero-card-subtitle">Just now · Roofing</div>
+                                </div>
+                            </div>
+                            <div class="hero-card-detail">"Need a roof estimate for my 2,400 sq ft home"</div>
+                        </div>
+
+                        <!-- Stats card -->
+                        <div class="hero-card hero-card-stats">
+                            <div class="hero-card-header">
+                                <div class="hero-card-icon orange">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M5 9.2h3V19H5V9.2zM10.6 5h2.8v14h-2.8V5zm5.6 8H19v6h-2.8v-6z"/></svg>
+                                </div>
+                                <div>
+                                    <div class="hero-card-title">Monthly Leads</div>
+                                    <div class="hero-card-subtitle">Last 30 days</div>
+                                </div>
+                            </div>
+                            <div class="hero-card-metric green-text">+47%</div>
+                            <div class="hero-card-detail">vs. previous month</div>
+                            <div class="hero-mini-chart">
+                                <div class="bar" style="height: 40%"></div>
+                                <div class="bar" style="height: 55%"></div>
+                                <div class="bar" style="height: 45%"></div>
+                                <div class="bar" style="height: 65%"></div>
+                                <div class="bar" style="height: 50%"></div>
+                                <div class="bar" style="height: 75%"></div>
+                                <div class="bar active" style="height: 90%"></div>
+                                <div class="bar active" style="height: 100%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Review card -->
+                        <div class="hero-card hero-card-review">
+                            <div class="hero-stars">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            </div>
+                            <div class="hero-card-metric">4.9</div>
+                            <div class="hero-card-detail">Google Business Rating · 28 reviews</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1175,7 +1467,7 @@
     </section>
 
     <!-- Email Capture Section -->
-    <section class="email-capture" style="padding: 80px 0; background: var(--light);">
+    <section class="email-capture" id="audit" style="padding: 80px 0; background: var(--light);">
         <div class="container" style="max-width: 600px; text-align: center;">
             <span class="section-label">Free Marketing Audit</span>
             <h2 class="section-title" style="margin-bottom: 16px;">Get a Free Website & SEO Analysis</h2>
