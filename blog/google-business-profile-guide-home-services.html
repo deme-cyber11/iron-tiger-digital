@@ -449,6 +449,64 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            header nav.container {
+                position: relative;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: calc(100% + 16px);
+                left: 0;
+                right: 0;
+                background: var(--white);
+                padding: 20px 24px;
+                border-bottom: 1px solid rgba(0,0,0,0.06);
+                box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+                flex-direction: column;
+                gap: 4px;
+                z-index: 99;
+                border-radius: 0 0 12px 12px;
+            }
+
+            .nav-links > a,
+            .dropdown-toggle {
+                padding: 12px 0;
+                border-bottom: 1px solid rgba(0,0,0,0.04);
+            }
+
+            .nav-links > a:last-child {
+                border-bottom: none;
+            }
+
+            .nav-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .nav-toggle:checked ~ .hamburger span {
+                background: transparent;
+            }
+
+            .nav-toggle:checked ~ .hamburger span::before {
+                top: 0;
+                transform: rotate(45deg);
+            }
+
+            .nav-toggle:checked ~ .hamburger span::after {
+                top: 0;
+                transform: rotate(-45deg);
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                padding: 0 0 0 16px;
+            }
+
             .article-hero {
                 padding: 40px 0 32px;
             }
@@ -490,12 +548,23 @@
                 margin: 0 20px 60px;
             }
 
-            .nav-links {
-                display: none;
-            }
-
             .breadcrumb {
                 margin-bottom: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .article-hero {
+                padding: 32px 0 24px;
+            }
+
+            .article-body {
+                padding: 32px 0 48px;
+            }
+
+            .article-body p,
+            .article-body li {
+                font-size: 0.95rem;
             }
         }
     </style>
@@ -508,6 +577,8 @@
                 <div class="logo-icon">IT</div>
                 Iron Tiger Digital
             </a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="hamburger" aria-label="Toggle menu"><span></span></label>
             <div class="nav-links">
                 <div class="dropdown">
                     <a href="#" class="dropdown-toggle">Services <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg></a>

@@ -428,9 +428,20 @@
             .article-cta {
                 padding: 60px 0;
             }
+        }
 
-            .header-nav {
-                display: none;
+        @media (max-width: 480px) {
+            .article-hero {
+                padding: 32px 0 24px;
+            }
+
+            .article-body {
+                padding: 32px 0 48px;
+            }
+
+            .article-body p,
+            .article-body li {
+                font-size: 0.95rem;
             }
         }
     </style>
@@ -444,6 +455,8 @@
                     <div class="logo-icon">IT</div>
                     <span style="font-weight:700;font-size:1.1rem;">Iron Tiger Digital</span>
                 </a>
+                <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                <label for="nav-toggle" class="hamburger" aria-label="Toggle menu"><span></span></label>
                 <nav class="header-nav" aria-label="Main navigation">
                     <a href="../index.html#pricing" style="color: var(--primary); text-decoration: none; font-weight: 600; margin-right: 24px;">Get Started</a>
                     <a href="../index.html#contact" style="color: var(--secondary); text-decoration: none; font-weight: 500;">Contact</a>

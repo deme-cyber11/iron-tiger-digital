@@ -1032,6 +1032,14 @@
                 padding: 60px 0 40px;
             }
 
+            .hero h1 {
+                font-size: clamp(1.8rem, 6vw, 2.5rem);
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
             .hero-visual {
                 height: 340px;
             }
@@ -1042,7 +1050,7 @@
             }
 
             .business-model, .services, .value, .cta {
-                padding: 80px 0;
+                padding: 60px 0;
             }
 
             .coming-soon-badge {
@@ -1053,8 +1061,30 @@
                 grid-template-columns: 1fr;
             }
 
+            .pricing-card {
+                padding: 36px 28px;
+            }
+
             .contact-content {
                 grid-template-columns: 1fr;
+            }
+
+            .contact-cta {
+                padding: 36px 28px;
+            }
+
+            .model-card {
+                padding: 28px;
+            }
+
+            .service-card {
+                padding: 28px;
+            }
+
+            .btn-hero-primary,
+            .btn-hero-secondary {
+                padding: 14px 24px;
+                font-size: 0.95rem;
             }
         }
 
@@ -1063,24 +1093,88 @@
                 grid-template-columns: 1fr;
             }
 
+            .hero {
+                padding: 40px 0 32px;
+            }
+
             .hero-visual {
-                height: 300px;
+                height: 280px;
+                max-width: 100%;
             }
 
             .hero-card {
-                padding: 16px 18px;
+                padding: 14px 16px;
             }
 
             .hero-card-lead {
-                left: 10px;
+                left: 5px;
+                right: 5px;
             }
 
             .hero-card-stats {
-                top: 120px;
+                top: 110px;
+                left: 0;
+                right: 10px;
             }
 
             .hero-card-review {
-                left: 15px;
+                left: 10px;
+                right: 0;
+            }
+
+            .hero-card-metric {
+                font-size: 1.4rem;
+            }
+
+            .hero-card-title {
+                font-size: 0.85rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-hero-primary,
+            .btn-hero-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .business-model, .services, .value, .cta {
+                padding: 48px 0;
+            }
+
+            .model-card, .service-card {
+                padding: 24px;
+            }
+
+            .pricing-card {
+                padding: 32px 24px;
+            }
+
+            .pricing-amount {
+                font-size: 2.75rem;
+            }
+
+            .contact-cta {
+                padding: 28px 20px;
+            }
+
+            .value-visual {
+                padding: 20px;
+                gap: 12px;
+            }
+
+            .value-stat-card {
+                padding: 16px;
+            }
+
+            .value-stat-card .big-number {
+                font-size: 1.5rem;
+            }
+
+            .cta-notice {
+                padding: 16px 20px;
             }
         }
     </style>
@@ -1094,7 +1188,9 @@
                     <div class="logo-icon">IT</div>
                     Iron Tiger Digital
                 </div>
-<nav class="header-nav" aria-label="Main navigation">
+                <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                <label for="nav-toggle" class="hamburger" aria-label="Toggle menu"><span></span></label>
+                <nav class="header-nav" aria-label="Main navigation">
                     <a href="#pricing" style="color: var(--secondary); text-decoration: none; font-weight: 500; margin-right: 24px;">Services</a>
                     <a href="blog/" style="color: var(--secondary); text-decoration: none; font-weight: 500; margin-right: 24px;">Blog</a>
                     <a href="#contact" style="color: var(--secondary); text-decoration: none; font-weight: 500; margin-right: 24px;">Contact</a>

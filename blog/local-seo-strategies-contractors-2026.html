@@ -386,13 +386,36 @@
                 padding: 60px 0;
             }
 
-            .header-nav {
-                display: none;
-            }
-
             .article-meta {
                 flex-wrap: wrap;
                 gap: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .article-hero {
+                padding: 32px 0 24px;
+            }
+
+            .article-content {
+                padding: 32px 0 48px;
+            }
+
+            .article-content p,
+            .article-content li {
+                font-size: 0.95rem;
+            }
+
+            .related-articles {
+                padding: 48px 0;
+            }
+
+            .related-grid {
+                gap: 20px;
+            }
+
+            .related-card-content {
+                padding: 20px;
             }
         }
     </style>
@@ -406,6 +429,8 @@
                     <div class="logo-icon">IT</div>
                     <span style="font-weight:700;font-size:1.1rem;">Iron Tiger Digital</span>
                 </a>
+                <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                <label for="nav-toggle" class="hamburger" aria-label="Toggle menu"><span></span></label>
                 <nav class="header-nav" aria-label="Main navigation">
                     <a href="../index.html#pricing" style="color: var(--primary); text-decoration: none; font-weight: 600; margin-right: 24px;">Get Started</a>
                     <a href="../index.html#contact" style="color: var(--secondary); text-decoration: none; font-weight: 500;">Contact</a>
