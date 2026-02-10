@@ -51,10 +51,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/shared.css">
     <style>
-        /* Hero */
+        /* Hero Section */
         .hero {
-            padding: 100px 0 120px;
-            background: linear-gradient(180deg, var(--light) 0%, var(--white) 100%);
+            padding: 100px 0 80px;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(196, 92, 38, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(196, 92, 38, 0.06) 0%, transparent 50%),
+                linear-gradient(180deg, #fef6f0 0%, #fdfaf7 60%, var(--white) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -66,13 +69,28 @@
             right: -20%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(196, 92, 38, 0.06) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(196, 92, 38, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(196, 92, 38, 0.05) 0%, transparent 70%);
             border-radius: 50%;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
 
         .hero-label {
@@ -86,16 +104,17 @@
             margin-bottom: 24px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            animation: heroFadeUp 0.6s ease both;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
             font-weight: 800;
             color: var(--secondary);
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             line-height: 1.15;
             letter-spacing: -1px;
-            max-width: 700px;
+            animation: heroFadeUp 0.6s ease 0.1s both;
         }
 
         .hero h1 span {
@@ -106,16 +125,27 @@
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--gray);
-            max-width: 580px;
-            margin-bottom: 40px;
+            max-width: 480px;
+            margin-bottom: 32px;
             line-height: 1.8;
+            animation: heroFadeUp 0.6s ease 0.2s both;
         }
 
-        .hero-cta {
-            display: inline-block;
-            padding: 18px 36px;
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+            animation: heroFadeUp 0.6s ease 0.3s both;
+        }
+
+        .btn-hero-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
             text-decoration: none;
@@ -123,11 +153,206 @@
             font-weight: 600;
             font-size: 1rem;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(196, 92, 38, 0.3);
         }
 
-        .hero-cta:hover {
+        .btn-hero-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(196, 92, 38, 0.4);
+        }
+
+        .btn-hero-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            background: transparent;
+            color: var(--secondary);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 2px solid rgba(0, 0, 0, 0.12);
+            transition: all 0.3s ease;
+        }
+
+        .btn-hero-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .hero-trust-line {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 0.85rem;
+            color: var(--gray);
+            animation: heroFadeUp 0.6s ease 0.4s both;
+        }
+
+        .hero-trust-line span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hero-trust-line svg {
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        /* Hero Visual — Dashboard Mockup */
+        .hero-visual {
+            position: relative;
+            height: 460px;
+            animation: heroFadeIn 0.8s ease 0.3s both;
+        }
+
+        .hero-card {
+            position: absolute;
+            background: var(--white);
+            border-radius: 16px;
+            padding: 20px 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            animation: heroFloat 6s ease-in-out infinite;
+        }
+
+        .hero-card-lead {
+            top: 10px;
+            right: 0;
+            left: 20px;
+            z-index: 3;
+        }
+
+        .hero-card-stats {
+            top: 150px;
+            right: 10px;
+            left: 0;
+            z-index: 2;
+            animation-delay: -2s;
+        }
+
+        .hero-card-review {
+            bottom: 20px;
+            right: 0;
+            left: 30px;
+            z-index: 1;
+            animation-delay: -4s;
+        }
+
+        .hero-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .hero-card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .hero-card-icon.green { background: rgba(34, 197, 94, 0.1); color: #22c55e; }
+        .hero-card-icon.orange { background: rgba(196, 92, 38, 0.1); color: var(--primary); }
+        .hero-card-icon.blue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+
+        .hero-card-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--secondary);
+        }
+
+        .hero-card-subtitle {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        .hero-card-metric {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--secondary);
+            letter-spacing: -1px;
+        }
+
+        .hero-card-metric.green-text { color: #22c55e; }
+
+        .hero-card-detail {
+            font-size: 0.82rem;
+            color: var(--gray);
+            margin-top: 2px;
+        }
+
+        .hero-mini-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 40px;
+            margin-top: 12px;
+        }
+
+        .hero-mini-chart .bar {
+            width: 20px;
+            border-radius: 4px 4px 0 0;
+            background: rgba(196, 92, 38, 0.15);
+        }
+
+        .hero-mini-chart .bar.active {
+            background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+
+        /* Funnel Steps Visual */
+        .hero-funnel-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .funnel-step {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.82rem;
+        }
+
+        .funnel-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+
+        .funnel-step-label {
+            color: var(--gray);
+            white-space: nowrap;
+            min-width: 80px;
+        }
+
+        .funnel-step-value {
+            font-weight: 700;
+            color: var(--secondary);
+            white-space: nowrap;
+        }
+
+        /* Hero Animations */
+        @keyframes heroFadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes heroFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
 
         /* What We Do */
@@ -396,6 +621,15 @@
 
         /* Responsive */
         @media (max-width: 968px) {
+            .hero-content { grid-template-columns: 1fr; text-align: center; gap: 48px; }
+            .hero p { margin-left: auto; margin-right: auto; }
+            .hero-buttons { justify-content: center; }
+            .hero-trust-line { justify-content: center; flex-wrap: wrap; }
+            .hero-visual { height: auto; max-width: 420px; margin: 0 auto; }
+            .hero-card { position: relative; top: auto; right: auto; bottom: auto; left: auto; margin-bottom: 16px; }
+            .hero-card:last-child { margin-bottom: 0; }
+            .hero-card-lead, .hero-card-stats, .hero-card-review { top: auto; right: auto; bottom: auto; left: auto; }
+
             .capabilities-grid,
             .benefits-grid {
                 grid-template-columns: 1fr;
@@ -419,6 +653,10 @@
             .hero p {
                 font-size: 1.05rem;
             }
+
+            .hero-card { animation: none; }
+            .btn-hero-primary, .btn-hero-secondary { padding: 14px 24px; font-size: 0.95rem; }
+            .hero-trust-line { flex-direction: column; gap: 8px; }
 
             .what-we-do, .how-it-works, .why-choose, .related-services, .cta {
                 padding: 60px 0;
@@ -447,10 +685,11 @@
                 padding: 40px 0 40px;
             }
 
-            .hero-cta {
-                padding: 16px 28px;
-                font-size: 0.95rem;
-            }
+            .hero-card { padding: 14px 16px; }
+            .hero-card-metric { font-size: 1.4rem; }
+            .hero-card-title { font-size: 0.85rem; }
+            .hero-buttons { flex-direction: column; }
+            .btn-hero-primary, .btn-hero-secondary { width: 100%; justify-content: center; }
 
             .what-we-do, .how-it-works, .why-choose, .related-services, .cta {
                 padding: 48px 0;
@@ -481,6 +720,12 @@
                 padding: 14px 20px;
             }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-text { animation: none; }
+            .hero-visual { animation: none; }
+            .hero-card { animation: none; }
+        }
     </style>
 </head>
 <body>
@@ -506,10 +751,99 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <span class="hero-label">Marketing Funnels</span>
-                    <h1>Marketing Funnels That Turn Clicks Into <span>Booked Jobs</span></h1>
-                    <p>Most contractor websites are digital brochures that sit there doing nothing. Our marketing funnels are conversion machines that guide homeowners step by step from first click to scheduled appointment.</p>
-                    <a href="../checkout.html" class="hero-cta">Build Your Funnel</a>
+                    <div class="hero-text">
+                        <span class="hero-label">Marketing Funnels</span>
+                        <h1>Turn Website Visitors Into <span>Booked Appointments</span></h1>
+                        <p>Custom-built marketing funnels that guide homeowners from their first click to a booked job. Designed specifically for the home services buying journey.</p>
+
+                        <div class="hero-buttons">
+                            <a href="../checkout.html" class="btn-hero-primary">
+                                Build Your Funnel
+                                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+                            </a>
+                            <a href="../index.html#pricing" class="btn-hero-secondary">See Pricing</a>
+                        </div>
+
+                        <div class="hero-trust-line">
+                            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Custom-built funnels</span>
+                            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> A/B tested</span>
+                            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Conversion optimized</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-visual">
+                        <div class="hero-dashboard">
+                            <!-- Funnel performance card -->
+                            <div class="hero-card hero-card-lead">
+                                <div class="hero-card-header">
+                                    <div class="hero-card-icon orange">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/></svg>
+                                    </div>
+                                    <div>
+                                        <div class="hero-card-title">Funnel Performance</div>
+                                        <div class="hero-card-subtitle">This month</div>
+                                    </div>
+                                </div>
+                                <div class="hero-funnel-steps">
+                                    <div class="funnel-step">
+                                        <span class="funnel-step-label">Visitors</span>
+                                        <div class="funnel-bar" style="width: 100%"></div>
+                                        <span class="funnel-step-value">2,340</span>
+                                    </div>
+                                    <div class="funnel-step">
+                                        <span class="funnel-step-label">Form Starts</span>
+                                        <div class="funnel-bar" style="width: 60%"></div>
+                                        <span class="funnel-step-value">842</span>
+                                    </div>
+                                    <div class="funnel-step">
+                                        <span class="funnel-step-label">Booked</span>
+                                        <div class="funnel-bar" style="width: 25%"></div>
+                                        <span class="funnel-step-value">428</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Conversion rate card -->
+                            <div class="hero-card hero-card-stats">
+                                <div class="hero-card-header">
+                                    <div class="hero-card-icon green">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+                                    </div>
+                                    <div>
+                                        <div class="hero-card-title">Conversion Rate</div>
+                                        <div class="hero-card-subtitle">Last 30 days</div>
+                                    </div>
+                                </div>
+                                <div class="hero-card-metric green-text">18.3%</div>
+                                <div class="hero-card-detail">+5.2% vs. previous month</div>
+                                <div class="hero-mini-chart">
+                                    <div class="bar" style="height: 40%"></div>
+                                    <div class="bar" style="height: 50%"></div>
+                                    <div class="bar" style="height: 45%"></div>
+                                    <div class="bar" style="height: 55%"></div>
+                                    <div class="bar" style="height: 65%"></div>
+                                    <div class="bar" style="height: 75%"></div>
+                                    <div class="bar active" style="height: 88%"></div>
+                                    <div class="bar active" style="height: 100%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Booked appointments card -->
+                            <div class="hero-card hero-card-review">
+                                <div class="hero-card-header">
+                                    <div class="hero-card-icon blue">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></svg>
+                                    </div>
+                                    <div>
+                                        <div class="hero-card-title">Booked This Week</div>
+                                        <div class="hero-card-subtitle">From funnel traffic</div>
+                                    </div>
+                                </div>
+                                <div class="hero-card-metric">14</div>
+                                <div class="hero-card-detail">Appointments from funnel</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -681,5 +1015,15 @@
             </div>
         </div>
     </footer>
+
+<!-- Sticky Mobile CTA -->
+<div class="sticky-cta" id="stickyCta">
+    <button class="sticky-cta-close" onclick="document.getElementById('stickyCta').remove()" aria-label="Dismiss">&times;</button>
+    <div class="sticky-cta-text">Ready to grow?<small>$300 setup + $300/mo</small></div>
+    <a href="../checkout.html" class="sticky-cta-btn">Get Started</a>
+</div>
+<script>
+(function(){var c=document.getElementById('stickyCta');if(!c)return;window.addEventListener('scroll',function(){c.classList.toggle('visible',window.scrollY>300)},{passive:true})})();
+</script>
 </body>
 </html>

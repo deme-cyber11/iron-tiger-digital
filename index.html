@@ -1647,5 +1647,14 @@
         </div>
     </footer>
 
+<!-- Sticky Mobile CTA -->
+<div class="sticky-cta" id="stickyCta">
+    <button class="sticky-cta-close" onclick="document.getElementById('stickyCta').remove()" aria-label="Dismiss">&times;</button>
+    <div class="sticky-cta-text">Ready to grow?<small>$300 setup + $300/mo</small></div>
+    <a href="checkout.html" class="sticky-cta-btn">Get Started</a>
+</div>
+<script>
+(function(){var c=document.getElementById('stickyCta');if(!c)return;window.addEventListener('scroll',function(){c.classList.toggle('visible',window.scrollY>300)},{passive:true})})();
+</script>
 </body>
 </html>

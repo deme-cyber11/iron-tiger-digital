@@ -51,10 +51,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/shared.css">
     <style>
-        /* Hero */
+        /* Hero Section */
         .hero {
-            padding: 100px 0 120px;
-            background: linear-gradient(180deg, var(--light) 0%, var(--white) 100%);
+            padding: 100px 0 80px;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(196, 92, 38, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(196, 92, 38, 0.06) 0%, transparent 50%),
+                linear-gradient(180deg, #fef6f0 0%, #fdfaf7 60%, var(--white) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -66,13 +69,28 @@
             right: -20%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(196, 92, 38, 0.06) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(196, 92, 38, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(196, 92, 38, 0.05) 0%, transparent 70%);
             border-radius: 50%;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
 
         .hero-label {
@@ -86,16 +104,17 @@
             margin-bottom: 24px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            animation: heroFadeUp 0.6s ease both;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
             font-weight: 800;
             color: var(--secondary);
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             line-height: 1.15;
             letter-spacing: -1px;
-            max-width: 700px;
+            animation: heroFadeUp 0.6s ease 0.1s both;
         }
 
         .hero h1 span {
@@ -106,16 +125,27 @@
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--gray);
-            max-width: 580px;
-            margin-bottom: 40px;
+            max-width: 480px;
+            margin-bottom: 32px;
             line-height: 1.8;
+            animation: heroFadeUp 0.6s ease 0.2s both;
         }
 
-        .hero-cta {
-            display: inline-block;
-            padding: 18px 36px;
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+            animation: heroFadeUp 0.6s ease 0.3s both;
+        }
+
+        .btn-hero-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
             text-decoration: none;
@@ -123,11 +153,186 @@
             font-weight: 600;
             font-size: 1rem;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(196, 92, 38, 0.3);
         }
 
-        .hero-cta:hover {
+        .btn-hero-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(196, 92, 38, 0.4);
+        }
+
+        .btn-hero-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            background: transparent;
+            color: var(--secondary);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 2px solid rgba(0, 0, 0, 0.12);
+            transition: all 0.3s ease;
+        }
+
+        .btn-hero-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .hero-trust-line {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 0.85rem;
+            color: var(--gray);
+            animation: heroFadeUp 0.6s ease 0.4s both;
+        }
+
+        .hero-trust-line span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hero-trust-line svg {
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        /* Hero Visual — Dashboard Mockup */
+        .hero-visual {
+            position: relative;
+            height: 460px;
+            animation: heroFadeIn 0.8s ease 0.3s both;
+        }
+
+        .hero-card {
+            position: absolute;
+            background: var(--white);
+            border-radius: 16px;
+            padding: 20px 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            animation: heroFloat 6s ease-in-out infinite;
+        }
+
+        .hero-card-lead {
+            top: 10px;
+            right: 0;
+            left: 20px;
+            z-index: 3;
+        }
+
+        .hero-card-stats {
+            top: 150px;
+            right: 10px;
+            left: 0;
+            z-index: 2;
+            animation-delay: -2s;
+        }
+
+        .hero-card-review {
+            bottom: 20px;
+            right: 0;
+            left: 30px;
+            z-index: 1;
+            animation-delay: -4s;
+        }
+
+        .hero-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .hero-card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .hero-card-icon.green {
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+        }
+
+        .hero-card-icon.orange {
+            background: rgba(196, 92, 38, 0.1);
+            color: var(--primary);
+        }
+
+        .hero-card-icon.blue {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+        }
+
+        .hero-card-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--secondary);
+        }
+
+        .hero-card-subtitle {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        .hero-card-metric {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--secondary);
+            letter-spacing: -1px;
+        }
+
+        .hero-card-metric.green-text {
+            color: #22c55e;
+        }
+
+        .hero-card-detail {
+            font-size: 0.82rem;
+            color: var(--gray);
+            margin-top: 2px;
+        }
+
+        .hero-mini-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 40px;
+            margin-top: 12px;
+        }
+
+        .hero-mini-chart .bar {
+            width: 20px;
+            border-radius: 4px 4px 0 0;
+            background: rgba(196, 92, 38, 0.15);
+        }
+
+        .hero-mini-chart .bar.active {
+            background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+
+        /* Hero Animations */
+        @keyframes heroFadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes heroFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
 
         /* What We Do */
@@ -396,6 +601,19 @@
 
         /* Responsive */
         @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 48px;
+            }
+            .hero p { margin-left: auto; margin-right: auto; }
+            .hero-buttons { justify-content: center; }
+            .hero-trust-line { justify-content: center; flex-wrap: wrap; }
+            .hero-visual { height: auto; max-width: 420px; margin: 0 auto; }
+            .hero-card { position: relative; top: auto; right: auto; bottom: auto; left: auto; margin-bottom: 16px; }
+            .hero-card:last-child { margin-bottom: 0; }
+            .hero-card-lead, .hero-card-stats, .hero-card-review { top: auto; right: auto; bottom: auto; left: auto; }
+
             .capabilities-grid,
             .benefits-grid {
                 grid-template-columns: 1fr;
@@ -419,6 +637,10 @@
             .hero p {
                 font-size: 1.05rem;
             }
+
+            .hero-card { animation: none; }
+            .btn-hero-primary, .btn-hero-secondary { padding: 14px 24px; font-size: 0.95rem; }
+            .hero-trust-line { flex-direction: column; gap: 8px; }
 
             .what-we-do, .how-it-works, .why-choose, .related-services, .cta {
                 padding: 60px 0;
@@ -447,10 +669,11 @@
                 padding: 40px 0 40px;
             }
 
-            .hero-cta {
-                padding: 16px 28px;
-                font-size: 0.95rem;
-            }
+            .hero-card { padding: 14px 16px; }
+            .hero-card-metric { font-size: 1.4rem; }
+            .hero-card-title { font-size: 0.85rem; }
+            .hero-buttons { flex-direction: column; }
+            .btn-hero-primary, .btn-hero-secondary { width: 100%; justify-content: center; }
 
             .what-we-do, .how-it-works, .why-choose, .related-services, .cta {
                 padding: 48px 0;
@@ -481,6 +704,12 @@
                 padding: 14px 20px;
             }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-text { animation: none; }
+            .hero-visual { animation: none; }
+            .hero-card { animation: none; }
+        }
     </style>
 </head>
 <body>
@@ -506,10 +735,84 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <span class="hero-label">Local SEO</span>
-                    <h1>Rank #1 in Local Search for Your <span>Home Service Business</span></h1>
-                    <p>When homeowners search "plumber near me" or "HVAC repair in [your city]," your business should be the first result they see. Our local SEO strategies make that happen.</p>
-                    <a href="../checkout.html" class="hero-cta">Boost Your Local Rankings</a>
+                    <div class="hero-text">
+                        <span class="hero-label">Local SEO</span>
+                        <h1>Dominate Local Search Results for <span>Your Service Area</span></h1>
+                        <p>Get found by homeowners searching for contractors in your area. Our local SEO strategies put your business at the top of Google Maps and local search results.</p>
+
+                        <div class="hero-buttons">
+                            <a href="../checkout.html" class="btn-hero-primary">
+                                Boost Your Rankings
+                                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+                            </a>
+                            <a href="../index.html#pricing" class="btn-hero-secondary">See Pricing</a>
+                        </div>
+
+                        <div class="hero-trust-line">
+                            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Google Maps optimization</span>
+                            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Monthly reporting</span>
+                            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> No contracts</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-visual">
+                        <div class="hero-dashboard">
+                            <!-- Google ranking card -->
+                            <div class="hero-card hero-card-lead">
+                                <div class="hero-card-header">
+                                    <div class="hero-card-icon green">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+                                    </div>
+                                    <div>
+                                        <div class="hero-card-title">Google Ranking</div>
+                                        <div class="hero-card-subtitle">"HVAC repair near me"</div>
+                                    </div>
+                                </div>
+                                <div class="hero-card-metric green-text">#1</div>
+                                <div class="hero-card-detail">Up from #8 in 90 days</div>
+                            </div>
+
+                            <!-- Map pack views card -->
+                            <div class="hero-card hero-card-stats">
+                                <div class="hero-card-header">
+                                    <div class="hero-card-icon blue">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                                    </div>
+                                    <div>
+                                        <div class="hero-card-title">Map Pack Views</div>
+                                        <div class="hero-card-subtitle">Last 30 days</div>
+                                    </div>
+                                </div>
+                                <div class="hero-card-metric">2,847</div>
+                                <div class="hero-card-detail">+34% vs. previous month</div>
+                                <div class="hero-mini-chart">
+                                    <div class="bar" style="height: 30%"></div>
+                                    <div class="bar" style="height: 45%"></div>
+                                    <div class="bar" style="height: 55%"></div>
+                                    <div class="bar" style="height: 50%"></div>
+                                    <div class="bar" style="height: 70%"></div>
+                                    <div class="bar" style="height: 65%"></div>
+                                    <div class="bar active" style="height: 85%"></div>
+                                    <div class="bar active" style="height: 100%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Search visibility card -->
+                            <div class="hero-card hero-card-review">
+                                <div class="hero-card-header">
+                                    <div class="hero-card-icon orange">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                                    </div>
+                                    <div>
+                                        <div class="hero-card-title">Search Visibility</div>
+                                        <div class="hero-card-subtitle">Local keywords</div>
+                                    </div>
+                                </div>
+                                <div class="hero-card-metric">94%</div>
+                                <div class="hero-card-detail">Keywords ranking on page 1</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -681,5 +984,15 @@
             </div>
         </div>
     </footer>
+
+<!-- Sticky Mobile CTA -->
+<div class="sticky-cta" id="stickyCta">
+    <button class="sticky-cta-close" onclick="document.getElementById('stickyCta').remove()" aria-label="Dismiss">&times;</button>
+    <div class="sticky-cta-text">Ready to grow?<small>$300 setup + $300/mo</small></div>
+    <a href="../checkout.html" class="sticky-cta-btn">Get Started</a>
+</div>
+<script>
+(function(){var c=document.getElementById('stickyCta');if(!c)return;window.addEventListener('scroll',function(){c.classList.toggle('visible',window.scrollY>300)},{passive:true})})();
+</script>
 </body>
 </html>
