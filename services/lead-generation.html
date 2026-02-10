@@ -606,7 +606,7 @@
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 48px;
+                gap: 32px;
             }
 
             .hero p {
@@ -664,7 +664,11 @@
 
         @media (max-width: 768px) {
             .hero {
-                padding: 60px 0 60px;
+                padding: 40px 0 40px;
+            }
+
+            .hero-content {
+                gap: 24px;
             }
 
             .hero h1 {
@@ -673,10 +677,12 @@
 
             .hero p {
                 font-size: 1.05rem;
+                margin-bottom: 20px;
             }
 
             .hero-card {
                 animation: none;
+                margin-bottom: 12px;
             }
 
             .btn-hero-primary,
@@ -714,11 +720,28 @@
 
         @media (max-width: 480px) {
             .hero {
-                padding: 40px 0 40px;
+                padding: 24px 0 24px;
+            }
+
+            .hero-content {
+                gap: 16px;
+            }
+
+            .hero-label {
+                margin-bottom: 16px;
+            }
+
+            .hero p {
+                margin-bottom: 16px;
+            }
+
+            .hero-buttons {
+                margin-bottom: 16px;
             }
 
             .hero-card {
                 padding: 14px 16px;
+                margin-bottom: 10px;
             }
 
             .hero-card-metric {
