@@ -80,8 +80,8 @@ header {
 .hamburger {
     display: none;
     cursor: pointer;
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
     align-items: center;
     justify-content: center;
     background: none;
@@ -282,6 +282,13 @@ footer {
     footer {
         padding: 48px 0 32px;
     }
+
+    /* Footer link touch targets */
+    .footer-info a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
 }
 
 /* Responsive — Mobile */
@@ -315,5 +322,14 @@ footer {
 
     .footer-brand {
         max-width: 100%;
+    }
+}
+
+/* Accessibility — Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }

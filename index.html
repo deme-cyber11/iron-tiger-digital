@@ -1105,6 +1105,10 @@
                 padding: 14px 24px;
                 font-size: 0.95rem;
             }
+
+            .hero-card {
+                animation: none;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1174,6 +1178,13 @@
             .cta-notice {
                 padding: 16px 20px;
             }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-text { animation: none; }
+            .hero-visual { animation: none; }
+            .hero-card { animation: none; }
+            html { scroll-behavior: auto; }
         }
     </style>
 </head>
@@ -1572,9 +1583,9 @@
                 <input type="hidden" name="_subject" value="Free Marketing Audit Request">
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_next" value="https://irontigerdigital.com/success.html">
-                <input type="text" name="name" placeholder="Your Name" required style="padding: 16px 20px; border: 2px solid #e5e7eb; border-radius: 12px; font-family: inherit; font-size: 1rem; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
-                <input type="email" name="email" placeholder="Your Email" required style="padding: 16px 20px; border: 2px solid #e5e7eb; border-radius: 12px; font-family: inherit; font-size: 1rem; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
-                <input type="text" name="website" placeholder="Your Website URL (optional)" style="padding: 16px 20px; border: 2px solid #e5e7eb; border-radius: 12px; font-family: inherit; font-size: 1rem; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
+                <input type="text" name="name" placeholder="Your Name" required style="padding: 16px 20px; border: 2px solid #e5e7eb; border-radius: 12px; font-family: inherit; font-size: 16px; width: 100%; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
+                <input type="email" name="email" placeholder="Your Email" required style="padding: 16px 20px; border: 2px solid #e5e7eb; border-radius: 12px; font-family: inherit; font-size: 16px; width: 100%; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
+                <input type="text" name="website" placeholder="Your Website URL (optional)" style="padding: 16px 20px; border: 2px solid #e5e7eb; border-radius: 12px; font-family: inherit; font-size: 16px; width: 100%; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
                 <button type="submit" class="btn-payment" style="border: none; cursor: pointer; font-size: 1rem; padding: 18px 32px;">Get My Free Audit</button>
             </form>
             <p style="color: var(--gray); font-size: 0.85rem; margin-top: 16px;">No spam. No obligation. Just actionable insights.</p>
