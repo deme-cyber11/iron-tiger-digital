@@ -997,10 +997,33 @@
                 flex-wrap: wrap;
             }
 
+            /* Switch hero cards from absolute to stacked layout on mobile */
             .hero-visual {
-                height: 380px;
+                height: auto;
                 max-width: 420px;
                 margin: 0 auto;
+            }
+
+            .hero-card {
+                position: relative;
+                top: auto;
+                right: auto;
+                bottom: auto;
+                left: auto;
+                margin-bottom: 16px;
+            }
+
+            .hero-card:last-child {
+                margin-bottom: 0;
+            }
+
+            .hero-card-lead,
+            .hero-card-stats,
+            .hero-card-review {
+                top: auto;
+                right: auto;
+                bottom: auto;
+                left: auto;
             }
 
             .model-grid {
@@ -1038,10 +1061,6 @@
 
             .hero p {
                 font-size: 1rem;
-            }
-
-            .hero-visual {
-                height: 340px;
             }
 
             .hero-trust-line {
@@ -1097,29 +1116,8 @@
                 padding: 40px 0 32px;
             }
 
-            .hero-visual {
-                height: 280px;
-                max-width: 100%;
-            }
-
             .hero-card {
                 padding: 14px 16px;
-            }
-
-            .hero-card-lead {
-                left: 5px;
-                right: 5px;
-            }
-
-            .hero-card-stats {
-                top: 110px;
-                left: 0;
-                right: 10px;
-            }
-
-            .hero-card-review {
-                left: 10px;
-                right: 0;
             }
 
             .hero-card-metric {
