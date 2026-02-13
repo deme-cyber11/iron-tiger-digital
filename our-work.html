@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work — Sites Built for Home Services | Iron Tiger Digital</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="See the websites and marketing systems Iron Tiger Digital has built for home service businesses. Real projects, real results.">
+    <meta name="author" content="Iron Tiger Digital">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://irontigerdigital.com/our-work.html">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://irontigerdigital.com/our-work.html">
+    <meta property="og:title" content="Our Work — Sites Built for Home Services | Iron Tiger Digital">
+    <meta property="og:description" content="See the websites and marketing systems Iron Tiger Digital has built for home service businesses. Real projects, real results.">
+    <meta property="og:image" content="https://www.irontigerdigital.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Our Work — Sites Built for Home Services | Iron Tiger Digital">
+    <meta name="twitter:description" content="See the websites and marketing systems Iron Tiger Digital has built for home service businesses. Real projects, real results.">
+    <meta name="twitter:image" content="https://www.irontigerdigital.com/og-image.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Iron Tiger Digital Portfolio",
+        "description": "Websites and marketing systems built for home service businesses by Iron Tiger Digital.",
+        "url": "https://irontigerdigital.com/our-work.html",
+        "numberOfItems": 4,
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Ruben & Sons Landscaping",
+                "url": "https://deme-cyber11.github.io/ruben-sons-landscaping/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Iron Lot Homes",
+                "url": "https://deme-cyber11.github.io/iron-lot-homes/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Jacksonville Epoxy Flooring",
+                "url": "https://deme-cyber11.github.io/jacksonville-epoxy-flooring/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Phoenix Pool Resurfacing",
+                "url": "https://deme-cyber11.github.io/phoenix-pool-resurfacing/"
+            }
+        ]
+    }
+    </script>
+
+    <!-- Favicon & Manifest -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/shared.css">
+    <style>
+        /* Hero Section */
+        .hero {
+            padding: 100px 0 80px;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(196, 92, 38, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(196, 92, 38, 0.06) 0%, transparent 50%),
+                linear-gradient(180deg, #fef6f0 0%, #fdfaf7 60%, var(--white) 100%);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(196, 92, 38, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(196, 92, 38, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: rgba(196, 92, 38, 0.1);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            animation: heroFadeUp 0.6s ease both;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            animation: heroFadeUp 0.6s ease 0.1s both;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 580px;
+            margin: 0 auto;
+            line-height: 1.8;
+            animation: heroFadeUp 0.6s ease 0.2s both;
+        }
+
+        /* Hero Animations */
+        @keyframes heroFadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 56px;
+        }
+
+        .portfolio-card {
+            background: var(--white);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.1);
+        }
+
+        /* CSS Laptop Frame */
+        .laptop-frame {
+            padding: 20px 20px 0;
+            background: var(--light);
+        }
+
+        .laptop-bezel {
+            background: #2a2a2a;
+            border-radius: 12px 12px 0 0;
+            padding: 12px 16px 0;
+        }
+
+        .laptop-dots {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .laptop-dots span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .laptop-dots span:first-child { background: #ff5f57; }
+        .laptop-dots span:nth-child(2) { background: #ffbd2e; }
+        .laptop-dots span:nth-child(3) { background: #28ca41; }
+
+        .laptop-screen {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .laptop-screen::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255, 255, 255, 0.03) 0px,
+                    rgba(255, 255, 255, 0.03) 1px,
+                    transparent 1px,
+                    transparent 40px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.03) 0px,
+                    rgba(255, 255, 255, 0.03) 1px,
+                    transparent 1px,
+                    transparent 40px
+                );
+            pointer-events: none;
+        }
+
+        .laptop-screen-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            letter-spacing: -0.3px;
+            padding: 0 20px;
+        }
+
+        .laptop-base {
+            height: 16px;
+            background: #333;
+            border-radius: 0 0 4px 4px;
+            margin: 0 -4px;
+            position: relative;
+        }
+
+        .laptop-base::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 0 0 4px 4px;
+        }
+
+        /* Card Content */
+        .portfolio-card-content {
+            padding: 28px 28px 32px;
+        }
+
+        .portfolio-tag {
+            display: inline-block;
+            background: rgba(196, 92, 38, 0.1);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+        }
+
+        .portfolio-card-content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 6px;
+            letter-spacing: -0.3px;
+        }
+
+        .portfolio-area {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .portfolio-stats {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            line-height: 1.6;
+        }
+
+        .portfolio-stats strong {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .btn-demo {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(196, 92, 38, 0.2);
+        }
+
+        .btn-demo:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(196, 92, 38, 0.35);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: var(--light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-top: 56px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 36px;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .feature-icon {
+            width: 52px;
+            height: 52px;
+            background: rgba(196, 92, 38, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 0.92rem;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .cta::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            right: -150px;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta h2 {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .cta p {
+            opacity: 0.9;
+            max-width: 500px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+        }
+
+        .cta-notice {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px 36px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 28px;
+        }
+
+        .cta-notice strong {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-notice span {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 18px 36px;
+            background: var(--white);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive — 968px */
+        @media (max-width: 968px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        /* Responsive — 768px */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0 40px;
+            }
+
+            .hero h1 {
+                font-size: clamp(1.8rem, 6vw, 2.5rem);
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .portfolio, .features, .cta {
+                padding: 60px 0;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .portfolio-card-content {
+                padding: 24px 24px 28px;
+            }
+
+            .feature-card {
+                padding: 28px;
+            }
+        }
+
+        /* Responsive — 480px */
+        @media (max-width: 480px) {
+            .hero {
+                padding: 40px 0 32px;
+            }
+
+            .portfolio, .features, .cta {
+                padding: 48px 0;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-card-content {
+                padding: 20px 20px 24px;
+            }
+
+            .feature-card {
+                padding: 24px;
+            }
+
+            .btn-demo {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .cta-notice {
+                padding: 16px 20px;
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            .hero-label,
+            .hero h1,
+            .hero p {
+                animation: none;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body { background: white; color: black; }
+            header, footer, .sticky-cta, .cta { display: none; }
+            .hero { background: white; padding: 20px 0; }
+            .hero::before, .hero::after { display: none; }
+            .portfolio-card { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+            .laptop-frame { background: #f5f5f5; }
+            .btn-demo::after { content: " (" attr(href) ")"; font-weight: 400; font-size: 0.8rem; }
+            a[href]::after { content: " (" attr(href) ")"; font-size: 0.75rem; color: #666; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:12px;">
+                    <div class="logo-icon">IT</div>
+                    <span style="font-weight:700;font-size:1.1rem;">Iron Tiger Digital</span>
+                </a>
+                <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                <label for="nav-toggle" class="hamburger" aria-label="Toggle menu"><span></span></label>
+                <nav class="header-nav" aria-label="Main navigation">
+                    <a href="our-work.html" style="color: var(--primary); text-decoration: none; font-weight: 600; margin-right: 24px;">Our Work</a>
+                    <a href="how-it-works.html" style="color: var(--secondary); text-decoration: none; font-weight: 500; margin-right: 24px;">How It Works</a>
+                    <a href="index.html#pricing" style="color: var(--secondary); text-decoration: none; font-weight: 500; margin-right: 24px;">Services</a>
+                    <a href="blog/" style="color: var(--secondary); text-decoration: none; font-weight: 500; margin-right: 24px;">Blog</a>
+                    <a href="index.html#contact" style="color: var(--secondary); text-decoration: none; font-weight: 500; margin-right: 24px;">Contact</a>
+                    <a href="checkout.html" style="color: var(--primary); text-decoration: none; font-weight: 600;">Get Started</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <span class="hero-label">Portfolio</span>
+            <h1>Built for <span>Home Services</span></h1>
+            <p>Every site we build is designed with one goal: help home service businesses get found online and convert visitors into paying customers.</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio">
+        <div class="container">
+            <span class="section-label">Our Projects</span>
+            <h2 class="section-title">Sites We Have Built</h2>
+            <p class="section-subtitle">Each project is tailored to the business, its service area, and its target customers. Here is a look at our recent work.</p>
+
+            <div class="portfolio-grid">
+                <!-- Card 1: Ruben & Sons Landscaping -->
+                <div class="portfolio-card">
+                    <div class="laptop-frame">
+                        <div class="laptop-bezel">
+                            <div class="laptop-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="laptop-screen" style="background: linear-gradient(135deg, #2D5A27 0%, #1a3d18 100%);">
+                                <div class="laptop-screen-text">Ruben & Sons Landscaping</div>
+                            </div>
+                        </div>
+                        <div class="laptop-base"></div>
+                    </div>
+                    <div class="portfolio-card-content">
+                        <span class="portfolio-tag">Tree Service & Landscaping</span>
+                        <h3>Ruben & Sons Landscaping</h3>
+                        <div class="portfolio-area">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            Silver Spring, MD (DMV area)
+                        </div>
+                        <div class="portfolio-stats">
+                            <strong>47+ pages</strong> | 15 location pages | 17 blog articles | 6 service pages
+                        </div>
+                        <a href="https://deme-cyber11.github.io/ruben-sons-landscaping/" target="_blank" rel="noopener" class="btn-demo">
+                            View Live Demo
+                            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Iron Lot Homes -->
+                <div class="portfolio-card">
+                    <div class="laptop-frame">
+                        <div class="laptop-bezel">
+                            <div class="laptop-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="laptop-screen" style="background: linear-gradient(135deg, #1a3a5c 0%, #112843 100%);">
+                                <div class="laptop-screen-text">Iron Lot Homes</div>
+                            </div>
+                        </div>
+                        <div class="laptop-base"></div>
+                    </div>
+                    <div class="portfolio-card-content">
+                        <span class="portfolio-tag">Real Estate</span>
+                        <h3>Iron Lot Homes</h3>
+                        <div class="portfolio-area">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            Texas (Austin, DFW, San Antonio)
+                        </div>
+                        <div class="portfolio-stats">
+                            <strong>40+ pages</strong> | 34 location pages | 2 service pages | Bilingual EN/ES
+                        </div>
+                        <a href="https://deme-cyber11.github.io/iron-lot-homes/" target="_blank" rel="noopener" class="btn-demo">
+                            View Live Demo
+                            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Jacksonville Epoxy Flooring -->
+                <div class="portfolio-card">
+                    <div class="laptop-frame">
+                        <div class="laptop-bezel">
+                            <div class="laptop-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="laptop-screen" style="background: linear-gradient(135deg, #0f2744 0%, #091a30 100%);">
+                                <div class="laptop-screen-text">Jacksonville Epoxy Flooring</div>
+                            </div>
+                        </div>
+                        <div class="laptop-base"></div>
+                    </div>
+                    <div class="portfolio-card-content">
+                        <span class="portfolio-tag">Epoxy & Concrete Coatings</span>
+                        <h3>Jacksonville Epoxy Flooring</h3>
+                        <div class="portfolio-area">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            Jacksonville, FL
+                        </div>
+                        <div class="portfolio-stats">
+                            <strong>43 pages</strong> | 42 neighborhood pages | Full SEO foundation
+                        </div>
+                        <a href="https://deme-cyber11.github.io/jacksonville-epoxy-flooring/" target="_blank" rel="noopener" class="btn-demo">
+                            View Live Demo
+                            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 4: Phoenix Pool Resurfacing -->
+                <div class="portfolio-card">
+                    <div class="laptop-frame">
+                        <div class="laptop-bezel">
+                            <div class="laptop-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="laptop-screen" style="background: linear-gradient(135deg, #e94560 0%, #c9233e 100%);">
+                                <div class="laptop-screen-text">Phoenix Pool Resurfacing</div>
+                            </div>
+                        </div>
+                        <div class="laptop-base"></div>
+                    </div>
+                    <div class="portfolio-card-content">
+                        <span class="portfolio-tag">Pool Services</span>
+                        <h3>Phoenix Pool Resurfacing</h3>
+                        <div class="portfolio-area">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            Phoenix, AZ (metro area)
+                        </div>
+                        <div class="portfolio-stats">
+                            <strong>27 pages</strong> | 8 location pages | 8 resource articles | 6 service pages
+                        </div>
+                        <a href="https://deme-cyber11.github.io/phoenix-pool-resurfacing/" target="_blank" rel="noopener" class="btn-demo">
+                            View Live Demo
+                            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Every Site Includes -->
+    <section class="features">
+        <div class="container">
+            <span class="section-label">What You Get</span>
+            <h2 class="section-title">What Every Site Includes</h2>
+            <p class="section-subtitle">Every project ships with the same core foundation that drives organic traffic and converts visitors into leads.</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+                    </div>
+                    <h3>Mobile-First Design</h3>
+                    <p>Every site built responsive from the ground up. Tested across devices to make sure your customers can reach you from anywhere.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    </div>
+                    <h3>SEO Foundation</h3>
+                    <p>Technical SEO, meta tags, schema markup, and a sitemap from day one. Built to rank in local search results.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.06-4.09l-2.6-1.53C16.17 17.98 14.21 19 12 19z"/></svg>
+                    </div>
+                    <h3>Fast Loading</h3>
+                    <p>Optimized static HTML and CSS with no bloated frameworks. Your pages load fast and keep visitors engaged.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    </div>
+                    <h3>Local SEO Pages</h3>
+                    <p>Neighborhood and city pages targeting local search intent. Each page built to capture customers in your service area.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    </div>
+                    <h3>Lead Capture</h3>
+                    <p>Contact forms, CTAs, and conversion-optimized layouts designed to turn visitors into phone calls and form submissions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    </div>
+                    <h3>Content Strategy</h3>
+                    <p>Blog articles and resource pages that drive organic traffic. Content built around the keywords your customers search for.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Build Your Online Presence?</h2>
+                <p>Get a website and marketing system built specifically for your home service business. We handle everything from design to SEO.</p>
+                <div class="cta-notice">
+                    <strong>$300 Setup + $300/month</strong>
+                    <span>Everything you need to start ranking and generating qualified leads.</span>
+                </div>
+                <br>
+                <a href="checkout.html" class="btn-cta">
+                    Get Started Today
+                    <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">IT</div>
+                        Iron Tiger Digital
+                    </div>
+                    <p>Digital marketing and lead generation solutions for home service businesses. We help local contractors grow through strategic partnerships and proven marketing systems.</p>
+                </div>
+                <div class="footer-info">
+                    <h4>Contact Us</h4>
+                    <p><a href="mailto:contact@irontigerdigital.com" style="color: rgba(255,255,255,0.8); text-decoration: none;">contact@irontigerdigital.com</a></p>
+                    <p><a href="tel:+17344761457" style="color: rgba(255,255,255,0.8); text-decoration: none;">(734) 476-1457</a></p>
+                    <p>Austin, Texas</p>
+                </div>
+                <div class="footer-info">
+                    <h4>Services</h4>
+                    <p><a href="services/lead-generation.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Lead Generation</a></p>
+                    <p><a href="services/local-seo.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Local SEO</a></p>
+                    <p><a href="services/marketing-funnels.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Marketing Funnels</a></p>
+                    <p><a href="services/reputation-management.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Reputation Management</a></p>
+                </div>
+                <div class="footer-info">
+                    <h4>Quick Links</h4>
+                    <p><a href="our-work.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Our Work</a></p>
+                    <p><a href="how-it-works.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">How It Works</a></p>
+                    <p><a href="blog/" style="color: rgba(255,255,255,0.8); text-decoration: none;">Blog</a></p>
+                    <p><a href="terms.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Service Agreement</a></p>
+                    <p><a href="privacy.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Privacy Policy</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Iron Tiger Digital, LLC. All rights reserved.</span>
+                <span>Lead Generation & Digital Marketing Services</span>
+            </div>
+        </div>
+    </footer>
+
+<!-- Sticky Mobile CTA -->
+<div class="sticky-cta" id="stickyCta">
+    <button class="sticky-cta-close" onclick="document.getElementById('stickyCta').remove()" aria-label="Dismiss">&times;</button>
+    <div class="sticky-cta-text">Ready to grow?<small>$300 setup + $300/mo</small></div>
+    <a href="checkout.html" class="sticky-cta-btn">Get Started</a>
+</div>
+<script>
+(function(){var c=document.getElementById('stickyCta');if(!c)return;window.addEventListener('scroll',function(){c.classList.toggle('visible',window.scrollY>300)},{passive:true})})();
+</script>
+</body>
+</html>
