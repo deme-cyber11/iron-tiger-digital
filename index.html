@@ -33,6 +33,7 @@
     {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
+        "@id": "https://www.irontigerdigital.com/#business",
         "name": "Iron Tiger Digital",
         "description": "Digital marketing agency specializing in local SEO, lead generation, and marketing funnels for home service businesses.",
         "url": "https://www.irontigerdigital.com",
@@ -41,13 +42,24 @@
         "telephone": "+1-734-476-1457",
         "email": "contact@irontigerdigital.com",
         "priceRange": "$$",
-        "sameAs": [
-            "https://www.linkedin.com/company/iron-tiger-digital"
-        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Austin",
+            "addressRegion": "TX",
+            "addressCountry": "US"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "30.2672",
+            "longitude": "-97.7431"
+        },
         "areaServed": {
             "@type": "Country",
             "name": "United States"
         },
+        "sameAs": [
+            "https://www.linkedin.com/company/iron-tiger-digital"
+        ],
         "serviceType": ["Local SEO", "Lead Generation", "Marketing Funnels", "Reputation Management"],
         "knowsAbout": ["SEO", "Digital Marketing", "Lead Generation", "Google Business Profile", "Local Search Marketing"]
     }
@@ -1195,6 +1207,19 @@
             .hero-card { animation: none; }
             html { scroll-behavior: auto; }
         }
+
+        /* Screen-reader only utility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
     </style>
 </head>
 <body>
@@ -1595,9 +1620,12 @@
                 <input type="hidden" name="_subject" value="Free Marketing Audit Request">
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_next" value="https://www.irontigerdigital.com/success.html">
-                <input type="text" name="name" placeholder="Your Name" required aria-label="Your name" style="padding: 16px 20px; border: 2px solid #e5e7eb; border-radius: 12px; font-family: inherit; font-size: 16px; width: 100%; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
-                <input type="email" name="email" placeholder="Your Email" required aria-label="Your email address" style="padding: 16px 20px; border: 2px solid #e5e7eb; border-radius: 12px; font-family: inherit; font-size: 16px; width: 100%; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
-                <input type="text" name="website" placeholder="Your Website URL (optional)" aria-label="Your website URL" style="padding: 16px 20px; border: 2px solid #e5e7eb; border-radius: 12px; font-family: inherit; font-size: 16px; width: 100%; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
+                <label for="audit-name" class="sr-only">Your name</label>
+                <input type="text" name="name" id="audit-name" placeholder="Your Name" required aria-label="Your name" style="padding: 16px 20px; border: 2px solid #e5e7eb; border-radius: 12px; font-family: inherit; font-size: 16px; width: 100%; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
+                <label for="audit-email" class="sr-only">Your email address</label>
+                <input type="email" name="email" id="audit-email" placeholder="Your Email" required aria-label="Your email address" style="padding: 16px 20px; border: 2px solid #e5e7eb; border-radius: 12px; font-family: inherit; font-size: 16px; width: 100%; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
+                <label for="audit-website" class="sr-only">Your website URL</label>
+                <input type="text" name="website" id="audit-website" placeholder="Your Website URL (optional)" aria-label="Your website URL" style="padding: 16px 20px; border: 2px solid #e5e7eb; border-radius: 12px; font-family: inherit; font-size: 16px; width: 100%; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
                 <button type="submit" class="btn-payment" style="border: none; cursor: pointer; font-size: 1rem; padding: 18px 32px;">Get My Free Audit</button>
             </form>
             <p style="color: var(--gray); font-size: 0.85rem; margin-top: 16px;">No spam. No obligation. Just actionable insights.</p>

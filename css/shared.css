@@ -436,3 +436,37 @@ footer {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* Print Styles */
+@media print {
+    header, footer, .sticky-cta, .mobile-menu-btn, .hamburger, .nav-toggle {
+        display: none !important;
+    }
+    body {
+        padding-bottom: 0 !important;
+        background: white !important;
+        color: black !important;
+    }
+    .hero {
+        background: white !important;
+        padding: 20px 0 !important;
+    }
+    .hero::before, .hero::after {
+        display: none !important;
+    }
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #666;
+    }
+    a[href^="#"]::after, a[href^="tel:"]::after, a[href^="mailto:"]::after {
+        content: none;
+    }
+    .container {
+        max-width: 100% !important;
+    }
+    section {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
