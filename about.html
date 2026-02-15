@@ -192,52 +192,20 @@
         }
 
         .founder-photo {
-            background: linear-gradient(135deg, var(--light) 0%, #fef6f0 100%);
             border-radius: 24px;
-            padding: 48px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 420px;
-            border: 1px solid rgba(196, 92, 38, 0.08);
-            position: relative;
             overflow: hidden;
+            min-height: 420px;
+            position: relative;
         }
 
-        .founder-photo::before {
-            content: '';
-            position: absolute;
-            top: -60px;
-            right: -60px;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(196, 92, 38, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .founder-photo-icon {
-            width: 100px;
-            height: 100px;
-            background: rgba(196, 92, 38, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            margin-bottom: 24px;
-        }
-
-        .founder-photo-text {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--secondary);
-            margin-bottom: 4px;
-        }
-
-        .founder-photo-sub {
-            font-size: 0.85rem;
-            color: var(--gray);
+        .founder-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            border-radius: 24px;
+            min-height: 420px;
         }
 
         /* Approach Section */
@@ -471,8 +439,11 @@
             }
 
             .founder-photo {
-                min-height: 260px;
-                padding: 36px;
+                min-height: 300px;
+            }
+
+            .founder-photo img {
+                min-height: 300px;
             }
 
             .approach-card {
@@ -510,13 +481,11 @@
             }
 
             .founder-photo {
-                min-height: 220px;
-                padding: 28px;
+                min-height: 260px;
             }
 
-            .founder-photo-icon {
-                width: 80px;
-                height: 80px;
+            .founder-photo img {
+                min-height: 260px;
             }
 
             .credential-badge {
@@ -607,11 +576,7 @@
                         </div>
                     </div>
                     <div class="founder-photo">
-                        <div class="founder-photo-icon">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                        </div>
-                        <div class="founder-photo-text">Photo Coming Soon</div>
-                        <div class="founder-photo-sub">Costa Demetral, Founder</div>
+                        <img src="img/costa-headshot.jpg" alt="Costa Demetral, Founder of Iron Tiger Digital" width="600" height="750">
                     </div>
                 </div>
             </div>
