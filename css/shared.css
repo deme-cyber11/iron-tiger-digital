@@ -78,6 +78,47 @@ header {
     opacity: 0.8;
 }
 
+/* Header Nav Link Base Styles */
+.header-nav a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 500;
+    margin-right: 24px;
+}
+
+.header-nav .nav-cta {
+    color: var(--primary);
+    font-weight: 600;
+    margin-right: 0;
+}
+
+.header-nav .nav-phone {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Logo Link */
+.logo {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* Footer Link Styles */
+.footer-info a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+}
+
+.footer-info a:hover {
+    color: rgba(255,255,255,1);
+}
+
 /* Hide Safari details marker */
 details summary::-webkit-details-marker {
     display: none;
