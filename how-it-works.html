@@ -367,7 +367,7 @@
             flex-shrink: 0;
         }
 
-        .metric-text h4 {
+        .metric-text h3 {
             font-size: 0.95rem;
             font-weight: 700;
             color: var(--secondary);
@@ -712,6 +712,24 @@
 
             .deliverables-grid {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        /* Responsive — 850px */
+        @media (max-width: 850px) {
+            .deliverables-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 800px;
+            }
+
+            .pricing-card:nth-child(3) {
+                grid-column: 1 / -1;
+                max-width: 420px;
+                margin: 0 auto;
             }
         }
 
@@ -1092,7 +1110,7 @@
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                             </div>
                             <div class="metric-text">
-                                <h4>Website Traffic</h4>
+                                <h3>Website Traffic</h3>
                                 <p>Visitors, page views, and traffic sources</p>
                             </div>
                         </div>
@@ -1102,7 +1120,7 @@
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
                             </div>
                             <div class="metric-text">
-                                <h4>Search Rankings</h4>
+                                <h3>Search Rankings</h3>
                                 <p>Keyword positions and movement trends</p>
                             </div>
                         </div>
@@ -1112,7 +1130,7 @@
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                             </div>
                             <div class="metric-text">
-                                <h4>Lead Generation</h4>
+                                <h3>Lead Generation</h3>
                                 <p>Form submissions, calls, and conversion rates</p>
                             </div>
                         </div>
@@ -1122,7 +1140,7 @@
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                             </div>
                             <div class="metric-text">
-                                <h4>Google Business Profile</h4>
+                                <h3>Google Business Profile</h3>
                                 <p>Views, searches, direction requests, and calls</p>
                             </div>
                         </div>
@@ -1132,7 +1150,7 @@
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
                             </div>
                             <div class="metric-text">
-                                <h4>Content Performance</h4>
+                                <h3>Content Performance</h3>
                                 <p>Blog traffic, engagement, and search visibility</p>
                             </div>
                         </div>
@@ -1142,7 +1160,7 @@
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                             </div>
                             <div class="metric-text">
-                                <h4>Local SEO Health</h4>
+                                <h3>Local SEO Health</h3>
                                 <p>Citation accuracy, directory listings, and local pack presence</p>
                             </div>
                         </div>
@@ -1152,7 +1170,7 @@
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                             </div>
                             <div class="metric-text">
-                                <h4>Technical Health</h4>
+                                <h3>Technical Health</h3>
                                 <p>Site speed, mobile performance, and crawl status</p>
                             </div>
                         </div>
@@ -1302,20 +1320,20 @@
                     <p>Digital marketing and lead generation solutions for home service businesses. We help local contractors grow through strategic partnerships and proven marketing systems.</p>
                 </div>
                 <div class="footer-info">
-                    <h4>Contact Us</h4>
+                    <h3>Contact Us</h3>
                     <p><a href="mailto:contact@irontigerdigital.com">contact@irontigerdigital.com</a></p>
                     <p><a href="tel:+17344761457">(734) 476-1457</a></p>
                     <p>Austin, Texas</p>
                 </div>
                 <div class="footer-info">
-                    <h4>Services</h4>
+                    <h3>Services</h3>
                     <p><a href="services/lead-generation.html">Lead Generation</a></p>
                     <p><a href="services/local-seo.html">Local SEO</a></p>
                     <p><a href="services/marketing-funnels.html">Marketing Funnels</a></p>
                     <p><a href="services/reputation-management.html">Reputation Management</a></p>
                 </div>
                 <div class="footer-info">
-                    <h4>Quick Links</h4>
+                    <h3>Quick Links</h3>
                     <p><a href="our-work.html">Our Work</a></p>
                     <p><a href="how-it-works.html">How It Works</a></p>
                     <p><a href="about.html">About</a></p>

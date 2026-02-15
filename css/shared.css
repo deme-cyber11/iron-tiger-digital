@@ -245,7 +245,7 @@ footer {
     line-height: 1.7;
 }
 
-.footer-info h4 {
+.footer-info h3 {
     color: var(--white);
     font-size: 0.85rem;
     text-transform: uppercase;
@@ -345,6 +345,14 @@ footer {
 @media (max-width: 768px) and (prefers-reduced-motion: reduce) {
     .sticky-cta {
         transition: none;
+    }
+}
+
+/* Responsive — Tablet Landscape (850px) */
+@media (max-width: 850px) {
+    .header-nav a {
+        font-size: 0.9rem;
+        margin-right: 16px;
     }
 }
 
