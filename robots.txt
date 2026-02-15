@@ -1,7 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /checkout.html
-Disallow: /success.html
 
 Sitemap: https://www.irontigerdigital.com/sitemap.xml

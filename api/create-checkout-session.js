@@ -2,7 +2,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 module.exports = async (req, res) => {
   // Enable CORS
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Origin', 'https://www.irontigerdigital.com');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
@@ -62,7 +62,7 @@ module.exports = async (req, res) => {
 
     res.status(200).json({ url: session.url });
   } catch (error) {
-    console.error('Stripe error:', error);
-    res.status(500).json({ error: error.message });
+    console.error('Checkout session error');
+    res.status(500).json({ error: 'An error occurred during checkout. Please try again.' });
   }
 };
