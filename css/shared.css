@@ -113,9 +113,8 @@ header {
 }
 
 .header-nav .nav-phone {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+    color: var(--primary) !important;
+    font-weight: 600;
 }
 
 /* Logo Link */
