@@ -113,7 +113,7 @@ header {
 }
 
 .header-nav .nav-phone {
-    color: var(--primary) !important;
+    color: var(--primary-dark) !important;
     font-weight: 600;
 }
 
