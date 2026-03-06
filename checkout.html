@@ -1133,8 +1133,8 @@
                 targetOption.classList.add('selected');
                 targetOption.querySelector('input').checked = true;
             }
-            updateTotal();
         }
+        updateTotal(); // always set correct default on load
 
         options.forEach(option => {
             option.addEventListener('click', () => {
