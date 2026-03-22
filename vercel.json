@@ -2,6 +2,14 @@
   "cleanUrls": false,
   "trailingSlash": false,
   "rewrites": [],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "irontigerdigital.com" }],
+      "destination": "https://www.irontigerdigital.com/$1",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
