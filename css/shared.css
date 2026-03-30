@@ -335,13 +335,14 @@ footer {
     }
 
     .sticky-cta-close {
-        position: absolute;
-        top: 4px;
-        right: 12px;
-        width: 44px;
-        height: 44px;
+        position: relative;
+        flex-shrink: 0;
+        order: -1;
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
         background: var(--white);
-        border: 1px solid rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.12);
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -351,6 +352,9 @@ footer {
         color: var(--gray);
         line-height: 1;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        z-index: 2;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
     }
 }
 
