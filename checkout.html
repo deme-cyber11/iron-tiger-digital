@@ -200,14 +200,14 @@
             grid-template-columns: 1fr auto 1fr auto 1fr;
             gap: 16px;
             align-items: center;
-            max-width: 720px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
         .roi-card {
             background: var(--light);
             border-radius: 16px;
-            padding: 24px;
+            padding: 28px 24px;
             text-align: center;
         }
 
@@ -222,7 +222,8 @@
         .roi-card .roi-label {
             font-size: 0.82rem;
             color: var(--gray);
-            margin-top: 4px;
+            margin-top: 6px;
+            white-space: nowrap;
         }
 
         .roi-card.highlight {
@@ -707,6 +708,9 @@
                 grid-template-columns: 1fr;
                 max-width: 300px;
             }
+            .roi-card .roi-label {
+                white-space: normal;
+            }
             .roi-arrow {
                 transform: rotate(90deg);
                 text-align: center;
@@ -799,13 +803,13 @@
             <h2>The Math: How Fast This Pays for Itself</h2>
             <div class="roi-grid">
                 <div class="roi-card">
-                    <div class="roi-amount" id="roi-price">from $130/mo</div>
+                    <div class="roi-amount" id="roi-price">from $300/mo</div>
                     <div class="roi-label">Your monthly investment</div>
                 </div>
                 <div class="roi-arrow">→</div>
                 <div class="roi-card">
                     <div class="roi-amount">1 Job</div>
-                    <div class="roi-label">All you need to close</div>
+                    <div class="roi-label">All you need to break even</div>
                 </div>
                 <div class="roi-arrow">→</div>
                 <div class="roi-card highlight">
