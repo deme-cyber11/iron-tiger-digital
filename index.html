@@ -255,118 +255,103 @@
         }
 
         /* Hero Visual — Dashboard Mockup */
+        /* ── Hero Cards ── */
         .hero-visual {
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 12px;
             animation: heroFadeIn 0.8s ease 0.3s both;
-            padding: 8px 0;
         }
 
-        .hero-card {
+        .hc {
             background: var(--white);
-            border-radius: 16px;
-            padding: 18px 22px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            animation: heroFloat 6s ease-in-out infinite;
+            border-radius: 14px;
+            padding: 14px 18px;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.09);
+            border: 1px solid rgba(0, 0, 0, 0.07);
         }
 
-        .hero-card-lead {
-            margin-left: 20px;
-            margin-right: 0;
-        }
+        .hc:nth-child(1) { margin-left: 16px; animation: heroFloat 6s ease-in-out infinite; }
+        .hc:nth-child(2) { margin-right: 16px; animation: heroFloat 6s ease-in-out infinite; animation-delay: -2s; }
+        .hc:nth-child(3) { margin-left: 24px; animation: heroFloat 6s ease-in-out infinite; animation-delay: -4s; }
 
-        .hero-card-stats {
-            margin-left: 0;
-            margin-right: 20px;
-            animation-delay: -2s;
-        }
-
-        .hero-card-review {
-            margin-left: 30px;
-            margin-right: 0;
-            animation-delay: -4s;
-        }
-
-        .hero-card-header {
+        .hc-row {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
+            gap: 10px;
         }
 
-        .hero-card-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
+        .hc-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
         }
 
-        .hero-card-icon.green {
-            background: rgba(34, 197, 94, 0.1);
-            color: #22c55e;
-        }
+        .hc-icon.green  { background: rgba(34, 197, 94, 0.12); color: #16a34a; }
+        .hc-icon.orange { background: rgba(196, 92, 38, 0.10); color: var(--primary); }
 
-        .hero-card-icon.orange {
-            background: rgba(196, 92, 38, 0.1);
-            color: var(--primary);
-        }
+        .hc-title { font-weight: 700; font-size: 0.88rem; color: var(--secondary); }
+        .hc-sub   { font-size: 0.72rem; color: var(--gray); margin-top: 1px; }
 
-        .hero-card-title {
+        .hc-live {
+            margin-left: auto;
+            font-size: 0.68rem;
             font-weight: 700;
-            font-size: 0.95rem;
-            color: var(--secondary);
+            padding: 2px 9px;
+            border-radius: 20px;
+            background: rgba(34, 197, 94, 0.12);
+            color: #16a34a;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
         }
 
-        .hero-card-subtitle {
-            font-size: 0.8rem;
+        .hc-divider {
+            height: 1px;
+            background: rgba(0, 0, 0, 0.06);
+            margin: 10px 0;
+        }
+
+        .hc-detail {
+            font-size: 0.78rem;
             color: var(--gray);
+            line-height: 1.4;
         }
 
-        .hero-card-metric {
-            font-size: 1.75rem;
+        .hc-stat-row {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin: 10px 0 0;
+        }
+
+        .hc-stat {
+            font-size: 1.5rem;
             font-weight: 800;
-            color: var(--secondary);
+            color: #16a34a;
             letter-spacing: -1px;
+            line-height: 1;
         }
 
-        .hero-card-metric.green-text {
-            color: #22c55e;
-        }
+        .hc-stat-label { font-size: 0.75rem; color: var(--gray); }
 
-        .hero-card-detail {
-            font-size: 0.82rem;
-            color: var(--gray);
-            margin-top: 2px;
-        }
-
-        .hero-mini-chart {
+        .hc-pills {
             display: flex;
-            align-items: flex-end;
-            gap: 4px;
-            height: 40px;
-            margin-top: 12px;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 10px;
         }
 
-        .hero-mini-chart .bar {
-            width: 20px;
-            border-radius: 4px 4px 0 0;
-            background: rgba(196, 92, 38, 0.15);
-        }
-
-        .hero-mini-chart .bar.active {
-            background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
-        }
-
-        .hero-stars {
-            display: flex;
-            gap: 2px;
-            color: #f59e0b;
-            margin-bottom: 8px;
+        .hc-pill {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 20px;
+            background: rgba(34, 197, 94, 0.1);
+            color: #15803d;
         }
 
         /* Hero Animations */
@@ -1030,9 +1015,9 @@
                 margin: 0 auto;
             }
 
-            .hero-card-lead,
-            .hero-card-stats,
-            .hero-card-review {
+            .hc:nth-child(1),
+            .hc:nth-child(2),
+            .hc:nth-child(3) {
                 margin-left: 0;
                 margin-right: 0;
             }
@@ -1137,9 +1122,7 @@
                 font-size: 0.95rem;
             }
 
-            .hero-card {
-                animation: none;
-            }
+            .hc { animation: none; }
         }
 
         @media (max-width: 480px) {
@@ -1148,22 +1131,16 @@
                 padding: 0 16px;
             }
 
-
             .hero {
                 padding: 40px 0 32px;
             }
 
-            .hero-card {
-                padding: 14px 16px;
+            .hc {
+                padding: 12px 14px;
             }
 
-            .hero-card-metric {
-                font-size: 1.4rem;
-            }
-
-            .hero-card-title {
-                font-size: 0.85rem;
-            }
+            .hc-title { font-size: 0.83rem; }
+            .hc-stat  { font-size: 1.3rem; }
 
             .hero-buttons {
                 flex-direction: column;
@@ -1216,7 +1193,7 @@
         @media (prefers-reduced-motion: reduce) {
             .hero-text { animation: none; }
             .hero-visual { animation: none; }
-            .hero-card { animation: none; }
+            .hc { animation: none; }
             html { scroll-behavior: auto; }
         }
 
@@ -1279,51 +1256,58 @@
                 </div>
 
                 <div class="hero-visual">
-                    <div class="hero-dashboard">
-                        <!-- Lead notification card -->
-                        <div class="hero-card hero-card-lead">
-                            <div class="hero-card-header">
-                                <div class="hero-card-icon green">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                                </div>
-                                <div>
-                                    <div class="hero-card-title">New Lead Received</div>
-                                    <div class="hero-card-subtitle">Just now · Roofing</div>
-                                </div>
-                            </div>
-                            <div class="hero-card-detail">"Need a roof estimate for my 2,400 sq ft home"</div>
-                        </div>
 
-                        <!-- Exclusive access card -->
-                        <div class="hero-card hero-card-stats">
-                            <div class="hero-card-header">
-                                <div class="hero-card-icon orange">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                                </div>
-                                <div>
-                                    <div class="hero-card-title">Exclusive Access</div>
-                                    <div class="hero-card-subtitle">One contractor per site</div>
-                                </div>
+                    <!-- Card 1: Live lead notification -->
+                    <div class="hc">
+                        <div class="hc-row">
+                            <div class="hc-icon green">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                             </div>
-                            <div class="hero-card-metric green-text">100%</div>
-                            <div class="hero-card-detail">of calls go directly to you</div>
+                            <div>
+                                <div class="hc-title">New Lead Received</div>
+                                <div class="hc-sub">Just now · Roofing · Dallas, TX</div>
+                            </div>
+                            <span class="hc-live">Live</span>
                         </div>
+                        <div class="hc-divider"></div>
+                        <div class="hc-detail">"Need a roof estimate for my 2,400 sq ft home"</div>
+                    </div>
 
-                        <!-- No risk card -->
-                        <div class="hero-card hero-card-review">
-                            <div class="hero-card-header">
-                                <div class="hero-card-icon green">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-                                </div>
-                                <div>
-                                    <div class="hero-card-title">No Risk</div>
-                                    <div class="hero-card-subtitle">Cancel anytime</div>
-                                </div>
+                    <!-- Card 2: Exclusive access -->
+                    <div class="hc">
+                        <div class="hc-row">
+                            <div class="hc-icon orange">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
                             </div>
-                            <div class="hero-card-metric">$0</div>
-                            <div class="hero-card-detail">Upfront cost — month-to-month only</div>
+                            <div>
+                                <div class="hc-title">Exclusive Access</div>
+                                <div class="hc-sub">One contractor per site — no sharing</div>
+                            </div>
+                        </div>
+                        <div class="hc-stat-row">
+                            <span class="hc-stat">100%</span>
+                            <span class="hc-stat-label">of calls route directly to you</span>
                         </div>
                     </div>
+
+                    <!-- Card 3: Zero risk -->
+                    <div class="hc">
+                        <div class="hc-row">
+                            <div class="hc-icon green">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                            </div>
+                            <div>
+                                <div class="hc-title">Zero Risk</div>
+                                <div class="hc-sub">No contracts · No setup fees</div>
+                            </div>
+                        </div>
+                        <div class="hc-pills">
+                            <span class="hc-pill">$0 upfront</span>
+                            <span class="hc-pill">Month-to-month</span>
+                            <span class="hc-pill">Cancel anytime</span>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
