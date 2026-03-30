@@ -706,9 +706,9 @@
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 32px;
-            max-width: 900px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
@@ -1568,44 +1568,59 @@
     <section class="pricing" id="pricing">
         <div class="container">
             <div class="pricing-header">
-                <span class="section-label">Simple Pricing</span>
-                <h2 class="section-title">Get Started Today</h2>
-                <p class="section-subtitle">Transparent pricing with no hidden fees. Start generating leads for your business.</p>
+                <span class="section-label">What You Get</span>
+                <h2 class="section-title">Three Ways We Work Together</h2>
+                <p class="section-subtitle">Every engagement is built around your niche and market — not a one-size package.</p>
             </div>
 
-            <div class="pricing-grid">
+            <div class="pricing-grid" style="grid-template-columns: repeat(3, 1fr);">
                 <div class="pricing-card">
-                    <div class="pricing-type">One-Time</div>
-                    <h3 class="pricing-title">Website Setup</h3>
-                    <div class="pricing-amount">$300</div>
-                    <div class="pricing-period">one-time + tax</div>
+                    <div class="pricing-type">Foundation</div>
+                    <h3 class="pricing-title">Digital Presence</h3>
+                    <div class="pricing-amount" style="font-size:1.2rem; color: var(--text-secondary);">Your market online</div>
+                    <div class="pricing-period">&nbsp;</div>
                     <ul class="pricing-features">
-                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Custom website design</li>
-                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Mobile-responsive layout</li>
-                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> SEO foundation setup</li>
-                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Contact form integration</li>
-                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Fast hosting included</li>
+                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Custom website for your niche &amp; city</li>
+                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Mobile-optimized, fast-loading</li>
+                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Contact form + call tracking number</li>
+                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Local SEO foundation built in</li>
+                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Hosted &amp; maintained for you</li>
                     </ul>
-                    <a href="checkout.html?plan=highticket" class="btn-payment btn-payment-secondary" style="text-decoration: none; text-align: center;">Get Website Setup</a>
+                    <a href="#contact" class="btn-payment btn-payment-secondary" style="text-decoration: none; text-align: center;">Let&rsquo;s Talk</a>
                 </div>
 
                 <div class="pricing-card featured">
-                    <div class="pricing-type">Monthly</div>
-                    <h3 class="pricing-title">SEO & Lead Gen</h3>
-                    <div class="pricing-amount">$300</div>
-                    <div class="pricing-period">per month + tax</div>
+                    <div class="pricing-type">Market Authority</div>
+                    <h3 class="pricing-title">Rank &amp; Visibility</h3>
+                    <div class="pricing-amount" style="font-size:1.2rem; color: var(--text-secondary);">Own your local market</div>
+                    <div class="pricing-period">&nbsp;</div>
                     <ul class="pricing-features">
-                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Active lead generation & tracking</li>
-                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Ongoing SEO optimization</li>
-                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Weekly content updates</li>
-                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Google Business posts</li>
-                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Monthly performance reports</li>
+                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Everything in Digital Presence</li>
+                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Ongoing SEO &amp; content updates</li>
+                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Citation &amp; directory consistency</li>
+                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Google Business Profile guidance</li>
+                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Monthly performance report</li>
                     </ul>
-                    <a href="checkout.html?plan=standard" class="btn-payment" style="text-decoration: none; text-align: center;">Start Growing Today</a>
+                    <a href="#contact" class="btn-payment" style="text-decoration: none; text-align: center;">Let&rsquo;s Talk</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-type">Lead Generation</div>
+                    <h3 class="pricing-title">Calls &amp; Conversions</h3>
+                    <div class="pricing-amount" style="font-size:1.2rem; color: var(--text-secondary);">Measure what matters</div>
+                    <div class="pricing-period">&nbsp;</div>
+                    <ul class="pricing-features">
+                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Everything in Market Authority</li>
+                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Map pack ranking focus</li>
+                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Keyword-targeted landing pages</li>
+                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Monthly call volume tracking</li>
+                        <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3L6.5 11.1 2.7 7.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Proof-of-value reporting</li>
+                    </ul>
+                    <a href="#contact" class="btn-payment btn-payment-secondary" style="text-decoration: none; text-align: center;">Let&rsquo;s Talk</a>
                 </div>
             </div>
 
-            <p class="pricing-note"><strong>Questions?</strong> Contact us at <a href="mailto:contact@irontigerdigital.com" style="color: var(--primary);">contact@irontigerdigital.com</a> to discuss your needs.</p>
+            <p class="pricing-note"><strong>Pricing is set by your niche and market — not a flat rate.</strong> Every city and service is different. <a href="#contact" style="color: var(--primary);">Schedule a quick call</a> and we&rsquo;ll give you a specific number based on your situation.</p>
         </div>
     </section>
 
