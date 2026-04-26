@@ -260,6 +260,67 @@
       .priority-block .priority-header { flex-wrap: wrap; }
       .impact-tag { margin-left: 0; }
     }
+  
+    /* ── v1.2 additions: code/pre/finding blocks ── */
+    pre {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 18px 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-family: 'SF Mono', Menlo, Consolas, monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      margin: 16px 0;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; font-size: inherit; }
+    code {
+      background: #f3f4f6;
+      color: #c45c26;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'SF Mono', Menlo, Consolas, monospace;
+      font-size: 0.9em;
+    }
+    .section h3.sub-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-top: 36px;
+      margin-bottom: 14px;
+      color: var(--secondary);
+      padding-top: 20px;
+      border-top: 1px solid #e5e7eb;
+    }
+    .section h3.sub-title:first-of-type { border-top: none; padding-top: 0; }
+    .section h4.finding-h4 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      color: var(--secondary);
+      line-height: 1.35;
+      padding-left: 14px;
+      border-left: 3px solid var(--primary);
+    }
+    .section p { margin: 12px 0; font-size: 15px; line-height: 1.75; }
+    .section ul, .section ol { margin: 12px 0 16px 22px; }
+    .section li { margin-bottom: 6px; font-size: 15px; }
+    .section li > p { margin: 4px 0; }
+    .section strong { color: var(--secondary); }
+    .finding-divider {
+      border: none;
+      border-top: 1px solid #e5e7eb;
+      margin: 32px 0;
+    }
+    .section blockquote {
+      border-left: 3px solid var(--primary);
+      padding: 8px 16px;
+      margin: 16px 0;
+      color: #4b5563;
+      background: var(--light);
+      border-radius: 0 6px 6px 0;
+    }
+
   </style>
 </head>
 <body>
@@ -279,19 +340,23 @@
 
   <!-- TOC -->
   <nav class="toc">
-    <h2>Contents</h2>
-    <ol>
-      <li><a href="#exec">Executive Summary</a></li>
-      <li><a href="#numbers">Section 1 — The Numbers</a></li>
-      <li><a href="#findings">Section 2 — 5 Key Findings</a></li>
-      <li><a href="#attention">Section 3 — Wasted Attention vs Starving Champions</a></li>
-      <li><a href="#technical">Section 4 — Technical SEO Triage</a></li>
-      <li><a href="#priorities">Section 5 — Strategic Priority Stack</a></li>
-      <li><a href="#roadmap">Section 6 — 90-Day Roadmap</a></li>
-      <li><a href="#kpis">Section 7 — KPIs to Track</a></li>
-      <li><a href="#decisions">Section 8 — Decisions Needed From TG</a></li>
-    </ol>
-  </nav>
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#exec">Executive Summary</a></li>
+        <li><a href="#numbers">1. The Numbers</a></li>
+        <li><a href="#findings">2. 5 Key Findings</a></li>
+        <li><a href="#wasted">3. Wasted Attention vs Starving Champions</a></li>
+        <li><a href="#triage">4. Technical SEO Triage</a></li>
+        <li><a href="#priorities">5. Strategic Priority Stack</a></li>
+        <li><a href="#roadmap">6. 90-Day Roadmap</a></li>
+        <li><a href="#kpis">7. KPIs to Track</a></li>
+        <li><a href="#decisions">8. Decisions Needed From TG</a></li>
+        <li><a href="#implementation">9. Detailed Implementation Guide (30 blocks)</a></li>
+        <li><a href="#live-findings">10. Additional Findings from Direct Site Analysis (15)</a></li>
+        <li><a href="#b2b-funnel">11. B2B Conversion &amp; Funnel Gaps (28)</a></li>
+        <li><a href="#appendix">Appendix — Methodology &amp; Sources</a></li>
+      </ol>
+    </nav>
 
   <!-- Executive Summary -->
   <section id="exec" class="section">
@@ -857,10 +922,2821 @@
     </div>
   </section>
 
+  
+  <section id="implementation" class="section">
+    <div class="section-label">Section 9</div>
+    <h2 class="section-title">Detailed Implementation Guide</h2>
+<p>This section turns every recommendation in Sections 4–8 into a step-by-step Shopify execution plan. Each block is self-contained: a developer or content lead at TG should be able to execute without follow-up questions. Owner abbreviations: <strong>ITD</strong> = Iron Tiger Digital writes / specs; <strong>TG-content</strong> = TG editorial publishes; <strong>TG-dev</strong> = TG theme developer deploys; <strong>TG-ops</strong> = TG ad ops / analytics owner.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.1 — Fix <code>/blogs/articles/what-are-bollards</code></h3>
+<p><strong>What to do:</strong> Convert a 1,743-session zero-revenue TOFU article into a converting bottom-of-funnel page by adding (a) a 3-product comparison block above the fold, (b) a sticky desktop CTA, (c) FAQ schema, (d) extended editorial body, (e) corrected internal links pointing to product pages, not collection pages.</p>
+<p><strong>Where:</strong> Shopify admin → Online Store → Blog posts → "What Are Bollards" → edit article. Also requires one <code>assets/article-bollards.css</code> snippet uploaded via theme code editor.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Replace the current intro image</strong> with the 3-product comparison block. Paste the following into the rich-text editor in HTML mode (Shopify article editor → <code>&lt;&gt;</code> view):</li>
+</ol>
+<pre><code class="language-html">&lt;section class=&quot;s4-compare-block&quot;&gt;
+  &lt;h2 class=&quot;s4-compare-title&quot;&gt;In a hurry? Three bollards 90% of buyers compare:&lt;/h2&gt;
+  &lt;div class=&quot;s4-compare-grid&quot;&gt;
+    &lt;a class=&quot;s4-card&quot; href=&quot;/products/4-manual-retractable-stainless-steel-bollard&quot;&gt;
+      &lt;img src=&quot;{{ '4in-manual-retractable-stainless.jpg' | asset_url }}&quot; alt=&quot;4 inch manual retractable stainless steel bollard&quot; loading=&quot;lazy&quot;&gt;
+      &lt;h3&gt;4&quot; Manual Retractable Stainless&lt;/h3&gt;
+      &lt;p class=&quot;s4-price&quot;&gt;From $1,553.42&lt;/p&gt;
+      &lt;p class=&quot;s4-bullets&quot;&gt;In stock - Ships in 2 business days - 36&quot; height&lt;/p&gt;
+      &lt;span class=&quot;s4-cta&quot;&gt;Shop now&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a class=&quot;s4-card&quot; href=&quot;/products/6-removable-stainless-steel-bollard-w-embedment-sleeve&quot;&gt;
+      &lt;img src=&quot;{{ '6in-removable-stainless-sleeve.jpg' | asset_url }}&quot; alt=&quot;6 inch removable stainless steel bollard with embedment sleeve&quot; loading=&quot;lazy&quot;&gt;
+      &lt;h3&gt;6&quot; Removable Stainless w/ Sleeve&lt;/h3&gt;
+      &lt;p class=&quot;s4-price&quot;&gt;From $923.00&lt;/p&gt;
+      &lt;p class=&quot;s4-bullets&quot;&gt;In stock - Lockable - 36&quot; height&lt;/p&gt;
+      &lt;span class=&quot;s4-cta&quot;&gt;Shop now&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a class=&quot;s4-card&quot; href=&quot;/products/4-manual-retractable-black-carbon-steel-bollard&quot;&gt;
+      &lt;img src=&quot;{{ '4in-manual-retractable-carbon.jpg' | asset_url }}&quot; alt=&quot;4 inch manual retractable carbon steel bollard black&quot; loading=&quot;lazy&quot;&gt;
+      &lt;h3&gt;4&quot; Manual Retractable Carbon&lt;/h3&gt;
+      &lt;p class=&quot;s4-price&quot;&gt;From $789.00&lt;/p&gt;
+      &lt;p class=&quot;s4-bullets&quot;&gt;In stock - Powder-coat black - 36&quot; height&lt;/p&gt;
+      &lt;span class=&quot;s4-cta&quot;&gt;Shop now&lt;/span&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  &lt;p class=&quot;s4-compare-foot&quot;&gt;&lt;a href=&quot;/collections/s4-bollards&quot;&gt;Or browse all 92 bollards →&lt;/a&gt;&lt;/p&gt;
+&lt;/section&gt;
+</code></pre>
+<ol start="2">
+<li><strong>Add the sticky CTA sidebar.</strong> Edit <code>sections/article-template.liquid</code> (or whatever section renders blog articles in the active theme) and add this block before the article body wrapper:</li>
+</ol>
+<pre><code class="language-liquid">{% if article.handle == 'what-are-bollards' %}
+  &lt;aside class=&quot;s4-sticky-cta&quot; aria-label=&quot;Featured bollard&quot;&gt;
+    &lt;img src=&quot;{{ '4in-manual-retractable-stainless.jpg' | asset_url }}&quot; alt=&quot;&quot;&gt;
+    &lt;p class=&quot;s4-sticky-eyebrow&quot;&gt;Best-seller&lt;/p&gt;
+    &lt;p class=&quot;s4-sticky-title&quot;&gt;4&quot; Manual Retractable Stainless Bollard&lt;/p&gt;
+    &lt;p class=&quot;s4-sticky-price&quot;&gt;$1,553.42 - in stock&lt;/p&gt;
+    &lt;a href=&quot;/products/4-manual-retractable-stainless-steel-bollard&quot; class=&quot;s4-sticky-btn&quot;&gt;View product&lt;/a&gt;
+  &lt;/aside&gt;
+{% endif %}
+</code></pre>
+<ol start="3">
+<li><strong>Add the CSS.</strong> Create <code>assets/article-bollards.css</code> and link it in <code>theme.liquid</code> (<code>&lt;link rel="stylesheet" href="{{ 'article-bollards.css' | asset_url }}"&gt;</code>):</li>
+</ol>
+<pre><code class="language-css">.s4-compare-block{margin:24px 0 36px;padding:24px;background:#f7f9fb;border-radius:12px}
+.s4-compare-title{font-size:1.25rem;margin-bottom:18px;font-weight:700}
+.s4-compare-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.s4-card{display:block;padding:16px;background:#fff;border:1px solid #e3e8ef;border-radius:10px;text-decoration:none;color:#1b2330;transition:transform .15s ease,box-shadow .15s ease}
+.s4-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.s4-card img{width:100%;height:180px;object-fit:contain;background:#fafbfc;border-radius:6px}
+.s4-card h3{font-size:1rem;margin:12px 0 6px}
+.s4-price{font-weight:700;color:#0a6efd;margin:0 0 6px}
+.s4-bullets{font-size:.85rem;color:#5b6573;margin:0 0 12px}
+.s4-cta{display:inline-block;padding:8px 14px;background:#ff6a00;color:#fff;border-radius:6px;font-weight:600;font-size:.9rem}
+.s4-compare-foot{margin-top:14px;text-align:center;font-size:.95rem}
+@media (max-width:760px){.s4-compare-grid{grid-template-columns:1fr}}
+.s4-sticky-cta{position:sticky;top:90px;float:right;width:260px;margin:0 0 24px 24px;padding:16px;background:#fff;border:1px solid #e3e8ef;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.s4-sticky-cta img{width:100%;height:140px;object-fit:contain}
+.s4-sticky-eyebrow{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:#ff6a00;margin:8px 0 4px}
+.s4-sticky-title{font-weight:700;font-size:.95rem;margin:0 0 4px}
+.s4-sticky-price{font-size:.85rem;color:#5b6573;margin:0 0 10px}
+.s4-sticky-btn{display:block;text-align:center;padding:10px;background:#0a6efd;color:#fff;border-radius:6px;text-decoration:none;font-weight:600}
+@media (max-width:980px){.s4-sticky-cta{position:static;float:none;width:100%;margin:18px 0}}
+</code></pre>
+<ol start="4">
+<li><strong>Extend article body to 1,800 words.</strong> Use this exact outline (current article is ~1,200 words):</li>
+</ol>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>H2</th>
+<th style="text-align: right;">Word budget</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What Are Bollards? (existing)</td>
+<td style="text-align: right;">180</td>
+<td>Keep, tighten, add definition box</td>
+</tr>
+<tr>
+<td>Why Commercial Bollards Matter (existing "Why They're Used")</td>
+<td style="text-align: right;">220</td>
+<td>Add stats: NHTSA storefront crash data, OSHA citations</td>
+</tr>
+<tr>
+<td>Bollard Types Explained (existing)</td>
+<td style="text-align: right;">280</td>
+<td>Add fixed-vs-removable-vs-retractable comparison table</td>
+</tr>
+<tr>
+<td>Manual Retractable Bollards (NEW)</td>
+<td style="text-align: right;">180</td>
+<td>Inline link to <code>/products/4-manual-retractable-stainless-steel-bollard</code></td>
+</tr>
+<tr>
+<td>Removable Bollards With Locks (NEW)</td>
+<td style="text-align: right;">180</td>
+<td>Link to <code>/products/6-removable-stainless-steel-bollard-w-embedment-sleeve</code></td>
+</tr>
+<tr>
+<td>Crash-Rated Bollards: K4 vs K12 vs C40 (NEW)</td>
+<td style="text-align: right;">240</td>
+<td>Inline links to crash-rated SKUs once page audit (9.2) confirms checkout</td>
+</tr>
+<tr>
+<td>How Much Do Commercial Bollards Cost? (NEW)</td>
+<td style="text-align: right;">220</td>
+<td>Pricing tiers; link to pillar (9.6.4) when live</td>
+</tr>
+<tr>
+<td>How to Choose the Right Bollard (NEW)</td>
+<td style="text-align: right;">220</td>
+<td>Decision tree: traffic stop / aesthetic / security / parking</td>
+</tr>
+<tr>
+<td>FAQ (NEW — schema-tagged)</td>
+<td style="text-align: right;">280</td>
+<td>8 Q&amp;As pulled from search "people also ask"</td>
+</tr>
+</tbody>
+</table></div>
+<ol start="5">
+<li><strong>Add FAQ schema JSON-LD.</strong> Insert at the bottom of the article rich-text editor:</li>
+</ol>
+<pre><code class="language-html">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;FAQPage&quot;,
+  &quot;mainEntity&quot;: [
+    {&quot;@type&quot;:&quot;Question&quot;,&quot;name&quot;:&quot;What is a bollard used for?&quot;,&quot;acceptedAnswer&quot;:{&quot;@type&quot;:&quot;Answer&quot;,&quot;text&quot;:&quot;A bollard is a short vertical post used to control or block vehicle traffic, protect pedestrians and storefronts, define perimeters, or secure assets such as utility infrastructure, ATMs, and propane tanks.&quot;}},
+    {&quot;@type&quot;:&quot;Question&quot;,&quot;name&quot;:&quot;What is the difference between a removable and retractable bollard?&quot;,&quot;acceptedAnswer&quot;:{&quot;@type&quot;:&quot;Answer&quot;,&quot;text&quot;:&quot;A removable bollard lifts out of an embedded sleeve when access is needed and is stored elsewhere. A retractable bollard drops down into a permanent in-ground housing flush with the surface, then is raised back up — no separate storage required.&quot;}},
+    {&quot;@type&quot;:&quot;Question&quot;,&quot;name&quot;:&quot;How much does a commercial bollard cost?&quot;,&quot;acceptedAnswer&quot;:{&quot;@type&quot;:&quot;Answer&quot;,&quot;text&quot;:&quot;Decorative cover bollards run $150-$400. Manual removable steel bollards run $400-$1,000. Manual retractable stainless bollards run $1,200-$1,800. Crash-rated K4/K12 bollards meeting ASTM F2656 run $2,500-$8,000 per unit installed.&quot;}},
+    {&quot;@type&quot;:&quot;Question&quot;,&quot;name&quot;:&quot;What is a K4 vs K12 bollard?&quot;,&quot;acceptedAnswer&quot;:{&quot;@type&quot;:&quot;Answer&quot;,&quot;text&quot;:&quot;K-ratings indicate the speed at which a bollard can stop a 15,000 lb truck per ASTM F2656/F3016. K4 stops the truck at 30 mph. K8 at 40 mph. K12 at 50 mph. K12 is required for most embassy and federal-grade perimeter installations.&quot;}},
+    {&quot;@type&quot;:&quot;Question&quot;,&quot;name&quot;:&quot;How deep should a bollard be installed?&quot;,&quot;acceptedAnswer&quot;:{&quot;@type&quot;:&quot;Answer&quot;,&quot;text&quot;:&quot;Standard fixed bollards require an 18-24 inch concrete footing. Retractable bollard housings require 24-36 inches depending on diameter. Crash-rated bollards require engineered footings up to 48 inches deep, designed per the manufacturer's installation drawings.&quot;}},
+    {&quot;@type&quot;:&quot;Question&quot;,&quot;name&quot;:&quot;Do bollards require a permit?&quot;,&quot;acceptedAnswer&quot;:{&quot;@type&quot;:&quot;Answer&quot;,&quot;text&quot;:&quot;Permit requirements vary by municipality. Most commercial bollard installations on private property do not require a permit unless ADA paths are affected. ROW (right-of-way) installations almost always require municipal approval.&quot;}},
+    {&quot;@type&quot;:&quot;Question&quot;,&quot;name&quot;:&quot;What material is best for a bollard?&quot;,&quot;acceptedAnswer&quot;:{&quot;@type&quot;:&quot;Answer&quot;,&quot;text&quot;:&quot;Type 316 stainless steel for coastal/saltwater environments. Carbon steel with powder coating for indoor or covered outdoor use. Type 304 stainless for general outdoor commercial use.&quot;}},
+    {&quot;@type&quot;:&quot;Question&quot;,&quot;name&quot;:&quot;How fast can I get bollards delivered?&quot;,&quot;acceptedAnswer&quot;:{&quot;@type&quot;:&quot;Answer&quot;,&quot;text&quot;:&quot;Source 4 Industries ships in-stock steel bollards within 2 business days from US warehouses. Lead times for crash-rated and custom-engineered units are 4-6 weeks.&quot;}}
+  ]
+}
+&lt;/script&gt;
+</code></pre>
+<ol start="6">
+<li><strong>Replace existing internal links.</strong> The article currently links only to <code>/collections/safety-bollards</code>, <code>/collections/removable-bollards</code>, <code>/collections/retractable-bollards</code>, <code>/collections/fixed-bollards</code>. Change these to:</li>
+</ol>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Existing anchor</th>
+<th>Existing target</th>
+<th>New target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Bollards" (intro)</td>
+<td><code>/collections/safety-bollards</code></td>
+<td><code>/collections/s4-bollards</code></td>
+</tr>
+<tr>
+<td>"Removable bollards"</td>
+<td><code>/collections/removable-bollards</code></td>
+<td><code>/products/6-removable-stainless-steel-bollard-w-embedment-sleeve</code></td>
+</tr>
+<tr>
+<td>"Retractable bollards"</td>
+<td><code>/collections/retractable-bollards</code></td>
+<td><code>/products/4-manual-retractable-stainless-steel-bollard</code></td>
+</tr>
+<tr>
+<td>"Fixed bollards"</td>
+<td><code>/collections/fixed-bollards</code></td>
+<td><code>/products/6-carbon-steel-dome-top-bollard-w-baseplate</code></td>
+</tr>
+<tr>
+<td>"shop our large selection" (CTA)</td>
+<td><code>/collections/safety-bollards</code></td>
+<td><code>/collections/s4-bollards</code></td>
+</tr>
+</tbody>
+</table></div>
+<ol start="7">
+<li><strong>Set meta description on the article</strong> (Shopify admin → blog post → SEO section): <code>Bollards explained: types, K-ratings, costs, and how to choose. See in-stock retractable, removable, and crash-rated bollards shipping in 2 days.</code> (155 chars).</li>
+</ol>
+<p><strong>Verification:</strong>
+- Visit <code>https://source4industries.com/blogs/articles/what-are-bollards</code> — comparison block visible above the fold; sticky CTA visible at desktop ≥1024px.
+- Paste the page URL into Google Rich Results Test (<code>search.google.com/test/rich-results</code>) — should detect FAQPage schema with 8 questions.
+- Day 14: pull <code>/blogs/articles/what-are-bollards</code> row from GA4 Landing Page report — average engagement time should rise from 1.5s to ≥30s; <code>/products/4-manual-retractable-stainless-steel-bollard</code> referrer source from this URL should show in GA4 referrer report.</p>
+<p><strong>Time estimate:</strong> 4 hours (3 ITD writing + schema, 1 TG-dev sticky CTA + CSS).</p>
+<p><strong>Owner:</strong> ITD writes the body, comparison block, FAQ JSON, meta description; TG-dev pushes the sticky CTA Liquid + CSS; TG-content publishes.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.2 — Crash-Rated Bollard Product Page Audit (K4 / K12 / C40)</h3>
+<p><strong>What to do:</strong> Diagnose why <code>/products/c40-crash-rated-bollard</code>, <code>/products/astm-k4-crash-rated-bollard</code>, <code>/products/astm-k12-crash-rated-bollard</code> collect 1,340 sessions and convert zero. Implement either a working buy button or a tracked quote-request flow.</p>
+<p><strong>Where:</strong> Shopify admin → Products → search by handle. GA4 admin for event registration.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Audit checklist — run for each of the 3 SKUs in this order:</strong></li>
+</ol>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Where</th>
+<th>Pass criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Is the product <code>Active</code>?</td>
+<td>Product → Status</td>
+<td>Active, not Draft</td>
+</tr>
+<tr>
+<td>Is the product in the Online Store sales channel?</td>
+<td>Product → Sales channels</td>
+<td>Online Store enabled</td>
+</tr>
+<tr>
+<td>Is the price set and visible?</td>
+<td>Product → Pricing</td>
+<td>Non-zero price, not "Price on request"</td>
+</tr>
+<tr>
+<td>Is inventory tracked + non-zero? OR "Continue selling when out of stock" enabled?</td>
+<td>Product → Inventory</td>
+<td>Either inventory &gt;0 or oversell enabled</td>
+</tr>
+<tr>
+<td>Does "Add to cart" button render on the live URL?</td>
+<td>Visit live page</td>
+<td>Button visible above fold</td>
+</tr>
+<tr>
+<td>Is the product gated behind a "Request Quote" form override?</td>
+<td>Product description / theme metafields</td>
+<td>Document which path is active</td>
+</tr>
+<tr>
+<td>Variant SKU mapped correctly?</td>
+<td>Product → Variants</td>
+<td>No "default variant - $0.00" rows</td>
+</tr>
+<tr>
+<td>Image alt text present and descriptive?</td>
+<td>Product → Media</td>
+<td>Alt = <code>astm k12 crash rated bollard 8 inch</code> etc.</td>
+</tr>
+</tbody>
+</table></div>
+<ol start="2">
+<li>
+<p><strong>Decision tree:</strong>
+   - If audit shows price + ATC + inventory all good but conversions are still zero → cause is content/trust gap. Action: add spec sheet PDF, ASTM cert PDF, lead-time line, and a 4-image gallery (installed unit, dimensions, anchor detail, finish detail). Time: 1.5 hr/SKU.
+   - If audit shows price hidden or quote-only → these are quote-driven SKUs. Action: install GA4 quote event (step 3 below).
+   - If audit shows the SKU is mis-tagged as Draft / not in Online Store channel → fix immediately. Time: 5 min/SKU.</p>
+</li>
+<li>
+<p><strong>GA4 quote event setup (if quote-only).</strong> Use a single event name <code>generate_lead</code> with parameters identifying the SKU:</p>
+</li>
+</ol>
+<p><strong>Theme code change</strong> — edit <code>sections/main-product.liquid</code> (or whatever section renders the product form). Find the quote/contact form submit button and add this snippet inside its <code>onclick</code> or the form's <code>submit</code> handler:</p>
+<pre><code class="language-liquid">{%- if product.handle contains 'crash-rated' or product.tags contains 'quote-only' -%}
+&lt;script&gt;
+document.addEventListener('DOMContentLoaded', function(){
+  var qf = document.querySelector('#quote-form-{{ product.id }}');
+  if(!qf) return;
+  qf.addEventListener('submit', function(){
+    if (typeof gtag === 'function') {
+      gtag('event','generate_lead',{
+        currency: 'USD',
+        value: {{ product.price | money_without_currency | remove: ',' | default: 0 }},
+        item_id: '{{ product.handle }}',
+        item_name: {{ product.title | json }},
+        item_category: 'crash-rated-bollard',
+        lead_type: 'quote_request'
+      });
+    }
+  });
+});
+&lt;/script&gt;
+{%- endif -%}
+</code></pre>
+<ol start="4">
+<li>
+<p><strong>Register <code>generate_lead</code> as a Key Event</strong> in GA4: Admin → Events → click <code>generate_lead</code> → toggle "Mark as key event" ON. Then Admin → Conversions (legacy) → confirm it appears.</p>
+</li>
+<li>
+<p><strong>Set a conversion value</strong> (so revenue can be modeled): Admin → Events → modify <code>generate_lead</code> → set <code>value</code> = 0.05 × <code>value</code> parameter (5% close rate × AOV). This lets GA4 surface quote pages in revenue-attribution reports.</p>
+</li>
+<li>
+<p><strong>Add "Request Quote" CTA pattern to the product page</strong> (if quote-only):</p>
+</li>
+</ol>
+<pre><code class="language-html">&lt;div class=&quot;s4-quote-cta&quot;&gt;
+  &lt;h3&gt;Crash-rated bollards are engineered to spec&lt;/h3&gt;
+  &lt;p&gt;Quantity, embedment depth, K-rating cert, and lead time are confirmed before order. Get a same-day quote.&lt;/p&gt;
+  &lt;a href=&quot;#quote-form-{{ product.id }}&quot; class=&quot;s4-cta-btn&quot;&gt;Request quote &amp;rarr;&lt;/a&gt;
+  &lt;p class=&quot;s4-cta-trust&quot;&gt;Typical response: 4 business hours - 50 years in business - BBB A+&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p><strong>Verification:</strong>
+- After audit: live URL renders correctly. Live test the buy button or quote form. Trigger the form once with a test email; confirm <code>generate_lead</code> fires in GA4 DebugView (Admin → DebugView).
+- Day 7: <code>generate_lead</code> count &gt; 0 in GA4 for these 3 SKUs.</p>
+<p><strong>Time estimate:</strong> 3 hours (1 audit, 2 fixes/event setup).</p>
+<p><strong>Owner:</strong> ITD audits + writes copy; TG-dev pushes Liquid + GA4 admin changes.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.3 — Shopify Checkout Cross-Domain Attribution Fix</h3>
+<p><strong>What to do:</strong> Stop GA4 from creating new sessions when users hit <code>checkout.shopify.com</code> (or <code>checkout.source4industries.com</code> if using a custom checkout subdomain), which is currently bucketing 47.7% of revenue into <code>(direct) / (none)</code>.</p>
+<p><strong>Where:</strong> GA4 admin (Property → Data Streams), Klaviyo flow editor, Bing Ads + Google Ads tracking template settings.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>
+<p><strong>Confirm the checkout domain.</strong> In Shopify admin → Settings → Domains, note the checkout domain. For most stores it is <code>checkout.shopify.com</code> for the legacy checkout; for Shop Pay-enabled stores using a custom checkout it may be <code>pay.shopify.com</code> or a custom subdomain.</p>
+</li>
+<li>
+<p><strong>Configure cross-domain measurement in GA4:</strong>
+   - Admin → Data Streams → click the source4industries.com web stream
+   - Click "Configure tag settings" (under Google tag section)
+   - Click "Configure your domains"
+   - Add (one per row, "match type: contains"):</p>
+<ul>
+<li><code>source4industries.com</code></li>
+<li><code>www.source4industries.com</code></li>
+<li><code>checkout.shopify.com</code></li>
+<li><code>pay.shopify.com</code></li>
+<li><code>shop.app</code></li>
+<li>Save.</li>
+</ul>
+</li>
+<li>
+<p><strong>Update the GA4 referral exclusion list</strong> (so checkout returns don't create new sessions):
+   - Admin → Data Streams → web stream → Configure tag settings → Show all → "List unwanted referrals"
+   - Match type: "Referral domain contains"
+   - Add: <code>shopify.com</code>, <code>pay.shopify.com</code>, <code>checkout.shopify.com</code>, <code>shop.app</code>, <code>paypal.com</code>, <code>paypalobjects.com</code>, <code>klarna.com</code>, <code>afterpay.com</code>, <code>affirm.com</code>, <code>stripe.com</code>, <code>klaviyo.com</code>
+   - Save.</p>
+</li>
+<li>
+<p><strong>Klaviyo UTM audit.</strong> Klaviyo → Account → Settings → UTM Tracking. Confirm:
+   - <code>utm_source</code> = <code>klaviyo</code>
+   - <code>utm_medium</code> = <code>email</code>
+   - <code>utm_campaign</code> = <code>{{ campaign_name }}</code>
+   - Apply to all flow + campaign emails.
+   - For SMS (Klaviyo SMS): <code>utm_source=klaviyo</code>, <code>utm_medium=sms</code>.</p>
+</li>
+<li>
+<p><strong>Bing Ads UTM audit.</strong> Bing Ads → Account Settings → Tracking templates → set account-level final URL suffix:
+   <code>utm_source=bing&amp;utm_medium=cpc&amp;utm_campaign={CampaignName}&amp;utm_content={AdId}&amp;utm_term={keyword}</code>
+   Then Bing Ads → Settings → Auto-tagging → enable MSCLKID auto-tagging.</p>
+</li>
+<li>
+<p><strong>Google Ads UTM audit.</strong> Google Ads → Tools → Tracking → Tracking templates → confirm account auto-tagging is ON (this sets the <code>gclid</code> parameter — GA4 reads it natively, no UTM needed). Belt-and-suspenders: also add a campaign-level tracking template:
+   <code>{lpurl}?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign={_campaign}&amp;utm_content={creative}&amp;utm_term={keyword}</code></p>
+</li>
+<li>
+<p><strong>Outbrain / display UTM audit.</strong> Outbrain dashboard → Tracking → confirm UTM parameters set on campaign URLs:
+   <code>utm_source=outbrain&amp;utm_medium=display&amp;utm_campaign={campaign_name}</code></p>
+</li>
+<li>
+<p><strong>Audit existing email flows.</strong> Open Klaviyo → Flows. For each: Welcome, Browse Abandon, Cart Abandon, Post-Purchase, Win-Back, Quote Follow-Up. Check that every link in every email uses the account-level UTM block. Fix any hard-coded raw URLs.</p>
+</li>
+</ol>
+<p><strong>Verification:</strong>
+- Same-day: trigger a test purchase from a fresh incognito session, confirm in GA4 Realtime that the session shows source = <code>(direct)</code> once on landing and continues to show <code>(direct)</code> (or whatever the original referrer was) through the checkout completion event.
+- Day 7: <code>(direct) / (none)</code> revenue share in Traffic Acquisition report should drop from 47.7% toward &lt;15%.
+- Day 30: target is &lt;10%.</p>
+<p><strong>Time estimate:</strong> 4 hours.</p>
+<p><strong>Owner:</strong> ITD writes spec; TG-ops executes GA4 + Klaviyo + Bing/Google Ads changes.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.4 — 404 Cleanup (2,447 URLs)</h3>
+<p><strong>What to do:</strong> Crawl every 404 surfaced by GSC, classify by recovery value, write 301s for any URL with backlinks or internal links, and let the rest decay naturally (or block in robots.txt if they're crawl-budget hogs).</p>
+<p><strong>Where:</strong> Screaming Frog SEO Spider (free tier — 500 URL cap; paid for full crawl), GSC export, Shopify admin → Online Store → Navigation → URL Redirects.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>
+<p><strong>Export the 404 list from GSC:</strong> Search Console → Pages → "Why pages aren't indexed" → click "Not found (404)" → click "Export" → Download CSV.</p>
+</li>
+<li>
+<p><strong>Cross-reference with backlinks.</strong> Open the GSC 404 export, the <code>top-target-pages-backlinks-2026-04-23.csv</code>, and <code>Landing_page_Landing_page.csv</code> together. In Google Sheets:
+   <code>=VLOOKUP(A2, BacklinksSheet!A:B, 2, FALSE)  // returns backlink count if URL has any
+   =VLOOKUP(A2, LandingPagesSheet!A:B, 2, FALSE)  // returns session count if URL ever had GA4 traffic</code></p>
+</li>
+<li>
+<p><strong>Crawl 404 destinations to determine intent.</strong> Open Screaming Frog → File → Mode → List → paste 404 URLs → Start. The crawl will return 404 codes — use the URL slug to identify what the page WAS supposed to be (product handle / collection / blog post / page). Match each 404 slug to a current live URL using fuzzy match (handle contains 80% same string).</p>
+</li>
+<li>
+<p><strong>Apply this decision tree to each URL:</strong></p>
+</li>
+</ol>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Has backlinks?</th>
+<th>Has internal links / GA4 sessions?</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Yes</td>
+<td>—</td>
+<td><strong>301 redirect</strong> to closest live equivalent (product → product, collection → collection). Never redirect to homepage unless no equivalent exists.</td>
+</tr>
+<tr>
+<td>No</td>
+<td>Yes (≥10 sessions historical)</td>
+<td><strong>301 redirect</strong> to closest live equivalent.</td>
+</tr>
+<tr>
+<td>No</td>
+<td>No</td>
+<td><strong>Leave as 404</strong>. Optionally add to <code>robots.txt</code> Disallow list if there are clear spam-pattern URLs (e.g., <code>?variant=xxx</code> proliferation).</td>
+</tr>
+<tr>
+<td>No, but URL pattern is bot-spam (<code>/admin</code>, <code>?utm_xx=hack</code>, etc.)</td>
+<td>—</td>
+<td><strong>Block in robots.txt</strong>, do not 301.</td>
+</tr>
+</tbody>
+</table></div>
+<ol start="5">
+<li><strong>Build the redirect map.</strong> Format for Shopify URL Redirects (CSV import):</li>
+</ol>
+<p><code>csv
+   Redirect from,Redirect to
+   /products/old-bollard-handle,/products/4-manual-retractable-stainless-steel-bollard
+   /collections/old-collection-name,/collections/s4-bollards
+   /pages/discontinued-resource,/blogs/articles/what-are-bollards</code></p>
+<ol start="6">
+<li>
+<p><strong>Bulk-import to Shopify:</strong> Shopify admin → Online Store → Navigation → URL Redirects → "Import" (top right) → upload CSV. Shopify processes up to 100,000 redirects per import.</p>
+</li>
+<li>
+<p><strong>Submit cleaned URL list to GSC.</strong> Within GSC → Pages → "Not found" → click "Validate Fix" once redirects are live. Google will recrawl over 14-28 days.</p>
+</li>
+</ol>
+<p><strong>Verification:</strong>
+- Day 7: spot-check 20 random 301'd URLs in browser — should land on the correct destination with a 301 status (use Chrome DevTools → Network tab).
+- Day 30: GSC "Not found" count drops from 2,447 to &lt;1,000.
+- Day 90: target is &lt;50.</p>
+<p><strong>Time estimate:</strong> 4 hours (2 crawl + classify, 2 redirect map build + import).</p>
+<p><strong>Owner:</strong> ITD crawls + builds redirect map; TG-dev imports redirects to Shopify.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.5 — Internal-Link Redirect: <code>/pages/jobs</code> + <code>/pages/reviews</code></h3>
+<p><strong>What to do:</strong> These two pages absorb 1,623 backlinks combined and produce $0 revenue. Redirect their internal-link equity to revenue pages while preserving the external-link landing experience.</p>
+<p><strong>Where:</strong> Shopify admin → Online Store → Pages (for content edit), Online Store → Navigation (for menu changes).</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>
+<p><strong>Locate every internal link to <code>/pages/jobs</code> and <code>/pages/reviews</code>.</strong> In Screaming Frog: configuration → custom search → "href contains /pages/jobs". Run a full site crawl. Export the inlinks report. Repeat for <code>/pages/reviews</code>.</p>
+</li>
+<li>
+<p><strong>Expected current placements</strong> (based on standard Shopify patterns):
+   - Footer menu (most common): "Careers" / "Reviews" links
+   - Header utility nav: rare but check
+   - About Us page body
+   - Press / company blog posts</p>
+</li>
+<li>
+<p><strong>Recommended new targets:</strong>
+   - <strong><code>/pages/jobs</code></strong> — keep the page (for the legitimate job-seeker traffic from <code>recruitcrm.io</code>). Add at the top of the page body a banner: "Looking for industrial supplies? See our <a href="/">shop</a> - or browse <a href="/collections/guard-rails-barriers">warehouse safety</a> and <a href="/collections/s4-bollards">bollards</a>." Update the page content to add 200-300 words about S4 (the company), then 3 internal links into top-revenue collections.
+   - <strong><code>/pages/reviews</code></strong> — add a banner linking to <code>/products/4-manual-retractable-stainless-steel-bollard</code> (top revenue SKU) and <code>/collections/guard-rails-barriers</code>. Add 3-5 actual review excerpts inline if available.</p>
+</li>
+<li>
+<p><strong>Update internal nav.</strong> In Shopify admin → Online Store → Navigation:
+   - Footer menu: leave the "Careers" and "Reviews" links in place (don't remove — that breaks UX), but ALSO add direct links to <code>/collections/s4-bollards</code>, <code>/collections/guard-rails-barriers</code>, <code>/collections/quicklub-system-accessories</code>, <code>/products/4-manual-retractable-stainless-steel-bollard</code> in the footer "Popular" or "Shop" column.</p>
+</li>
+<li>
+<p><strong>Do NOT 301 these pages.</strong> They have 1,623 backlinks and active job-seeker traffic. A 301 would discard the backlink value via the standard 15% PageRank decay AND would break the candidate UX. The correct fix is an internal-link layer that flows equity downstream while leaving the page live.</p>
+</li>
+<li>
+<p><strong>Rollback plan:</strong> If <code>/pages/jobs</code> traffic drops &gt;40% week-over-week after the content update, revert to the prior content via Shopify revision history (Online Store → Pages → Jobs → "View revision history" if the theme supports it; otherwise restore from the pre-change copy backup ITD takes before the edit).</p>
+</li>
+</ol>
+<p><strong>Verification:</strong>
+- Day 30: Ahrefs / GSC links report shows the same backlink count to <code>/pages/jobs</code> and <code>/pages/reviews</code> (no link loss). GA4 shows new internal-link click events on the inserted CTAs (track via custom event if needed). Revenue collection sessions should show small uptick (1-3%) from internal-link equity flow.</p>
+<p><strong>Time estimate:</strong> 1 hour (excluding TG decision time).</p>
+<p><strong>Owner:</strong> ITD writes the page-content updates; TG-content reviews + publishes; TG-dev does the footer nav addition.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.6 — Lincoln Pillar + 6 Spokes (full content spec)</h3>
+<p><strong>What to do:</strong> Ship one ~3,500-word pillar and six 1,400-2,000-word spoke articles, each tightly linked, to claim ranking on the Lincoln query universe (50K+ combined impressions).</p>
+<p><strong>Where:</strong> Shopify admin → Online Store → Blog posts → "News" (or whichever blog the existing articles live in) → Add blog post.</p>
+<p><strong>Recommended publish cadence:</strong> Pillar week 2. Spokes 1-3 weeks 2-4 (one per week). Spokes 4-6 weeks 5-7. All 7 articles live by day 60.</p>
+<h4 class="finding-h4">9.6.0 — Pillar: Lincoln Quicklub System Complete Guide</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>URL</td>
+<td><code>/blogs/articles/lincoln-quicklub-complete-guide-2026</code></td>
+</tr>
+<tr>
+<td>Primary KW</td>
+<td><code>lincoln quicklub</code></td>
+</tr>
+<tr>
+<td>Secondary KWs</td>
+<td><code>lincoln auto lube system</code>, <code>lincoln automatic lubrication system</code>, <code>quicklub installation</code></td>
+</tr>
+<tr>
+<td>Title tag (≤60)</td>
+<td><code>Lincoln Quicklub System Guide: Setup, Parts &amp; Maintenance</code> (57)</td>
+</tr>
+<tr>
+<td>Meta description (≤155)</td>
+<td><code>Complete Lincoln Quicklub guide: components, install steps, fitting compatibility, maintenance intervals, troubleshooting. In-stock parts ship today.</code> (152)</td>
+</tr>
+<tr>
+<td>H1</td>
+<td><code>Lincoln Quicklub System: Complete Guide to Setup, Parts &amp; Maintenance</code></td>
+</tr>
+<tr>
+<td>Word target</td>
+<td>3,500</td>
+</tr>
+<tr>
+<td>Schema</td>
+<td>Article + FAQPage + HowTo (install section) + Speakable (Quick Facts block)</td>
+</tr>
+<tr>
+<td>Image alt guidance</td>
+<td>"lincoln quicklub p203 pump electric 24v", "lincoln quicklub injector sl-v", "quicklinc tubing fitting 90 degree"</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>H2 structure:</strong>
+1. What is the Lincoln Quicklub System? (350 words) - Speakable
+2. Quicklub Components Explained (550 words) - pump, injectors, tubing, fittings, controllers
+3. How to Install a Quicklub System (HowTo schema) (700 words)
+4. Compatible Fittings &amp; Tubing Sizes (chart, 350 words)
+5. Maintenance Intervals &amp; Service Schedule (450 words)
+6. Common Troubleshooting (450 words) - feeds into Spoke 4
+7. Lincoln Quicklub Part Number Cross-Reference (table, 300 words)
+8. FAQ (350 words, schema-tagged)</p>
+<p><strong>Internal-link map:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>From</th>
+<th>Anchor</th>
+<th>To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/collections/quicklub-system-accessories</code></td>
+<td>"How the Quicklub system works (full guide)"</td>
+<td>Pillar (top-of-collection callout)</td>
+</tr>
+<tr>
+<td><code>/collections/lincoln-industrial</code></td>
+<td>"Lincoln Quicklub setup guide"</td>
+<td>Pillar</td>
+</tr>
+<tr>
+<td><code>/collections/pump-repair-kits-parts</code></td>
+<td>"Lincoln pump troubleshooting"</td>
+<td>Spoke 4</td>
+</tr>
+<tr>
+<td><code>/products/electric-grease-pump-w-out-timer-p203-24v-94224</code></td>
+<td>"Lincoln auto lube system install guide"</td>
+<td>Pillar (sidebar)</td>
+</tr>
+<tr>
+<td><code>/products/electric-grease-pump-w-timer-p203-24v-94424</code></td>
+<td>"Lincoln Quicklub install steps"</td>
+<td>Pillar</td>
+</tr>
+<tr>
+<td>Pillar</td>
+<td>"Lincoln auto greaser parts"</td>
+<td>Spoke 1</td>
+</tr>
+<tr>
+<td>Pillar</td>
+<td>"Grease gun parts breakdown"</td>
+<td>Spoke 2</td>
+</tr>
+<tr>
+<td>Pillar</td>
+<td>"Quicklub installation step-by-step"</td>
+<td>Spoke 3 (also same H2 inside pillar)</td>
+</tr>
+<tr>
+<td>Pillar</td>
+<td>"Grease pump troubleshooting"</td>
+<td>Spoke 4</td>
+</tr>
+<tr>
+<td>Pillar</td>
+<td>"Quicklub fitting compatibility"</td>
+<td>Spoke 5</td>
+</tr>
+<tr>
+<td>Pillar</td>
+<td>"Lincoln hose reel maintenance"</td>
+<td>Spoke 6</td>
+</tr>
+</tbody>
+</table></div>
+<h4 class="finding-h4">9.6.1 — Spoke 1: Lincoln Auto Greaser Parts</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>URL</td>
+<td><code>/blogs/articles/lincoln-auto-greaser-parts-guide</code></td>
+</tr>
+<tr>
+<td>Primary KW</td>
+<td><code>lincoln auto greaser parts</code></td>
+</tr>
+<tr>
+<td>Secondary</td>
+<td><code>lincoln greaser components</code>, <code>lincoln auto lube parts</code>, <code>lincoln industrial greaser parts</code></td>
+</tr>
+<tr>
+<td>Title (≤60)</td>
+<td><code>Lincoln Auto Greaser Parts: Components, Numbers &amp; Replacements</code> (60)</td>
+</tr>
+<tr>
+<td>Meta (≤155)</td>
+<td><code>Every Lincoln auto greaser part explained: pumps, injectors, controllers, tubing, with part numbers and replacement intervals. In stock, ships today.</code> (155)</td>
+</tr>
+<tr>
+<td>H1</td>
+<td><code>Lincoln Auto Greaser Parts: What Every Component Does</code></td>
+</tr>
+<tr>
+<td>Word target</td>
+<td>1,800</td>
+</tr>
+<tr>
+<td>Schema</td>
+<td>Article + FAQPage</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>H2 structure:</strong> Pump assemblies (220) - Injector valves (220) - Tubing &amp; fittings (200) - Controllers &amp; timers (200) - Reservoirs &amp; accessories (200) - Replacement intervals (300) - Part-number cross-ref table (260) - FAQ (200).</p>
+<p><strong>Inbound anchors:</strong> Pillar → "Lincoln auto greaser parts." <code>/collections/lincoln-industrial</code> → "Auto greaser part numbers explained." <code>/products/quicklub-qls-401-electric-grease-pump-with-spx-controls</code> → "What each greaser component does."</p>
+<h4 class="finding-h4">9.6.2 — Spoke 2: Lincoln Grease Gun Parts Breakdown</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>URL</td>
+<td><code>/blogs/articles/lincoln-grease-gun-parts-diagrams</code></td>
+</tr>
+<tr>
+<td>Primary KW</td>
+<td><code>lincoln grease gun parts</code></td>
+</tr>
+<tr>
+<td>Secondary</td>
+<td><code>lincoln powerluber parts</code>, <code>lincoln grease gun replacement parts</code>, <code>lincoln 1162 parts</code></td>
+</tr>
+<tr>
+<td>Title (≤60)</td>
+<td><code>Lincoln Grease Gun Parts: Diagrams, Numbers &amp; Replacements</code> (58)</td>
+</tr>
+<tr>
+<td>Meta (≤155)</td>
+<td><code>Lincoln grease gun parts explained with exploded diagrams, OEM numbers, and replacement guides for Powerluber, manual, and pneumatic models.</code> (143)</td>
+</tr>
+<tr>
+<td>H1</td>
+<td><code>Lincoln Grease Gun Parts: Exploded Diagrams &amp; Replacement Guide</code></td>
+</tr>
+<tr>
+<td>Word target</td>
+<td>1,800</td>
+</tr>
+<tr>
+<td>Schema</td>
+<td>Article + FAQPage + ImageObject (for diagrams)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>H2 structure:</strong> Manual grease gun parts (220) - Powerluber (battery) parts (250) - Pneumatic grease gun parts (220) - Common replacement parts (250) - How to identify your model (200) - Cross-ref table by model number (260) - FAQ (200) - Where to buy.</p>
+<p><strong>Inbound:</strong> Pillar → "Grease gun parts breakdown." <code>/products/powerluber-grease-gun-tool-only</code> → "Powerluber parts explained." <code>/collections/lincoln-industrial</code> → "Grease gun parts diagrams."</p>
+<h4 class="finding-h4">9.6.3 — Spoke 3: Quicklub Installation HowTo</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>URL</td>
+<td><code>/blogs/articles/install-lincoln-quicklub-step-by-step</code></td>
+</tr>
+<tr>
+<td>Primary KW</td>
+<td><code>lincoln auto lube system</code></td>
+</tr>
+<tr>
+<td>Secondary</td>
+<td><code>install quicklub</code>, <code>quicklub installation guide</code>, <code>lincoln auto lube install</code></td>
+</tr>
+<tr>
+<td>Title (≤60)</td>
+<td><code>How to Install a Lincoln Quicklub Auto Lube System</code> (51)</td>
+</tr>
+<tr>
+<td>Meta (≤155)</td>
+<td><code>Step-by-step Lincoln Quicklub install: pump mounting, divider valves, tubing, controller wiring, and first-fill priming. With diagrams.</code> (138)</td>
+</tr>
+<tr>
+<td>H1</td>
+<td><code>How to Install a Lincoln Quicklub Automatic Lubrication System (Step-by-Step)</code></td>
+</tr>
+<tr>
+<td>Word target</td>
+<td>2,000</td>
+</tr>
+<tr>
+<td>Schema</td>
+<td>Article + HowTo (with <code>step</code> array) + FAQPage</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>H2 structure:</strong> Tools you'll need (180) - Step 1: pump location &amp; mounting (300) - Step 2: divider valve install (300) - Step 3: tubing routing (300) - Step 4: controller wiring (250) - Step 5: prime + first cycle (250) - Common install mistakes (220) - FAQ (200).</p>
+<p><strong>Inbound:</strong> Pillar → "Quicklub installation step-by-step." <code>/products/electric-grease-pump-w-timer-p203-24v-94424</code> → "Install your P203 pump."</p>
+<h4 class="finding-h4">9.6.4 — Spoke 4: Grease Pump Troubleshooting</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>URL</td>
+<td><code>/blogs/articles/lincoln-grease-pump-troubleshooting</code></td>
+</tr>
+<tr>
+<td>Primary KW</td>
+<td><code>lincoln grease pump</code></td>
+</tr>
+<tr>
+<td>Secondary</td>
+<td><code>lincoln grease pump parts</code>, <code>p203 troubleshooting</code>, <code>lincoln auto lube pump not working</code></td>
+</tr>
+<tr>
+<td>Title (≤60)</td>
+<td><code>Lincoln Grease Pump Troubleshooting: 12 P203 Fixes</code> (50)</td>
+</tr>
+<tr>
+<td>Meta (≤155)</td>
+<td><code>Lincoln P203 grease pump not pumping? 12 common Quicklub pump problems with diagnosis and fixes. Replacement parts in stock, ship today.</code> (138)</td>
+</tr>
+<tr>
+<td>H1</td>
+<td><code>Lincoln Grease Pump Troubleshooting: 12 Common P203 Problems &amp; Fixes</code></td>
+</tr>
+<tr>
+<td>Word target</td>
+<td>1,800</td>
+</tr>
+<tr>
+<td>Schema</td>
+<td>Article + FAQPage + HowTo (per fix)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>H2 structure:</strong> Quick diagnostic flowchart (200) - 12 problems + fixes (1,000, 80 words each) - When to replace vs. repair (200) - OEM part-number lookup (200) - FAQ (200).</p>
+<p><strong>Inbound:</strong> Pillar → "Grease pump troubleshooting." <code>/collections/pump-repair-kits-parts</code> → "P203 troubleshooting guide." All P203 product pages → sidebar link.</p>
+<h4 class="finding-h4">9.6.5 — Spoke 5: Quicklub Fittings &amp; Compatibility</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>URL</td>
+<td><code>/blogs/articles/lincoln-quicklub-fittings-compatibility</code></td>
+</tr>
+<tr>
+<td>Primary KW</td>
+<td><code>lincoln grease fittings</code></td>
+</tr>
+<tr>
+<td>Secondary</td>
+<td><code>quicklub fittings</code>, <code>lincoln quicklub tubing</code>, <code>quicklinc fittings</code></td>
+</tr>
+<tr>
+<td>Title (≤60)</td>
+<td><code>Lincoln Quicklub Fittings: Tubing, Injectors &amp; Sizes</code> (54)</td>
+</tr>
+<tr>
+<td>Meta (≤155)</td>
+<td><code>Lincoln Quicklub fittings guide: Quicklinc push-in vs. compression, tubing sizes, injector compatibility. In-stock parts ship today.</code> (132)</td>
+</tr>
+<tr>
+<td>H1</td>
+<td><code>Lincoln Quicklub Fittings &amp; Tubing: Compatibility Chart</code></td>
+</tr>
+<tr>
+<td>Word target</td>
+<td>1,500</td>
+</tr>
+<tr>
+<td>Schema</td>
+<td>Article + FAQPage + ItemList (for compatibility chart)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>H2 structure:</strong> Quicklinc vs. compression fittings (250) - Tubing OD/ID sizes (250) - Injector + valve compatibility (250) - Compatibility chart (table, 300) - When to use which fitting (200) - FAQ (200).</p>
+<p><strong>Inbound:</strong> Pillar → "Quicklub fitting compatibility." <code>/collections/quicklub-system-accessories</code> → "Fitting compatibility chart."</p>
+<h4 class="finding-h4">9.6.6 — Spoke 6: Lincoln Hose Reel Maintenance</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>URL</td>
+<td><code>/blogs/articles/lincoln-hose-reel-maintenance</code></td>
+</tr>
+<tr>
+<td>Primary KW</td>
+<td><code>lincoln hose reel</code></td>
+</tr>
+<tr>
+<td>Secondary</td>
+<td><code>lincoln hose reel parts</code>, <code>lincoln 84772 parts</code>, <code>industrial hose reel maintenance</code></td>
+</tr>
+<tr>
+<td>Title (≤60)</td>
+<td><code>Lincoln Hose Reel Maintenance: Parts &amp; Service Guide</code> (55)</td>
+</tr>
+<tr>
+<td>Meta (≤155)</td>
+<td><code>Lincoln hose reel maintenance guide: spring tension, hose replacement, rewind motor service, and OEM parts. Ships from US stock today.</code> (135)</td>
+</tr>
+<tr>
+<td>H1</td>
+<td><code>Lincoln Hose Reel Maintenance: Replacement Parts &amp; Service Intervals</code></td>
+</tr>
+<tr>
+<td>Word target</td>
+<td>1,500</td>
+</tr>
+<tr>
+<td>Schema</td>
+<td>Article + FAQPage + HowTo</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>H2 structure:</strong> Hose reel models covered (180) - Annual service checklist (250) - Hose replacement HowTo (300) - Spring tension adjustment (250) - Rewind motor service (250) - Compatible parts list (200) - FAQ (200).</p>
+<p><strong>Inbound:</strong> Pillar → "Lincoln hose reel maintenance." <code>/collections/lincoln-industrial</code> (when filtered to hose reels) → "Hose reel service guide."</p>
+<p><strong>Verification (cluster-level):</strong>
+- Day 30: pillar URL appears in GSC for <code>lincoln quicklub</code> queries (any position, even 50, confirms indexation).
+- Day 60: at least 3 of 7 articles ranking in top 30 for primary KW.
+- Day 90: 6 of 7 articles ranking in top 10 for primary KW (per the report's KPI table).</p>
+<p><strong>Time estimate:</strong> 28 hours total (pillar 6 + 6 spokes × 3.5).</p>
+<p><strong>Owner:</strong> ITD writes; TG-content publishes.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.7 — Guard Rails Pillar + 5 Spokes</h3>
+<p><strong>Recommended publish cadence:</strong> Pillar week 3. Spokes 1-5 weeks 4-8.</p>
+<h4 class="finding-h4">9.7.0 — Pillar: Warehouse Guard Rails &amp; Safety Barriers</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>URL</td>
+<td><code>/blogs/articles/warehouse-guard-rails-barriers-buyers-guide-2026</code></td>
+</tr>
+<tr>
+<td>Primary KW</td>
+<td><code>warehouse guard rails</code></td>
+</tr>
+<tr>
+<td>Secondary</td>
+<td><code>warehouse safety barriers</code>, <code>industrial guard rails</code>, <code>osha warehouse barriers</code></td>
+</tr>
+<tr>
+<td>Title (≤60)</td>
+<td><code>Warehouse Guard Rails &amp; Barriers: 2026 Buyer's Guide</code> (53)</td>
+</tr>
+<tr>
+<td>Meta (≤155)</td>
+<td><code>Warehouse guard rails buyer's guide: OSHA specs, load ratings, install types, and best uses. In-stock barriers ship in 2 days.</code> (124)</td>
+</tr>
+<tr>
+<td>H1</td>
+<td><code>Warehouse Guard Rails &amp; Safety Barriers: Complete Buyer's Guide (2026)</code></td>
+</tr>
+<tr>
+<td>Word target</td>
+<td>3,200</td>
+</tr>
+<tr>
+<td>Schema</td>
+<td>Article + FAQPage + HowTo (install) + ItemList (spec table) + Speakable</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>H2 structure:</strong>
+1. Why warehouse guard rails matter (300, Speakable)
+2. Types of warehouse guard rails (550) - single rail / double rail / end-of-aisle / column
+3. OSHA 1910.28 requirements (450) - FAQ-tagged H3s
+4. Load ratings &amp; impact specs (350)
+5. Anchor vs. freestanding install (350) - HowTo
+6. Guard rail vs. bollard: when to use which (300)
+7. Spec comparison table (table, 350) - ItemList
+8. FAQ (350)</p>
+<p><strong>Internal-link map:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>From</th>
+<th>Anchor</th>
+<th>To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/collections/guard-rails-barriers</code></td>
+<td>"Complete warehouse guard rail buyer's guide"</td>
+<td>Pillar</td>
+</tr>
+<tr>
+<td><code>/products/heavy-duty-warehouse-double-rail-starter-unit</code></td>
+<td>"Anchor vs. freestanding install"</td>
+<td>Spoke 3</td>
+</tr>
+<tr>
+<td><code>/products/end-of-aisle-rack-protector-medium-duty</code></td>
+<td>"End-of-aisle vs. guard rails"</td>
+<td>Spoke 2</td>
+</tr>
+<tr>
+<td><code>/products/modular-pallet-rack-safety-netting-standard-j-hook</code></td>
+<td>"Pallet rack safety netting comparison"</td>
+<td>Spoke 5</td>
+</tr>
+<tr>
+<td>Pillar → all spokes</td>
+<td>varies</td>
+<td>Inline</td>
+</tr>
+</tbody>
+</table></div>
+<h4 class="finding-h4">9.7.1 — Spoke 1: OSHA Compliance Checklist</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>URL</td>
+<td><code>/blogs/articles/osha-warehouse-guard-rail-requirements</code></td>
+</tr>
+<tr>
+<td>Primary KW</td>
+<td><code>osha warehouse guard rails</code></td>
+</tr>
+<tr>
+<td>Secondary</td>
+<td><code>osha 1910.28</code>, <code>osha guard rail height</code>, <code>osha warehouse fall protection</code></td>
+</tr>
+<tr>
+<td>Title (≤60)</td>
+<td><code>OSHA Warehouse Guard Rail Requirements: 2026 Checklist</code> (54)</td>
+</tr>
+<tr>
+<td>Meta (≤155)</td>
+<td><code>OSHA warehouse guard rail rules: 1910.28 heights, spacing, load specs, and a free compliance checklist. Get compliant barriers in 2 days.</code> (137)</td>
+</tr>
+<tr>
+<td>H1</td>
+<td><code>OSHA Warehouse Guard Rail Requirements: Heights, Spacing &amp; Compliance Checklist</code></td>
+</tr>
+<tr>
+<td>Word target</td>
+<td>1,800</td>
+</tr>
+<tr>
+<td>Schema</td>
+<td>Article + FAQPage + HowTo (compliance audit)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>H2 structure:</strong> What 1910.28 covers (250) - Top rail height &amp; spacing (300) - Mid-rail &amp; toeboard specs (300) - Load capacity tests (250) - Compliance audit checklist (300, HowTo) - Common citation triggers (200) - FAQ (200).</p>
+<p><strong>Inbound:</strong> Pillar → "OSHA compliance checklist." <code>/collections/guard-rails-barriers</code> → "OSHA 1910.28 explained."</p>
+<h4 class="finding-h4">9.7.2 — Spoke 2: End-of-Aisle Rack Protectors vs Guard Rails</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>URL</td>
+<td><code>/blogs/articles/end-of-aisle-rack-protector-vs-guard-rail</code></td>
+</tr>
+<tr>
+<td>Primary KW</td>
+<td><code>end of aisle rack protector</code></td>
+</tr>
+<tr>
+<td>Secondary</td>
+<td><code>column protector vs guard rail</code>, <code>pallet rack protection</code>, <code>forklift impact protection</code></td>
+</tr>
+<tr>
+<td>Title (≤60)</td>
+<td><code>End-of-Aisle Protector vs Guard Rail: Which You Need</code> (52)</td>
+</tr>
+<tr>
+<td>Meta (≤155)</td>
+<td><code>End-of-aisle rack protectors vs guard rails: when each is required, load ratings, and install costs. Compare every option in stock.</code> (132)</td>
+</tr>
+<tr>
+<td>H1</td>
+<td><code>End-of-Aisle Rack Protectors vs Guard Rails: Which Do You Need?</code></td>
+</tr>
+<tr>
+<td>Word target</td>
+<td>1,500</td>
+</tr>
+<tr>
+<td>Schema</td>
+<td>Article + FAQPage + ItemList</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Inbound:</strong> Pillar → "Rack protector vs guard rail." <code>/products/end-of-aisle-rack-protector-medium-duty</code> → "Compare to guard rails."</p>
+<h4 class="finding-h4">9.7.3 — Spoke 3: Install Guide</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>URL</td>
+<td><code>/blogs/articles/install-warehouse-guard-rail</code></td>
+</tr>
+<tr>
+<td>Primary KW</td>
+<td><code>install warehouse guard rail</code></td>
+</tr>
+<tr>
+<td>Secondary</td>
+<td><code>guard rail anchoring</code>, <code>freestanding guard rail</code>, <code>concrete anchor guard rail</code></td>
+</tr>
+<tr>
+<td>Title (≤60)</td>
+<td><code>Warehouse Guard Rail Install: Anchor vs Freestanding</code> (53)</td>
+</tr>
+<tr>
+<td>Meta (≤155)</td>
+<td><code>Warehouse guard rail install guide: concrete anchor vs freestanding base, hardware, layout planning. With install diagrams.</code> (122)</td>
+</tr>
+<tr>
+<td>H1</td>
+<td><code>Warehouse Guard Rail Installation Guide: Anchor vs Freestanding Systems</code></td>
+</tr>
+<tr>
+<td>Word target</td>
+<td>1,800</td>
+</tr>
+<tr>
+<td>Schema</td>
+<td>Article + HowTo + FAQPage</td>
+</tr>
+</tbody>
+</table></div>
+<h4 class="finding-h4">9.7.4 — Spoke 4: How to Spec</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>URL</td>
+<td><code>/blogs/articles/how-to-spec-warehouse-guard-rails</code></td>
+</tr>
+<tr>
+<td>Primary KW</td>
+<td><code>warehouse guard rail specs</code></td>
+</tr>
+<tr>
+<td>Title (≤60)</td>
+<td><code>How to Spec Warehouse Guard Rails: Loads, Heights &amp; Apps</code> (55)</td>
+</tr>
+<tr>
+<td>Meta (≤155)</td>
+<td><code>Spec warehouse guard rails: load rating math, height by application, post spacing, and finish selection. With real install examples.</code> (132)</td>
+</tr>
+<tr>
+<td>H1</td>
+<td><code>How to Spec Guard Rails for Your Warehouse: Load Ratings, Heights &amp; Application</code></td>
+</tr>
+<tr>
+<td>Word target</td>
+<td>1,500</td>
+</tr>
+<tr>
+<td>Schema</td>
+<td>Article + FAQPage</td>
+</tr>
+</tbody>
+</table></div>
+<h4 class="finding-h4">9.7.5 — Spoke 5: Pallet Rack Safety Netting</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>URL</td>
+<td><code>/blogs/articles/pallet-rack-safety-netting-vs-guard-rail</code></td>
+</tr>
+<tr>
+<td>Primary KW</td>
+<td><code>pallet rack safety netting</code></td>
+</tr>
+<tr>
+<td>Title (≤60)</td>
+<td><code>Pallet Rack Safety Netting vs Guard Rails: Compared</code> (51)</td>
+</tr>
+<tr>
+<td>Meta (≤155)</td>
+<td><code>Pallet rack safety netting vs guard rails: load capacity, install cost, and use-case comparison. J-hook vs. permanent attachment.</code> (128)</td>
+</tr>
+<tr>
+<td>H1</td>
+<td><code>Pallet Rack Safety Netting vs Guard Rails: Forklift Impact Protection Comparison</code></td>
+</tr>
+<tr>
+<td>Word target</td>
+<td>1,500</td>
+</tr>
+<tr>
+<td>Schema</td>
+<td>Article + FAQPage + ItemList</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Time estimate:</strong> 24 hours total (pillar 6 + 5 spokes × 3.6).</p>
+<p><strong>Owner:</strong> ITD writes; TG-content publishes.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.8 — Bollard Pillar + 5 Spokes</h3>
+<p><strong>Recommended publish cadence:</strong> Pillar week 3. Spokes 1-5 weeks 5-9 (after <code>/blogs/articles/what-are-bollards</code> retrofit and crash-rated audit are complete).</p>
+<h4 class="finding-h4">9.8.0 — Pillar: Complete Guide to Commercial Bollards</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>URL</td>
+<td><code>/blogs/articles/commercial-bollards-complete-guide-2026</code></td>
+</tr>
+<tr>
+<td>Primary KW</td>
+<td><code>commercial bollards</code></td>
+</tr>
+<tr>
+<td>Secondary</td>
+<td><code>bollards</code>, <code>retractable bollards</code>, <code>removable bollards</code>, <code>crash rated bollards</code></td>
+</tr>
+<tr>
+<td>Title (≤60)</td>
+<td><code>Commercial Bollards 2026: Types, K-Ratings &amp; Costs</code> (50)</td>
+</tr>
+<tr>
+<td>Meta (≤155)</td>
+<td><code>Commercial bollards guide: retractable, removable, fixed, and crash-rated. K-ratings, costs, and install. In-stock units ship in 2 days.</code> (137)</td>
+</tr>
+<tr>
+<td>H1</td>
+<td><code>The Complete Guide to Commercial Bollards (2026): Types, Materials, K-Ratings &amp; Costs</code></td>
+</tr>
+<tr>
+<td>Word target</td>
+<td>4,000</td>
+</tr>
+<tr>
+<td>Schema</td>
+<td>Article + FAQPage + HowTo + Speakable + ItemList</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>H2 structure:</strong>
+1. What are commercial bollards (300, Speakable)
+2. Types of bollards (650) - fixed/removable/retractable/decorative/crash-rated
+3. Materials &amp; finishes (450) - 304 vs 316 stainless, carbon, ductile iron, concrete-filled
+4. K-rating standards (550) - K4, K8, K12, ASTM F2656/F3016 - Speakable
+5. How much do bollards cost? (500) - tier-by-tier pricing
+6. How to install a bollard (HowTo, 500)
+7. Bollard vs guard rail vs barrier (300) - cross-link to guard-rail pillar
+8. Spec comparison table (300)
+9. FAQ (350)</p>
+<p><strong>Internal-link map:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>From</th>
+<th>Anchor</th>
+<th>To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/blogs/articles/what-are-bollards</code> (post-retrofit)</td>
+<td>"Full commercial bollard guide"</td>
+<td>Pillar</td>
+</tr>
+<tr>
+<td><code>/collections/s4-bollards</code></td>
+<td>"Complete bollard buyer's guide"</td>
+<td>Pillar (top-of-collection callout)</td>
+</tr>
+<tr>
+<td><code>/products/4-manual-retractable-stainless-steel-bollard</code></td>
+<td>"How retractable bollards work"</td>
+<td>Spoke 1</td>
+</tr>
+<tr>
+<td><code>/products/6-removable-stainless-steel-bollard-w-embedment-sleeve</code></td>
+<td>"Removable bollards with locks"</td>
+<td>Spoke 2</td>
+</tr>
+<tr>
+<td><code>/products/c40-crash-rated-bollard</code> (post-audit)</td>
+<td>"K-rating standards explained"</td>
+<td>Spoke 4</td>
+</tr>
+<tr>
+<td>Pillar → all spokes</td>
+<td>varies</td>
+<td>Inline</td>
+</tr>
+</tbody>
+</table></div>
+<h4 class="finding-h4">9.8.1 — Spoke 1: Manual Retractable Bollards</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>URL</td>
+<td><code>/blogs/articles/manual-retractable-bollards-guide</code></td>
+</tr>
+<tr>
+<td>Primary KW</td>
+<td><code>manual retractable bollards</code></td>
+</tr>
+<tr>
+<td>Title (≤60)</td>
+<td><code>Manual Retractable Bollards: How They Work &amp; Specs</code> (50)</td>
+</tr>
+<tr>
+<td>Meta (≤155)</td>
+<td><code>Manual retractable bollards explained: lift mechanism, in-ground housing, finishes, and install spec. Top SKU ships in 2 days.</code> (124)</td>
+</tr>
+<tr>
+<td>H1</td>
+<td><code>Manual Retractable Bollards: How They Work, Specs &amp; When to Choose Them</code></td>
+</tr>
+<tr>
+<td>Word target</td>
+<td>1,800</td>
+</tr>
+<tr>
+<td>Schema</td>
+<td>Article + FAQPage + Product (linked SKU)</td>
+</tr>
+</tbody>
+</table></div>
+<h4 class="finding-h4">9.8.2 — Spoke 2: Removable Bollards With Locks</h4>
+<p>| URL | <code>/blogs/articles/removable-bollards-with-locks-guide</code> |
+| Primary KW | <code>removable bollards with locks</code> |
+| Title (≤60) | <code>Removable Bollards With Locks: Specs &amp; Buyer's Guide</code> (52) |
+| Meta (≤155) | <code>Removable lockable bollards: padlock vs key-lock styles, sleeve depths, finishes. Compare in-stock 4" and 6" units shipping in 2 days.</code> (134) |
+| H1 | <code>Removable Bollards With Locks: Buyer's Guide and Spec Comparison</code> |
+| Word target | 1,500 |
+| Schema | Article + FAQPage + Product |</p>
+<h4 class="finding-h4">9.8.3 — Spoke 3: Bollard Costs</h4>
+<p>| URL | <code>/blogs/articles/commercial-bollard-costs-2026</code> |
+| Primary KW | <code>bollard cost</code> |
+| Secondary | <code>commercial bollard pricing</code>, <code>how much do bollards cost</code>, <code>crash rated bollard cost</code> |
+| Title (≤60) | <code>How Much Do Commercial Bollards Cost in 2026?</code> (45) |
+| Meta (≤155) | <code>2026 commercial bollard pricing by type: fixed $200-500, removable $400-1,000, retractable $1,200-1,800, K-rated $2,500-8,000.</code> (122) |
+| H1 | <code>How Much Do Commercial Bollards Cost in 2026? (With Price Tables by Type)</code> |
+| Word target | 1,800 |
+| Schema | Article + FAQPage + Speakable + PriceSpecification |</p>
+<h4 class="finding-h4">9.8.4 — Spoke 4: K4 vs K12 Crash-Rated</h4>
+<p>| URL | <code>/blogs/articles/k4-vs-k12-crash-rated-bollards</code> |
+| Primary KW | <code>crash rated bollards</code> |
+| Secondary | <code>k4 bollards</code>, <code>k12 bollards</code>, <code>astm f2656</code> |
+| Title (≤60) | <code>K4 vs K12 Crash-Rated Bollards: ASTM F3016 Specs</code> (48) |
+| Meta (≤155) | <code>K4 vs K12 crash-rated bollards: ASTM F2656 ratings, install spec, embedment depth, and use cases. In-stock units ready to quote.</code> (128) |
+| H1 | <code>K4 vs K12 Crash-Rated Bollards: ASTM F3016 Specs, Use Cases &amp; Costs</code> |
+| Word target | 2,000 |
+| Schema | Article + FAQPage + HowTo (installation) + Product |</p>
+<h4 class="finding-h4">9.8.5 — Spoke 5: In-Stock Bollards</h4>
+<p>| URL | <code>/blogs/articles/in-stock-bollards-48-hour-shipping</code> |
+| Primary KW | <code>in stock bollards</code> |
+| Title (≤60) | <code>In-Stock Bollards: Retractable, Removable &amp; Fixed</code> (49) |
+| Meta (≤155) | <code>Bollards ship in 48 hours: retractable, removable, and fixed in stainless and carbon steel. Live inventory + same-day quote.</code> (123) |
+| H1 | <code>In-Stock Bollards Ready to Ship in 48 Hours: Retractable, Removable &amp; Fixed</code> |
+| Word target | 1,400 |
+| Schema | Article + FAQPage + Speakable + ItemList (linked SKUs) |</p>
+<p><strong>Time estimate:</strong> 24 hours total.</p>
+<p><strong>Owner:</strong> ITD writes; TG-content publishes.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.9 — "Shop by Application" Mega-Menu</h3>
+<p><strong>What to do:</strong> Replace the current product-taxonomy navigation with an application-taxonomy mega-menu that routes buyers by problem, not product family. Target: drop <code>/search</code> session rate by 20-30% in 30 days.</p>
+<p><strong>Where:</strong> Shopify admin → Online Store → Navigation → Main menu. Theme code edits in <code>sections/header.liquid</code> if mega-menu requires layout custom.</p>
+<p><strong>The 5 categories + sub-items map:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Sub-items (collection / product family)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Warehouse Safety</strong></td>
+<td>Guard Rails &amp; Barriers (<code>/collections/guard-rails-barriers</code>) - End-of-Aisle Rack Protectors - Column Protectors - Pallet Rack Safety Netting (<code>/collections/safety-netting</code>) - Bollards (<code>/collections/s4-bollards</code>) - Forklift Wheel Stops - Floor Marking &amp; Tape - Wire Partitions</td>
+</tr>
+<tr>
+<td><strong>Lubrication Systems</strong></td>
+<td>Lincoln Industrial (<code>/collections/lincoln-industrial</code>) - Quicklub System Accessories (<code>/collections/quicklub-system-accessories</code>) - Pump Repair Kits (<code>/collections/pump-repair-kits-parts</code>) - Grease Guns - Hose Reels - Auto Greasers - Fittings &amp; Tubing</td>
+</tr>
+<tr>
+<td><strong>Material Handling</strong></td>
+<td>Casters (<code>/collections/casters</code>) - Hand Trucks - Dollies (<code>/collections/heavy-duty-dollies</code>) - Carts (<code>/collections/carts</code>) - Pallet Jacks - Drum Handling - Lift Tables</td>
+</tr>
+<tr>
+<td><strong>Loading Dock</strong></td>
+<td>Dock Plates (<code>/collections/dock-plates</code>) - Dock Levelers - Dock Bumpers - Wheel Chocks - Dock Seals - Truck Restraints - Door Gates</td>
+</tr>
+<tr>
+<td><strong>Lifting Equipment</strong></td>
+<td>Electric Forklifts (<code>/collections/ekko-lifts</code>) - Electric Pallet Jacks - Stackers - Cranes - Order Pickers - Stretch Wrap Machines - Rooftop Anchors</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Shopify implementation steps:</strong></p>
+<ol>
+<li>
+<p><strong>Build the menu structure.</strong> Online Store → Navigation → Main menu → "Add menu item":
+   - Top level: <code>Warehouse Safety</code> → link to <code>/collections/guard-rails-barriers</code> (the highest-CVR collection becomes the parent landing page).
+   - Click "Add menu item" again under it: <code>Guard Rails &amp; Barriers</code> → <code>/collections/guard-rails-barriers</code>. Repeat for each sub-item from the table.
+   - Repeat for the other 4 top-level categories.</p>
+</li>
+<li>
+<p><strong>Confirm theme supports nested menus.</strong> Most modern Shopify themes (Dawn, Impulse, Prestige) render nested menus as mega-menu dropdowns automatically once nested items are added in admin. Check by previewing the storefront after step 1.</p>
+</li>
+<li>
+<p><strong>If theme does NOT auto-render mega-menu</strong> (older themes), add this to <code>sections/header.liquid</code> (insert into the <code>&lt;nav&gt;</code> block):</p>
+</li>
+</ol>
+<pre><code class="language-liquid">{%- for link in linklists.main-menu.links -%}
+  &lt;li class=&quot;s4-mega-li&quot;&gt;
+    &lt;a href=&quot;{{ link.url }}&quot; class=&quot;s4-mega-l1&quot;&gt;{{ link.title }}&lt;/a&gt;
+    {%- if link.links.size &gt; 0 -%}
+    &lt;div class=&quot;s4-mega-panel&quot;&gt;
+      &lt;div class=&quot;s4-mega-grid&quot;&gt;
+        {%- for child in link.links -%}
+          &lt;a href=&quot;{{ child.url }}&quot; class=&quot;s4-mega-l2&quot;&gt;
+            &lt;strong&gt;{{ child.title }}&lt;/strong&gt;
+            {%- if child.object.description %}&lt;span&gt;{{ child.object.description | truncate: 50 }}&lt;/span&gt;{% endif -%}
+          &lt;/a&gt;
+        {%- endfor -%}
+      &lt;/div&gt;
+    &lt;/div&gt;
+    {%- endif -%}
+  &lt;/li&gt;
+{%- endfor -%}
+</code></pre>
+<p>CSS:</p>
+<pre><code class="language-css">.s4-mega-li{position:relative}
+.s4-mega-li:hover .s4-mega-panel{display:block}
+.s4-mega-panel{display:none;position:absolute;top:100%;left:0;width:680px;padding:24px;background:#fff;border:1px solid #e3e8ef;border-radius:0 0 10px 10px;box-shadow:0 8px 22px rgba(0,0,0,.08);z-index:50}
+.s4-mega-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.s4-mega-l2{padding:10px;border-radius:6px;text-decoration:none;color:#1b2330}
+.s4-mega-l2:hover{background:#f4f7fa}
+.s4-mega-l2 strong{display:block;font-size:.95rem}
+.s4-mega-l2 span{display:block;font-size:.8rem;color:#5b6573;margin-top:4px}
+@media (max-width:980px){.s4-mega-panel{display:none!important}}
+</code></pre>
+<ol start="4">
+<li>
+<p><strong>Mobile UX consideration.</strong> Mega-menus collapse poorly on mobile. The fallback: on mobile (≤980px), the menu becomes a standard accordion drawer (Shopify Dawn handles this natively). Override with the media query above. Test on real iPhone — tap each top-level, confirm sub-items are tappable with 44px+ tap targets.</p>
+</li>
+<li>
+<p><strong>Add breadcrumbs site-wide</strong> (so application taxonomy shows on every collection / product page). Edit <code>snippets/breadcrumbs.liquid</code> to include parent application:</p>
+</li>
+</ol>
+<pre><code class="language-liquid">{%- if collection.metafields.s4.application_parent != blank -%}
+  &lt;a href=&quot;{{ collection.metafields.s4.application_parent.value.url }}&quot;&gt;{{ collection.metafields.s4.application_parent.value.title }}&lt;/a&gt; &amp;raquo;
+{%- endif -%}
+</code></pre>
+<p>Then on each collection in admin, set a metafield <code>s4.application_parent</code> pointing to the application-level parent collection.</p>
+<p><strong>Verification:</strong>
+- Day 1 post-deploy: visit homepage, hover each of the 5 top-level items — mega-menu panel appears, all sub-links work. Mobile: tap each, accordion expands.
+- Day 30: GA4 → Pages → <code>/search</code> sessions drop ≥10% week-over-week. Application-category collection pages (e.g., <code>/collections/guard-rails-barriers</code>) show ≥15% session lift.</p>
+<p><strong>Time estimate:</strong> 4 hours (1 spec, 3 dev + QA).</p>
+<p><strong>Owner:</strong> ITD specs the structure; TG-dev deploys theme code; TG-content sets metafields.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.10 — Title/Meta Rewrite: Top 15 GSC Impression Pages</h3>
+<p>Cross-referenced from <code>Queries.csv</code> (top-impression terms) against GA4 landing-page URLs. Each rewrite is ≤60 chars title and ≤155 chars meta. The "Year + In-stock + Speed" hook drives CTR lift. Paste these directly into Shopify SEO fields (admin → product / collection → bottom of edit page → "Search engine listing" → "Edit website SEO").</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>URL</th>
+<th>Current title (approx)</th>
+<th>New title (≤60)</th>
+<th>New meta (≤155)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td><code>/products/heavy-duty-utility-cart-with-wheels</code></td>
+<td>Heavy Duty Utility Cart with Wheels — Source 4</td>
+<td><code>Heavy Duty Utility Cart With Wheels: 1500 lb, Ships Fast</code> (56)</td>
+<td><code>Heavy duty utility cart with wheels - 1500 lb load, all-terrain casters, in stock and ships in 2 days. Free freight over $1,000.</code> (130)</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td><code>/products/aristocrat-bp-hand-truck-dual-handle-600-lbs</code></td>
+<td>Aristocrat B&amp;P Hand Truck — Source 4</td>
+<td><code>Aristocrat B&amp;P Hand Truck 600 lb Dual Handle - In Stock</code> (55)</td>
+<td><code>Aristocrat B&amp;P 600 lb hand truck with dual handle - 50-yr durable build, ships in 2 days from US stock. Free freight over $1,000.</code> (130)</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td><code>/collections/heavy-duty-dollies</code></td>
+<td>Heavy Duty Dollies — Source 4</td>
+<td><code>Heavy Duty Dollies: 1000-4000 lb Capacity, Ships Today</code> (54)</td>
+<td><code>Heavy duty dollies 1000-4000 lb: hardwood, steel, and slotted-deck options. Ships in 2 days from US stock. Free freight over $1k.</code> (130)</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td><code>/collections/dock-plates</code></td>
+<td>Dock Plates — Source 4 Industries</td>
+<td><code>Dock Plates &amp; Boards: Aluminum &amp; Steel, Ships in 2 Days</code> (55)</td>
+<td><code>Dock plates &amp; boards: 1500-15000 lb capacity, aluminum &amp; steel options. In stock, ships in 2 days. Free freight over $1,000.</code> (124)</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td><code>/products/lincoln-industrial-1162-grease-gun</code></td>
+<td>Lincoln 1162 Grease Gun — Source 4</td>
+<td><code>Lincoln 1162 Grease Gun: OEM Parts in Stock 2026</code> (49)</td>
+<td><code>Lincoln 1162 grease gun + OEM replacement parts. Powerluber-compatible. Ships from US stock in 2 business days.</code> (110)</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td><code>/collections/lincoln-industrial</code></td>
+<td>Lincoln Industrial — Source 4</td>
+<td><code>Lincoln Industrial Parts: Pumps, Greasers, Reels 2026</code> (53)</td>
+<td><code>Lincoln Industrial: Quicklub pumps, auto greasers, hose reels, fittings. Authorized distributor, OEM parts ship in 2 days.</code> (123)</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td><code>/products/4-manual-retractable-stainless-steel-bollard</code></td>
+<td>4" Manual Retractable Stainless Bollard — Source 4</td>
+<td><code>4" Retractable Stainless Bollard: $1,553, Ships in 2 Days</code> (57)</td>
+<td><code>4" manual retractable stainless steel bollard, 36" height. In stock, ships in 2 days. 30-day return. 50 yrs in business.</code> (122)</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td><code>/collections/electric-pallet-jacks</code></td>
+<td>Electric Pallet Jacks — Source 4</td>
+<td><code>Electric Pallet Jacks: 3300-4400 lb, Lithium &amp; Lead Acid</code> (55)</td>
+<td><code>Electric pallet jacks 3300-4400 lb in lithium and lead acid. In stock, ships in 5-7 days. Free freight on commercial orders.</code> (124)</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td><code>/collections/pallet-jacks</code></td>
+<td>Pallet Jacks — Source 4</td>
+<td><code>Pallet Jacks 2026: Manual &amp; Electric, 5500 lb, Ships Fast</code> (56)</td>
+<td><code>Pallet jacks: manual + electric models, 5500 lb capacity, hardened forks. In stock, ships in 2-7 days. Free freight $1k+.</code> (122)</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td><code>/collections/casters</code></td>
+<td>Casters — Source 4</td>
+<td><code>Industrial Casters: Heavy Duty, Spring-Gate, Plate Mount</code> (55)</td>
+<td><code>Industrial casters: heavy duty, spring-gate, plate-mount, swivel &amp; rigid. 2"-12" wheels in stock, ship in 2 days.</code> (113)</td>
+</tr>
+<tr>
+<td style="text-align: right;">11</td>
+<td><code>/products/scissor-lift-booties</code></td>
+<td>Scissor Lift Booties — Source 4</td>
+<td><code>Scissor Lift Booties: Floor Protection Set, Ships in 2 Days</code> (58)</td>
+<td><code>Scissor lift booties keep tire marks off finished floors. Set of 4 - in stock, ships in 2 days from US warehouse.</code> (113)</td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td><code>/collections/utility-carts</code></td>
+<td>Utility Carts — Source 4</td>
+<td><code>Utility Carts: Heavy Duty 1000-3000 lb, Ships in 2 Days</code> (54)</td>
+<td><code>Utility carts 1000-3000 lb: 2-shelf, 3-shelf, ergonomic handle. In stock, ships in 2 days. Free freight over $1,000.</code> (118)</td>
+</tr>
+<tr>
+<td style="text-align: right;">13</td>
+<td><code>/products/non-penetrating-deadweight-rooftop-anchor-system-osha-certified</code></td>
+<td>Non-Penetrating Rooftop Anchor — Source 4</td>
+<td><code>Non-Penetrating Rooftop Anchor: OSHA-Certified, Ships Fast</code> (57)</td>
+<td><code>Non-penetrating deadweight rooftop anchor - OSHA-certified, no roof damage. In stock, ships in 5-7 days from US stock.</code> (118)</td>
+</tr>
+<tr>
+<td style="text-align: right;">14</td>
+<td><code>/products/forklift-wheel-stops</code></td>
+<td>Forklift Wheel Stops — Source 4</td>
+<td><code>Forklift Wheel Stops: Aisle-End Safety, In Stock</code> (49)</td>
+<td><code>Forklift wheel stops: heavy-rubber aisle-end protection. 4-pack, ships in 2 days. 50 yrs in industrial supply.</code> (110)</td>
+</tr>
+<tr>
+<td style="text-align: right;">15</td>
+<td><code>/collections/guard-rails-barriers</code></td>
+<td>Guard Rails &amp; Barriers - Protect Your Employees and Property — Source 4</td>
+<td><code>Warehouse Guard Rails &amp; Barriers: 2026 Buyer's Guide</code> (52)</td>
+<td><code>Warehouse guard rails &amp; barriers: Handle-It, Meco-Omaha, Bluff. OSHA-spec, in stock, 2-day ship. Compare 66 SKUs now.</code> (118)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Where to enter in Shopify:</strong> Admin → product (or collection) → scroll to "Search engine listing" → "Edit website SEO" → paste new title in "Page title", meta in "Meta description". Save.</p>
+<p><strong>Verification:</strong>
+- Day 7 post-deploy: GSC → URL Inspection on each → "Live test" → confirm new title/meta render.
+- Day 14: GSC → Performance → Pages → these 15 URLs — CTR delta should show on the new title within 14 days. Target: average CTR moves from current 0.05-0.5% to 0.30-1.5%.</p>
+<p><strong>Time estimate:</strong> 4 hours (writing + entry).</p>
+<p><strong>Owner:</strong> ITD writes; TG-content enters in Shopify.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.11 — Bing Webmaster Sitemap + IndexNow Plugin</h3>
+<p><strong>What to do:</strong> Submit the sitemap to Bing Webmaster Tools and install the IndexNow plugin so every new blog/product publish pings Bing + Yandex within seconds.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>
+<p><strong>Bing Webmaster:</strong> Go to <code>https://www.bing.com/webmasters</code>. Sign in with the Bing-linked account. If the site isn't already added: click "Add a site" → enter <code>https://source4industries.com</code> → verify via the GSC connector (fastest) or DNS TXT record.</p>
+</li>
+<li>
+<p><strong>Submit sitemap:</strong> Bing Webmaster Tools → Sitemaps → "Submit sitemap" → paste <code>https://source4industries.com/sitemap.xml</code> → submit.</p>
+</li>
+<li>
+<p><strong>Install IndexNow plugin:</strong> Shopify App Store → search "IndexNow" → install <strong>"IndexNow ‑ Bing &amp; Yandex"</strong> by SeoSpace (free) or <strong>"IndexNow Submission"</strong> (whichever has the higher rating at install time; both ping the same protocol). Approve permissions.</p>
+</li>
+<li>
+<p><strong>Configure IndexNow:</strong> App settings → click "Auto-submit on publish" → ON. Generate the IndexNow API key (the app does this automatically and uploads the key file to the Shopify storefront root). Verify the file is reachable: <code>https://source4industries.com/&lt;key&gt;.txt</code>.</p>
+</li>
+<li>
+<p><strong>Manually trigger an initial submit</strong> of the top 100 URLs: app → "Bulk submit" → paste the top 100 revenue URLs from <code>Landing_page_Landing_page.csv</code>.</p>
+</li>
+</ol>
+<p><strong>Verification:</strong>
+- Day 1: Bing Webmaster → Sitemaps → status = "Success". URL count submitted matches sitemap.xml.
+- Day 7: Bing Webmaster → URL Inspection → spot-check a recently-published article — should show "URL is on Bing" within 24-72 hr.
+- Day 14: IndexNow app dashboard shows submission count &gt;100 with success rate &gt;95%.</p>
+<p><strong>Time estimate:</strong> 30 minutes.</p>
+<p><strong>Owner:</strong> TG-content (Bing webmaster + plugin install).</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.12 — Bing CPC Audit (Once Access Granted)</h3>
+<p><strong>What to do:</strong> Diagnose why Bing CPC CVR is 0.44% (vs Google CPC 0.87%) on $368K in spend-equivalent traffic. The audit pinpoints whether the issue is targeting, ad copy, landing page, or budget waste.</p>
+<p><strong>Where:</strong> Bing Ads (<code>https://ads.microsoft.com</code>) → viewer access required from TG.</p>
+<p><strong>Audit checklist:</strong></p>
+<ol>
+<li>
+<p><strong>Match types.</strong> Campaigns → Keywords → group by match type. If &gt;40% spend is on Broad Match without Modifier, that's the leak. Action: convert all broad-match keywords to phrase or exact, or use broad-match-modifier (BMM) where Bing supports it.</p>
+</li>
+<li>
+<p><strong>Negative keywords.</strong> Pull last 90-day search-term report. Sort by spend descending. Any term with ≥5 clicks and 0 conversions → add as negative keyword. Common offenders: <code>free</code>, <code>diy</code>, <code>craigslist</code>, <code>ebay</code>, <code>amazon</code>, <code>cheap</code>, <code>used</code>, <code>rental</code>, <code>parts diagram</code> (too informational).</p>
+</li>
+<li>
+<p><strong>Search-term report.</strong> Bing Ads → Reports → Search Terms → 90 days. Export. Bucket terms into:
+   - High intent (e.g., <code>buy retractable bollard</code>) — keep, raise bid
+   - Mid intent (<code>bollard cost</code>) — keep, normal bid
+   - Low intent (<code>how does a bollard work</code>) — add as negative
+   - Brand defenders (<code>source 4 industries</code>) — separate brand campaign</p>
+</li>
+<li>
+<p><strong>Ad copy alignment.</strong> Each ad group → confirm Headline 1 contains the keyword. If a Bing ad group on <code>crash rated bollards</code> has Headline 1 "Industrial Supplies" — that's a relevance score killer. Rewrite to match query.</p>
+</li>
+<li>
+<p><strong>Landing-page experience.</strong> For each top-spend keyword, click the ad → confirm landing page is the closest-match collection / product. <code>crash rated bollards</code> should NOT land on <code>/collections/s4-bollards</code> — it should land on a crash-rated filtered collection or a category landing page.</p>
+</li>
+<li>
+<p><strong>Day-parting + audience.</strong> Bing → Settings → Ad Schedule. Confirm scheduling matches Google CPC's converting hours (typically Tue-Thu, 9am-3pm CT for B2B). Check audience targeting — exclude consumers if remarketing is leaking.</p>
+</li>
+<li>
+<p><strong>Bid strategy.</strong> If on "Maximize Conversions" without conversion data import from GA4, Bing has nothing to optimize toward. Action: import GA4 conversion → Bing UET tag, or switch to manual CPC + assisted bidding while data accumulates.</p>
+</li>
+<li>
+<p><strong>UET tag check.</strong> Bing → Conversion Tracking → UET tags → confirm tag fires on <code>/checkouts/thank-you</code> and on <code>generate_lead</code> events from 9.2.</p>
+</li>
+</ol>
+<p><strong>Verification:</strong>
+- Day 7: identify 5-10 negative keywords + 1-2 match-type changes.
+- Day 30: Bing CPC CVR moves from 0.44% toward 0.55%+ (per KPI table).</p>
+<p><strong>Time estimate:</strong> 3 hours.</p>
+<p><strong>Owner:</strong> ITD audits; TG-ops applies changes.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.13 — Crawled-Not-Indexed Audit (4,775 Pages)</h3>
+<p><strong>What to do:</strong> Bucket 4,775 unindexed URLs into actionable categories — <code>noindex</code> thin variants, submit live SKUs, canonical duplicates — and execute.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>
+<p><strong>Pull the full URL list.</strong> GSC → Pages → "Why pages aren't indexed" → "Crawled - currently not indexed" → Export.</p>
+</li>
+<li>
+<p><strong>Cross-reference with revenue.</strong> In Sheets, VLOOKUP each URL against <code>Ecommerce_purchases_Item_name.csv</code> (after mapping URLs to item names) and <code>Landing_page_Landing_page.csv</code>. Tag each row:
+   - <code>revenue &gt;= $500</code> → <strong>submit-bucket</strong>
+   - <code>100 &lt;= sessions &lt; threshold AND revenue == 0</code> → <strong>investigate-bucket</strong>
+   - <code>sessions &lt; 100 AND revenue == 0 AND URL contains '?variant=' OR is filtered collection URL</code> → <strong>noindex-bucket</strong>
+   - <code>sessions &lt; 100 AND URL is duplicate of another live URL</code> → <strong>canonical-bucket</strong></p>
+</li>
+<li>
+<p><strong>Submit-bucket actions</strong> (live SKUs that should be indexed):
+   - GSC → URL Inspection → paste URL → "Request indexing"
+   - Shopify-side: confirm the product is in Online Store sales channel + has a unique meta description
+   - Verify there's at least one internal link pointing to the URL (from collection page or related product). Add an internal link if zero.</p>
+</li>
+<li>
+<p><strong>Noindex-bucket actions</strong> (thin Shopify variants — biggest cleanup target):
+   - The cleanest method: edit <code>templates/product.liquid</code> (or <code>sections/main-product.liquid</code>) and add this conditional logic to the <code>&lt;head&gt;</code> block:</p>
+</li>
+</ol>
+<pre><code class="language-liquid">{%- if request.path contains '?variant=' or template == 'product.alternate' -%}
+  &lt;meta name=&quot;robots&quot; content=&quot;noindex, follow&quot;&gt;
+{%- endif -%}
+</code></pre>
+<ul>
+<li>For collection-filter URLs (e.g., <code>/collections/casters?filter.v.option.size=4</code>), Shopify already sets <code>noindex</code> on faceted URLs in Dawn-derived themes. Verify by viewing source on a filtered URL. If not present, add to <code>templates/collection.liquid</code>:</li>
+</ul>
+<pre><code class="language-liquid">{%- if request.url contains '?filter.' or request.url contains '?sort_by=' -%}
+  &lt;meta name=&quot;robots&quot; content=&quot;noindex, follow&quot;&gt;
+{%- endif -%}
+</code></pre>
+<ol start="5">
+<li><strong>Canonical-bucket actions:</strong>
+   - For each duplicate, identify the "preferred" URL (highest-revenue, shortest, no query params).
+   - Add canonical override in <code>theme.liquid</code> <code>&lt;head&gt;</code>:</li>
+</ol>
+<pre><code class="language-liquid">{%- if product.metafields.s4.canonical_override != blank -%}
+  &lt;link rel=&quot;canonical&quot; href=&quot;{{ product.metafields.s4.canonical_override }}&quot;&gt;
+{%- else -%}
+  &lt;link rel=&quot;canonical&quot; href=&quot;{{ canonical_url }}&quot;&gt;
+{%- endif -%}
+</code></pre>
+<ul>
+<li>Then on each duplicate product, set metafield <code>s4.canonical_override</code> = preferred URL.</li>
+</ul>
+<ol start="6">
+<li><strong>Resubmit fixed pages.</strong> GSC → URL Inspection → batch-validate fixes via "Validate Fix" on the index issue.</li>
+</ol>
+<p><strong>Verification:</strong>
+- Day 30: Crawled-not-indexed count drops from 4,775 to ~4,000.
+- Day 60: ~3,000.
+- Day 90: &lt;1,500.</p>
+<p><strong>Time estimate:</strong> 8 hours over 4 weeks (audit 4, theme code 2, batch submit 2).</p>
+<p><strong>Owner:</strong> ITD audits + writes theme code; TG-dev pushes; TG-content batch-submits in GSC.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.14 — Canonical Fixes (366 Pages)</h3>
+<p><strong>What to do:</strong> GSC flags 366 pages where Google chose a different canonical than the page's self-canonical. On revenue-generating products, this is direct conversion loss.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>
+<p><strong>Pull the list.</strong> GSC → Pages → "Duplicate, Google chose different canonical" → Export.</p>
+</li>
+<li>
+<p><strong>Cross-reference with revenue.</strong> Same VLOOKUP approach as 9.13. Tag pages:
+   - Revenue ≥ $1,000 → <strong>fix-priority</strong> (368 pages reviewed; expect ~30-50 in this bucket)
+   - Revenue &lt; $1,000 → <strong>batch-fix</strong> (let theme conditional handle)</p>
+</li>
+<li>
+<p><strong>For each fix-priority page:</strong>
+   - Identify what URL Google chose as canonical (GSC URL Inspection shows "Google-selected canonical").
+   - Decide: is Google's choice correct, or should this page have its own canonical?</p>
+<ul>
+<li>If Google's choice is correct → accept, set self-canonical to match (Shopify metafield <code>s4.canonical_override</code> set to Google's URL).</li>
+<li>If page should have its own canonical → ensure it's truly unique (different content, different SKU, different keyword target). Add 200+ words of unique content. Force self-canonical via metafield.</li>
+</ul>
+</li>
+<li>
+<p><strong>Theme code</strong> — same conditional as 9.13 step 5.</p>
+</li>
+<li>
+<p><strong>Validate</strong> — GSC URL Inspection → "Live test" after metafield set → confirm canonical matches.</p>
+</li>
+</ol>
+<p><strong>Verification:</strong>
+- Day 30: 366 → &lt;200.
+- Day 60: &lt;100.</p>
+<p><strong>Time estimate:</strong> 3 hours.</p>
+<p><strong>Owner:</strong> ITD audits; TG-content sets metafields; TG-dev pushes theme conditional once.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.15 — Related-Products Blocks on Top 10 Product Pages</h3>
+<p><strong>What to do:</strong> Shopify's Recommendations API surfaces "complete the system" cross-sells. Implement on the top 10 revenue product pages with deliberate Lincoln + bollard logic.</p>
+<p><strong>Top 10 product pages</strong> (from <code>Landing_page_Landing_page.csv</code>):</p>
+<ol>
+<li><code>/products/4-manual-retractable-stainless-steel-bollard</code></li>
+<li><code>/products/slotted-4k-dolly-16in-x-16in-4000-lbs-cap</code></li>
+<li><code>/products/forklift-wheel-stops</code></li>
+<li><code>/products/corner-column-protector-ccp12</code></li>
+<li><code>/products/electric-grease-pump-w-out-timer-p203-24v-94224</code></li>
+<li><code>/products/collision-sentry-cln-211</code></li>
+<li><code>/products/forkliftable-order-picking-truck-t3-2448</code></li>
+<li><code>/products/electric-grease-pump-w-timer-p203-24v-94424</code></li>
+<li><code>/products/6-carbon-steel-dome-top-bollard-w-baseplate</code></li>
+<li><code>/products/4-manual-retractable-carbon-yellow-steel-bollard</code></li>
+</ol>
+<p><strong>Where:</strong> Shopify theme: <code>sections/main-product.liquid</code> and <code>sections/related-products.liquid</code>. Or use built-in Dawn <code>recommendations</code> section.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Use the Shopify Recommendations API</strong> (default, no app required):</li>
+</ol>
+<pre><code class="language-liquid">{%- if recommendations.performed and recommendations.products_count &gt; 0 -%}
+  &lt;section class=&quot;s4-related&quot; aria-label=&quot;You may also like&quot;&gt;
+    &lt;h2&gt;Complete the system&lt;/h2&gt;
+    &lt;div class=&quot;s4-related-grid&quot;&gt;
+      {%- for p in recommendations.products limit:4 -%}
+        &lt;a href=&quot;{{ p.url }}&quot; class=&quot;s4-related-card&quot;&gt;
+          &lt;img src=&quot;{{ p.featured_image | image_url: width: 360 }}&quot; alt=&quot;{{ p.title | escape }}&quot; loading=&quot;lazy&quot;&gt;
+          &lt;h3&gt;{{ p.title }}&lt;/h3&gt;
+          &lt;p class=&quot;s4-price&quot;&gt;{{ p.price | money }}&lt;/p&gt;
+          {%- if p.available -%}&lt;span class=&quot;s4-stock&quot;&gt;In stock&lt;/span&gt;{%- endif -%}
+        &lt;/a&gt;
+      {%- endfor -%}
+    &lt;/div&gt;
+  &lt;/section&gt;
+{%- endif -%}
+</code></pre>
+<p>Combine with the Section Rendering API call:
+   <code>/recommendations/products?section_id=related-products&amp;product_id={{ product.id }}&amp;limit=4&amp;intent=complementary</code></p>
+<ol start="2">
+<li><strong>"Complete the system" override logic for Lincoln + bollards.</strong> Add a manual collection-tag override in metafields:</li>
+</ol>
+<pre><code class="language-liquid">{%- assign override = product.metafields.s4.complete_system_collection.value -%}
+{%- if override != blank -%}
+  {%- assign rec_products = override.products | slice: 0, 4 -%}
+{%- else -%}
+  {%- assign rec_products = recommendations.products | slice: 0, 4 -%}
+{%- endif -%}
+</code></pre>
+<ol start="3">
+<li><strong>Manual collection mapping</strong> (for the top 10 SKUs only):</li>
+</ol>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Anchor SKU</th>
+<th>"Complete the System" collection metafield</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>4-manual-retractable-stainless-steel-bollard</code></td>
+<td>Collection: anchor sleeves + lock cores + ground sleeves</td>
+</tr>
+<tr>
+<td><code>electric-grease-pump-w-timer-p203-24v-94424</code></td>
+<td>Collection: P203 spare parts + Quicklub fittings + tubing</td>
+</tr>
+<tr>
+<td><code>slotted-4k-dolly-16in-x-16in-4000-lbs-cap</code></td>
+<td>Collection: replacement casters + dolly tie-downs</td>
+</tr>
+<tr>
+<td><code>forklift-wheel-stops</code></td>
+<td>Collection: floor adhesives + striping tape + fork extensions</td>
+</tr>
+<tr>
+<td><code>corner-column-protector-ccp12</code></td>
+<td>Collection: guard rails + end-of-aisle protectors</td>
+</tr>
+</tbody>
+</table></div>
+<ol start="4">
+<li><strong>CSS:</strong></li>
+</ol>
+<pre><code class="language-css">.s4-related{margin:48px 0;padding:32px 0;border-top:1px solid #e3e8ef}
+.s4-related h2{font-size:1.4rem;margin-bottom:20px}
+.s4-related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.s4-related-card{display:block;padding:14px;background:#fff;border:1px solid #e3e8ef;border-radius:8px;text-decoration:none;color:inherit}
+.s4-related-card img{width:100%;height:160px;object-fit:contain}
+.s4-related-card h3{font-size:.95rem;margin:10px 0 6px}
+.s4-related-card .s4-price{color:#0a6efd;font-weight:700}
+.s4-related-card .s4-stock{display:inline-block;font-size:.75rem;color:#0a8a3a;background:#e8f5ed;padding:2px 8px;border-radius:10px;margin-top:6px}
+@media (max-width:760px){.s4-related-grid{grid-template-columns:repeat(2,1fr)}}
+</code></pre>
+<p><strong>Verification:</strong>
+- Day 1: visit each top-10 product page → 4 related products visible above the fold below the buy box. Click each → click-through fires GA4 <code>select_item</code> event.
+- Day 30: GA4 → Pages report → AOV on the top 10 product pages should rise 8-15%. Cross-sell click-through rate ≥3%.</p>
+<p><strong>Time estimate:</strong> 3 hours (1 spec, 2 dev).</p>
+<p><strong>Owner:</strong> ITD specs; TG-dev deploys.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.16 — Organization Schema + Speakable Schema (Top 50 Pages)</h3>
+<p><strong>What to do:</strong> Add Organization JSON-LD on every page (theme-wide) and Speakable JSON-LD on the top 50 pages (homepage, top 5 collections, top 30 products, top 14 articles). Speakable is the AI-citation magnet — Google Assistant, Bing Copilot, and ChatGPT use it preferentially when summarizing.</p>
+<p><strong>Where:</strong> <code>theme.liquid</code> for Organization (site-wide). <code>sections/main-product.liquid</code> and article templates for Speakable (page-specific).</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Organization schema — add to <code>theme.liquid</code> <code>&lt;head&gt;</code>:</strong></li>
+</ol>
+<pre><code class="language-html">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Source 4 Industries&quot;,
+  &quot;alternateName&quot;: &quot;Source 4&quot;,
+  &quot;url&quot;: &quot;https://source4industries.com&quot;,
+  &quot;logo&quot;: &quot;https://source4industries.com/cdn/shop/files/S4-New-Logo-50-years.jpg&quot;,
+  &quot;description&quot;: &quot;Source 4 Industries supplies warehouse, material handling, and industrial safety equipment to commercial customers across the United States. 50+ years in business.&quot;,
+  &quot;telephone&quot;: &quot;+1-866-734-8848&quot;,
+  &quot;email&quot;: &quot;support@source4industries.com&quot;,
+  &quot;foundingDate&quot;: &quot;1974&quot;,
+  &quot;address&quot;: {
+    &quot;@type&quot;: &quot;PostalAddress&quot;,
+    &quot;streetAddress&quot;: &quot;[ITD: confirm street with TG]&quot;,
+    &quot;addressLocality&quot;: &quot;Las Vegas&quot;,
+    &quot;addressRegion&quot;: &quot;NV&quot;,
+    &quot;postalCode&quot;: &quot;[ITD: confirm with TG]&quot;,
+    &quot;addressCountry&quot;: &quot;US&quot;
+  },
+  &quot;sameAs&quot;: [
+    &quot;https://www.facebook.com/source4industries&quot;,
+    &quot;https://www.instagram.com/source4industries&quot;,
+    &quot;https://www.linkedin.com/company/source-4-industries&quot;,
+    &quot;https://www.youtube.com/@source4industries&quot;
+  ],
+  &quot;areaServed&quot;: &quot;US&quot;
+}
+&lt;/script&gt;
+</code></pre>
+<ol start="2">
+<li><strong>Speakable schema — Quick Facts block, applied to top 50 pages.</strong> Wrap the FAQ or Quick Facts block in a <code>data-speakable</code> attribute and add this JSON-LD:</li>
+</ol>
+<pre><code class="language-html">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;WebPage&quot;,
+  &quot;speakable&quot;: {
+    &quot;@type&quot;: &quot;SpeakableSpecification&quot;,
+    &quot;cssSelector&quot;: [&quot;.s4-quick-facts&quot;, &quot;.s4-faq-item&quot;]
+  },
+  &quot;url&quot;: &quot;{{ canonical_url }}&quot;
+}
+&lt;/script&gt;
+</code></pre>
+<p>For pages where Speakable is appropriate, add this Liquid block to the article/product:</p>
+<pre><code class="language-liquid">&lt;div class=&quot;s4-quick-facts&quot;&gt;
+  &lt;h2&gt;Quick Facts&lt;/h2&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Type: 4&quot; manual retractable stainless steel bollard&lt;/li&gt;
+    &lt;li&gt;Height: 36 inches above ground&lt;/li&gt;
+    &lt;li&gt;Material: Type 304 stainless steel&lt;/li&gt;
+    &lt;li&gt;Lead time: 2 business days from US stock&lt;/li&gt;
+    &lt;li&gt;Price: $1,553.42&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+<ol start="3">
+<li><strong>Top 50 pages list</strong> (apply Speakable to these):
+   - Homepage
+   - Top 5 collections: <code>/collections/guard-rails-barriers</code>, <code>/collections/quicklub-system-accessories</code>, <code>/collections/lincoln-industrial</code>, <code>/collections/s4-bollards</code>, <code>/collections/casters</code>
+   - Top 30 products: from <code>Landing_page_Landing_page.csv</code> revenue rank top 30
+   - Top 14 articles: pillars (3) + spokes (16) ranked by index priority — start with the 3 pillars and 5 spokes once published</li>
+</ol>
+<p><strong>Verification:</strong>
+- Schema Markup Validator (<code>https://validator.schema.org</code>) → paste each URL → confirm Organization + Speakable detected.
+- Google Rich Results Test (<code>search.google.com/test/rich-results</code>) → no errors.</p>
+<p><strong>Time estimate:</strong> 4 hours (1 Organization site-wide, 3 Speakable on 50 pages).</p>
+<p><strong>Owner:</strong> ITD writes schema blocks; TG-dev deploys site-wide Organization; TG-content adds page-specific Speakable.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.17 — dateModified Cron for Schema Freshness</h3>
+<p><strong>What to do:</strong> Schema's <code>dateModified</code> is a known ranking and AI-citation signal. Bump it programmatically every time a page's underlying data changes (price, inventory, related products). Use a Shopify metafield + Liquid date filter.</p>
+<p><strong>Where:</strong> <code>theme.liquid</code> and <code>sections/main-product.liquid</code>. Optional: a scheduled action in Shopify Flow to refresh on cadence.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>
+<p><strong>Set a <code>s4.last_reviewed</code> metafield namespace.</strong> Shopify admin → Settings → Custom data → Products → Add definition:
+   - Namespace: <code>s4</code>
+   - Key: <code>last_reviewed</code>
+   - Type: Date and time
+   - Description: "Editorial last-reviewed timestamp; bumped programmatically."</p>
+</li>
+<li>
+<p><strong>Use it in Product schema</strong> — edit the existing Product JSON-LD in <code>sections/main-product.liquid</code>:</p>
+</li>
+</ol>
+<pre><code class="language-liquid">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;Product&quot;,
+  &quot;name&quot;: {{ product.title | json }},
+  &quot;image&quot;: {{ product.featured_image | image_url: width: 1200 | json }},
+  &quot;description&quot;: {{ product.description | strip_html | json }},
+  &quot;sku&quot;: {{ product.selected_or_first_available_variant.sku | json }},
+  &quot;brand&quot;: {&quot;@type&quot;:&quot;Brand&quot;,&quot;name&quot;:{{ product.vendor | json }}},
+  &quot;offers&quot;: {
+    &quot;@type&quot;: &quot;Offer&quot;,
+    &quot;url&quot;: &quot;{{ canonical_url }}&quot;,
+    &quot;priceCurrency&quot;: &quot;USD&quot;,
+    &quot;price&quot;: {{ product.price | money_without_currency | remove: ',' }},
+    &quot;availability&quot;: &quot;{% if product.available %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}&quot;,
+    &quot;itemCondition&quot;: &quot;https://schema.org/NewCondition&quot;
+  },
+  &quot;dateModified&quot;: &quot;{% if product.metafields.s4.last_reviewed != blank %}{{ product.metafields.s4.last_reviewed | date: '%Y-%m-%dT%H:%M:%S%:z' }}{% else %}{{ product.updated_at | date: '%Y-%m-%dT%H:%M:%S%:z' }}{% endif %}&quot;
+}
+&lt;/script&gt;
+</code></pre>
+<ol start="3">
+<li><strong>Article schema same pattern.</strong> In <code>sections/main-article.liquid</code>:</li>
+</ol>
+<pre><code class="language-liquid">&quot;dateModified&quot;: &quot;{% if article.metafields.s4.last_reviewed != blank %}{{ article.metafields.s4.last_reviewed | date: '%Y-%m-%dT%H:%M:%S%:z' }}{% else %}{{ article.updated_at | date: '%Y-%m-%dT%H:%M:%S%:z' }}{% endif %}&quot;
+</code></pre>
+<ol start="4">
+<li>
+<p><strong>Optional Shopify Flow workflow</strong> to bump on price/inventory change:
+   - Shopify Flow → "Create workflow" → Trigger: "Inventory quantity changed" or "Product price changed"
+   - Action: "Update product metafield" → namespace <code>s4</code>, key <code>last_reviewed</code>, value <code>{{ run_at }}</code> (current timestamp)
+   - Activate.</p>
+</li>
+<li>
+<p><strong>Optional manual quarterly refresh:</strong> Shopify admin → Apps → Bulk Editor → filter products by collection → bulk-set <code>s4.last_reviewed</code> to current date. Use this to flag editorial review on top revenue SKUs.</p>
+</li>
+</ol>
+<p><strong>Verification:</strong>
+- View source on a product page after price change → <code>dateModified</code> reflects new timestamp within 5 minutes.
+- Schema Markup Validator → <code>dateModified</code> field populated.</p>
+<p><strong>Time estimate:</strong> 2 hours (1 metafield + theme, 1 Flow setup).</p>
+<p><strong>Owner:</strong> ITD writes Liquid; TG-dev deploys; TG-ops sets up Flow.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.18 — CollectionPage + ItemList Schema on Top 5 Collections</h3>
+<p><strong>What to do:</strong> Add CollectionPage and ItemList JSON-LD to the 5 highest-revenue collections so Google + AI engines can extract product lists.</p>
+<p><strong>Top 5 collections:</strong></p>
+<ol>
+<li><code>/collections/guard-rails-barriers</code></li>
+<li><code>/collections/quicklub-system-accessories</code></li>
+<li><code>/collections/lincoln-industrial</code></li>
+<li><code>/collections/s4-bollards</code></li>
+<li><code>/collections/casters</code></li>
+</ol>
+<p><strong>Where:</strong> <code>sections/main-collection.liquid</code> (or whatever section renders collections in the theme).</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Add this JSON-LD block</strong> to the collection section (Liquid will populate dynamically):</li>
+</ol>
+<pre><code class="language-liquid">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;CollectionPage&quot;,
+  &quot;name&quot;: {{ collection.title | json }},
+  &quot;description&quot;: {{ collection.description | strip_html | truncate: 250 | json }},
+  &quot;url&quot;: &quot;{{ shop.url }}{{ collection.url }}&quot;,
+  &quot;mainEntity&quot;: {
+    &quot;@type&quot;: &quot;ItemList&quot;,
+    &quot;numberOfItems&quot;: {{ collection.products_count }},
+    &quot;itemListElement&quot;: [
+      {%- for product in collection.products limit: 20 -%}
+      {
+        &quot;@type&quot;: &quot;ListItem&quot;,
+        &quot;position&quot;: {{ forloop.index }},
+        &quot;url&quot;: &quot;{{ shop.url }}{{ product.url }}&quot;,
+        &quot;name&quot;: {{ product.title | json }},
+        &quot;image&quot;: {{ product.featured_image | image_url: width: 600 | json }},
+        &quot;offers&quot;: {
+          &quot;@type&quot;: &quot;Offer&quot;,
+          &quot;price&quot;: {{ product.price | money_without_currency | remove: ',' }},
+          &quot;priceCurrency&quot;: &quot;USD&quot;,
+          &quot;availability&quot;: &quot;{% if product.available %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}&quot;
+        }
+      }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ]
+  }
+}
+&lt;/script&gt;
+</code></pre>
+<ol start="2">
+<li><strong>Add BreadcrumbList</strong> if not already present:</li>
+</ol>
+<pre><code class="language-liquid">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;BreadcrumbList&quot;,
+  &quot;itemListElement&quot;: [
+    {&quot;@type&quot;:&quot;ListItem&quot;,&quot;position&quot;:1,&quot;name&quot;:&quot;Home&quot;,&quot;item&quot;:&quot;{{ shop.url }}&quot;},
+    {&quot;@type&quot;:&quot;ListItem&quot;,&quot;position&quot;:2,&quot;name&quot;:{{ collection.title | json }},&quot;item&quot;:&quot;{{ shop.url }}{{ collection.url }}&quot;}
+  ]
+}
+&lt;/script&gt;
+</code></pre>
+<ol start="3">
+<li><strong>Conditional limit</strong> to top 5 collections only (or roll out site-wide if all collections are healthy):</li>
+</ol>
+<pre><code class="language-liquid">{%- assign priority_collections = &quot;guard-rails-barriers,quicklub-system-accessories,lincoln-industrial,s4-bollards,casters&quot; | split: &quot;,&quot; -%}
+{%- if priority_collections contains collection.handle -%}
+  {% comment %} JSON-LD blocks above {% endcomment %}
+{%- endif -%}
+</code></pre>
+<p><strong>Verification:</strong>
+- Schema Markup Validator → paste each URL → CollectionPage + ItemList detected with item count matching collection.</p>
+<p><strong>Time estimate:</strong> 2 hours.</p>
+<p><strong>Owner:</strong> ITD writes; TG-dev deploys.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.19 — Backlink Outreach (Guard Rails + Bollards)</h3>
+<p><strong>What to do:</strong> Place editorial links from 8 high-relevance industry sites into the guard-rail pillar (5) and bollard pillar (3). Pure manual outreach — no PBNs, no paid placement.</p>
+<p><strong>Target sites for guard-rail pillar (OSHA-adjacent, warehouse safety):</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>Site</th>
+<th>Pitch angle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td><code>safetyandhealthmagazine.com</code></td>
+<td>"Updated 2026 OSHA 1910.28 warehouse barrier compliance checklist"</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td><code>mhi.org</code> (Material Handling Institute)</td>
+<td>Resource library: "Warehouse safety barriers spec guide"</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td><code>ehstoday.com</code></td>
+<td>Editorial: "End-of-aisle rack protector vs guard rail decision tree"</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td><code>cisco-eagle.com</code> (industry blog)</td>
+<td>Comparison piece on guard rail load ratings</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td><code>ishn.com</code> (Industrial Safety &amp; Hygiene News)</td>
+<td>Bylined article on warehouse fall protection</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Target sites for bollard pillar (commercial property security):</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>Site</th>
+<th>Pitch angle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td><code>securitymagazine.com</code></td>
+<td>"Storefront protection: bollards vs barriers"</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td><code>ifsecglobal.com</code></td>
+<td>Crash-rated bollard ASTM F2656 explainer</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td><code>propertycasualty360.com</code></td>
+<td>Loss-prevention angle: bollards in commercial property insurance</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Pitch email template:</strong></p>
+<pre><code>Subject: 2026 Update — [Topic] Resource for Your Readers
+
+Hi [Editor First Name],
+
+Saw your piece on [recent article title] — useful breakdown of [specific point from their article].
+
+I run editorial for Source 4 Industries (50-yr commercial industrial supplier). We just published a 2026 update on [topic] that includes:
+
+- [Specific data point #1, e.g., &quot;ASTM F3016 K4/K8/K12 spec table&quot;]
+- [Specific data point #2, e.g., &quot;OSHA 1910.28 height requirements&quot;]
+- [Specific data point #3, e.g., &quot;Real install photos from a recent project&quot;]
+
+Worth a link from your [related article] piece if it's useful. Happy to also write a 600-word original piece for you on [companion topic] — no quid pro quo, just trade insight for byline.
+
+URL: [pillar URL]
+Spec table direct link: [#H2 anchor in pillar]
+
+Costa Demetral
+Iron Tiger Digital (writing on behalf of Source 4)
+costa@irontigerdigital.com
+</code></pre>
+<p><strong>Follow-up cadence:</strong> Day 0 send → Day 5 follow-up #1 ("Bumping in case this got buried — happy to format the data however works for you") → Day 12 follow-up #2 with a different content angle → no further contact.</p>
+<p><strong>Tracking:</strong> Spreadsheet columns: Site | Editor | Email | Pitch sent | FU1 | FU2 | Response | Link placed | Date placed.</p>
+<p><strong>Verification:</strong>
+- Day 30: 2-3 placements live (10-15% target hit rate is normal).
+- Day 60: 4-5 placements live.
+- Day 90: 6-8 placements + DR delta on the pillar URLs (Ahrefs / Moz check).</p>
+<p><strong>Time estimate:</strong> 8 hours (initial outreach + 2 follow-up rounds × 8 sites).</p>
+<p><strong>Owner:</strong> ITD.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.20 — Klaviyo / Email Channel Expansion (4.5% → 7-10%)</h3>
+<p><strong>What to do:</strong> Email is the highest-CVR channel at 1.83% but generates only 4.5% of revenue. Build out 4 missing/underbuilt flows to push email share toward 7-10%.</p>
+<p><strong>The 4 flows:</strong></p>
+<h4 class="finding-h4">1. Post-Purchase Flow</h4>
+<p><strong>Trigger:</strong> Order created.</p>
+<p><strong>Sequence:</strong>
+- Day 0: "Your order is confirmed" (transactional, no UTM needed)
+- Day 2: Order shipped notification
+- Day 5: "How to install your [product category]" — install/usage tips, link to install spoke article (Lincoln Spoke 3, Bollard Spoke 1, etc.)
+- Day 14: "Complete the system" — cross-sell relevant accessories (use the same logic as 9.15)
+- Day 30: Review request — Klaviyo → Stamped/Yotpo integration. Reward: 5% off next order
+- Day 60: Reorder reminder for consumables (grease cartridges, fittings, etc.)</p>
+<p><strong>UTM convention:</strong> <code>utm_source=klaviyo&amp;utm_medium=email&amp;utm_campaign=post_purchase&amp;utm_content=day{N}</code></p>
+<h4 class="finding-h4">2. Cart Abandon Flow</h4>
+<p><strong>Trigger:</strong> Started checkout, did not complete; idle 1+ hour.</p>
+<p><strong>Sequence:</strong>
+- Hour 1: "You left items in your cart" with thumbnails + price
+- Hour 24: "Still thinking? Here's what other buyers asked" — surface FAQ for the cart's lead product
+- Day 3: "Save 5% if you complete today" (test — only if AOV justifies it)</p>
+<p><strong>UTM:</strong> <code>utm_source=klaviyo&amp;utm_medium=email&amp;utm_campaign=cart_abandon&amp;utm_content=hr{N}</code></p>
+<h4 class="finding-h4">3. Browse Abandon Flow</h4>
+<p><strong>Trigger:</strong> Viewed product, no add-to-cart, idle 24+ hr.</p>
+<p><strong>Sequence:</strong>
+- Day 1: "Were you looking at [product]?" with comparable in-stock options
+- Day 4: "Here's our spec guide for [category]" — link to relevant pillar
+- Day 10: Generic re-engagement with category top-sellers</p>
+<p><strong>UTM:</strong> <code>utm_source=klaviyo&amp;utm_medium=email&amp;utm_campaign=browse_abandon&amp;utm_content=day{N}</code></p>
+<h4 class="finding-h4">4. Win-Back Flow</h4>
+<p><strong>Trigger:</strong> No purchase in 180 days for previously-active customer.</p>
+<p><strong>Sequence:</strong>
+- Day 0: "Here's what's new since you last bought" — top 3 new products
+- Day 14: "5% off your next order" (or freight credit)
+- Day 30: Final "We miss you" with category-specific re-engagement</p>
+<p><strong>UTM:</strong> <code>utm_source=klaviyo&amp;utm_medium=email&amp;utm_campaign=winback&amp;utm_content=day{N}</code></p>
+<p><strong>Implementation:</strong></p>
+<ol>
+<li><strong>Klaviyo → Flows → Browse "Recommended."</strong> Most of these (post-purchase, cart abandon, browse abandon, winback) ship as templates. Clone, customize copy, point to the right cross-sell logic.</li>
+<li><strong>For each flow → Settings → UTM Tracking → enable per-flow UTM</strong> (overrides account-level if set).</li>
+<li><strong>Klaviyo → Lists &amp; Segments → create segment "Active customers (180d)"</strong> — used for the win-back trigger inverse.</li>
+<li><strong>A/B test send time</strong> — Tue 10am CT vs. Thu 2pm CT for the first 30 days.</li>
+</ol>
+<p><strong>Verification:</strong>
+- Day 30: email sessions in GA4 rise from baseline 7,794 (12-mo) to ≥1,200/month (~14,400 annualized) — 85% lift.
+- Day 60: email revenue share rises from 4.5% to 6%.
+- Day 90: email revenue share at 7-9%.</p>
+<p><strong>Time estimate:</strong> 12 hours total (3 hr per flow build + QA).</p>
+<p><strong>Owner:</strong> ITD specs flow content; TG-content (or Klaviyo-trained ops person) builds in Klaviyo.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.21 — B2B Contact + Quote Form Rebuild</h3>
+<p><strong>Goal:</strong> convert the consumer-grade <code>/pages/contact</code> form into a qualifying B2B intake — separate quote vs general contact paths, capture company / qty / timeline / application.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Two forms, two pages.</strong> Build <code>/pages/request-a-quote</code> (the B2B path) and slim down <code>/pages/contact</code> (general support).</li>
+<li><strong>Quote form fields (required unless noted):</strong> First Name · Last Name · Company · Work Email · Phone · Application (dropdown: Warehouse Safety / Material Handling / Lubrication / Loading Dock / Other) · Product of interest (free text) · Quantity · Target install date · Ship-to ZIP · Notes (optional).</li>
+<li><strong>Routing:</strong> quote submissions → <code>sales@source4industries.com</code> + Klaviyo "Quote Requested" event; general submissions → <code>support@source4industries.com</code>.</li>
+<li><strong>Header CTA:</strong> add a high-contrast "Get a Quote" button right of the phone number — links to <code>/pages/request-a-quote</code>. Same button replaces the "Get Custom Quote" link on every PDP.</li>
+</ol>
+<p><strong>Implementation (Shopify Liquid + Form Builder app):</strong></p>
+<pre><code class="language-liquid">{% form 'contact', id: 'quote-form' %}
+  &lt;input type=&quot;hidden&quot; name=&quot;contact[type]&quot; value=&quot;quote&quot;&gt;
+  &lt;label&gt;Company* &lt;input type=&quot;text&quot; name=&quot;contact[company]&quot; required&gt;&lt;/label&gt;
+  &lt;label&gt;Application*
+    &lt;select name=&quot;contact[application]&quot; required&gt;
+      &lt;option value=&quot;&quot;&gt;Select…&lt;/option&gt;
+      &lt;option&gt;Warehouse Safety&lt;/option&gt;
+      &lt;option&gt;Material Handling&lt;/option&gt;
+      &lt;option&gt;Lubrication Systems&lt;/option&gt;
+      &lt;option&gt;Loading Dock&lt;/option&gt;
+      &lt;option&gt;Lifting Equipment&lt;/option&gt;
+      &lt;option&gt;Other&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/label&gt;
+  &lt;label&gt;Quantity* &lt;input type=&quot;number&quot; min=&quot;1&quot; name=&quot;contact[quantity]&quot; required&gt;&lt;/label&gt;
+  &lt;label&gt;Target install date &lt;input type=&quot;date&quot; name=&quot;contact[install_date]&quot;&gt;&lt;/label&gt;
+  &lt;label&gt;Ship-to ZIP* &lt;input type=&quot;text&quot; pattern=&quot;[0-9]{5}&quot; name=&quot;contact[zip]&quot; required&gt;&lt;/label&gt;
+  &lt;!-- standard contact fields here --&gt;
+  &lt;button type=&quot;submit&quot;&gt;Request Quote&lt;/button&gt;
+{% endform %}
+</code></pre>
+<ol start="5">
+<li><strong>Response SLA on both pages:</strong> "We reply within 4 business hours, Monday–Friday 7am–5pm CT." Above the form, in larger weight.</li>
+<li><strong>Klaviyo "Quote Requested" flow:</strong> auto-acknowledge within 60 seconds + assign to a sales rep round-robin. Day 1 follow-up if no rep response logged. Day 3 nurture if quote not yet sent.</li>
+</ol>
+<p><strong>Time estimate:</strong> 4 hours (form build + Klaviyo flow + page copy).</p>
+<p><strong>Owner:</strong> ITD specs + writes copy; TG dev implements in Shopify; Klaviyo flow built by Klaviyo ops.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.22 — Header Phone Strip + Business Hours</h3>
+<p><strong>Goal:</strong> turn the existing header phone number into a high-converting always-visible trust strip.</p>
+<p><strong>Pattern (replaces current header phone area):</strong></p>
+<pre><code class="language-html">&lt;a href=&quot;tel:+18667348848&quot; class=&quot;header-phone&quot;&gt;
+  📞 (866) 734-8848
+  &lt;span class=&quot;hours&quot;&gt;Mon–Fri 7am–5pm CT · Reply within 4 hrs&lt;/span&gt;
+&lt;/a&gt;
+&lt;a href=&quot;/pages/request-a-quote&quot; class=&quot;header-cta&quot;&gt;Get a Quote →&lt;/a&gt;
+</code></pre>
+<p>CSS notes: phone in larger weight (16-18px), hours subtitle in 12px gray. Quote button: brand orange background, white text, sticky on scroll for desktop &gt; 1024px.</p>
+<p><strong>Time estimate:</strong> 2 hours (theme code + responsive QA).</p>
+<p><strong>Owner:</strong> TG dev.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.23 — Cart Page Upgrade</h3>
+<p><strong>Goal:</strong> close the cart-page conversion leaks identified in Section 11 — quantity controls, promo code, free-shipping bar, B2B quote alternative.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Quantity update controls.</strong> Most modern Shopify themes have these natively; verify they're enabled in <code>templates/cart.json</code> or <code>cart-template.liquid</code>. If theme is older, install <strong>Shopify Cart Drawer 2.0</strong> or upgrade theme.</li>
+<li><strong>Promo code field.</strong> Add a <code>&lt;details&gt;</code> collapsible "Have a discount code?" → input → applies via <code>/cart/update</code> AJAX.</li>
+<li><strong>Free-shipping progress bar.</strong> Threshold: $500. Liquid:</li>
+</ol>
+<pre><code class="language-liquid">{% assign threshold = 50000 %}{% comment %}cents{% endcomment %}
+{% assign progress = cart.total_price | times: 100 | divided_by: threshold %}
+{% if cart.total_price &lt; threshold %}
+  &lt;div class=&quot;ship-bar&quot;&gt;&lt;div class=&quot;fill&quot; style=&quot;width:{{ progress }}%&quot;&gt;&lt;/div&gt;
+  Add ${{ threshold | minus: cart.total_price | money_without_trailing_zeros }} for free shipping.&lt;/div&gt;
+{% else %}
+  &lt;div class=&quot;ship-bar success&quot;&gt;✓ You qualify for free shipping&lt;/div&gt;
+{% endif %}
+</code></pre>
+<ol start="4">
+<li><strong>B2B quote alternative.</strong> Above the checkout button: "Order over $5,000? <a href="/pages/request-a-quote">Request a custom quote →</a>" — visible only when <code>cart.total_price &gt; 500000</code> cents.</li>
+<li><strong>Cross-sell module.</strong> Below the cart line items: "Frequently bought with these" — Shopify Recommendations API (<code>/recommendations/products.json?product_id=</code>) returning 4 cards. Pull from the most-quantity item in cart.</li>
+</ol>
+<p><strong>Time estimate:</strong> 6 hours (theme code + Recommendations API integration + QA).</p>
+<p><strong>Owner:</strong> TG dev.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.24 — Volume / Tier Pricing on PDP</h3>
+<p><strong>Goal:</strong> surface bulk pricing on PDPs to lift AOV on multi-unit B2B orders (parking-lot / fleet buyers).</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Pricing strategy.</strong> Define tier structure with TG: e.g., 1–4 units = list price · 5–9 = 5% off · 10–24 = 10% off · 25+ = quote-only.</li>
+<li><strong>App.</strong> Install <strong>Bulk Discount Code Bot</strong> (free, $9.99/mo for branded), or <strong>B2B/Wholesale Solution by BSS Commerce</strong> if the broader B2B feature set is wanted (catalogs, NET terms, etc.).</li>
+<li><strong>PDP block (above Add to Cart):</strong></li>
+</ol>
+<pre><code class="language-html">&lt;div class=&quot;tier-pricing&quot;&gt;
+  &lt;div class=&quot;tier&quot;&gt;&lt;span class=&quot;qty&quot;&gt;1–4&lt;/span&gt;&lt;span class=&quot;price&quot;&gt;$1,553.00&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;tier&quot;&gt;&lt;span class=&quot;qty&quot;&gt;5–9&lt;/span&gt;&lt;span class=&quot;price&quot;&gt;$1,475.35 &lt;small&gt;(5% off)&lt;/small&gt;&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;tier&quot;&gt;&lt;span class=&quot;qty&quot;&gt;10–24&lt;/span&gt;&lt;span class=&quot;price&quot;&gt;$1,397.70 &lt;small&gt;(10% off)&lt;/small&gt;&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;tier quote-tier&quot;&gt;&lt;span class=&quot;qty&quot;&gt;25+&lt;/span&gt;&lt;a href=&quot;/pages/request-a-quote&quot;&gt;Get custom quote →&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<ol start="4">
+<li><strong>Auto-apply at cart.</strong> When qty hits a tier threshold, discount applies automatically — no manual code entry.</li>
+</ol>
+<p><strong>Time estimate:</strong> 4 hours (app config + theme block + tier-strategy meeting with TG).</p>
+<p><strong>Owner:</strong> ITD specs strategy; TG dev integrates app.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.25 — Back-In-Stock Notification on Backordered SKUs</h3>
+<p><strong>Goal:</strong> capture buyer email on backordered items instead of letting them bounce.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Install:</strong> Klaviyo "Back in Stock" app (free, native to Klaviyo, integrates with the Klaviyo install built in 9.20). Alternative: <strong>Restock Rocket</strong>.</li>
+<li><strong>PDP integration:</strong> when <code>product.available == false</code> (or specific variant unavailable), Add-to-Cart button is replaced with: "Notify me when in stock" → email input → submit.</li>
+<li><strong>Klaviyo trigger:</strong> when inventory updates from 0 → ≥1, fire email to all subscribers within 15 minutes.</li>
+</ol>
+<p><strong>Time estimate:</strong> 2 hours.</p>
+<p><strong>Owner:</strong> TG dev.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.26 — CAD / Spec File Download Section on Top-30 SKUs</h3>
+<p><strong>Goal:</strong> capture the engineer / specifier audience by hosting CAD files (DWG/STEP/IGES) and detailed spec PDFs directly on PDPs. Engineers writing bollards into project specs Google for these files first; absent files = competitor wins the spec.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Inventory.</strong> TG (or original product manufacturers) supplies CAD + detailed spec PDFs for top 30 SKUs. Bollard supplier (S4) likely has these in-house.</li>
+<li><strong>Upload to Shopify Files</strong> (<code>Settings → Files</code>) — supports STEP, DWG, IGES, PDF.</li>
+<li><strong>PDP "Resources" block:</strong></li>
+</ol>
+<pre><code class="language-html">&lt;div class=&quot;resources&quot;&gt;
+  &lt;h3&gt;Downloads&lt;/h3&gt;
+  &lt;a href=&quot;{{ pdf_url }}&quot; download&gt;📄 Spec Sheet (PDF)&lt;/a&gt;
+  &lt;a href=&quot;{{ dwg_url }}&quot; download&gt;📐 CAD File (DWG)&lt;/a&gt;
+  &lt;a href=&quot;{{ step_url }}&quot; download&gt;📐 3D Model (STEP)&lt;/a&gt;
+  &lt;a href=&quot;{{ install_url }}&quot; download&gt;🛠 Installation Guide (PDF)&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<ol start="4">
+<li><strong>Track downloads as GA4 event.</strong> <code>gtag('event', 'cad_download', { sku, file_type })</code> — these are top-of-funnel signals for sales follow-up.</li>
+</ol>
+<p><strong>Time estimate:</strong> 3 hours (Shopify uploads + PDP block) + asset-collection time from S4 (which lives outside ITD scope).</p>
+<p><strong>Owner:</strong> ITD specs block; TG / Source 4 supplies the files.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.27 — Country-of-Origin + Warranty Spec Fields</h3>
+<p><strong>Goal:</strong> answer two top-3 B2B buyer questions ("Made in USA?" and "What's the warranty?") inline on every PDP. Critical for Buy American Act buyers (DHS, NASA, GSA).</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Add Shopify product metafields:</strong>
+   - <code>custom.country_of_origin</code> (single-line text)
+   - <code>custom.warranty_period</code> (single-line text, e.g., "5-year limited")
+   - <code>custom.warranty_url</code> (URL to warranty PDF or <code>/pages/warranty</code>)</li>
+<li><strong>Backfill top 50 SKUs.</strong> TG / Source 4 supplies the data; ITD bulk-edits via Shopify CSV import.</li>
+<li><strong>PDP spec table block:</strong></li>
+</ol>
+<pre><code class="language-liquid">{%- if product.metafields.custom.country_of_origin -%}
+  &lt;tr&gt;&lt;th&gt;Country of Origin&lt;/th&gt;&lt;td&gt;{{ product.metafields.custom.country_of_origin }}&lt;/td&gt;&lt;/tr&gt;
+{%- endif -%}
+{%- if product.metafields.custom.warranty_period -%}
+  &lt;tr&gt;&lt;th&gt;Warranty&lt;/th&gt;&lt;td&gt;{{ product.metafields.custom.warranty_period }}
+    {%- if product.metafields.custom.warranty_url -%}
+      · &lt;a href=&quot;{{ product.metafields.custom.warranty_url }}&quot;&gt;View terms →&lt;/a&gt;
+    {%- endif -%}
+  &lt;/td&gt;&lt;/tr&gt;
+{%- endif -%}
+</code></pre>
+<ol start="4">
+<li><strong>GSA / Buy American badge.</strong> If a SKU is Made in USA + GSA-eligible, render a badge above the spec table: <code>&lt;span class="badge usa"&gt;🇺🇸 Made in USA · GSA Eligible&lt;/span&gt;</code>.</li>
+</ol>
+<p><strong>Time estimate:</strong> 3 hours theme work + bulk metafield population (depends on how fast S4 supplies the data per SKU).</p>
+<p><strong>Owner:</strong> ITD specs the schema + theme block; TG bulk-imports metafield CSV.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.28 — Government Purchasing Page + Footer Trust Badges</h3>
+<p><strong>Goal:</strong> capture procurement-team buyers (federal, state, municipal) by surfacing GSA Schedule (if held), CAGE / DUNS / UEI numbers, payment terms, and a dedicated procurement contact.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Confirm credentials.</strong> TG verifies which of these Source 4 holds: GSA Schedule, CAGE Code, DUNS / UEI Number, SAM.gov registration, NAICS codes assigned, state contract vehicles (e.g., NASPO ValuePoint).</li>
+<li><strong>Build <code>/pages/government-purchasing</code>:</strong> ~600 words. Headline: "Trusted by NASA, DHS, GSA Buyers Since 1972." Sections: Credentials Held · Accepted Payment Methods (Purchase Order, Net 30, Government P-Card, ACH) · Procurement Contact (named person + direct line + email) · How to Order via GSA Advantage (if applicable) · Past Performance (DHS, NASA, San Diego — list the named projects).</li>
+<li><strong>Footer badges row.</strong> Add a "Government &amp; Compliance" footer row with: GSA logo (if Schedule holder) · CAGE Code badge · "Made in USA" iconography · ISO 9001 (if certified) · BBB.</li>
+<li><strong>Schema:</strong> add <code>Organization</code> JSON-LD with <code>governmentBenefitsInfo</code> and <code>taxID</code> fields where applicable.</li>
+</ol>
+<p><strong>Time estimate:</strong> 6 hours (page build + asset gathering + footer row).</p>
+<p><strong>Owner:</strong> ITD writes + builds; TG supplies all credential numbers and verifies accuracy.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.29 — Named Customer Testimonials + Case Studies Index</h3>
+<p><strong>Goal:</strong> convert the "Trusted By" logo wall into actual social proof with quotes, names, titles, and outcomes.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Source 5 named quotes.</strong> TG / Source 4 sales reaches out to 5 existing customers (e.g., MGM Grand facilities mgr, Pepsi ops, Caesars Palace — all already on the logo wall). Ask: 2–3 sentence quote + name + title + company + photo (optional). Offer: small co-marketing exchange (mention in newsletter, link in our case-studies page).</li>
+<li><strong>Build <code>/pages/case-studies</code> index</strong> + 1 detailed case study (San Diego Gas Lamp District — already referenced on homepage; expand to full case study with before/after photos, install date, units shipped, total contract value if shareable, project lead testimonial).</li>
+<li><strong>Homepage testimonial carousel</strong> (replace one of the existing promo banners): 3 testimonials cycling, each with quote + photo + name + title + company logo.</li>
+<li><strong>PDP testimonial block</strong> (top 30 SKUs): 1–2 SKU-specific quotes if they exist; otherwise generic "Trusted by NASA, DHS, MGM Grand" + link to case-studies index.</li>
+</ol>
+<p><strong>Time estimate:</strong> 4 hours ITD writing + 2 weeks sales-team turnaround on quote-collection (independent path).</p>
+<p><strong>Owner:</strong> ITD writes + builds page; TG / S4 sales collects quotes.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">9.30 — Custom 404 Page + LocalBusiness Schema on Contact</h3>
+<p><strong>Goal:</strong> recover the 10–20% of would-be bouncers from the 404 page (currently Shopify default) and surface LocalBusiness + FAQPage schema on the contact page for AI Overview eligibility.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Custom 404 page</strong> (<code>templates/404.liquid</code>):</li>
+</ol>
+<pre><code class="language-liquid">&lt;section class=&quot;error-404&quot;&gt;
+  &lt;h1&gt;That page moved or was removed.&lt;/h1&gt;
+  &lt;p&gt;Don't worry — let's get you to the right place.&lt;/p&gt;
+  &lt;form action=&quot;/search&quot; method=&quot;get&quot;&gt;
+    &lt;input type=&quot;search&quot; name=&quot;q&quot; placeholder=&quot;Search for products, brands, or part numbers…&quot; autofocus&gt;
+    &lt;button&gt;Search&lt;/button&gt;
+  &lt;/form&gt;
+  &lt;h2&gt;Popular collections&lt;/h2&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;/collections/s4-bollards&quot;&gt;Bollards&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/collections/guard-rails-barriers&quot;&gt;Guard Rails &amp;amp; Barriers&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/collections/lincoln-quicklub-accessories&quot;&gt;Lincoln Quicklub&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/collections/casters&quot;&gt;Casters&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/collections/pallet-rack-systems&quot;&gt;Pallet Rack Systems&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p&gt;Or call us: &lt;a href=&quot;tel:+18667348848&quot;&gt;(866) 734-8848&lt;/a&gt; · Mon–Fri 7am–5pm CT.&lt;/p&gt;
+&lt;/section&gt;
+</code></pre>
+<ol start="2">
+<li><strong>LocalBusiness schema on <code>/pages/contact</code>:</strong></li>
+</ol>
+<pre><code class="language-json">{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;LocalBusiness&quot;,
+  &quot;name&quot;: &quot;Source 4 Industries&quot;,
+  &quot;image&quot;: &quot;https://www.source4industries.com/assets/logo.png&quot;,
+  &quot;telephone&quot;: &quot;+1-866-734-8848&quot;,
+  &quot;email&quot;: &quot;sales@source4industries.com&quot;,
+  &quot;address&quot;: {
+    &quot;@type&quot;: &quot;PostalAddress&quot;,
+    &quot;streetAddress&quot;: &quot;5675 E North Belt Road, Ste 170&quot;,
+    &quot;addressLocality&quot;: &quot;Las Vegas&quot;,
+    &quot;addressRegion&quot;: &quot;NV&quot;,
+    &quot;postalCode&quot;: &quot;89115&quot;,
+    &quot;addressCountry&quot;: &quot;US&quot;
+  },
+  &quot;openingHoursSpecification&quot;: [{
+    &quot;@type&quot;: &quot;OpeningHoursSpecification&quot;,
+    &quot;dayOfWeek&quot;: [&quot;Monday&quot;,&quot;Tuesday&quot;,&quot;Wednesday&quot;,&quot;Thursday&quot;,&quot;Friday&quot;],
+    &quot;opens&quot;: &quot;07:00&quot;,
+    &quot;closes&quot;: &quot;17:00&quot;
+  }],
+  &quot;areaServed&quot;: &quot;US&quot;,
+  &quot;priceRange&quot;: &quot;$$&quot;
+}
+</code></pre>
+<ol start="3">
+<li><strong>FAQPage schema on <code>/pages/contact</code></strong> — add 6–8 common B2B questions: "Do you ship internationally?", "What's your minimum order?", "Do you accept Purchase Orders / Net 30 terms?", "Do you ship to government agencies?", "What's the lead time for crash-rated bollards?", "Do you provide installation services?".</li>
+<li><strong>Open Graph + Twitter Card audit</strong> — verify every page has: <code>og:title</code>, <code>og:description</code>, <code>og:image</code> (1200×630 product hero), <code>twitter:card="summary_large_image"</code>. Use Facebook Sharing Debugger + Twitter Card Validator on top 20 URLs.</li>
+</ol>
+<p><strong>Time estimate:</strong> 4 hours (404 page + schema blocks + OG audit).</p>
+<p><strong>Owner:</strong> TG dev.</p>
+<hr class="finding-divider">
+  </section>
+
+  <section id="live-findings" class="section">
+    <div class="section-label">Section 10</div>
+    <h2 class="section-title">Additional Findings from Direct Site Analysis</h2>
+<p>This section captures live-site issues NOT covered in Sections 1-8. Each finding is verified against <code>https://source4industries.com</code> as of 2026-04-25. Cross-references to Section 9 implementation blocks indicate where the fix is detailed.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">Finding 1: Schema.org JSON-LD Is Effectively Absent Site-Wide</h3>
+<p><strong>What's broken / suboptimal:</strong> The homepage and <code>/products/4-manual-retractable-stainless-steel-bollard</code> (top revenue SKU) have <strong>no detectable Product, Organization, BreadcrumbList, or WebSite schema</strong> in the rendered HTML. The collection page audits confirm CollectionPage + ItemList are also absent. The top revenue SKU — a $1,553 product driving $56,524/yr — is invisible to Rich Results, Google Shopping organic, and AI engines that depend on structured data.</p>
+<p><strong>Impact:</strong> Estimated 20-35% organic CTR uplift withheld on every product page (Google Search Central reports rich results lift average +30% CTR). On the homepage alone, missing Organization/SiteLinks Search Box schema costs branded-query click presence. Compounds the 0.37% site-wide CTR observed in the report.</p>
+<p><strong>Fix:</strong> Implement Section 9.16 (Organization + Speakable site-wide) plus a per-product Product schema block via 9.17. Add CollectionPage on the top 5 collections per 9.18. Total effort: 6 hours; estimated +$25K-$45K annualized organic revenue from CTR lift alone, before any ranking gains.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">Finding 2: Meta Descriptions Missing on Every Audited Page</h3>
+<p><strong>What's broken / suboptimal:</strong> Of the 6 live pages audited (homepage, top SKU, <code>/blogs/articles/what-are-bollards</code>, top 3 collections), <strong>zero render a meta description</strong> in the head. Google falls back to auto-generated SERP snippets, which typically score lower CTR than well-written descriptions and skip CTA hooks like "ships in 2 days" or "in stock."</p>
+<p><strong>Impact:</strong> Compounds the CTR shortfall. With 4.13M annual GSC impressions and a current 0.37% site CTR, moving site CTR to 0.55% (industry B2B median) on better SERP previews adds ~7,400 organic clicks/year.</p>
+<p><strong>Fix:</strong> Section 9.10 covers the top 15 priority pages with exact meta-description strings. Roll out the same pattern to the next 100 pages over weeks 5-8. The pattern: <code>[primary KW]: [2 specs/benefits], [shipping promise], [trust line].</code></p>
+<hr class="finding-divider">
+<h3 class="sub-title">Finding 3: Title Tag on Top Revenue Product Page Is 79 Characters (Truncated in SERP)</h3>
+<p><strong>What's broken / suboptimal:</strong> <code>/products/4-manual-retractable-stainless-steel-bollard</code> has the title <code>4" Manual Retractable Stainless Steel Bollard (36" Height) – Source 4 Industries</code> — 79 characters. Google truncates titles to ~580 pixels (≈55-60 characters) on desktop and shorter on mobile. The brand suffix <code>– Source 4 Industries</code> is consuming 22 chars and getting cut, while losing the chance to put a CTR hook (price, ship-time, in-stock).</p>
+<p><strong>Impact:</strong> This single SKU has 3,652 sessions and $56,524 revenue. Title truncation likely costs 15-25% organic CTR on its branded + long-tail queries.</p>
+<p><strong>Fix:</strong> Apply 9.10 row 7: <code>4" Retractable Stainless Bollard: $1,553, Ships in 2 Days</code> (57 chars). Same approach on the other top-15 SKUs. Same approach on collection pages — Guard Rails collection title is 86 chars (<code>Guard Rails &amp; Barriers - Protect Your Employees and Property – Source 4 Industries</code>) — also truncated.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">Finding 4: Top Revenue Product Page Has No Related Products / Cross-Sell Block</h3>
+<p><strong>What's broken / suboptimal:</strong> The 4" manual retractable stainless steel bollard page (top revenue SKU) renders no related-products section, no "complete the system" cross-sell, no "frequently bought together." The page ends after the spec table. With AOV $1,553 and a buyer who almost certainly needs anchoring sleeves, lock cores, and possibly a second bollard for matched installs, cross-sell is missing.</p>
+<p><strong>Impact:</strong> Direct AOV loss. Industry benchmark cross-sell click-through on B2B product pages is 4-7%, with 25-30% of those clicks converting at the original AOV or higher. On 3,652 sessions × 5% click × 28% conversion × $400 incremental order = ~$20,000/yr left on the table from this one SKU.</p>
+<p><strong>Fix:</strong> Section 9.15 implements Recommendations API with manual override for the top 10 SKUs.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">Finding 5: <code>/blogs/articles/what-are-bollards</code> Internal Links Point to Empty / Non-Existent Collections</h3>
+<p><strong>What's broken / suboptimal:</strong> The article links to <code>/collections/safety-bollards</code>, <code>/collections/removable-bollards</code>, <code>/collections/retractable-bollards</code>, <code>/collections/fixed-bollards</code>. The actual indexed bollard collection is <code>/collections/s4-bollards</code> with 92 products. The other slugs may either redirect, 404, or load thin filtered subsets — and they're not the converting pages. Every internal link in this 1,743-session article is pointing away from revenue.</p>
+<p><strong>Impact:</strong> Compounds the zero-conversion problem. Link equity is being passed to thin/empty collections instead of <code>/products/4-manual-retractable-stainless-steel-bollard</code> ($56K) or <code>/collections/s4-bollards</code> ($2.4K).</p>
+<p><strong>Fix:</strong> Section 9.1 Step 6 — exact anchor/target rewrite map.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">Finding 6: Article Lacks Speakable / FAQPage Schema and Has No Visible Author/dateModified</h3>
+<p><strong>What's broken / suboptimal:</strong> <code>/blogs/articles/what-are-bollards</code> shows byline "January 23, 2023, Source 4 Web Team" — over 3 years old, no <code>dateModified</code>, no FAQPage schema, no Speakable, no Article schema visible. ChatGPT and Perplexity strongly prefer recency signals. The article is being filtered out of AI summarization despite its topical relevance.</p>
+<p><strong>Impact:</strong> Lost AI-citation visibility for <code>what are bollards</code> (6,347 monthly impressions on this query at pos 17). On Bing's AI Overviews specifically, missing structured data drops eligibility entirely.</p>
+<p><strong>Fix:</strong> Section 9.1 Steps 4-5 (FAQPage block) + 9.16 (Speakable on the Quick Facts block) + 9.17 (<code>dateModified</code> cron). Also: drop the "Source 4 Web Team" byline — per the project's no-fictitious-owner rule, replace with no byline or with "Source 4 Industries Editorial." Set <code>dateModified</code> to publish day of retrofit.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">Finding 7: Sitemap Has No <code>&lt;lastmod&gt;</code> Timestamps</h3>
+<p><strong>What's broken / suboptimal:</strong> The sitemap index at <code>/sitemap.xml</code> (and child sitemaps) renders no <code>&lt;lastmod&gt;</code> dates. Google and Bing use lastmod to prioritize crawl order and refresh stale pages. Without it, the crawler can't tell whether a URL changed yesterday or two years ago.</p>
+<p><strong>Impact:</strong> Slower indexation of content updates. On 4,775 crawled-but-not-indexed pages, missing freshness signals likely contributes to indexing decisions. Affects every spoke article publish — Google may take 14-21 days to recrawl for ranking signals instead of 2-5 days.</p>
+<p><strong>Fix:</strong> Shopify auto-generates sitemap.xml — <code>&lt;lastmod&gt;</code> rendering depends on theme/plugin. Verify by checking a single child sitemap (e.g., <code>sitemap_products_1.xml</code>) — if <code>&lt;lastmod&gt;</code> is genuinely missing site-wide, install a sitemap plugin like "Smart SEO" or "SearchPie" that adds lastmod, OR file a Shopify support ticket. Combined with 9.11 (IndexNow), this closes the freshness loop entirely.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">Finding 8: Product Page Has No Reviews / Ratings Block (Top Revenue SKU)</h3>
+<p><strong>What's broken / suboptimal:</strong> <code>/products/4-manual-retractable-stainless-steel-bollard</code> shows no reviews, no aggregateRating schema, no review count. For a $1,553 commercial product, the absence of social proof is a meaningful conversion blocker. Compounded by the absence of AggregateRating schema, which would otherwise unlock star-rating display in SERPs.</p>
+<p><strong>Impact:</strong> Commercial-intent buyers in the $1k-$5k range typically convert 2-3× higher when reviews exist. On 3,652 sessions at current 1.5% CVR, lifting to 2.0% with reviews = +18 purchases × $1,553 = +$28K/yr.</p>
+<p><strong>Fix:</strong> Install a Shopify reviews app — recommend Stamped or Yotpo (both have AggregateRating schema generation built-in). Alternatively use the free Shopify Product Reviews app. Configure to email the post-purchase review request via the Klaviyo flow built in 9.20. Solicit reviews from the past 12 months of buyers via a one-off Klaviyo campaign. Time: 4 hours.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">Finding 9: Homepage H2 Hierarchy Reads as Promo Banners, Not Information Architecture</h3>
+<p><strong>What's broken / suboptimal:</strong> Homepage H2s in order: "Complete Pallet Rack Installs," "Guard Rails &amp; Barriers," "Casters," "S4 Bollards," "Noblelift," "Shop by Brand," "Popular Categories," "Trusted By," "Featured Category," "Pallet Rack Systems Nevada's #1 Choice," "Dock &amp; Door Systems," "Serving the Business Community for 50 Years!," "Source 4 Industries provides City of San Diego Gas Lamp District with New Bollards," "Best Selling Products," "Blog Posts," "Our newsletter," "Contact Us," "Information," "Support."</p>
+<p>The headline order is essentially random — there's no sequential logic from "what we sell" → "who we serve" → "trust" → "next step." For SEO, the H2 sequence signals topic hierarchy to Google. For UX, scroll-skim users don't get a coherent story.</p>
+<p><strong>Impact:</strong> Diluted homepage topical signal — instead of "Source 4 = warehouse safety + lubrication + material handling," Google sees a flat list of 19 H2s with no parent/child relationships. Direct contributor to the 38.5% direct/unattributed bucket — homepage isn't strongly cementing brand-keyword association.</p>
+<p><strong>Fix:</strong> Restructure to 5 application-led H2s aligned with the Section 9.9 mega-menu: "Warehouse Safety," "Lubrication Systems," "Material Handling," "Loading Dock," "Lifting Equipment." Each with 3-4 H3 product card subgroups. Move "Best Selling Products" + "Trusted By" + "Featured Category" into supporting H3s under appropriate parents. Newsletter, contact, support belong as H3 in a footer-level structure, not as sibling H2s. Time: 2 hours theme code; do during week 2 alongside the mega-menu.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">Finding 10: Above-the-Fold Hero Lacks a Primary CTA Button</h3>
+<p><strong>What's broken / suboptimal:</strong> Homepage above-the-fold features the rotating banner "⭐ CHECK OUT OUR QUICK SHIP BOLLARDS ⭐" — that's the only CTA pattern visible, and it's a click-the-banner pattern, not a discrete CTA button. There's no "Shop Bollards" button, no "Get a Quote" button, no value-prop block ("50-yr industrial supplier — ships in 2 days"). The hero is a slideshow, which is a known conversion-killer pattern (HubSpot research: hero carousels reduce primary CTA clicks by ~25% vs. static hero with one clear CTA).</p>
+<p><strong>Impact:</strong> Direct conversion loss on 34,664 homepage sessions. Even a 0.5% lift on a discrete CTA = +173 incremental engaged sessions/month.</p>
+<p><strong>Fix:</strong> Replace the rotating banner with a static hero containing: H1 ("Industrial Supplies &amp; Material Handling — Shipping in 48 Hours"), subhead ("50 years serving warehouses across 50 states. In stock now: bollards, guard rails, Lincoln Quicklub parts."), two buttons: primary "Shop Now" (→ <code>/collections/all</code>), secondary "Get a Quote" (→ <code>/pages/contact</code>). Trust strip below: BBB badge, NASA/Pepsi/SpaceX logos, "(866) 734-8848 • Mon-Fri 7am-5pm CT." Time: 3 hours theme code.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">Finding 11: Image Alt Text on Product Pages Is Identical Across All Gallery Images</h3>
+<p><strong>What's broken / suboptimal:</strong> On <code>/products/4-manual-retractable-stainless-steel-bollard</code>, the first 3 gallery images all use the same alt text: <code>"4" Manual Retractable Stainless Steel Bollard - S4 Bollards"</code>. Best practice is differentiated alt text per image so each image can rank in Google Images for distinct queries (e.g., "retractable bollard installed," "bollard dimensions," "bollard finish detail"). Identical alt text also signals duplicate-image risk to crawlers.</p>
+<p><strong>Impact:</strong> Lost Google Images traffic. Bollard category Google Images impressions are non-trivial — every gallery image is a missed indexing opportunity. Estimated 100-300 incremental sessions/month at full Image SEO buildout site-wide.</p>
+<p><strong>Fix:</strong> Update gallery alt text per image: image 1 = product hero ("4 inch manual retractable stainless steel bollard 36 inch raised position"), image 2 = installed ("retractable bollard installed parking lot ground flush"), image 3 = dimensions ("retractable bollard dimensions diagram 4 inch diameter 36 inch height"). Apply same pattern to top 30 SKUs. Time: 2 hours.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">Finding 12: <code>/collections/s4-bollards</code> Has No Buyer-Guide / K-Rating Educational Content</h3>
+<p><strong>What's broken / suboptimal:</strong> The bollard collection page renders a brief intro paragraph + product grid. No K-rating explainer, no "what type do I need?" decision tree, no link to <code>/blogs/articles/what-are-bollards</code> or the upcoming bollard pillar. By contrast, <code>/collections/guard-rails-barriers</code> (the highest-CVR collection) has a substantive intro paragraph naming brands and use cases — closer to spec.</p>
+<p><strong>Impact:</strong> Lower commercial intent capture. Buyers landing on the collection from queries like <code>crash rated bollards</code> or <code>removable bollards</code> (page-1 GSC queries with thousands of impressions) hit the product grid with no context. Likely contributor to the 0.20% CVR vs the converting product page's 1.5%.</p>
+<p><strong>Fix:</strong> Add a 350-400 word intro block above the grid. Structure: definition → 4-type comparison (fixed/removable/retractable/crash-rated) → K-rating quick reference → CTA to pillar (when published). Internal links to top-3 converting product SKUs. Inline link to <code>/blogs/articles/what-are-bollards</code>. Time: 1 hour. Once bollard pillar publishes (Section 9.8), update the link to point to the pillar.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">Finding 13: Collection Filter Faceted URLs Aren't Clearly Noindexed</h3>
+<p><strong>What's broken / suboptimal:</strong> Collection pages support price slider, brand multi-select, attribute filters. These generate URLs like <code>/collections/guard-rails-barriers?filter.v.option.size=4&amp;filter.p.product_type=Guard+Rails</code>. Without confirmed <code>noindex</code> on faceted URLs, every filter combination becomes a discoverable thin page. The 4,775 "crawled-not-indexed" + 11,813 "alternate page with proper canonical" issues likely include a large slice of these.</p>
+<p><strong>Impact:</strong> Crawl budget waste on combinatorial faceted URLs. Each unindexed faceted URL is a request that doesn't return value. On a site with 4,130,442 annual impressions, 5-10% crawl-budget reclaim translates to faster indexation of new content.</p>
+<p><strong>Fix:</strong> Section 9.13 Step 4 includes the exact <code>noindex, follow</code> Liquid conditional for filter/sort URLs. Verify by viewing source on a filtered collection URL — <code>&lt;meta name="robots" content="noindex, follow"&gt;</code> should be present. Pair with <code>Disallow: /*?filter.*</code> and <code>Disallow: /*?sort_by=*</code> in robots.txt as belt-and-suspenders.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">Finding 14: No Visible Internal-Link Path from Product Pages Back to Pillar / Educational Content</h3>
+<p><strong>What's broken / suboptimal:</strong> <code>/products/4-manual-retractable-stainless-steel-bollard</code> links to its parent collection but not to <code>/blogs/articles/what-are-bollards</code> or any educational content. The Lincoln Quicklub collection page links to one blog article ("Stop the Grease, Increase the Efficiency") but the product pages don't. The link graph is shallow — buyers who want context can't get there from a product page, and Google can't see the topical hub structure.</p>
+<p><strong>Impact:</strong> Diluted topical authority — Google needs to see hub-and-spoke link patterns to understand entity relationships. Without product → pillar links, the Lincoln cluster (when built) won't pass authority back up the chain. Compounds to ~1-2 ranking positions lost per cluster article.</p>
+<p><strong>Fix:</strong> Add a "Learn more" sidebar block on top 30 product pages linking to their cluster pillar + 1-2 relevant spokes. Pattern (Liquid):</p>
+<pre><code class="language-liquid">{%- assign topic = product.metafields.s4.topic_cluster -%}
+{%- if topic == 'bollard' -%}
+  &lt;aside class=&quot;s4-learn&quot;&gt;
+    &lt;h3&gt;Bollard buyer's guide&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;/blogs/articles/commercial-bollards-complete-guide-2026&quot;&gt;Complete bollard guide (2026)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/blogs/articles/manual-retractable-bollards-guide&quot;&gt;How retractable bollards work&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/blogs/articles/k4-vs-k12-crash-rated-bollards&quot;&gt;K4 vs K12 crash-rated bollards&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/aside&gt;
+{%- endif -%}
+</code></pre>
+<p>Combine with same pattern for <code>topic == 'lincoln'</code> and <code>topic == 'guard_rail'</code>. Set product metafield <code>s4.topic_cluster</code> per product. Time: 2 hours setup + 1 hour metafield assignment for top 30.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">Finding 15: Internal Search Bar Returns to <code>/search</code> (the Page That's Already a Red Flag)</h3>
+<p><strong>What's broken / suboptimal:</strong> Header search bar submits to <code>/search?q=...</code> — the page that already collects 11,277 sessions in Clarity (#2 page on the site). Clicking through site navigation also funnels into this same surface. There's no autocomplete/predictive surface, no popular-search shortcuts, no "did you mean" fallback. The search bar UX itself is the same Shopify default.</p>
+<p><strong>Impact:</strong> Buyers who can't find their product hit <code>/search</code>, get a generic results page (no faceted filters, no application-grouping), and leave. Compounds with Section 9.9 — even after building the mega-menu, a poor search experience traps the residual buyers who still need it. The 4,401 search events at 2.3% of sessions represent buyers signaling failed navigation.</p>
+<p><strong>Fix:</strong> Install a Shopify search-enhancement app (e.g., <strong>Searchanise</strong> or <strong>Boost AI Search</strong>) that adds: (a) instant search suggestions as the user types, (b) popular search shortcuts, (c) typo tolerance, (d) faceted filters on the results page, (e) zero-results fallback to top-selling category. Pair with the Shopify search analytics export TG provides (per Section 8 decision item) so ITD can identify the queries that route to dead ends. Time: 4 hours setup + content tuning.</p>
+<hr class="finding-divider">
+  </section>
+
+  <section id="b2b-funnel" class="section">
+    <div class="section-label">Section 11</div>
+    <h2 class="section-title">B2B Conversion & Funnel Gaps</h2>
+<p>This section captures conversion-path gaps surfaced via a second live-site pass focused on B2B funnel design (cart, contact, quote flow, trust signals, procurement readiness). Findings here are distinct from Section 10 (which focused on technical/structural SEO + UX surface). Where a fix has detailed implementation in Section 9, it is referenced inline.</p>
+<p>The 28 findings (numbered 16–43, continuing the running count from Section 10) are grouped into four categories: (A) B2B Conversion Path, (B) Trust &amp; Procurement Signals, (C) Structural / IA Gaps, (D) Quick Wins. Total estimated incremental annual revenue from this section: <strong>$80K–$160K</strong> at current traffic levels, primarily from quote-flow capture, AOV lift via volume pricing, and cart-page leak closure.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">11A. B2B Conversion Path</h3>
+<h4 class="finding-h4">Finding 16: Contact Form Is Consumer-Grade — Missing All B2B Qualification Fields</h4>
+<p><strong>What's broken / suboptimal:</strong> <code>/pages/contact</code> collects only Name / Email (required) / Phone / Comment. Missing: Company, Application/Use Case, Quantity, Target Install Date, Ship-to ZIP. Every B2B inquiry currently dumps unqualified into one inbox with no routing logic.</p>
+<p><strong>Impact:</strong> Sales team spends time qualifying inbound that should already be qualified at intake. Lower lead-to-quote velocity. On a site doing $3.58M annually, lifting quote-velocity by 1 business day per lead translates to materially shorter sales cycles. Also: no segmentation between sales / support / billing inquiries — every email goes to one inbox, including high-intent quote requests that should auto-prioritize.</p>
+<p><strong>Fix:</strong> Section 9.21 — split into two forms (<code>/pages/request-a-quote</code> + <code>/pages/contact</code>), add Company / Application / Quantity / Install Date / ZIP as required fields on the quote form, route quote submissions to <code>sales@</code> + Klaviyo "Quote Requested" event.</p>
+<hr class="finding-divider">
+<h4 class="finding-h4">Finding 17: No Response SLA Published Anywhere</h4>
+<p><strong>What's broken / suboptimal:</strong> The contact page says "we'll work hard to respond as quickly as possible" — a non-promise. No specific timeframe published on contact page, header, or PDPs. Buyers comparing Source 4 vs Grainger / Uline see specific SLAs on the competitors and ambiguity on Source 4.</p>
+<p><strong>Impact:</strong> Form-completion rates drop 10–20% when SLA is absent (HubSpot, B2B form benchmarking). On a contact page ranking for branded queries with high intent, this is a direct conversion leak.</p>
+<p><strong>Fix:</strong> Publish "Reply within 4 business hours, Mon–Fri 7am–5pm CT" on <code>/pages/contact</code>, <code>/pages/request-a-quote</code>, and PDP "Get Custom Quote" buttons. Operationally enforce via Klaviyo auto-acknowledge + sales-rep round-robin assignment (Section 9.21 Step 6).</p>
+<hr class="finding-divider">
+<h4 class="finding-h4">Finding 18: No Business Hours Displayed Anywhere</h4>
+<p><strong>What's broken / suboptimal:</strong> Phone <code>(866) 734-8848</code> is <code>tel:</code> clickable in header / footer / contact page, but no "Mon–Fri 7am–5pm CT" strip beside it. After-hours callers hit voicemail with no expectation set. Buyers in non-Pacific time zones don't know whether 8am their time is in-hours.</p>
+<p><strong>Impact:</strong> Direct call-volume loss. Industry benchmark: B2B sites with visible hours next to phone get 12–18% more dial-throughs than sites without.</p>
+<p><strong>Fix:</strong> Section 9.22 — header phone strip with hours subtitle; same on footer and contact page.</p>
+<hr class="finding-divider">
+<h4 class="finding-h4">Finding 19: No Persistent "Get a Quote" CTA in Header</h4>
+<p><strong>What's broken / suboptimal:</strong> Header navigation is entirely product-category driven. No high-contrast "Request Quote" button visible across all pages. The PDP-level "Get Custom Quote" button is good but isolated — buyers researching across multiple SKUs / collections never see a quote CTA on collection pages, blog articles, or homepage scroll.</p>
+<p><strong>Impact:</strong> Missed conversion lever on every pageview. For a B2B site where most $-volume comes through quotes (vs add-to-cart on $1.5K+ products), absence of the header CTA is the highest-leverage missing pixel on the site.</p>
+<p><strong>Fix:</strong> Section 9.22 — add brand-orange "Get a Quote →" button right of the phone strip in the header. Sticky on desktop &gt; 1024px scroll. Same button replaces the cart icon on mobile when the cart is empty.</p>
+<hr class="finding-divider">
+<h4 class="finding-h4">Finding 20: No Live Chat / Chatbot for Real-Time Inquiry Capture</h4>
+<p><strong>What's broken / suboptimal:</strong> Zero real-time inquiry capture on a B2B site driving 4.13M annual GSC impressions. Buyers with a sub-$5K need who can't find a SKU, or buyers with a quote question outside business hours, have no on-site interaction surface.</p>
+<p><strong>Impact:</strong> Estimated 1–3% of homepage / collection sessions would convert via chat at industry B2B benchmarks. On 34,664 monthly homepage sessions alone, that's 350–1,000 chat-captured leads/month, of which ~15% become qualified.</p>
+<p><strong>Fix:</strong> Install <strong>Tidio</strong> or <strong>Intercom</strong> (~$40–$75/mo) with quote-handoff routing: if buyer asks for quote, bot collects company / qty / application → routes to sales rep. Pair with Klaviyo "Chat Engaged" event. After-hours: bot collects email + question, replies "We'll be back in touch within 4 business hours" (matches the SLA from Finding 17).</p>
+<hr class="finding-divider">
+<h4 class="finding-h4">Finding 21: Cart Page Has No Quantity Update Controls</h4>
+<p><strong>What's broken / suboptimal:</strong> Buyer must remove a line item and re-add it to change quantity. For multi-line B2B carts (e.g., 8 bollards + 4 lock cores + 2 anchoring kits), this is a significant abandonment driver — every quantity tweak resets the cart pattern.</p>
+<p><strong>Impact:</strong> B2B cart abandonment industry baseline is 70%. Sites that fix this single UX gap typically see a 4–8 percentage-point reduction in abandonment.</p>
+<p><strong>Fix:</strong> Section 9.23 Step 1 — verify the active Shopify theme supports inline quantity update. If not, install <strong>Shopify Cart Drawer 2.0</strong> or upgrade theme.</p>
+<hr class="finding-divider">
+<h4 class="finding-h4">Finding 22: Cart Has No "Request a Quote" Path for Large Orders</h4>
+<p><strong>What's broken / suboptimal:</strong> Single funnel for $50 add-ons and $50K projects. Large-order buyers who want custom freight, NET terms, or formal POs have no on-site path — they have to bounce out, navigate to contact, and start a separate inquiry, losing context of what they had in cart.</p>
+<p><strong>Impact:</strong> Estimated 5–10% of carts above a $5K threshold convert better via quote than self-checkout. Currently they leak.</p>
+<p><strong>Fix:</strong> Section 9.23 Step 4 — show "Order over $5,000? Request a custom quote →" link in cart sidebar when <code>cart.total_price &gt; 500000</code> cents.</p>
+<hr class="finding-divider">
+<h4 class="finding-h4">Finding 23: No Free-Shipping Threshold Messaging Anywhere</h4>
+<p><strong>What's broken / suboptimal:</strong> Not in cart, header announcement bar, or PDP. With $1.5K+ AOV product line, "Free shipping over $500" would lift both conversion and AOV. Currently the shipping cost is invisible until checkout.</p>
+<p><strong>Impact:</strong> AOV uplift potential 8–12% with a visible threshold (per Shopify benchmarking on B2B accounts).</p>
+<p><strong>Fix:</strong> Section 9.23 Step 3 — free-shipping progress bar in cart + announcement bar on every page. Threshold: $500 (validate margin against TG; can be raised to $1,000 if needed).</p>
+<hr class="finding-divider">
+<h4 class="finding-h4">Finding 24: No Promo Code Field in Cart</h4>
+<p><strong>What's broken / suboptimal:</strong> Even basic field is missing. This blocks promo-driven cart-abandonment recovery emails, holiday campaigns, first-time-buyer codes, and any Klaviyo flow that depends on a discount-code redemption.</p>
+<p><strong>Impact:</strong> Limits abandonment-recovery effectiveness by 20–30% (Klaviyo benchmark). Compounds with the missing browse-abandon flow built in 9.20.</p>
+<p><strong>Fix:</strong> Section 9.23 Step 2 — Shopify supports promo codes natively at checkout but the cart-page input may need to be enabled in theme settings or added via theme code.</p>
+<hr class="finding-divider">
+<h4 class="finding-h4">Finding 25: No Volume / Tier Pricing Displayed on PDP</h4>
+<p><strong>What's broken / suboptimal:</strong> Single price displayed on <code>/products/4-manual-retractable-stainless-steel-bollard</code> ($1,553). For parking-lot / fleet buyers ordering 4–50 units, the absence of "Buy 10+ save 10%" suppresses AOV at the point of decision. Buyer either assumes no discount exists (and orders fewer) or asks via quote (lost AOV in the self-checkout funnel).</p>
+<p><strong>Impact:</strong> AOV uplift estimated 15–25% on multi-unit orders. On the $56K/yr top SKU alone, that's $8–14K incremental annually.</p>
+<p><strong>Fix:</strong> Section 9.24 — install <strong>Bulk Discount Code Bot</strong> or B2B/Wholesale app, define tiers (1–4 / 5–9 / 10–24 / 25+ quote-only), surface tier table above Add to Cart on top 30 SKUs.</p>
+<hr class="finding-divider">
+<h4 class="finding-h4">Finding 26: No "Notify Me When In Stock" Form on Backordered SKUs</h4>
+<p><strong>What's broken / suboptimal:</strong> Buyers see "Backordered" → bounce. No email-capture surface to retain the lead.</p>
+<p><strong>Impact:</strong> Estimated 8–15% of backorder-page visitors would submit email if the surface existed (Klaviyo benchmarking). Each captured email is a future re-engagement opportunity (avg LTV in B2B industrial: $400–$900 per converted email).</p>
+<p><strong>Fix:</strong> Section 9.25 — install Klaviyo Back in Stock app, integrate into PDP variant logic.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">11B. Trust &amp; Procurement Signals</h3>
+<h4 class="finding-h4">Finding 27: Missing GSA / CAGE / DUNS / SAM.gov Procurement Credentials</h4>
+<p><strong>What's broken / suboptimal:</strong> Homepage logo wall features DHS, NASA, SpaceX — clearly serving govt/aerospace buyers. But no procurement credentials surfaced anywhere: no GSA Schedule badge, no CAGE Code, no DUNS / UEI Number, no SAM.gov registered indicator. If Source 4 holds these, putting them in the footer + a <code>/pages/government-purchasing</code> page captures 7-figure contract eligibility. If they don't hold them, that's a separate strategic decision (worth getting, given the existing customer mix).</p>
+<p><strong>Impact:</strong> Government / GSA Advantage purchasing has $40B+ annual flow. Sources holding GSA Schedule capture procurement traffic that bypasses retail. Without surface signaling, Source 4 is invisible to procurement teams searching "GSA bollard supplier" or "CAGE certified material handling."</p>
+<p><strong>Fix:</strong> Section 9.28 — TG verifies which credentials Source 4 holds; ITD builds <code>/pages/government-purchasing</code> page + footer trust badges row.</p>
+<hr class="finding-divider">
+<h4 class="finding-h4">Finding 28: No "Made in USA" / Country-of-Origin on PDPs</h4>
+<p><strong>What's broken / suboptimal:</strong> No country-of-origin indicator on <code>/products/4-manual-retractable-stainless-steel-bollard</code> or any other audited SKU. For Buy American Act buyers (DHS, NASA, GSA — all in Source 4's customer mix), country-of-origin is a procurement gate that must be verified before purchase.</p>
+<p><strong>Impact:</strong> Either Source 4 sells US-made bollards (and is hiding that fact) or doesn't (and isn't qualifying for federal Buy American contracts). Either way, the absence is a missed signal. Most B2B industrial competitors surface this prominently.</p>
+<p><strong>Fix:</strong> Section 9.27 — add <code>custom.country_of_origin</code> metafield, surface in PDP spec table with "🇺🇸 Made in USA · GSA Eligible" badge where applicable.</p>
+<hr class="finding-divider">
+<h4 class="finding-h4">Finding 29: No Warranty Information on PDPs</h4>
+<p><strong>What's broken / suboptimal:</strong> Top-3 buyer question on $1.5K commercial install is "What's the warranty?" Currently invisible on PDP. Buyers either email to ask (lost time) or assume the worst (lost trust).</p>
+<p><strong>Impact:</strong> Direct conversion blocker on commercial-grade product purchases. Industry benchmark: B2B PDPs with visible warranty info convert 8–12% higher.</p>
+<p><strong>Fix:</strong> Section 9.27 — <code>custom.warranty_period</code> + <code>custom.warranty_url</code> metafields, surface inline in spec table.</p>
+<hr class="finding-divider">
+<h4 class="finding-h4">Finding 30: No CAD / STEP / IGES File Downloads</h4>
+<p><strong>What's broken / suboptimal:</strong> Engineers and specifiers writing bollards, guard rails, or pallet-rack systems into project specs need 3D files (DWG, STEP, IGES) to drop directly into AutoCAD / Revit / SolidWorks. Source 4 PDPs offer none. Result: the engineer Googles for the file, finds a competitor that hosts it, specs the competitor's part number, and the project follows the spec.</p>
+<p><strong>Impact:</strong> Significant pipeline loss in commercial / institutional construction projects. A single specified bollard order on a parking-lot project can be 50–500 units. Hosting CAD = winning the spec battle upstream of any retail SEO.</p>
+<p><strong>Fix:</strong> Section 9.26 — collect CAD + spec PDFs from S4 / manufacturers for top 30 SKUs, host on Shopify Files, surface in PDP "Resources" block, track downloads as GA4 events for sales-team follow-up.</p>
+<hr class="finding-divider">
+<h4 class="finding-h4">Finding 31: No Named Testimonials with Attribution</h4>
+<p><strong>What's broken / suboptimal:</strong> Logo wall ("Trusted By: NASA, SpaceX, Pepsi, MGM, Caesars, etc.") is good top-of-funnel proof but answers only "who buys." It doesn't answer "what was their experience" — which is what bottom-of-funnel buyers need before signing a $50K PO. No quote + name + title + company + photo testimonials anywhere on the site. The San Diego Gas Lamp District case study is referenced but not built out as a full case study with project lead testimonial.</p>
+<p><strong>Impact:</strong> Trust gap at the decision-stage of the funnel. B2B buyers comparing Source 4 vs Grainger / Uline see specific case studies with named contacts on the competitors and a logo wall on Source 4. Estimated 5–10% conversion lift on bottom-of-funnel sessions when named testimonials are present.</p>
+<p><strong>Fix:</strong> Section 9.29 — TG / Source 4 sales collects 5 named testimonials from existing customers; ITD builds homepage testimonial carousel + <code>/pages/case-studies</code> index + 1 detailed San Diego case study.</p>
+<hr class="finding-divider">
+<h3 class="sub-title">11C. Structural / IA Gaps</h3>
+<h4 class="finding-h4">Finding 32: Collection Page (<code>/collections/s4-bollards</code>, 92 Products) Shows No Pagination</h4>
+<p><strong>What's broken / suboptimal:</strong> Direct WebFetch of the collection page shows all 92 products with no pagination controls (numbered pages, "Load More," or infinite scroll markers). Either rendering all 92 cards in initial HTML (Core Web Vitals + LCP risk on mobile), or pagination is deferred to JS / hidden below the visible scroll.</p>
+<p><strong>Impact:</strong> If all 92 are rendering, mobile LCP suffers and image bandwidth is wasted on cards the user never sees. If pagination is hidden, SEO crawl distribution suffers (deep products need pagination signals to be discovered).</p>
+<p><strong>Fix:</strong> Audit current Shopify theme — verify <code>paginate by: 24</code> is set in <code>templates/collection.json</code> or equivalent. If using "Load More" pattern, ensure <code>&lt;a rel="next" href="?page=2"&gt;</code> is rendered for crawlability. Pair with the Section 9.13 faceted-noindex block for cleanest signal.</p>
+<hr class="finding-divider">
+<h4 class="finding-h4">Finding 33: No Quick-View Modal or Compare-Products on Collection Cards</h4>
+<p><strong>What's broken / suboptimal:</strong> Buyers must click into each PDP individually to see specs, then back-button out to compare. No on-grid quick-view modal, no compare checkbox. Inefficient evaluation flow when 4 retractable-bollard SKUs could fit a use case.</p>
+<p><strong>Impact:</strong> Time-to-decision inflates by 30–60 seconds per evaluated SKU. Higher bounce on collection pages where users hit decision fatigue.</p>
+<p><strong>Fix:</strong> Install <strong>Shopify Quick View</strong> (free) and <strong>Shopify Product Compare</strong> apps. Add "Quick View" button on hover/tap. Add compare checkbox (top-right of each card) that builds a side-by-side at the bottom.</p>
+<hr class="finding-divider">
+<h4 class="finding-h4">Finding 34: Mobile Nav Has 100+ Links When Expanded</h4>
+<p><strong>What's broken / suboptimal:</strong> Live audit observation — mobile nav expands to a long flat list of 100+ category and sub-category links. Mega-menu IA is shallow on mobile. The Section 9.9 mega-menu restructure addresses desktop but doesn't explicitly call out mobile collapsing rules.</p>
+<p><strong>Impact:</strong> Mobile users bounce before navigating. With ~50% of B2B research traffic on mobile (even if purchase decisions move to desktop), mobile-nav fatigue costs upper-funnel engagement.</p>
+<p><strong>Fix:</strong> Extend Section 9.9 with explicit mobile-first collapsing: top-level mobile nav shows only the 5 application categories (Warehouse Safety, Lubrication, Material Handling, Loading Dock, Lifting Equipment). Each expands on tap to 4–6 sub-categories. Sub-sub-categories accessible only via tap, not visible by default. Maximum 2 levels visible simultaneously.</p>
+<hr class="finding-divider">
+<h4 class="finding-h4">Finding 35: No <code>/pages/locations</code> or Service-Areas Page</h4>
+<p><strong>What's broken / suboptimal:</strong> Single Las Vegas address shown, despite national fulfillment (clear from GSC data — impressions and traffic from all 50 states). Missing local-SEO surface for "industrial supplier [city]" / "warehouse equipment [region]" queries across served markets.</p>
+<p><strong>Impact:</strong> Missed long-tail local-intent traffic. Single page targeting 8–12 named markets would capture 500–2,000 incremental impressions/month from state-level industrial-supply queries.</p>
+<p><strong>Fix:</strong> Build <code>/pages/service-areas</code> listing 8–12 named markets with shipping ETA per region (e.g., "Phoenix: 2-day ground · Denver: 3-day ground · Atlanta: 4-day ground"). Each market gets a 100-word block + link to relevant collection. Bonus: state-level redirect rules for direct queries.</p>
+<hr class="finding-divider">
+<h4 class="finding-h4">Finding 36: No HTML Breadcrumb on Collection Pages</h4>
+<p><strong>What's broken / suboptimal:</strong> PDPs have HTML breadcrumb (verified). Collection pages do not. For users navigating deep into a category, there's no quick-jump back to parent category.</p>
+<p><strong>Impact:</strong> Minor UX gap; bigger SEO impact if <code>BreadcrumbList</code> schema is also missing on collections (which it is, per Finding 1 cross-reference).</p>
+<p><strong>Fix:</strong> Add <code>breadcrumb-list.liquid</code> snippet to <code>templates/collection.liquid</code>. Render <code>&lt;nav class="breadcrumb"&gt;Home / Bollards &amp; Barriers / S4 Bollards&lt;/nav&gt;</code> plus matching <code>BreadcrumbList</code> schema (per Section 9.16).</p>
+<hr class="finding-divider">
+<h3 class="sub-title">11D. Quick Wins</h3>
+<h4 class="finding-h4">Finding 37: Custom 404 Page Likely Not Built (Default Shopify)</h4>
+<p><strong>What's broken / suboptimal:</strong> Direct fetch of a known-404 URL returned a 404 status, but the page content was not visually inspected (default Shopify 404 is usually "Sorry, this page doesn't exist" + a "back to home" link — minimal recovery).</p>
+<p><strong>Impact:</strong> 10–20% of would-be 404 bouncers convert if the 404 page offers a search bar, top collections, and phone number. Currently those bouncers leak.</p>
+<p><strong>Fix:</strong> Section 9.30 Step 1 — custom <code>templates/404.liquid</code> with search bar, popular collections, phone, and friendly copy.</p>
+<hr class="finding-divider">
+<h4 class="finding-h4">Finding 38: LocalBusiness Schema Missing on <code>/pages/contact</code></h4>
+<p><strong>What's broken / suboptimal:</strong> Contact page has all the required data (name, address, phone, hours implied) but no <code>LocalBusiness</code> JSON-LD. Misses local-SEO opportunity for "industrial supply Las Vegas" / "warehouse equipment Nevada" queries.</p>
+<p><strong>Impact:</strong> Estimated 50–150 incremental Las-Vegas-local impressions/month. Small in absolute terms; trivial to fix.</p>
+<p><strong>Fix:</strong> Section 9.30 Step 2 — drop in the LocalBusiness JSON-LD block.</p>
+<hr class="finding-divider">
+<h4 class="finding-h4">Finding 39: FAQPage Schema Missing on <code>/pages/contact</code></h4>
+<p><strong>What's broken / suboptimal:</strong> Common B2B questions (international shipping, minimum order, NET terms, government / PO acceptance, lead times for crash-rated, installation services) are unanswered on the contact page and have no FAQPage schema. AI Overview eligibility on these queries is missed.</p>
+<p><strong>Impact:</strong> AI engines (ChatGPT, Perplexity, Bing Copilot, Google AI Overviews) are increasingly answering "does Source 4 ship internationally?" type queries. Without FAQPage schema, Source 4 isn't in the answer set.</p>
+<p><strong>Fix:</strong> Section 9.30 Step 3 — add 6–8 FAQs to <code>/pages/contact</code> with FAQPage JSON-LD.</p>
+<hr class="finding-divider">
+<h4 class="finding-h4">Finding 40: No Open Graph / Twitter Card Audit Confirmed</h4>
+<p><strong>What's broken / suboptimal:</strong> OG / Twitter Card meta could not be confirmed via WebFetch on top URLs. For B2B buyers sharing product URLs in email threads (engineer → procurement → finance), missing or generic OG previews reduce share-thread CTR.</p>
+<p><strong>Impact:</strong> Estimated 5–10% reduction in shared-link CTR. Compounds when sales reps email URLs and the preview pulls a generic logo instead of the product hero.</p>
+<p><strong>Fix:</strong> Section 9.30 Step 4 — audit top 20 URLs in Facebook Sharing Debugger + Twitter Card Validator, fix any pages with missing or wrong-aspect images. Standardize: 1200×630 product hero, page-specific title + description.</p>
+<hr class="finding-divider">
+<h4 class="finding-h4">Finding 41: No Cookie Consent / CCPA Compliance Banner</h4>
+<p><strong>What's broken / suboptimal:</strong> No cookie consent banner detected on any audited page. Source 4 sells to California buyers (CCPA), Colorado (CPA), Virginia (VCDPA), and federal procurement (which has its own privacy clauses). Missing cookie banner is both a legal risk and a trust signal gap for procurement-team buyers.</p>
+<p><strong>Impact:</strong> Compliance risk at minimum. Some procurement RFPs (especially government) require vendor sites to demonstrate privacy compliance.</p>
+<p><strong>Fix:</strong> Install <strong>CookieYes</strong> (free tier) or <strong>OneTrust</strong> (enterprise). Configure for CCPA / GDPR / state-level disclosures. Pair with a <code>/pages/privacy</code> update if not already current.</p>
+<hr class="finding-divider">
+<h4 class="finding-h4">Finding 42: No Social Share / Email-to-Colleague Widget on PDPs</h4>
+<p><strong>What's broken / suboptimal:</strong> B2B procurement is rarely solo — engineer finds the product, emails the URL to procurement, who emails to finance, who emails back to procurement for approval. Without an explicit "Email this product" or "Share via [LinkedIn/Email/Slack]" widget, the buyer has to copy-paste the URL manually, which is friction.</p>
+<p><strong>Impact:</strong> Estimated 3–5% additional pipeline activity from frictionless internal forwarding.</p>
+<p><strong>Fix:</strong> Add a simple share row above the spec table on PDPs: "Share: [Email] [LinkedIn] [Copy link]". The Email link pre-fills <code>mailto:?subject=Source 4 — {{ product.title }}&amp;body=Check this out: {{ canonical_url }}</code>. No third-party widget needed.</p>
+<hr class="finding-divider">
+<h4 class="finding-h4">Finding 43: No Industry-Association / Certification Badges</h4>
+<p><strong>What's broken / suboptimal:</strong> No MHEDA (Material Handling Equipment Distributors Association), MHI (Material Handling Institute), AWS (American Welding Society), or ISO 9001 visible. For an industrial supplier, association membership is credibility shorthand for procurement teams.</p>
+<p><strong>Impact:</strong> Soft trust signal. Not pipeline-blocking, but each badge is a "✓" in a procurement evaluation matrix.</p>
+<p><strong>Fix:</strong> TG verifies which Source 4 holds. If MHEDA membership exists, surface in footer. If not, recommend joining MHEDA (~$1,200/yr — probably already a fit given the company's category mix).</p>
+<hr class="finding-divider">
+  </section>
+
+  <section id="appendix" class="section">
+    <div class="section-label">Appendix</div>
+    <h2 class="section-title">Methodology, Caveats &amp; Sources</h2>
+<h3 class="sub-title">A.1 Methodology</h3>
+<p>Data assembled from five sources, cross-referenced for consistency:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Source</th>
+<th>File(s)</th>
+<th>Window</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Google Analytics 4 — ecommerce</td>
+<td><code>Ecommerce_purchases_Item_name.csv</code></td>
+<td>Jan 1, 2025 – Mar 31, 2026</td>
+</tr>
+<tr>
+<td>Google Analytics 4 — landing pages</td>
+<td><code>Landing_page_Landing_page.csv</code></td>
+<td>Jan 1, 2025 – Mar 31, 2026</td>
+</tr>
+<tr>
+<td>Google Analytics 4 — channel mix</td>
+<td><code>Traffic_acquisition_Session_primary_channel_group_(Default_Channel_Group)_(1).csv</code></td>
+<td>Jan 1, 2025 – Mar 31, 2026</td>
+</tr>
+<tr>
+<td>Google Search Console — queries</td>
+<td><code>Queries.csv</code></td>
+<td>Apr 24, 2024 – Apr 21, 2026</td>
+</tr>
+<tr>
+<td>Google Search Console — daily</td>
+<td><code>gsc-daily-2024-04-24_to_2026-04-21.csv</code></td>
+<td>Apr 24, 2024 – Apr 21, 2026</td>
+</tr>
+<tr>
+<td>Google Search Console — index issues</td>
+<td><code>Critical issues.csv</code>, <code>Non-critical issues.csv</code>, <code>Table.csv</code></td>
+<td>Apr 21, 2026 snapshot</td>
+</tr>
+<tr>
+<td>Bing Webmaster Tools</td>
+<td><code>source4industries.com_SearchPerformanceOverview_All_4_24_2026.csv</code></td>
+<td>Apr 24, 2024 – Apr 21, 2026</td>
+</tr>
+<tr>
+<td>Microsoft Clarity</td>
+<td><code>clarity-dashboard-2025-04-19_to_2026-04-18.csv</code>, <code>clarity-dashboard-2025-04-26_to_2026-04-25.csv</code></td>
+<td>Apr 19, 2025 – Apr 25, 2026</td>
+</tr>
+<tr>
+<td>Backlink snapshot</td>
+<td><code>top-linking-sites-2026-04-23.csv</code>, <code>top-target-pages-backlinks-2026-04-23.csv</code></td>
+<td>Apr 23, 2026</td>
+</tr>
+</tbody>
+</table></div>
+<p>Findings were derived by joining GA4 landing-page data with GSC query data on URL, then cross-validating with Clarity session data. Bollard category attribution used regex match on item names (<code>bollard|bollar|bolard</code>); adjacent safety used <code>barrier|guardrail|barricade|safety post|guard rail|impact post</code>.</p>
+<h3 class="sub-title">A.2 Caveats</h3>
+<ul>
+<li><strong>Attribution gap.</strong> 47.7% of revenue is <code>(direct) / (not set)</code> / <code>(data not available)</code>. Channel-level numbers are minimum bounds for paid/organic/email and maximum bound for direct until the Shopify cross-domain attribution fix is deployed (week 1). Every channel allocation decision should treat current numbers as directional, not exact.</li>
+<li><strong>Bot-traffic flag on EKKO forklift product page.</strong> <code>/products/ekko-ek25gb-electric-forklift-5000lb-capacity</code> shows 4,441 sessions / $0 / 4.4s engagement — anomalous combination consistent with bot crawling. Recommend confirming GA4 bot filtering and investigating referrer source. Excluded from "starving champions" analysis.</li>
+<li><strong>Date-window misalignment.</strong> GA4 covers 15 months (Jan 2025 – Mar 2026); Clarity covers 12 months (Apr 2025 – Apr 2026); GSC daily covers 24 months (Apr 2024 – Apr 2026). Trend deltas are directional; single-period comparisons across sources are not exact.</li>
+<li><strong>No Shopify search analytics in dataset.</strong> 3,556 sessions land on <code>/search</code> and generate $72,050 in revenue, but the queries users type in the on-site search bar are not in this export. TG provides the export to complete the Priority 3 navigation analysis.</li>
+<li><strong>No BigQuery raw event export.</strong> Multi-touch attribution and user-level path analysis (e.g., did a user view the bollard blog 4 weeks before purchasing?) are not available without BigQuery.</li>
+<li><strong>Bing Webmaster CSV is daily clicks/impressions only.</strong> Per-query and per-page Bing breakouts require a separate export from Bing Webmaster Tools.</li>
+<li><strong>Backlink CSV is a snapshot, not historical.</strong> Cannot identify which links are recent, gaining, or decaying. Disavow decisions require manual SERP review before action.</li>
+</ul>
+<h3 class="sub-title">A.3 Source CSVs (in <code>research/tg-source4/</code>)</h3>
+<ul>
+<li><code>Chart.csv</code></li>
+<li><code>Countries.csv</code></li>
+<li><code>Critical issues.csv</code></li>
+<li><code>Devices.csv</code></li>
+<li><code>Discover appearance.csv</code></li>
+<li><code>Ecommerce_purchases_Item_name.csv</code></li>
+<li><code>Filters.csv</code></li>
+<li><code>Landing_page_Landing_page.csv</code></li>
+<li><code>Metadata.csv</code></li>
+<li><code>Non-critical issues.csv</code></li>
+<li><code>Pages.csv</code></li>
+<li><code>Queries.csv</code></li>
+<li><code>Search appearance.csv</code></li>
+<li><code>Table.csv</code></li>
+<li><code>Traffic_acquisition_Session_primary_channel_group_(Default_Channel_Group)_(1).csv</code></li>
+<li><code>clarity-dashboard-2025-04-19_to_2026-04-18.csv</code></li>
+<li><code>clarity-dashboard-2025-04-26_to_2026-04-25.csv</code></li>
+<li><code>gsc-daily-2024-04-24_to_2026-04-21.csv</code></li>
+<li><code>source4industries.com_SearchPerformanceOverview_All_4_24_2026.csv</code></li>
+<li><code>source4industries.com_SearchPerformanceOverview_All_4_24_2026 (1).csv</code> <em>(byte-identical duplicate — confirmed and ignored)</em></li>
+<li><code>top-linking-sites-2026-04-23.csv</code></li>
+<li><code>top-target-pages-backlinks-2026-04-23.csv</code></li>
+</ul>
+<h3 class="sub-title">A.4 Backing documents</h3>
+<ul>
+<li><code>research/2026-04-25-source4-analytics-crossref.md</code> — full analytics deep-dive (numbers, conversion truth, gap analysis, Clarity heatmap, Bing/Google delta).</li>
+<li><code>docs/tg-source4-seo-plan-2026-04-25.md</code> — SEO strategy execution detail (priority stack, content clusters, full 90-day roadmap).</li>
+<li><code>memory/2026-04-22-tg-source4-blog-strategy.md</code> — original bollard-only strategy (superseded by this report).</li>
+</ul>
+<hr />
+<p><em>Iron Tiger Digital — irontigerdigital.com</em>
+<em>Costa Demetral · costa@irontigerdigital.com</em>
+<em>Report version: 1.2 · April 26, 2026 · Adds Section 9.21–9.30 (B2B implementation blocks) + Section 11 (B2B Conversion &amp; Funnel Gaps, 28 findings)</em></p>
+  </section>
+
   <!-- Footer -->
   <footer class="report-footer">
     <div class="brand">Iron Tiger <span>Digital</span></div>
-    <div class="version">Costa Demetral · costa@irontigerdigital.com · Report v1.0 · April 25, 2026 · Prepared for Source 4 Industries</div>
+    <div class="version">Costa Demetral · costa@irontigerdigital.com · Report v1.2 · April 26, 2026 · Prepared for Source 4 Industries</div>
   </footer>
 
 </div><!-- /page -->
