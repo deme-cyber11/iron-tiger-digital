@@ -332,7 +332,7 @@
     <strong>Prepared for:</strong> TG, Source 4 Industries &nbsp;|&nbsp;
     <strong>Domain:</strong> source4industries.com &nbsp;|&nbsp;
     <strong>Date:</strong> April 25, 2026 &nbsp;|&nbsp;
-    <strong>Data range:</strong> Jan 2025 – Apr 2026
+    <strong>Data range:</strong> Apr 2025 – Mar 2026 (12-month / 365-day window)
   </div>
 </header>
 
@@ -369,7 +369,7 @@
         <div class="exec-stat">
           <div class="label">Total Revenue (GA4)</div>
           <div class="value">$3.58M</div>
-          <div class="sub">33,096 units · Jan 2025–Mar 2026</div>
+          <div class="sub">33,096 units · Apr 2025–Mar 2026 (12 mo)</div>
         </div>
         <div class="exec-stat">
           <div class="label">Bollard Share</div>
@@ -412,7 +412,7 @@
     <div class="section-label">Section 1</div>
     <h2 class="section-title">The Numbers</h2>
 
-    <h3 class="sub-title">1.1 Revenue and Units (GA4, Jan 2025 – Mar 2026)</h3>
+    <h3 class="sub-title">1.1 Revenue and Units (GA4, Apr 2025 – Mar 2026, 12-month window)</h3>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Metric</th><th class="right">Value</th><th>Source</th></tr></thead>
@@ -3641,17 +3641,17 @@ costa@irontigerdigital.com
 <tr>
 <td>Google Analytics 4 — ecommerce</td>
 <td><code>Ecommerce_purchases_Item_name.csv</code></td>
-<td>Jan 1, 2025 – Mar 31, 2026</td>
+<td>Apr 1, 2025 – Mar 31, 2026 (12 months)</td>
 </tr>
 <tr>
 <td>Google Analytics 4 — landing pages</td>
 <td><code>Landing_page_Landing_page.csv</code></td>
-<td>Jan 1, 2025 – Mar 31, 2026</td>
+<td>Apr 1, 2025 – Mar 31, 2026 (12 months)</td>
 </tr>
 <tr>
 <td>Google Analytics 4 — channel mix</td>
 <td><code>Traffic_acquisition_Session_primary_channel_group_(Default_Channel_Group)_(1).csv</code></td>
-<td>Jan 1, 2025 – Mar 31, 2026</td>
+<td>Apr 1, 2025 – Mar 31, 2026 (12 months)</td>
 </tr>
 <tr>
 <td>Google Search Console — queries</td>
@@ -3690,7 +3690,7 @@ costa@irontigerdigital.com
 <ul>
 <li><strong>Attribution gap.</strong> 47.7% of revenue is <code>(direct) / (not set)</code> / <code>(data not available)</code>. Channel-level numbers are minimum bounds for paid/organic/email and maximum bound for direct until the Shopify cross-domain attribution fix is deployed (week 1). Every channel allocation decision should treat current numbers as directional, not exact.</li>
 <li><strong>Bot-traffic flag on EKKO forklift product page.</strong> <code>/products/ekko-ek25gb-electric-forklift-5000lb-capacity</code> shows 4,441 sessions / $0 / 4.4s engagement — anomalous combination consistent with bot crawling. Recommend confirming GA4 bot filtering and investigating referrer source. Excluded from "starving champions" analysis.</li>
-<li><strong>Date-window misalignment.</strong> GA4 covers 15 months (Jan 2025 – Mar 2026); Clarity covers 12 months (Apr 2025 – Apr 2026); GSC daily covers 24 months (Apr 2024 – Apr 2026). Trend deltas are directional; single-period comparisons across sources are not exact.</li>
+<li><strong>Data range across sources.</strong> The reporting frame is the 12-month / 365-day window ending March 31, 2026. GA4 export covers Apr 1, 2025 – Mar 31, 2026 (12 months, aligned with the report frame). Clarity covers Apr 2025 – Apr 2026 (12 months). GSC daily covers Apr 2024 – Apr 2026 (24 months) — used for trend baselines that pre-date the reporting window where useful. Single-period comparisons across sources are directional; the headline figures (revenue, units, channel mix) are normalized to the GA4 12-month window.</li>
 <li><strong>No Shopify search analytics in dataset.</strong> 3,556 sessions land on <code>/search</code> and generate $72,050 in revenue, but the queries users type in the on-site search bar are not in this export. TG provides the export to complete the Priority 3 navigation analysis.</li>
 <li><strong>No BigQuery raw event export.</strong> Multi-touch attribution and user-level path analysis (e.g., did a user view the bollard blog 4 weeks before purchasing?) are not available without BigQuery.</li>
 <li><strong>Bing Webmaster CSV is daily clicks/impressions only.</strong> Per-query and per-page Bing breakouts require a separate export from Bing Webmaster Tools.</li>
@@ -3736,7 +3736,7 @@ costa@irontigerdigital.com
   <!-- Footer -->
   <footer class="report-footer">
     <div class="brand">Iron Tiger <span>Digital</span></div>
-    <div class="version">Costa Demetral · costa@irontigerdigital.com · Report v1.2 · April 26, 2026 · Prepared for Source 4 Industries</div>
+    <div class="version">Costa Demetral · costa@irontigerdigital.com · Report v1.3 · April 26, 2026 · Prepared for Source 4 Industries</div>
   </footer>
 
 </div><!-- /page -->
