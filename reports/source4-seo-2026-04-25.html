@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Source 4 Industries — SEO & Conversion Report | Iron Tiger Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #c45c26;
+      --primary-dark: #a34d1f;
+      --secondary: #1a1a1a;
+      --accent: #e8d5c4;
+      --light: #faf9f7;
+      --gray: #6b7280;
+      --white: #ffffff;
+      --gold: #c9a962;
+      --dark-bg: #111111;
+      --green: #16a34a;
+      --green-bg: #f0fdf4;
+      --red: #dc2626;
+      --red-bg: #fef2f2;
+      --yellow: #ca8a04;
+      --yellow-bg: #fefce8;
+      --blue: #2563eb;
+      --blue-bg: #eff6ff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      line-height: 1.7;
+      color: var(--secondary);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Header ── */
+    .report-header {
+      background: var(--dark-bg);
+      color: var(--white);
+      padding: 40px 32px;
+      border-bottom: 4px solid var(--primary);
+    }
+    .report-header .meta { font-size: 13px; color: #999; margin-bottom: 10px; letter-spacing: 0.05em; text-transform: uppercase; }
+    .report-header h1 { font-size: clamp(22px, 4vw, 34px); font-weight: 700; line-height: 1.25; margin-bottom: 12px; }
+    .report-header h1 span { color: var(--primary); }
+    .report-header .byline { font-size: 14px; color: #bbb; }
+    .report-header .byline strong { color: var(--white); }
+
+    /* ── Layout ── */
+    .page { max-width: 1040px; margin: 0 auto; padding: 0 24px 80px; }
+
+    /* ── TOC ── */
+    .toc {
+      background: var(--light);
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+    .toc h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gray); margin-bottom: 14px; }
+    .toc ol { padding-left: 20px; }
+    .toc li { margin-bottom: 6px; }
+    .toc a { color: var(--primary); text-decoration: none; font-size: 14px; font-weight: 500; }
+    .toc a:hover { text-decoration: underline; }
+
+    /* ── Executive Summary ── */
+    .exec-summary {
+      background: var(--secondary);
+      color: var(--white);
+      border-radius: 14px;
+      padding: 36px;
+      margin: 36px 0;
+    }
+    .exec-summary h2 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--primary); margin-bottom: 20px; }
+    .exec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-bottom: 28px; }
+    .exec-stat { background: rgba(255,255,255,0.06); border-radius: 10px; padding: 18px; }
+    .exec-stat .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 6px; }
+    .exec-stat .value { font-size: 26px; font-weight: 700; color: var(--white); line-height: 1; }
+    .exec-stat .sub { font-size: 12px; color: #888; margin-top: 4px; }
+    .exec-bullets { list-style: none; }
+    .exec-bullets li {
+      padding: 12px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 14px;
+      color: #ddd;
+      line-height: 1.6;
+      padding-left: 20px;
+      position: relative;
+    }
+    .exec-bullets li::before { content: "→"; position: absolute; left: 0; color: var(--primary); font-weight: 700; }
+    .exec-bullets li strong { color: var(--white); }
+
+    /* ── Sections ── */
+    .section { margin: 52px 0; }
+    .section-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    h2.section-title {
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 8px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--accent);
+    }
+    h3.sub-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--secondary);
+      margin: 32px 0 12px;
+    }
+    p { margin-bottom: 14px; font-size: 15px; color: #374151; }
+
+    /* ── Callout cards ── */
+    .callout {
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 20px 0;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .callout.green { background: var(--green-bg); border-left: 4px solid var(--green); color: #166534; }
+    .callout.red   { background: var(--red-bg);   border-left: 4px solid var(--red);   color: #991b1b; }
+    .callout.yellow{ background: var(--yellow-bg); border-left: 4px solid var(--yellow);color: #854d0e; }
+    .callout.blue  { background: var(--blue-bg);  border-left: 4px solid var(--blue);  color: #1e40af; }
+    .callout.orange{ background: #fff7ed;          border-left: 4px solid var(--primary); color: #7c2d12; }
+    .callout strong { font-weight: 700; }
+    .callout .callout-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+
+    /* ── Tables ── */
+    .table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 10px; border: 1px solid #e5e7eb; }
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    thead { background: var(--secondary); color: var(--white); }
+    thead th { padding: 12px 14px; text-align: left; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+    thead th.right { text-align: right; }
+    tbody tr:nth-child(even) { background: var(--light); }
+    tbody tr:hover { background: var(--accent); }
+    td { padding: 10px 14px; border-bottom: 1px solid #f3f4f6; color: #374151; line-height: 1.5; }
+    td.right { text-align: right; font-variant-numeric: tabular-nums; }
+    td.highlight { font-weight: 700; color: var(--green); }
+    td.warn { font-weight: 700; color: var(--red); }
+    td code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; color: #475569; }
+
+    /* ── Priority badges ── */
+    .badge {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .badge.high    { background: #fef2f2; color: #dc2626; }
+    .badge.medium  { background: #fefce8; color: #ca8a04; }
+    .badge.low     { background: #f0fdf4; color: #16a34a; }
+    .badge.info    { background: #eff6ff; color: #2563eb; }
+    .badge.p1      { background: var(--primary); color: white; }
+    .badge.p2      { background: #f97316; color: white; }
+    .badge.p3      { background: #eab308; color: white; }
+    .badge.p4      { background: #6b7280; color: white; }
+
+    /* ── Priority blocks ── */
+    .priority-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 28px;
+      margin: 28px 0;
+    }
+    .priority-block .priority-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .priority-num {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 16px; flex-shrink: 0;
+      color: white;
+    }
+    .p1-color { background: var(--primary); }
+    .p2-color { background: #f97316; }
+    .p3-color { background: #eab308; color: #1a1a1a !important; }
+    .p4-color { background: #6b7280; }
+    .p5-color { background: #9ca3af; }
+    .priority-block h3 { font-size: 17px; font-weight: 700; margin: 0; }
+    .impact-tag {
+      margin-left: auto;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green);
+      white-space: nowrap;
+    }
+
+    /* ── KPI grid ── */
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 24px 0; }
+    .kpi-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 18px;
+    }
+    .kpi-card .metric { font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--gray); margin-bottom: 6px; }
+    .kpi-card .baseline { font-size: 22px; font-weight: 700; color: var(--secondary); }
+    .kpi-card .target { font-size: 13px; color: var(--green); font-weight: 600; margin-top: 4px; }
+
+    /* ── Decisions block ── */
+    .decision {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0 16px;
+      align-items: start;
+      padding: 16px 0;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    .decision:last-child { border-bottom: none; }
+    .decision .num {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 14px; flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .decision h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .decision p { font-size: 14px; color: #4b5563; margin: 0; }
+
+    /* ── Footer ── */
+    .report-footer {
+      margin-top: 64px;
+      padding: 28px 0 0;
+      border-top: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .report-footer .brand { font-weight: 700; font-size: 15px; color: var(--secondary); }
+    .report-footer .brand span { color: var(--primary); }
+    .report-footer .version { font-size: 13px; color: var(--gray); }
+
+    hr.divider { border: none; border-top: 1px solid #f3f4f6; margin: 40px 0; }
+
+    @media (max-width: 640px) {
+      .exec-grid { grid-template-columns: 1fr 1fr; }
+      .kpi-grid { grid-template-columns: 1fr 1fr; }
+      .priority-block .priority-header { flex-wrap: wrap; }
+      .impact-tag { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="report-header">
+  <div class="meta">Iron Tiger Digital · Client Report · Confidential</div>
+  <h1>Source 4 Industries — <span>SEO & Conversion Report</span></h1>
+  <div class="byline">
+    <strong>Prepared for:</strong> TG, Source 4 Industries &nbsp;|&nbsp;
+    <strong>Domain:</strong> source4industries.com &nbsp;|&nbsp;
+    <strong>Date:</strong> April 25, 2026 &nbsp;|&nbsp;
+    <strong>Data range:</strong> Jan 2025 – Apr 2026
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- TOC -->
+  <nav class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#exec">Executive Summary</a></li>
+      <li><a href="#numbers">Section 1 — The Numbers</a></li>
+      <li><a href="#findings">Section 2 — 5 Key Findings</a></li>
+      <li><a href="#attention">Section 3 — Wasted Attention vs Starving Champions</a></li>
+      <li><a href="#technical">Section 4 — Technical SEO Triage</a></li>
+      <li><a href="#priorities">Section 5 — Strategic Priority Stack</a></li>
+      <li><a href="#roadmap">Section 6 — 90-Day Roadmap</a></li>
+      <li><a href="#kpis">Section 7 — KPIs to Track</a></li>
+      <li><a href="#decisions">Section 8 — Decisions Needed From TG</a></li>
+    </ol>
+  </nav>
+
+  <!-- Executive Summary -->
+  <section id="exec" class="section">
+    <div class="section-label">Executive Summary</div>
+    <h2 class="section-title">The Short Version</h2>
+
+    <div class="exec-summary">
+      <h2>Key Numbers at a Glance</h2>
+      <div class="exec-grid">
+        <div class="exec-stat">
+          <div class="label">Total Revenue (GA4)</div>
+          <div class="value">$3.58M</div>
+          <div class="sub">33,096 units · Jan 2025–Mar 2026</div>
+        </div>
+        <div class="exec-stat">
+          <div class="label">Bollard Share</div>
+          <div class="value">16.3%</div>
+          <div class="sub">of revenue — not the whole story</div>
+        </div>
+        <div class="exec-stat">
+          <div class="label">Organic Revenue Share</div>
+          <div class="value">13.1%</div>
+          <div class="sub">vs 80.4% Paid + Direct</div>
+        </div>
+        <div class="exec-stat">
+          <div class="label">Unattributed Revenue</div>
+          <div class="value">47.7%</div>
+          <div class="sub">Shopify checkout attribution gap</div>
+        </div>
+        <div class="exec-stat">
+          <div class="label">Highest-CVR Collection</div>
+          <div class="value">2.46%</div>
+          <div class="sub">Guard Rails &amp; Barriers · $80,109</div>
+        </div>
+        <div class="exec-stat">
+          <div class="label">Expected 90-Day Lift</div>
+          <div class="value">$50–80K</div>
+          <div class="sub">from conversion fixes alone</div>
+        </div>
+      </div>
+      <ul class="exec-bullets">
+        <li><strong>Biggest opportunity:</strong> two unsupported content clusters with proven demand — Lincoln lubrication (16,289 sessions, queries at pos 4–13 with no blog backing) and guard rails/barriers (highest-converting collection at 2.46% CVR / $80,109).</li>
+        <li><strong>Biggest risk:</strong> 80.4% of revenue on Direct + Paid Search. If paid budget pauses, ~⅓ of revenue can move overnight. The 47.7% attribution gap masks true channel ROI.</li>
+        <li><strong>Fastest win:</strong> redirect bollard internal links from <code>/collections/s4-bollards</code> ($2,357) to the actual converting product page ($56,524). Two hours of link-target changes.</li>
+        <li><strong>Fix before driving more traffic:</strong> <code>/blogs/articles/what-are-bollards</code> gets 1,743 sessions and converts at $0. A comparison block + sticky CTA = ~$17K at 1% CVR on existing traffic.</li>
+        <li><strong>Expected 90-day path:</strong> organic share moves 13.1% → 18–20%; 6 ranking articles across Lincoln + guard rails clusters; bollard pillar moves page 4 → page 1–2.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Section 1 -->
+  <section id="numbers" class="section">
+    <div class="section-label">Section 1</div>
+    <h2 class="section-title">The Numbers</h2>
+
+    <h3 class="sub-title">1.1 Revenue and Units (GA4, Jan 2025 – Mar 2026)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th class="right">Value</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr><td>Total item revenue</td><td class="right highlight">$3,578,659</td><td>GA4 ecommerce CSV</td></tr>
+          <tr><td>Total units purchased</td><td class="right">33,096</td><td>GA4 ecommerce CSV</td></tr>
+          <tr><td>Distinct items with ≥1 purchase</td><td class="right">~2,800 of 9,435</td><td>GA4 ecommerce CSV</td></tr>
+          <tr><td>Average revenue per unit (site-wide)</td><td class="right">$108</td><td>derived</td></tr>
+          <tr><td>Average revenue per unit (bollards)</td><td class="right highlight">$407</td><td>derived</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-title">1.2 Channel Mix</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Channel</th><th class="right">Sessions</th><th class="right">%S</th><th class="right">Purchases</th><th class="right">Revenue</th><th class="right">%R</th><th class="right">CVR</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Direct / Unattributed</td><td class="right">215,454</td><td class="right">38.5%</td><td class="right">2,008</td><td class="right warn">$1,693,478</td><td class="right warn">47.7%</td><td class="right">0.93%</td></tr>
+          <tr><td>Paid Search</td><td class="right">219,522</td><td class="right">39.3%</td><td class="right">1,526</td><td class="right">$1,159,321</td><td class="right">32.7%</td><td class="right">0.70%</td></tr>
+          <tr><td>Organic Search</td><td class="right">108,348</td><td class="right">19.4%</td><td class="right">669</td><td class="right">$466,411</td><td class="right">13.1%</td><td class="right">0.62%</td></tr>
+          <tr><td>Email (Klaviyo + Attentive)</td><td class="right">7,794</td><td class="right">1.4%</td><td class="right">143</td><td class="right">$158,020</td><td class="right">4.5%</td><td class="right highlight">1.83%</td></tr>
+          <tr><td>Referral (incl. AI)</td><td class="right">7,342</td><td class="right">1.3%</td><td class="right">56</td><td class="right">$65,657</td><td class="right">1.8%</td><td class="right">0.76%</td></tr>
+          <tr><td>Social</td><td class="right">16</td><td class="right">0.0%</td><td class="right">0</td><td class="right">$0</td><td class="right">0.0%</td><td class="right">0.00%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout red">
+      <div class="callout-label">⚠ Concentration Risk</div>
+      Paid + Direct = <strong>80.4% of revenue</strong>. Organic is only 13.1% — the upside category and the focus of this plan. Email at 1.83% CVR is underutilized. Social at $0 is either inactive or untagged.
+    </div>
+
+    <h3 class="sub-title">1.3 Bollard Share of Business</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th class="right">Bollard</th><th class="right">Site Total</th><th class="right">Share</th></tr></thead>
+        <tbody>
+          <tr><td>Units</td><td class="right">1,435</td><td class="right">33,096</td><td class="right">4.3%</td></tr>
+          <tr><td>Revenue</td><td class="right">$583,815</td><td class="right">$3,578,660</td><td class="right">16.3%</td></tr>
+          <tr><td>Bollard + Adjacent Safety (guard rails, barriers)</td><td class="right">$819,299</td><td class="right">$3,578,660</td><td class="right highlight">22.9%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-title">1.4 Top-Converting Categories</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Collection</th><th class="right">Sessions</th><th class="right">Revenue</th><th class="right">CVR</th></tr></thead>
+        <tbody>
+          <tr><td><code>/collections/guard-rails-barriers</code></td><td class="right">2,439</td><td class="right highlight">$80,109</td><td class="right highlight">2.46%</td></tr>
+          <tr><td>Quicklub System Accessories</td><td class="right">5,428</td><td class="right">$25,274</td><td class="right">1.69%</td></tr>
+          <tr><td>Lincoln Industrial</td><td class="right">4,651</td><td class="right">$11,641</td><td class="right">1.03%</td></tr>
+          <tr><td><code>/collections/bollards</code></td><td class="right">471</td><td class="right">$8,400</td><td class="right warn">0.21%</td></tr>
+          <tr><td><code>/collections/s4-bollards</code></td><td class="right">992</td><td class="right warn">$2,357</td><td class="right warn">0.20%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout orange">
+      Guard rails at 2.46% CVR is the <strong>structural model</strong> the bollard collection should aspire to. Same buyer profile, same AOV band — 12× higher CVR and 34× more revenue.
+    </div>
+
+    <h3 class="sub-title">1.5 Attribution Gap</h3>
+    <div class="callout red">
+      <div class="callout-label">⚠ Critical — Fix Week 1</div>
+      <strong>47.7% of revenue ($1,693,478)</strong> is bucketed into <code>(direct) / (none)</code> / <code>(not set)</code>. This is Shopify checkout attribution leakage — the checkout subdomain breaks GA4 session attribution unless cross-domain linking is configured. Channel revenue numbers are minimum bounds for paid/organic/email and a <em>maximum</em> bound for direct until the fix is deployed.
+    </div>
+
+    <h3 class="sub-title">1.6 Bing vs Google CVR</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Source / Medium</th><th class="right">Sessions</th><th class="right">Purchases</th><th class="right">Revenue</th><th class="right">CVR</th></tr></thead>
+        <tbody>
+          <tr><td>google / cpc</td><td class="right">132,030</td><td class="right">1,143</td><td class="right">$790,762</td><td class="right">0.87%</td></tr>
+          <tr><td>bing / cpc</td><td class="right">87,321</td><td class="right">383</td><td class="right">$368,559</td><td class="right warn">0.44%</td></tr>
+          <tr><td>google / organic</td><td class="right">98,359</td><td class="right">548</td><td class="right">$369,679</td><td class="right">0.56%</td></tr>
+          <tr><td>bing / organic</td><td class="right">7,662</td><td class="right">96</td><td class="right">$79,260</td><td class="right highlight">1.25%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout blue">
+      <strong>Bing organic CVR is 2.2× Google organic CVR</strong> (1.25% vs 0.56%). Bing has 7.8% of Google's organic volume but generates 21.4% of Google's organic revenue. Older, B2B, desktop-heavy buyer. ChatGPT queries Bing's index — Bing organic visibility directly impacts AI-citation traffic.
+    </div>
+  </section>
+
+  <!-- Section 2 -->
+  <section id="findings" class="section">
+    <div class="section-label">Section 2</div>
+    <h2 class="section-title">5 Key Findings</h2>
+
+    <h3 class="sub-title">Finding 1: Lincoln Lubrication is the Unsung Traffic Engine</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Page</th><th class="right">Clarity Sessions</th></tr></thead>
+        <tbody>
+          <tr><td><code>/collections/quickklub-system-accessories</code></td><td class="right">7,142</td></tr>
+          <tr><td><code>/collections/lincoln-industrial</code></td><td class="right">6,129</td></tr>
+          <tr><td><code>/collections/pump-repair-kits-parts</code></td><td class="right">3,018</td></tr>
+          <tr><td><strong>Top 3 combined</strong></td><td class="right highlight"><strong>16,289</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Query</th><th class="right">Clicks</th><th class="right">Impressions</th><th class="right">CTR</th><th class="right">Position</th></tr></thead>
+        <tbody>
+          <tr><td>lincoln grease gun</td><td class="right">98</td><td class="right">24,518</td><td class="right">0.40%</td><td class="right warn">9.89</td></tr>
+          <tr><td>lincoln grease pump</td><td class="right">78</td><td class="right">18,298</td><td class="right">0.43%</td><td class="right warn">8.96</td></tr>
+          <tr><td>lincoln lubrication</td><td class="right">63</td><td class="right">10,790</td><td class="right">0.58%</td><td class="right warn">12.26</td></tr>
+          <tr><td>lincoln auto greaser</td><td class="right">297</td><td class="right">6,667</td><td class="right">4.45%</td><td class="right highlight">4.45</td></tr>
+          <tr><td>lincoln auto greaser parts</td><td class="right">168</td><td class="right">2,379</td><td class="right">7.06%</td><td class="right highlight">3.45</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout green">
+      <strong>Action:</strong> Build the Lincoln pillar + 6-spoke cluster (Priority 1). The Quicklub collection does $25,274 at 1.69% CVR; the P203 electric grease pump family generates $21–$32 per session — top decile site-wide. <strong>Highest-leverage content investment available.</strong>
+    </div>
+
+    <hr class="divider">
+
+    <h3 class="sub-title">Finding 2: Guard Rails &amp; Barriers is the Highest-Converting Collection on the Site</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Collection</th><th class="right">Sessions</th><th class="right">Revenue</th><th class="right">CVR</th></tr></thead>
+        <tbody>
+          <tr><td><code>/collections/guard-rails-barriers</code></td><td class="right">2,439</td><td class="right highlight">$80,109</td><td class="right highlight">2.46%</td></tr>
+          <tr><td><code>/collections/s4-bollards</code> (current focus)</td><td class="right">992</td><td class="right warn">$2,357</td><td class="right warn">0.20%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><code>guard rail</code> at 17,532 monthly impressions and 0.07% CTR (pos 15.8) is one of the most underperforming impression:position ratios on the site. At pos 5–7, that single term produces 350–525 clicks/month vs 13 today.</p>
+    <div class="callout green">
+      <strong>Action:</strong> Build a parallel pillar + 5-spoke cluster on guard rails / barriers (Priority 2). Conservative 60-day impact: +$25K–$50K annualized. <strong>Faster, higher-confidence ROI than expanding the bollard cluster.</strong>
+    </div>
+
+    <hr class="divider">
+
+    <h3 class="sub-title">Finding 3: The Bollard SEO Target is Wrong</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Page</th><th class="right">Sessions</th><th class="right">Revenue</th><th class="right">CVR</th></tr></thead>
+        <tbody>
+          <tr><td><code>/products/4-manual-retractable-stainless-steel-bollard</code></td><td class="right">3,652</td><td class="right highlight">$56,524</td><td class="right highlight">1.5%</td></tr>
+          <tr><td><code>/collections/bollards</code></td><td class="right">471</td><td class="right">$8,400</td><td class="right warn">0.21%</td></tr>
+          <tr><td><code>/collections/s4-bollards</code> (prior target)</td><td class="right">992</td><td class="right warn">$2,357</td><td class="right warn">0.20%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout orange">
+      <strong>Action:</strong> Every internal link in the bollard cluster aimed at the collection should be redirected to <code>/products/4-manual-retractable-stainless-steel-bollard</code>. This is the single fastest ROI fix in the report — no new content, just link target changes.
+    </div>
+
+    <hr class="divider">
+
+    <h3 class="sub-title">Finding 4: Internal Search Rate is a Red Flag</h3>
+    <p><code>/search</code> is the <strong>#2 page on the site by Clarity sessions (11,277)</strong>. 4,401 sessions trigger an on-site search event. Average pages per session: 1.68. The information architecture is failing to route buyers by intent — users land, can't find what they need, and search.</p>
+    <div class="callout yellow">
+      <strong>Action:</strong> Pull Shopify top-20 internal search queries (TG provides). Build "Shop by Application" mega-menu: Warehouse Safety | Lubrication Systems | Material Handling | Loading Dock | Lifting Equipment. Add cross-sell blocks on top 10 product pages. Target: /search session rate drops 20–30% in 30 days with zero new traffic.
+    </div>
+
+    <hr class="divider">
+
+    <h3 class="sub-title">Finding 5: Bing Buyers Convert at 2.2× Google Buyers</h3>
+    <p>Bing organic has 7.8% of Google's session volume but generates 21.4% of Google's organic revenue (1.25% vs 0.56% CVR). Bing CPC, conversely, is the worst-performing paid channel at 0.44% — half of Google CPC on $368K spend-equivalent.</p>
+    <div class="callout blue">
+      <strong>Actions (combined &lt;4 hours):</strong> (1) Submit updated sitemap to Bing Webmaster Tools. (2) Install Shopify IndexNow plugin — pings Bing on every publish. (3) Audit Bing CPC keyword list and match types — 0.44% CVR suggests a mismatch costing real money.
+    </div>
+  </section>
+
+  <!-- Section 3 -->
+  <section id="attention" class="section">
+    <div class="section-label">Section 3</div>
+    <h2 class="section-title">Wasted Attention vs Starving Champions</h2>
+
+    <h3 class="sub-title">3.1 Wasted Attention — High Traffic, Low/Zero Revenue</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Page</th><th class="right">Sessions</th><th class="right">Revenue</th><th>Diagnosis</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><code>/products/ekko-ek25gb-electric-forklift-5000lb-capacity</code></td>
+            <td class="right">4,441</td>
+            <td class="right warn">$0</td>
+            <td><span class="badge high">Bot Traffic?</span> &lt;5s engagement + zero conversions — anomalous. Verify GA4 bot filtering.</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><code>/products/model-1100ac-semi-automatic-stretch-wrap-machine</code></td>
+            <td class="right">1,924</td>
+            <td class="right warn">$0</td>
+            <td>Large equipment, no checkout path</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><code>/collections/ekko-lifts</code></td>
+            <td class="right">1,759</td>
+            <td class="right warn">$0</td>
+            <td>Bounce — no funnel handoff</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><code>/blogs/articles/what-are-bollards</code></td>
+            <td class="right">1,743</td>
+            <td class="right warn">$0</td>
+            <td><span class="badge high">Highest-Priority Fix</span> TOFU blog, no commercial CTA, 1.5s avg engagement</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Crash-rated bollards (K4/K12/C40 combined)</td>
+            <td class="right">1,340</td>
+            <td class="right warn">$0</td>
+            <td>High-intent buyers, broken or quote-only checkout — audit immediately</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-title">3.2 Starving Champions — Low Traffic, High Revenue</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Page</th><th class="right">Sessions</th><th class="right">Revenue</th><th class="right">$/Session</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><code>/products/electric-grease-pump-w-out-timer-p203-24v-94224</code></td><td class="right">702</td><td class="right highlight">$21,989</td><td class="right highlight">$31</td></tr>
+          <tr><td>2</td><td><code>/products/collision-sentry-cln-211</code></td><td class="right">983</td><td class="right">$15,181</td><td class="right">$15</td></tr>
+          <tr><td>3</td><td><code>/products/forkliftable-order-picking-truck-t3-2448</code></td><td class="right">545</td><td class="right">$13,104</td><td class="right">$24</td></tr>
+          <tr><td>4</td><td><code>/products/electric-grease-pump-w-timer-p203-24v-94424</code></td><td class="right">459</td><td class="right">$11,880</td><td class="right">$26</td></tr>
+          <tr><td>5</td><td><code>/products/6-carbon-steel-dome-top-bollard-w-baseplate</code></td><td class="right">625</td><td class="right">$11,789</td><td class="right">$19</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout green">
+      These pages ship $15–$31 per session. They should be receiving internal-link equity from the homepage and from blog content. Currently they aren't. The Lincoln content cluster (Priority 1) is designed to funnel traffic directly to the P203 grease pump family.
+    </div>
+  </section>
+
+  <!-- Section 4 -->
+  <section id="technical" class="section">
+    <div class="section-label">Section 4</div>
+    <h2 class="section-title">Technical SEO Triage</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Issue</th><th class="right">Pages</th><th>Priority</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Crawled — not indexed</strong></td>
+            <td class="right">4,775</td>
+            <td><span class="badge high">HIGH</span></td>
+            <td>Audit by type: thin variants → noindex. Live SKUs → submit via GSC. Consolidate dupes with canonical. ~8 hrs.</td>
+          </tr>
+          <tr>
+            <td><strong>404 Not Found</strong></td>
+            <td class="right">2,447</td>
+            <td><span class="badge high">HIGH</span></td>
+            <td>301 redirects for any with external/internal links. Robots-deny the rest. ~4 hrs.</td>
+          </tr>
+          <tr>
+            <td>Duplicate — Google chose different canonical</td>
+            <td class="right">366</td>
+            <td><span class="badge medium">MEDIUM</span></td>
+            <td>Cross-reference against revenue data. Fix canonical on top-revenue variants. ~3 hrs.</td>
+          </tr>
+          <tr>
+            <td>Server errors (5xx)</td>
+            <td class="right">15</td>
+            <td><span class="badge medium">MEDIUM</span></td>
+            <td>Spot-check for pattern. ~1 hr.</td>
+          </tr>
+          <tr>
+            <td>Mobile LCP &gt; 2.5s</td>
+            <td class="right">15</td>
+            <td><span class="badge low">LOW</span></td>
+            <td>Spot-fix images on 15 pages. CWV otherwise green (LCP 1.98s, INP 168ms, CLS 0.077).</td>
+          </tr>
+          <tr>
+            <td>Alternate page w/ proper canonical</td>
+            <td class="right">11,813</td>
+            <td><span class="badge info">INFO</span></td>
+            <td>Shopify variant proliferation. No action unless dupes don't canonicalize.</td>
+          </tr>
+          <tr>
+            <td>Excluded by noindex</td>
+            <td class="right">8,363</td>
+            <td><span class="badge info">INFO</span></td>
+            <td>Account/cart/legal — fine. Verify no commercial pages caught.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout yellow">
+      <strong>Sequencing:</strong> 404 cleanup first (fast, unambiguous, no risk) → crawled-not-indexed audit second (highest long-term impact) → canonical fixes last (require revenue cross-reference). Total triage budget: ~18 hours over 4 weeks.
+    </div>
+  </section>
+
+  <!-- Section 5 -->
+  <section id="priorities" class="section">
+    <div class="section-label">Section 5</div>
+    <h2 class="section-title">Strategic Priority Stack</h2>
+    <p>These 5 priorities replace the bollard-only strategy of April 22. Every priority has a single test: does the data confirm the audience exists and converts?</p>
+
+    <!-- P1 -->
+    <div class="priority-block">
+      <div class="priority-header">
+        <div class="priority-num p1-color">1</div>
+        <h3>Lincoln Lubrication Cluster</h3>
+        <div class="impact-tag">+$25K–$60K/yr</div>
+      </div>
+      <p><strong>Pillar:</strong> "Lincoln Quicklub System Complete Guide: Setup, Parts, Maintenance &amp; Troubleshooting (2026)" — 3,000–4,000 words, targeting <code>lincoln auto lube system</code> + <code>lincoln quicklub</code>.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Supporting Article</th><th>Primary KW</th><th>GSC Baseline</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Lincoln Auto Greaser Parts: What Every Component Does</td><td>lincoln auto greaser parts</td><td>pos 3.45 · 168 clicks</td></tr>
+            <tr><td>2</td><td>Lincoln Grease Gun Parts Breakdown: Diagrams &amp; Part Numbers</td><td>lincoln grease gun parts</td><td>pos 13.86 · 186 clicks</td></tr>
+            <tr><td>3</td><td>How to Install a Lincoln Quicklub Auto Lubrication System</td><td>lincoln auto lube system</td><td>pos 4.4 · 116 clicks</td></tr>
+            <tr><td>4</td><td>Lincoln Grease Pump Troubleshooting: 12 P203 Problems &amp; Fixes</td><td>lincoln grease pump</td><td>pos 8.96 · 78 clicks</td></tr>
+            <tr><td>5</td><td>Lincoln Lubrication Fittings Guide: Quicklub Hose &amp; Injectors</td><td>lincoln grease fittings</td><td>67+30 clicks</td></tr>
+            <tr><td>6</td><td>Lincoln Hose Reel Maintenance: Replacement Parts &amp; Compatibility</td><td>lincoln hose reel</td><td>pos 1.42 · 130 clicks (#1)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- P2 -->
+    <div class="priority-block">
+      <div class="priority-header">
+        <div class="priority-num p2-color">2</div>
+        <h3>Guard Rails &amp; Barriers Cluster</h3>
+        <div class="impact-tag">+$25K–$50K/yr</div>
+      </div>
+      <p><strong>Pillar:</strong> "Warehouse Guard Rails &amp; Safety Barriers: Complete Buyer's Guide (2026)" — 3,000–3,500 words, targeting <code>warehouse guard rails</code> + <code>warehouse safety barriers</code>. Includes OSHA 1910.28 reference, load ratings, installation HowTo schema, and spec comparison table with ItemList schema.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Supporting Article</th><th>Primary KW</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>OSHA Warehouse Guard Rail Requirements: Heights, Spacing &amp; Compliance Checklist</td><td>osha warehouse guard rails</td></tr>
+            <tr><td>2</td><td>End-of-Aisle Rack Protectors vs Guard Rails: Which Do You Need?</td><td>end of aisle rack protector</td></tr>
+            <tr><td>3</td><td>Warehouse Guard Rail Installation Guide: Anchor vs Freestanding Systems</td><td>install warehouse guard rail</td></tr>
+            <tr><td>4</td><td>How to Spec Guard Rails for Your Warehouse: Load Ratings &amp; Application</td><td>warehouse guard rail specs</td></tr>
+            <tr><td>5</td><td>Pallet Rack Safety Netting vs Guard Rails: Forklift Impact Protection</td><td>pallet rack safety netting</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- P3 -->
+    <div class="priority-block">
+      <div class="priority-header">
+        <div class="priority-num p3-color">3</div>
+        <h3>Internal Search &amp; Navigation Fix</h3>
+        <div class="impact-tag">-20–30% /search rate</div>
+      </div>
+      <p>This is not a content task. Pull Shopify top-20 search queries → identify routing gaps → build "Shop by Application" mega-menu (Warehouse Safety | Lubrication Systems | Material Handling | Loading Dock | Lifting Equipment) → add cross-sell blocks on top 10 product pages → homepage featured-collection callouts for the 3 highest-revenue collections.</p>
+    </div>
+
+    <!-- P4 -->
+    <div class="priority-block">
+      <div class="priority-header">
+        <div class="priority-num p4-color">4</div>
+        <h3>Bollard Cluster (Product-Focused Rewrite)</h3>
+        <div class="impact-tag">+$17–50K quick-win</div>
+      </div>
+      <p><strong>Fix existing assets first (week 1, 3 hrs total):</strong></p>
+      <ul style="margin: 12px 0 16px 20px; font-size: 14px; color: #374151;">
+        <li style="margin-bottom: 8px;"><code>/blogs/articles/what-are-bollards</code> — 1,743 sessions / $0. Add comparison block above fold + sticky CTA → <code>/products/4-manual-retractable-stainless-steel-bollard</code>. At 1% CVR = +$17K with zero new traffic.</li>
+        <li style="margin-bottom: 8px;">Crash-rated pages (K4/K12/C40, 1,340 sessions / $0) — audit buy buttons and checkout paths first before driving any new traffic.</li>
+      </ul>
+      <p><strong>Pillar:</strong> "The Complete Guide to Commercial Bollards (2026)" — 3,500–4,000 words. Current GSC position on <code>bollards</code>: 41.6 (page 4). Target: page 1–2 in 90 days.</p>
+    </div>
+
+    <!-- P5 -->
+    <div class="priority-block">
+      <div class="priority-header">
+        <div class="priority-num p5-color">5</div>
+        <h3>Casters &amp; Material Handling — Hold for Month 3</h3>
+        <div class="impact-tag">TBD pending CVR audit</div>
+      </div>
+      <p>Largest impression pool on the site (<code>pallet jack</code> 238K impressions, <code>moving dolly</code> 111K). Holding because several large-equipment pages show high traffic / zero revenue — need to confirm CVR by SKU before building a content cluster. Audit at month 3.</p>
+    </div>
+  </section>
+
+  <!-- Section 6 -->
+  <section id="roadmap" class="section">
+    <div class="section-label">Section 6</div>
+    <h2 class="section-title">90-Day Roadmap</h2>
+
+    <h3 class="sub-title">Days 1–30 (Weeks 1–4)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Week</th><th>Action</th><th>Owner</th><th class="right">Hrs</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="6" style="vertical-align:top; font-weight:700; color:var(--primary);">Week 1<br><small style="font-weight:400;color:#6b7280;">Fix the leaks</small></td>
+              <td>Fix <code>/blogs/articles/what-are-bollards</code> — comparison block + sticky CTA</td><td>ITD writes, TG publishes</td><td class="right">2</td></tr>
+          <tr><td>Audit crash-rated bollard pages (K4/K12/C40)</td><td>ITD</td><td class="right">1</td></tr>
+          <tr><td>UTM fix: Shopify checkout cross-domain + Klaviyo + CPC tag audit</td><td>ITD builds, TG deploys</td><td class="right">3</td></tr>
+          <tr><td>404 cleanup: crawl 2,447 URLs, 301 map</td><td>ITD</td><td class="right">4</td></tr>
+          <tr><td>Internal-link redirect: <code>/pages/jobs</code> + <code>/pages/reviews</code> (1,623 combined backlinks)</td><td>TG approves first</td><td class="right">1</td></tr>
+          <tr><td>Nav audit: Shopify search analytics top 20 queries</td><td>ITD analyzes, TG provides export</td><td class="right">0.5</td></tr>
+
+          <tr><td rowspan="5" style="vertical-align:top; font-weight:700; color:var(--primary);">Week 2<br><small style="font-weight:400;color:#6b7280;">Lincoln + CTR pass</small></td>
+              <td>Lincoln pillar — write + publish</td><td>ITD writes, TG publishes</td><td class="right">6</td></tr>
+          <tr><td>Lincoln Article 1 (Auto Greaser Parts)</td><td>ITD writes, TG publishes</td><td class="right">3</td></tr>
+          <tr><td>Title/meta rewrite for top 15 GSC impression pages</td><td>ITD writes, TG deploys</td><td class="right">4</td></tr>
+          <tr><td>"Shop by Application" mega-menu spec</td><td>ITD specs, TG dev</td><td class="right">3</td></tr>
+          <tr><td>Submit sitemap to Bing Webmaster + IndexNow plugin</td><td>TG</td><td class="right">0.5</td></tr>
+
+          <tr><td rowspan="4" style="vertical-align:top; font-weight:700; color:var(--primary);">Week 3<br><small style="font-weight:400;color:#6b7280;">Guard rails + Bollard pillars</small></td>
+              <td>Lincoln Article 2 (Grease Gun Parts)</td><td>ITD writes, TG publishes</td><td class="right">3</td></tr>
+          <tr><td>Guard rails pillar — write + publish</td><td>ITD writes, TG publishes</td><td class="right">6</td></tr>
+          <tr><td>Bollard pillar — write + publish</td><td>ITD writes, TG publishes</td><td class="right">6</td></tr>
+          <tr><td>Related-products blocks on top 10 product pages</td><td>ITD specs, TG dev</td><td class="right">3</td></tr>
+
+          <tr><td rowspan="5" style="vertical-align:top; font-weight:700; color:var(--primary);">Week 4<br><small style="font-weight:400;color:#6b7280;">First spoke wave + technical</small></td>
+              <td>Lincoln Article 3 (Quicklub Installation — HowTo schema)</td><td>ITD writes, TG publishes</td><td class="right">3</td></tr>
+          <tr><td>Guard rails Article 1 (OSHA Compliance Checklist)</td><td>ITD writes, TG publishes</td><td class="right">3</td></tr>
+          <tr><td>Bollard Article 1 (Manual Retractable Bollards Guide)</td><td>ITD writes, TG publishes</td><td class="right">3</td></tr>
+          <tr><td>Crawled-not-indexed audit batch 1 (of 4,775)</td><td>ITD</td><td class="right">4</td></tr>
+          <tr><td>Bing CPC audit (requires Bing Ads access from TG)</td><td>ITD audits</td><td class="right">3</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout blue"><strong>Days 1–30 total:</strong> ~58 hours of ITD work. All 3 priority pillars live. Attribution fixed. 404s cleaned. 4 spokes published.</div>
+
+    <h3 class="sub-title">Days 31–60</h3>
+    <p>Complete all 3 article clusters (Lincoln 4–6, Guard rails 2–5, Bollard 2–5). Crawled-not-indexed audit completion + noindex batch. Canonical fixes on top-revenue variants. CTR pass batch 2. <strong>Target: 13 articles live, ~50 hours.</strong></p>
+
+    <h3 class="sub-title">Days 61–90</h3>
+    <p>Caster/material handling CVR audit → cluster decision. Backlink outreach (3–5 OSHA placements, 2–3 commercial security placements). Organization + Speakable schema on top 50 product pages. <strong>Day-90 deliverable: comprehensive ranking + revenue review with TG.</strong></p>
+  </section>
+
+  <!-- Section 7 -->
+  <section id="kpis" class="section">
+    <div class="section-label">Section 7</div>
+    <h2 class="section-title">KPIs to Track</h2>
+    <p>Tracked weekly in GSC, GA4, and Clarity. Reported monthly to TG.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th>Baseline</th><th>Day 30</th><th>Day 60</th><th>Day 90 Target</th></tr></thead>
+        <tbody>
+          <tr><td>Organic revenue %</td><td>13.1%</td><td>14%</td><td>16%</td><td class="highlight">18–20%</td></tr>
+          <tr><td>Unattributed purchase %</td><td>45.5%</td><td>&lt;15%</td><td>&lt;10%</td><td class="highlight">&lt;10%</td></tr>
+          <tr><td>4" Retractable Bollard page sessions</td><td>3,652</td><td>4,000</td><td>4,500</td><td class="highlight">5,500</td></tr>
+          <tr><td>Guard Rails collection sessions</td><td>2,439</td><td>2,600</td><td>2,900</td><td class="highlight">3,300</td></tr>
+          <tr><td>Quicklub Accessories sessions</td><td>5,428</td><td>5,700</td><td>6,200</td><td class="highlight">6,800</td></tr>
+          <tr><td>/blogs/articles/what-are-bollards sessions @ revenue</td><td>1,743 @ $0</td><td>@ $5K+</td><td>@ $10K+</td><td class="highlight">@ $15K+</td></tr>
+          <tr><td>/search session rate</td><td>11,277</td><td>-10%</td><td>-20%</td><td class="highlight">-30%</td></tr>
+          <tr><td>Lincoln cluster top-10 articles</td><td>0</td><td>1</td><td>3</td><td class="highlight">6</td></tr>
+          <tr><td>Guard rails cluster top-10 articles</td><td>0</td><td>1</td><td>3</td><td class="highlight">5</td></tr>
+          <tr><td>GSC position — bollards (head term)</td><td>41.6</td><td>35</td><td>25</td><td class="highlight">15</td></tr>
+          <tr><td>GSC position — guard rail</td><td>15.8</td><td>12</td><td>8</td><td class="highlight">6</td></tr>
+          <tr><td>GSC position — lincoln grease gun</td><td>9.89</td><td>8</td><td>6</td><td class="highlight">4</td></tr>
+          <tr><td>Bing CPC CVR</td><td>0.44%</td><td>0.50%</td><td>0.55%</td><td class="highlight">0.65%</td></tr>
+          <tr><td>404 page count</td><td>2,447</td><td>&lt;500</td><td>&lt;100</td><td class="highlight">&lt;50</td></tr>
+          <tr><td>Crawled-not-indexed count</td><td>4,775</td><td>4,000</td><td>3,000</td><td class="highlight">&lt;1,500</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section 8 -->
+  <section id="decisions" class="section">
+    <div class="section-label">Section 8</div>
+    <h2 class="section-title">Decisions Needed From TG</h2>
+    <p>The following items block week-1 execution:</p>
+
+    <div class="decision">
+      <div class="num">1</div>
+      <div>
+        <h4>Crash-rated bollard purchase status</h4>
+        <p>Are K4 / K12 / C40 SKUs available to purchase online, or quote-only? If quote-only, fix is a "Request Quote" CTA with GA4 event. If purchasable, buy button + pricing need to go live immediately. <strong>ITD cannot proceed with crash-rated content until confirmed.</strong></p>
+      </div>
+    </div>
+
+    <div class="decision">
+      <div class="num">2</div>
+      <div>
+        <h4>/pages/jobs and /pages/reviews redirect approval</h4>
+        <p>These two pages absorb 828 + 795 backlinks (the largest single-domain link concentrations on the site) and generate $0 revenue. Redirecting to homepage + top revenue pages is the correct move, but TG should review the redirect map before deployment.</p>
+      </div>
+    </div>
+
+    <div class="decision">
+      <div class="num">3</div>
+      <div>
+        <h4>Bing Ads viewer access</h4>
+        <p>The Bing CPC audit (0.44% CVR vs Google 0.87% on $368K spend-equivalent) requires viewer access to the Bing Ads account.</p>
+      </div>
+    </div>
+
+    <div class="decision">
+      <div class="num">4</div>
+      <div>
+        <h4>Blog publishing workflow</h4>
+        <p>Does TG's team publish articles from ITD's drafts, or does ITD need Shopify blog editor access? Lincoln pillar publication is a week-2 deliverable.</p>
+      </div>
+    </div>
+
+    <div class="decision">
+      <div class="num">5</div>
+      <div>
+        <h4>"Shop by Application" navigation structure</h4>
+        <p>Proposed 5 categories: Warehouse Safety | Lubrication Systems | Material Handling | Loading Dock | Lifting Equipment. TG confirms or amends before ITD specs for dev.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="report-footer">
+    <div class="brand">Iron Tiger <span>Digital</span></div>
+    <div class="version">Costa Demetral · costa@irontigerdigital.com · Report v1.0 · April 25, 2026 · Prepared for Source 4 Industries</div>
+  </footer>
+
+</div><!-- /page -->
+</body>
+</html>
